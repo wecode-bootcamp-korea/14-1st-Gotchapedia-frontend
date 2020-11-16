@@ -1,0 +1,5 @@
+@import "../../styles/common.scss";
+
+.Nav {
+  @include flex-cloumn-center ;
+}

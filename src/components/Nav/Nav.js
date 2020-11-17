@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './nav.scss';
 import Search from './Search/Search';
-import Signin from './Signin/Signin';
+import Signup from './Signup/Signup';
 import './nav.scss'
 
 class Nav extends Component {
@@ -10,7 +10,7 @@ class Nav extends Component {
       <div className='Nav'>
         Nav
         <Search />
-        <Signin />
+        <Signup />
       </div>
     );
   }

@@ -6,7 +6,26 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 class MovieContent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      dList: [],
+    }
+  }
+
+  componentDidMount() {
+    fetch("/Data/dnadata.json", {
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        dNaList: res.data,
+      })
+    })
+  }
+
   render() {
+    const { dNaList } = this.state;
     return (
       <div className='MovieContent'>
         <div className='predictStar'>
@@ -26,13 +45,24 @@ class MovieContent extends Component {
           <div className='dnaHeading'>출연/제작</div>
             <div className='dnaContent'>
               {/* map 돌릴것 */}
-              <div className='dnaContentList'>
-                <img src='/images/tomcruise.jpeg' alt='배우'></img>
-                <div className='profileDetail'>
+            {/* <div className='dnaContentList'>
+              <img src='/images/tomcruise.jpeg' alt='배우'></img>
+              <div className='profileDetail'>
                 <div className='name'>탐크루즈</div>
                 <div className='role'>주연 | 데이빗 에임즈</div>
               </div>
-            </div>
+            </div> */}
+            {dNaList && dNaList.map((el) => {
+              return (
+                <div className='dnaContentList'>
+                  <img src={el.image} alt='배우'></img>
+                  <div className='profileDetail'>
+                    <div className='name'>{el.name}</div>
+                    <div className='role'>{el.role}</div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
         <div className='commentWrapper'>

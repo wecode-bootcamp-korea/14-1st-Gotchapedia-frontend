@@ -81,13 +81,19 @@
       padding: 10px 0 10px 10px;
     }
     .dnaContent {
+      // 스크롤 작업할거임!
+      overflow-x: scroll;
+
       .dnaContentList {
         display: flex;
         align-items: center;
+        width: 100vh;
+
         img {
           @include mediumProfile;
           margin: 10px;
         }
+
         .profileDetail {
           .name {
             margin-bottom: 5px;

@@ -2,6 +2,8 @@
 
 .MovieDetailPage {
   // min-width: 719px;
+  display: flex;
+  flex-direction: column;
 
   .MovieHeaderWrapper {
     // min-width: 719px;

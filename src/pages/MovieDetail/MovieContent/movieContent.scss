@@ -1,218 +1,256 @@
 @import '../../../styles/common.scss';
 
-.MovieContent {
-  display: inline-block;
-  width: 640px;
-  // min-width: 1023px;
-  background-color: #fff;
-  border-radius: 3px;
-  border: 1px solid rgb(227, 227, 227);
-  margin-right: 20px;
+.MovieContentWrapper {
+  .hiddenComment {
+    // width: 100%;
+    display: flex;
+    // justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #fff;
+    height: 64px;
 
-  .predictStar {
-    .predictHeading {
-      font-size: 19px;
-      font-weight: bold;
-      padding: 10px 0 10px 10px;
+    .commentSuggestion {
+      margin-right: 30px;
     }
-    .predictContent {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 15px;
-
-      p {
-        padding-left: 10px;
-        color: $grey;
-      }
-
-      div {
-        @include flex-center;
-
-        img {
-          width: 30px;
-          height: 30px;
-          margin: 10px;
-          border-radius: 3px;
-        }
-      }
-      border-bottom: 1px solid #eee;
+    button {
+      width: 224px;
+      height: 40px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+      font-weight: normal;
+      margin-left: 10px;
     }
   }
 
-  .normalInfo {
-    .infoHeading {
+  .MovieContent {
+    display: inline-block;
+    width: 640px;
+    // min-width: 1023px;
+    // background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid rgb(227, 227, 227);
+    margin-right: 20px;
+
+    .hiddenComment {
+      width: 100%;
       display: flex;
-      justify-content: space-between;
-      font-size: 19px;
-      font-weight: bold;
-      padding: 10px 0 10px 10px;
+      justify-content: space-around;
+      border-radius: 5px;
 
-      span {
-        color: $pink;
-        font-size: 16px;
-        font-weight: normal;
-        padding-right: 10px;
+      .commentSuggestion {
+        font-size: 15px;
+      }
+
+      button {
+        font-size: 17px;
+        font-weight: bold;
       }
     }
-    .infoContent {
-      font-size: 15px;
-      padding: 10px;
-      .contentHeading {
-        margin-bottom: 5px;
-      }
-      .contentInfo {
-        margin-bottom: 5px;
-      }
-      .contentTime {
-        margin-bottom: 5px;
-      }
-      .detailContent {
-        margin-bottom: 5px;
-      }
-      margin-bottom: 10px;
-      border: 1px solid #eee;
-    }
-  }
-  .directorAndActor {
-    .dnaHeading {
-      font-size: 19px;
-      font-weight: bold;
-      padding: 10px 0 10px 10px;
-    }
-    .dnaContent {
-      // 스크롤 작업할거임!
-      overflow-x: scroll;
 
-      .dnaContentList {
-        display: flex;
-        align-items: center;
-        width: 100vh;
-
-        img {
-          @include mediumProfile;
-          margin: 10px;
+    .movieContentBox {
+      background-color: #fff;
+      .predictStar {
+        .predictHeading {
+          font-size: 19px;
+          font-weight: bold;
+          padding: 10px 0 10px 10px;
         }
 
-        .profileDetail {
-          .name {
-            margin-bottom: 5px;
-          }
-          .role {
-            color: $grey;
-          }
-        }
-      }
-    }
-  }
-
-  .commentWrapper {
-    .commentHeading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 19px;
-      font-weight: bold;
-      padding: 10px 0 10px 10px;
-
-      .headingLeft {
-        span {
-          font-size: 15px;
-          color: $grey;
-        }
-      }
-
-      span {
-        color: $pink;
-        font-size: 16px;
-        font-weight: normal;
-        padding-right: 10px;
-      }
-    }
-
-    .commentBoxWrapper {
-      display: flex;
-
-      .commentBox {
-        display: flex;
-        flex-direction: column;
-        width: 294px;
-        height: 295px;
-        background-color: #eee;
-        margin: 10px;
-        border-radius: 5px;
-
-        .commentTitle {
+        .predictContent {
           display: flex;
           justify-content: space-between;
           align-items: center;
-
-          .titleLeft {
-            display: flex;
-            align-items: center;
-            // padding: 10px;
-            img {
-              @include smallProfile;
-              margin: 10px;
-            }
-            .writerId {
-              margin: 0 auto;
-            }
-          }
-          .titleRight {
-            margin: 10px;
-            background-color: #fff;
-            width: 70px;
-            height: 25px;
-            border-radius: 20px;
-            @include flex-center;
-
-            .writerStar {
-              margin-right: 5px;
-            }
-          }
-        }
-        .commentContent {
-          width: 270px;
-          height: 170px;
-          border-top: 1px solid #ddd;
-          border-bottom: 1px solid #ddd;
+          font-size: 15px;
+          border-bottom: 1px solid #eee;
 
           p {
-            font-size: 16px;
-            margin: 10px;
-            line-height: 25px;
+            padding-left: 10px;
+            color: $grey;
+          }
+
+          div {
+            @include flex-center;
+
+            img {
+              width: 30px;
+              height: 30px;
+              margin: 10px;
+              border-radius: 5px;
+            }
           }
         }
+      }
 
-        .commentIcons {
+      .normalInfo {
+        .infoHeading {
           display: flex;
-          color: $grey;
-          // margin: 10px;
-          margin: 5px 0 5px 0;
+          justify-content: space-between;
+          font-size: 19px;
+          font-weight: bold;
+          padding: 10px 0 10px 10px;
 
-          .thumbsUpWrapper {
-            margin: 10px;
-
-            .thumsUpIcon {
-              margin-right: 5px;
-            }
-          }
-
-          .commentWrapper {
-            margin: 10px;
-
-            .commentIcon {
-              margin-right: 5px;
-            }
+          span {
+            color: $pink;
+            font-size: 16px;
+            font-weight: normal;
+            padding-right: 10px;
           }
         }
 
-        .like {
-          color: $pink;
+        .infoContent {
           font-size: 15px;
-          padding: 5px 10px;
-          border-top: 1px solid #ddd;
+          padding: 10px;
+
+          .contentHeading {
+            margin-bottom: 5px;
+          }
+
+          .contentInfo {
+            margin-bottom: 5px;
+          }
+
+          .contentTime {
+            margin-bottom: 5px;
+          }
+
+          .detailContent {
+            margin-bottom: 5px;
+          }
+
+          margin-bottom: 10px;
+          border: 1px solid #eee;
+        }
+      }
+
+      .castingWrapper {
+        .castingHeading {
+          font-size: 19px;
+          font-weight: bold;
+          padding: 10px 0 10px 10px;
+        }
+
+        .castingContent {
+          padding: 10px;
+          height: 320px;
+        }
+      }
+
+      .commentWrapper {
+        .commentHeading {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 19px;
+          font-weight: bold;
+          padding: 10px 0 10px 10px;
+
+          .headingLeft {
+            span {
+              font-size: 15px;
+              color: $grey;
+            }
+          }
+
+          span {
+            color: $pink;
+            font-size: 16px;
+            font-weight: normal;
+            padding-right: 10px;
+          }
+        }
+
+        .commentBoxWrapper {
+          display: flex;
+
+          .commentBox {
+            display: flex;
+            flex-direction: column;
+            width: 294px;
+            height: 295px;
+            background-color: #eee;
+            margin: 10px;
+            border-radius: 5px;
+
+            .commentTitle {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .titleLeft {
+                display: flex;
+                align-items: center;
+                // padding: 10px;
+
+                img {
+                  @include smallProfile;
+                  margin: 10px;
+                }
+
+                .writerId {
+                  margin: 0 auto;
+                }
+              }
+
+              .titleRight {
+                margin: 10px;
+                background-color: #fff;
+                width: 70px;
+                height: 25px;
+                border-radius: 20px;
+                @include flex-center;
+
+                .writerStar {
+                  margin-right: 5px;
+                }
+              }
+            }
+            .commentContent {
+              width: 270px;
+              height: 170px;
+              border-top: 1px solid #ddd;
+              border-bottom: 1px solid #ddd;
+
+              p {
+                font-size: 16px;
+                margin: 10px;
+                line-height: 25px;
+              }
+            }
+
+            .commentIcons {
+              display: flex;
+              color: $grey;
+              // margin: 10px;
+              margin: 5px 0 5px 0;
+
+              .thumbsUpWrapper {
+                margin: 10px;
+
+                .thumsUpIcon {
+                  margin-right: 5px;
+                }
+              }
+
+              .commentWrapper {
+                margin: 10px;
+
+                .commentIcon {
+                  margin-right: 5px;
+                }
+              }
+            }
+
+            .like {
+              color: $pink;
+              font-size: 15px;
+              padding: 5px 10px;
+              border-top: 1px solid #ddd;
+            }
+          }
         }
       }
     }

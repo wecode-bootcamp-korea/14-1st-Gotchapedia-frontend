@@ -1,0 +1,28 @@
+@import '../../../../styles/common.scss';
+
+.castingContentList {
+  // 여기 왜 flex가 안먹음??
+  // display: flex;
+
+  // 배경색은 먹는데??
+  // background-color: red;
+
+  // slick-slide 여기를 어떻게 손봐야하는데 모르겠음
+  // 이따가 나중에 처리
+
+  img {
+    display: inline-block;
+    @include mediumProfile;
+    margin: 10px;
+  }
+
+  .profileDetail {
+    display: inline-block;
+    .name {
+      margin-bottom: 5px;
+    }
+    .role {
+      color: $grey;
+    }
+  }
+}

@@ -5,8 +5,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 class MovieBox extends Component {
   render() {
-    const { moviedata } = this.props;
-    console.log(moviedata);
+    // const { movieData } = this.props;
+
     return (
       <div className='MovieBox'>
         Movie
@@ -19,13 +19,9 @@ class MovieBox extends Component {
                 src='/images/hangover.jpg'
               />
             </div>
-            <img
-              className='movieRanking'
-              alt='ranking'
-              src='/images/testnumber.jpg'
-            />
+            <div className='movieRank'></div>
             <div className='movieInfo'>
-              <div className='movieTitle'>{moviedata.movietitle}</div>
+              <div className='movieTitle'>숙취</div>
               <div className='movieDate'>2020 ・ 미국</div>
               <div className='movieRate'>
                 <span>평점</span>
@@ -34,7 +30,6 @@ class MovieBox extends Component {
                 </span>
                 <span>4.8</span>
               </div>
-              <div className='movieRatio'>예매율 18% ・ 누적관객 203명</div>
             </div>
           </div>
         </div>

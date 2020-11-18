@@ -1,6 +1,7 @@
-@import "../../../../styles/common.scss";
+@import '../../../../styles/common.scss';
 
 .MovieBox {
+ width: 16.699em;
   .movieAllWrap {
     display: flex;
     height: 28.634em;
@@ -12,19 +13,22 @@
       height: 28.5em;
       width: 15.675em;
       object-fit: contain;
+      position: relative;
 
       .moviePosterWrap {
         .moviePoster {
           @include bigSize;
           object-fit: cover;
+          display: grid;
         }
       }
-      .movieRanking {
+      .movieRank {
+        @include rankIcon;
         position: absolute;
-        opacity: 0.8;
-        height: 28px;
-        width: 28px;
-        border-radius: 4px;
+        top: 6px;
+        bottom: 6px;
+        right: 183.797px;
+        left: 6px;
       }
       .movieInfo {
         height: 5.438em;
@@ -33,7 +37,7 @@
 
         .movieTitle {
           color: #292a32;
-          font-family: "Noto Sans KR", sans-serif;
+          font-family: 'Noto Sans KR', sans-serif;
           font-weight: 400;
           font-size: 16px;
           margin: 0 0 3px 0;
@@ -41,7 +45,7 @@
         }
         .movieDate {
           color: #292a32;
-          font-family: "Noto Sans KR", sans-serif;
+          font-family: 'Noto Sans KR', sans-serif;
           outline: none;
           padding: 0 0 1px 0;
         }

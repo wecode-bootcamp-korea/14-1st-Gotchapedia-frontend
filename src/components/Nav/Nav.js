@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import './nav.scss';
-import Search from './Search/Search';
 import Signup from './Signup/Signup';
 import Login from './Login/Login';
-import './nav.scss';
+import Search from './Search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import './nav.scss';
 
 class Nav extends Component {
   constructor() {
@@ -35,8 +34,7 @@ class Nav extends Component {
 
   render() {
     const { isSignup, isLogin } = this.state;
-    const signUp = isSignup ? '' : 'displayNone';
-    const loginOn = isLogin ? '' : 'displayNone';
+
     return (
       <>
         <div className='Nav'>
@@ -82,13 +80,13 @@ class Nav extends Component {
             </div>
           </div>
         </div>
-        <div className={signUp}>
+        <div className={isSignup ? '' : 'displayNone'}>
           <Signup
             isSignup={this.state.isSignup}
             closeSignup={this.closeSignup}
           />
         </div>
-        <div className={loginOn}>
+        <div className={isLogin ? '' : 'displayNone'}>
           <Login isLogin={this.state.isLogin} closeLogin={this.closeLogin} />
         </div>
       </>

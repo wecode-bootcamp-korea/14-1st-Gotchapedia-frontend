@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Main from './pages/Main/Main';
 import Mypage from './pages/Mypage/Mypage';
-import Mytaste from './pages/Mytaste/Mytaste';
+import Mytaste from './pages/Mypage/Mytaste/Mytaste';
 import MovieDetail from './pages/MovieDetail/MovieDetail';
 
 class Routes extends Component {

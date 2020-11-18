@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './nav.scss';
-import Search from './Search/Search';
-import Signin from './Signin/Signin';
-import './nav.scss'
+import React, { Component } from "react";
+import "./nav.scss";
+import Search from "./Search/Search";
+import Signup from "./Signup/Signup";
+import "./nav.scss";
 
 class Nav extends Component {
   render() {
@@ -10,7 +10,7 @@ class Nav extends Component {
       <div className='Nav'>
         Nav
         <Search />
-        <Signin />
+        <Signup />
       </div>
     );
   }

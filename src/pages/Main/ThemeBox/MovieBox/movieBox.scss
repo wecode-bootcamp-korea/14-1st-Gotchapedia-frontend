@@ -1,0 +1,64 @@
+@import "../../../../styles/common.scss";
+
+.MovieBox {
+  .movieAllWrap {
+    display: flex;
+    height: 28.634em;
+    width: 16.699em;
+    margin: 0px;
+    padding: 0 6px 0 6px;
+
+    .moviePosterInside {
+      height: 28.5em;
+      width: 15.675em;
+      object-fit: contain;
+
+      .moviePosterWrap {
+        .moviePoster {
+          @include bigSize;
+          object-fit: cover;
+        }
+      }
+      .movieRanking {
+        position: absolute;
+        opacity: 0.8;
+        height: 28px;
+        width: 28px;
+        border-radius: 4px;
+      }
+      .movieInfo {
+        height: 5.438em;
+        width: 13.05em;
+        margin: 5px 10px 0 0;
+
+        .movieTitle {
+          color: #292a32;
+          font-family: "Noto Sans KR", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          margin: 0 0 3px 0;
+          outline: none;
+        }
+        .movieDate {
+          color: #292a32;
+          font-family: "Noto Sans KR", sans-serif;
+          outline: none;
+          padding: 0 0 1px 0;
+        }
+        .movieRate {
+          color: #555765;
+          margin: 2px 0 0 0;
+          .iconStar {
+            font-size: 12px;
+          }
+        }
+        .movieRatio {
+          color: #74747b;
+          font-size: 13px;
+          letter-spacing: -0.3px;
+          margin: 5px 0 0 0;
+        }
+      }
+    }
+  }
+}

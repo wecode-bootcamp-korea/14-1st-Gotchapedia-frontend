@@ -1,0 +1,30 @@
+.boxRankingWrap {
+  height: 30.517em;
+  width: 84.438em;
+  margin-bottom: 42px;
+  border: solid blue;
+  .boxRankingHeadWrap {
+    height: 7em;
+    width: 165em;
+    border: solid red;
+    margin: 0 60px;
+    padding: 12px 0 14px;
+    // display: grid;
+    .boxRankingHead {
+      display: flex;
+      height: 3.75em;
+      width: 165em;
+      border: solid green;
+      font-size: 22px;
+      font-weight: 700px;
+      letter-spacing: -0.4px;
+    }
+    .boxRankingBodyWrap {
+      display: flex;
+      height: 168.875em;
+      width: 61.034em;
+      border: solid orange;
+      margin: 0 0 42px;
+    }
+  }
+}

@@ -89,7 +89,7 @@ class Nav extends Component {
           />
         </div>
         <div className={loginOn}>
-          <Login isLogin={this.state.isLogin} closeLogin={this.closeLogin}/>
+          <Login isLogin={this.state.isLogin} closeLogin={this.closeLogin} />
         </div>
       </>
     );

@@ -33,7 +33,9 @@ class Login extends Component {
                   />
                   <button className='signupBtn'>로그인</button>
                 </form>
-                <div className='lostPasswordText'>비밀번호를 잊어버리셨나요?</div>
+                <div className='lostPasswordText'>
+                  비밀번호를 잊어버리셨나요?
+                </div>
                 <div className='intoSignupText'>
                   계정이 없으신가요? <span>회원가입</span>
                 </div>

@@ -29,7 +29,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { isSignup, closeSignup } = this.props;
+    const { closeSignup } = this.props;
     return (
       <div className='Signup' onClick={closeSignup}>
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>

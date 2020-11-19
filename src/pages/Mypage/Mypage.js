@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
+import MovieClip from '../MovieDetail/MovieSide/MovieClip/MovieClip';
 import './mypage.scss';
 
 class Mypage extends Component {
@@ -7,7 +8,8 @@ class Mypage extends Component {
     return (
       <>
         <Nav />
-        <div>My page</div>
+        <MovieClip />
+        {/* <div>My page</div> */}
         
       </>
     );

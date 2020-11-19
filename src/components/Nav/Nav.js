@@ -82,7 +82,6 @@ class Nav extends Component {
         </div>
         <div className={isSignup ? '' : 'displayNone'}>
           <Signup
-            isSignup={this.state.isSignup}
             closeSignup={this.closeSignup}
           />
         </div>

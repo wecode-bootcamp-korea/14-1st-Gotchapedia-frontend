@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
 import './movieContent.scss';
 import CastingList from './CastingList/CastingList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { faComment } from '@fortawesome/free-solid-svg-icons';
+import CommentBox from './CommentBox/CommentBox';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faStar } from '@fortawesome/free-solid-svg-icons';
+// import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+// import { faComment } from '@fortawesome/free-solid-svg-icons';
 
 class MovieContent extends Component {
   constructor() {
     super();
     this.state = {
-      castingList: [],
+      contentData: [],
     }
   }
 
   componentDidMount() {
-    fetch("/Data/castingdata.json", {
+    fetch("/Data/contentdata.json", {
     })
     .then(res => res.json())
     .then(res => {
       this.setState({
-        castingList: res.data,
+        contentData: res.data,
       })
     })
   }
 
   render() {
-    const { castingList } = this.state;
+    const { contentData } = this.state;
     return (
         <div className='MovieContent'>
           {/* 얘는 별점줄때 display가 보이도록 설정*/}
@@ -51,7 +52,7 @@ class MovieContent extends Component {
             <div className='castingWrapper'>                                                                                                                   
               <div className='castingHeading'>출연/제작</div>
               <div className='castingContent'>
-                {castingList && <CastingList castingList={castingList}/>}
+                {contentData && <CastingList contentData={contentData}/>}
               </div>
             </div>
             <div className='commentWrapper'>
@@ -62,7 +63,10 @@ class MovieContent extends Component {
                 <span>더보기</span>
               </div>
               <div className='commentBoxWrapper'>
-                <div className='commentBox'>
+                {contentData && <CommentBox contentData={contentData}/>}
+                
+                {/* 지우면 안됨!! */}
+                {/* <div className='commentBox'>
                   <div className='commentTitle'>
                     <div className='titleLeft'>
                       <img src='/images/chorong2.png' alt='작성자아이콘'></img>
@@ -93,39 +97,7 @@ class MovieContent extends Component {
                     </div>
                   </div>
                   <div className='like'>좋아요</div>
-              </div>
-                <div className='commentBox'>
-                  <div className='commentTitle'>
-                    <div className='titleLeft'>
-                      <img src='/images/chorong2.png' alt='작성자아이콘'></img>
-                      <div className='writerId'>김태현태김
-                        <div className='writerIcon'></div>
-                      </div>
-                    </div>
-                    <div className='titleRight'>
-                      <FontAwesomeIcon className='writerStar' icon={faStar} />
-                      5.0
-                    </div>
-                  </div>
-                  <div className='commentContent'>
-                    <p>
-                      상처는 잠시 감출 수 있다.
-                      그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다.
-                      모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.
-                    </p>
-                  </div>
-                  <div className='commentIcons'>
-                    <div className='thumbsUpWrapper'>
-                      <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-                      14
-                    </div>
-                    <div className='commentWrapper'>
-                      <FontAwesomeIcon className='commentIcon' icon={faComment} />
-                      0
-                    </div>
-                  </div>
-                  <div className='like'>좋아요</div>
-              </div>
+                </div> */}
               </div>
             </div>
           </div>

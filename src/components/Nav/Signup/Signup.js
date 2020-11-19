@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './signup.scss';
 
 class Signup extends Component {
-<<<<<<< HEAD
-  render() {
-    return <div>Sign up</div>;
-=======
   constructor() {
     super();
     this.state = {
@@ -79,7 +75,6 @@ class Signup extends Component {
         </div>
       </div>
     );
->>>>>>> main
   }
 }
 

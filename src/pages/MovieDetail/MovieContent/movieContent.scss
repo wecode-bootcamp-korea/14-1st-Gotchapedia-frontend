@@ -1,20 +1,19 @@
 @import '../../../styles/common.scss';
 
 .MovieContentWrapper {
+  // 얘는 별 누르면 나오도록 수정할거임!
   .hiddenComment {
-    // width: 100%;
-    display: flex;
-    // justify-content: space-evenly;
+    // display: none;
     align-items: center;
     border: 1px solid #ddd;
-    display: inline-block;
     margin-bottom: 20px;
     background-color: #fff;
     height: 64px;
 
     .commentSuggestion {
-      margin-right: 30px;
+      margin: 0 10px;
     }
+
     button {
       width: 224px;
       height: 40px;
@@ -22,7 +21,7 @@
       border-radius: 5px;
       background-color: #fff;
       font-weight: normal;
-      margin-left: 10px;
+      margin: 0 10px;
     }
   }
 
@@ -30,10 +29,9 @@
     display: inline-block;
     width: 640px;
     // min-width: 1023px;
-    // background-color: #fff;
     border-radius: 5px;
-    border: 1px solid rgb(227, 227, 227);
     margin-right: 20px;
+    margin-bottom: 30px;
 
     .hiddenComment {
       width: 100%;
@@ -53,7 +51,14 @@
 
     .movieContentBox {
       background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+
       .predictStar {
+        // 이거 왜 안됨??
+        // border-radius: 5px;
+
         .predictHeading {
           font-size: 19px;
           font-weight: bold;
@@ -104,7 +109,8 @@
         .infoContent {
           font-size: 15px;
           padding: 10px;
-
+          margin-bottom: 10px;
+          border-bottom: 1px solid #ddd;
           .contentHeading {
             margin-bottom: 5px;
           }
@@ -120,9 +126,6 @@
           .detailContent {
             margin-bottom: 5px;
           }
-
-          margin-bottom: 10px;
-          border: 1px solid #eee;
         }
       }
 
@@ -135,7 +138,7 @@
 
         .castingContent {
           padding: 10px;
-          height: 320px;
+          height: 300px;
         }
       }
 
@@ -163,94 +166,11 @@
           }
         }
 
+        // 슬릭 슬라이더 안되서 임시방편
         .commentBoxWrapper {
           display: flex;
-
-          .commentBox {
-            display: flex;
-            flex-direction: column;
-            width: 294px;
-            height: 295px;
-            background-color: #eee;
-            margin: 10px;
-            border-radius: 5px;
-
-            .commentTitle {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-
-              .titleLeft {
-                display: flex;
-                align-items: center;
-                // padding: 10px;
-
-                img {
-                  @include smallProfile;
-                  margin: 10px;
-                }
-
-                .writerId {
-                  margin: 0 auto;
-                }
-              }
-
-              .titleRight {
-                margin: 10px;
-                background-color: #fff;
-                width: 70px;
-                height: 25px;
-                border-radius: 20px;
-                @include flex-center;
-
-                .writerStar {
-                  margin-right: 5px;
-                }
-              }
-            }
-            .commentContent {
-              width: 270px;
-              height: 170px;
-              border-top: 1px solid #ddd;
-              border-bottom: 1px solid #ddd;
-
-              p {
-                font-size: 16px;
-                margin: 10px;
-                line-height: 25px;
-              }
-            }
-
-            .commentIcons {
-              display: flex;
-              color: $grey;
-              // margin: 10px;
-              margin: 5px 0 5px 0;
-
-              .thumbsUpWrapper {
-                margin: 10px;
-
-                .thumsUpIcon {
-                  margin-right: 5px;
-                }
-              }
-
-              .commentWrapper {
-                margin: 10px;
-
-                .commentIcon {
-                  margin-right: 5px;
-                }
-              }
-            }
-
-            .like {
-              color: $pink;
-              font-size: 15px;
-              padding: 5px 10px;
-              border-top: 1px solid #ddd;
-            }
-          }
+          overflow: hidden;
+          overflow-x: scroll;
         }
       }
     }

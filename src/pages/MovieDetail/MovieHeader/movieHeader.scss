@@ -120,23 +120,15 @@
               }
             }
 
-            .starRating {
+            .starRatingBox {
+              margin-top: -10px;
               .ratingTitle {
                 font-size: 12px;
                 color: $grey;
               }
-
-              .starAnimation {
-                .star {
-                  width: 40px;
-                  height: 40px;
-                }
-              }
             }
           }
         }
-
-        // 폰트어썸 scss 어떻게 넣는지 은정님한테 질문
       }
     }
   }

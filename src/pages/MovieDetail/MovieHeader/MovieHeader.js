@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './movieHeader.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-
+import StarRating from './StarRating/StarRating';
 
 class MovieHeader extends Component {
   render() {
@@ -12,7 +12,7 @@ class MovieHeader extends Component {
         <div className='MovieHeaderBottom'>
           <div className='posterWrapper'>
             <img src='/images/vanilaSkyPoster.jpeg' alt='바닐라스카이꼭보세요'></img>
-            <div className='posterDetailWrapper'> {/* display column 줘라 */}
+            <div className='posterDetailWrapper'>
               <div className='posterRanking'>예매순위 · <span>1위(100%)</span> 개봉 · <span>1일전</span> 누적 관객 · <span>1억명</span></div>
               <div className='posterTitle'>바닐라스카이</div>
               <div className='posterTitleDetail'>2001 · 스릴러 · SF</div>
@@ -24,17 +24,11 @@ class MovieHeader extends Component {
                       <div className='plusIcon'>+</div>
                       <div className='wantToSee'>보고싶어요</div>
                     </button>
-                    <button className='modal'>X</button>
+                    <button className='modal'>▾</button>
                   </div>
-                  <div className='starRating'>
+                  <div className='starRatingBox'>
                     <div className='ratingTitle'>평가하기</div>
-                    <div className='starAnimation'>
-                      <FontAwesomeIcon className='star' icon={faStar} />
-                      <FontAwesomeIcon className='star' icon={faStar} />
-                      <FontAwesomeIcon className='star' icon={faStar} />
-                      <FontAwesomeIcon className='star' icon={faStar} />
-                      <FontAwesomeIcon className='star' icon={faStar} />
-                    </div>
+                    <StarRating />
                   </div> 
                 </div>
               </div>

@@ -102,7 +102,8 @@ input {
   align-items: center;
 }
 
-@mixin flex-cloumn-center {
+@mixin flex-column-center {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }

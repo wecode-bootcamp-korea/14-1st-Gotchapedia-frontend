@@ -1,0 +1,85 @@
+@import '../../../../styles/common.scss';
+
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  width: 294px;
+  height: 295px;
+  background-color: #eee;
+  margin: 10px;
+  border-radius: 5px;
+
+  .commentTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .titleLeft {
+      display: flex;
+      align-items: center;
+
+      img {
+        @include smallProfile;
+        margin: 10px;
+      }
+
+      .writerId {
+        margin: 0 auto;
+      }
+    }
+
+    .titleRight {
+      margin: 10px;
+      background-color: #fff;
+      width: 70px;
+      height: 25px;
+      border-radius: 20px;
+      @include flex-center;
+
+      .writerStar {
+        margin-right: 5px;
+      }
+    }
+  }
+  .commentContent {
+    width: 270px;
+    height: 170px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
+    p {
+      font-size: 16px;
+      margin: 10px;
+      line-height: 25px;
+    }
+  }
+
+  .commentIcons {
+    display: flex;
+    color: $grey;
+    margin: 5px 0 5px 0;
+
+    .thumbsUpWrapper {
+      margin: 10px;
+
+      .thumsUpIcon {
+        margin-right: 5px;
+      }
+    }
+
+    .commentWrapper {
+      margin: 10px;
+
+      .commentIcon {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .like {
+    color: $pink;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-top: 1px solid #ddd;
+  }
+}

@@ -26,7 +26,7 @@
   }
 
   .MovieContent {
-    display: inline-block;
+    // display: inline-block;
     width: 640px;
     // min-width: 1023px;
     border-radius: 5px;
@@ -137,26 +137,28 @@
         }
 
         .castingContent {
-          padding: 10px;
+          display: flex;
+          justify-content: center;
           height: 300px;
+          padding: 10px;
         }
       }
 
       .commentWrapper {
         .commentHeading {
           // scss 왜 안먹지??
-          display: flex !important;
-          // justify-content: space-between;
-          // align-items: center;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           // margin: 0 auto;
           font-size: 19px;
           font-weight: bold;
           padding: 10px 0 10px 10px;
 
           .headingLeft {
-            display: inline-block !important;
+            // display: inline-block !important;
             span {
-              display: inline-block !important;
+              // display: inline-block !important;
               font-size: 15px;
               color: $grey;
             }

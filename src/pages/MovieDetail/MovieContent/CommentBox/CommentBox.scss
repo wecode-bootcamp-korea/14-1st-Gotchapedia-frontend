@@ -1,12 +1,10 @@
 @import '../../../../styles/common.scss';
 
 .commentBox {
-  display: flex;
-  flex-direction: column;
-  width: 294px;
-  height: 295px;
+  display: block;
+  // width: 294px;
   background-color: #eee;
-  margin: 30px;
+
   border-radius: 5px;
 
   .commentTitle {
@@ -17,7 +15,6 @@
     .titleLeft {
       display: flex;
       align-items: center;
-      // padding: 10px;
 
       img {
         @include smallProfile;
@@ -44,8 +41,8 @@
   }
 
   .commentContent {
-    width: 270px;
-    height: 170px;
+    // width: 270px;
+    // height: 170px;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 
@@ -59,20 +56,13 @@
   .commentIcons {
     display: flex;
     color: $grey;
-    // margin: 10px;
     margin: 5px 0 5px 0;
 
-    .thumbsUpWrapper {
-      margin: 10px;
-
-      .thumsUpIcon {
-        margin-right: 5px;
-      }
-    }
-
+    .thumbsUpWrapper,
     .commentWrapper {
       margin: 10px;
 
+      .thumsUpIcon,
       .commentIcon {
         margin-right: 5px;
       }
@@ -89,8 +79,4 @@
 
 .slick-list {
   width: 500px;
-}
-
-.slick-slide {
-  // margin: 0 20px;
 }

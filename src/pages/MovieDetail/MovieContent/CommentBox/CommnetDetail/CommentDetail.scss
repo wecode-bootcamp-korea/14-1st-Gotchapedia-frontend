@@ -1,6 +1,6 @@
 @import '../../../../../styles/common.scss';
 
-.commentHeading {
+.detailHeading {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,8 +31,9 @@
   .commentBox {
     display: flex;
     flex-direction: column;
-    width: 40em;
+    // width: 40em;
     // height: 295px;
+    padding: 10px;
     background-color: #eee;
     margin: 10px;
     // padding: 20px;
@@ -79,7 +80,7 @@
       border-bottom: 1px solid #ddd;
 
       p {
-        font-size: 16px;
+        font-size: 14px;
         margin: 10px;
         line-height: 25px;
       }
@@ -109,7 +110,7 @@
 
     .like {
       color: $pink;
-      font-size: 15px;
+      font-size: 14px;
       padding: 5px 10px;
       border-top: 1px solid #ddd;
     }

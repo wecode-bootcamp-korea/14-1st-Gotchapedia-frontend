@@ -33,7 +33,7 @@ class CommentDetail extends Component {
     return (
       <>
         <Nav />
-        <div className='commentHeading'>
+        <div className='detailHeading'>
           <FontAwesomeIcon className='headingArrow' icon={faArrowLeft} />
           <div className='headingTitle'>코멘트</div>
         </div>      

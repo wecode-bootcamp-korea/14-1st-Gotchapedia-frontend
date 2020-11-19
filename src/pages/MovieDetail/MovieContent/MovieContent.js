@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Slider from "react-slick";
+// import '../../../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../../node_modules/slick-carousel/slick/slick.css';
+// import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
+import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
+
 import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
 import './movieContent.scss';
@@ -10,7 +16,9 @@ class MovieContent extends Component {
     this.state = {
       contentData: [],
     }
-  }
+  };
+
+
 
   componentDidMount() {
     fetch("/Data/contentdata.json", {
@@ -31,8 +39,17 @@ class MovieContent extends Component {
     this.props.history.push("/movie-detail/overview");
 
   }
-
+  
   render() {
+
+    const settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+    };
+
     const { contentData } = this.state;
     return (
         <div className='MovieContent'>
@@ -69,7 +86,13 @@ class MovieContent extends Component {
                 <span onClick={this.goToCommentDetail}>더보기</span>
               </div>
               <div className='commentBoxWrapper'>
-                {contentData && <CommentBox contentData={contentData}/>}
+                <Slider {...settings}>
+                    {contentData.map((el, idx) => {
+                      return (
+                        <CommentBox key={idx} contentData={el} />
+                      )
+                    })}
+                </Slider>
               </div>
             </div>
           </div>

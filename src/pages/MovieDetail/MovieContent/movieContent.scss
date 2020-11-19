@@ -144,15 +144,19 @@
 
       .commentWrapper {
         .commentHeading {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+          // scss 왜 안먹지??
+          display: flex !important;
+          // justify-content: space-between;
+          // align-items: center;
+          // margin: 0 auto;
           font-size: 19px;
           font-weight: bold;
           padding: 10px 0 10px 10px;
 
           .headingLeft {
+            display: inline-block !important;
             span {
+              display: inline-block !important;
               font-size: 15px;
               color: $grey;
             }
@@ -164,13 +168,6 @@
             font-weight: normal;
             padding-right: 10px;
           }
-        }
-
-        // 슬릭 슬라이더 안되서 임시방편
-        .commentBoxWrapper {
-          display: flex;
-          overflow: hidden;
-          overflow-x: scroll;
         }
       }
     }

@@ -6,7 +6,7 @@
   width: 294px;
   height: 295px;
   background-color: #eee;
-  margin: 10px;
+  margin: 30px;
   border-radius: 5px;
 
   .commentTitle {
@@ -17,6 +17,7 @@
     .titleLeft {
       display: flex;
       align-items: center;
+      // padding: 10px;
 
       img {
         @include smallProfile;
@@ -41,6 +42,7 @@
       }
     }
   }
+
   .commentContent {
     width: 270px;
     height: 170px;
@@ -57,6 +59,7 @@
   .commentIcons {
     display: flex;
     color: $grey;
+    // margin: 10px;
     margin: 5px 0 5px 0;
 
     .thumbsUpWrapper {
@@ -82,4 +85,12 @@
     padding: 5px 10px;
     border-top: 1px solid #ddd;
   }
+}
+
+.slick-list {
+  width: 500px;
+}
+
+.slick-slide {
+  // margin: 0 20px;
 }

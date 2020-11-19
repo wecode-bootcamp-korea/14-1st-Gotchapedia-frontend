@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import './movieContent.scss';
+import { withRouter } from 'react-router-dom';
 import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faStar } from '@fortawesome/free-solid-svg-icons';
-// import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-// import { faComment } from '@fortawesome/free-solid-svg-icons';
+import './movieContent.scss';
 
 class MovieContent extends Component {
   constructor() {
@@ -26,6 +23,15 @@ class MovieContent extends Component {
     })
   }
 
+  goToCommentDetail = () => {
+    this.props.history.push("/movie-detail/comments");
+  }
+
+  goToOverview = () => {
+    this.props.history.push("/movie-detail/overview");
+
+  }
+
   render() {
     const { contentData } = this.state;
     return (
@@ -41,7 +47,7 @@ class MovieContent extends Component {
               <div className='predictContent'><p>재밌게 본 비슷한 작품</p><div>사랑에 대한 모든 것<img src='/images/vanilaSkyPoster.jpeg' alt='예상별점 아이콘'></img></div></div>
             </div>
             <div className='normalInfo'>
-              <div className='infoHeading'>기본 정보<span>더보기</span></div>
+              <div className='infoHeading' onClick={this.goToOverview} >기본 정보<span>더보기</span></div>
               <div className='infoContent'>
                 <div className='contentHeading'>Radioactive</div>
                 <div className='contentInfo'>2019 · 영국 · 드라마</div>
@@ -60,44 +66,10 @@ class MovieContent extends Component {
                 <div className='headingLeft'>
                   코멘트 <span>10+</span>
                 </div> 
-                <span>더보기</span>
+                <span onClick={this.goToCommentDetail}>더보기</span>
               </div>
               <div className='commentBoxWrapper'>
                 {contentData && <CommentBox contentData={contentData}/>}
-                
-                {/* 지우면 안됨!! */}
-                {/* <div className='commentBox'>
-                  <div className='commentTitle'>
-                    <div className='titleLeft'>
-                      <img src='/images/chorong2.png' alt='작성자아이콘'></img>
-                      <div className='writerId'>김태현태김
-                        <div className='writerIcon'></div>
-                      </div>
-                    </div>
-                    <div className='titleRight'>
-                      <FontAwesomeIcon className='writerStar' icon={faStar} />
-                      5.0
-                    </div>
-                  </div>
-                  <div className='commentContent'>
-                    <p>
-                      상처는 잠시 감출 수 있다.
-                      그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다.
-                      모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.
-                    </p>
-                  </div>
-                  <div className='commentIcons'>
-                    <div className='thumbsUpWrapper'>
-                      <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-                      14
-                    </div>
-                    <div className='commentWrapper'>
-                      <FontAwesomeIcon className='commentIcon' icon={faComment} />
-                      0
-                    </div>
-                  </div>
-                  <div className='like'>좋아요</div>
-                </div> */}
               </div>
             </div>
           </div>
@@ -106,4 +78,4 @@ class MovieContent extends Component {
   }
 }
 
-export default MovieContent;
+export default withRouter(MovieContent);

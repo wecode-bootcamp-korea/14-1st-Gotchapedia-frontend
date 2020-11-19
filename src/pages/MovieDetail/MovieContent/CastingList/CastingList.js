@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './castingList.scss';
 import Slider from "react-slick";
 import '../../../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
+import './castingList.scss';
 
 // 슬릭 슬라이더 화살표 이렇게 커스텀한다 ~
 // const NextArrow = ({onClick})=>{

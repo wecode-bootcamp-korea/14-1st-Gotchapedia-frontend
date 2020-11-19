@@ -3,9 +3,31 @@ import './movieHeader.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import StarRating from './StarRating/StarRating';
+import WantToSee from './WantToSee/WantToSee';
 
 class MovieHeader extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isWantToSee: false,
+    }
+  }
+
+  openWantToSee = () => {
+    this.setState({
+      isWantToSee: true,
+    })
+  }
+
+  closeWantToSee = () => {
+    this.setState({
+      isWantToSee: false,
+    })
+  }
+
   render() {
+    const { isWantToSee } = this.state;
+
     return (
       <>
         <div className='MovieHeaderTop'><img src='/images/headerImage.jpg' alt='바닐라스카이재밌어요'></img></div>
@@ -22,7 +44,7 @@ class MovieHeader extends Component {
                   <div className='buttonContainer'>
                     <button className='wantToSeeWrapper'>
                       <div className='plusIcon'>+</div>
-                      <div className='wantToSee'>보고싶어요</div>
+                      <div className='wantToSee' onClick={this.openWantToSee} >보고싶어요</div>
                     </button>
                     <button className='modal'>▾</button>
                   </div>
@@ -34,6 +56,12 @@ class MovieHeader extends Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className={isWantToSee ? '' : 'displayNone'}>
+          <WantToSee 
+            isWantToSee={isWantToSee}
+            closeWantToSee={this.closeWantToSee}
+          />
         </div>
       </>
     )

@@ -1,6 +1,7 @@
 @import '../../../styles/common.scss';
 
 // max, min width 확인해서 적용
+
 .MovieHeaderWrapper {
   .MovieHeaderTop {
     @include flex-center;
@@ -132,4 +133,8 @@
       }
     }
   }
+}
+
+.displayNone {
+  display: none;
 }

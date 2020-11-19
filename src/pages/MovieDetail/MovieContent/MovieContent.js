@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Slider from "react-slick";
-// import '../../../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../../node_modules/slick-carousel/slick/slick.css';
-// import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
 import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
-
 import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
 import './movieContent.scss';

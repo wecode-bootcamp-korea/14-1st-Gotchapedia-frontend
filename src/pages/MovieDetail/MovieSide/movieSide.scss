@@ -1,0 +1,36 @@
+@import '../../../styles/common.scss';
+
+.MovieSide {
+  display: inline-block;
+  width: 320px;
+  height: 400px;
+  // min-width: 1023px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+
+  .galleryWrapper {
+    .galleryHeading {
+      font-size: 19px;
+      font-weight: bold;
+      padding: 15px 0 10px 15px;
+    }
+  }
+
+  .border {
+    border: 1px solid #eee;
+    margin: 20px 0 10px 0;
+  }
+
+  .videoWrapper {
+    .videoHeading {
+      font-size: 19px;
+      font-weight: bold;
+      padding: 15px 0 10px 15px;
+    }
+
+    .videoBoxWrapper {
+      display: flex;
+    }
+  }
+}

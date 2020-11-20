@@ -1,0 +1,119 @@
+@import '../../../../styles/common.scss';
+
+.WantToSee {
+  @include flex-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  .modalContainer {
+    width: 375px;
+    min-height: 371px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 15px;
+
+    .seeTitle {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+
+      .seeTitleImage {
+        width: 46px;
+        height: 66px;
+        margin: 15px;
+        border-radius: 5px;
+      }
+      .seeTitleContent {
+        line-height: 24px;
+        .contentTitle {
+          font-size: 19px;
+          font-weight: bold;
+        }
+        .contentDesc {
+          font-size: 15px;
+          color: $grey;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .seeChoice {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 1px solid #ddd;
+
+      .leftChoice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 13px 0 15px;
+
+        .wantToSeeIcon {
+          width: 48px;
+          height: 48px;
+          color: $pink;
+          margin: 10px 0;
+        }
+      }
+
+      .choiceBorder {
+        border: 1px solid #eee;
+      }
+
+      .rightChoice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 13px 0 15px;
+
+        .imWatching {
+          width: 48px;
+          height: 48px;
+          color: $grey;
+          margin: 10px 0;
+        }
+      }
+    }
+
+    .writeComment {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+      font-size: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+
+      .commentIcon {
+        width: 24px;
+        height: 24px;
+        color: $grey;
+      }
+    }
+
+    .seeNoInterest {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+
+      .noInterestIcon {
+        width: 24px;
+        height: 24px;
+        color: $grey;
+      }
+    }
+    .seeCancel {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      color: $pink;
+      font-weight: bold;
+    }
+  }
+}

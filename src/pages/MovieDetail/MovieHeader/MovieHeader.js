@@ -10,6 +10,7 @@ class MovieHeader extends Component {
     super();
     this.state = {
       isWantToSee: false,
+      // headerData: this.props.contentsData
     }
   }
 
@@ -26,11 +27,14 @@ class MovieHeader extends Component {
   }
 
   render() {
-    const { isWantToSee } = this.state;
+    const { isWantToSee, headerData } = this.state;
+    const { contentsData } = this.props;
 
+    // 이게 왜 안되는거야??
+    // console.log(contentsData[0].headerImage);
     return (
       <>
-        <div className='MovieHeaderTop'><img src='/images/headerImage.jpg' alt='바닐라스카이재밌어요'></img></div>
+        <div className='MovieHeaderTop'><img src="/images/vanilaSkyHeaderImage.jpg" alt='바닐라스카이재밌어요'></img></div>
         <div className='MovieHeaderBottom'>
           <div className='posterWrapper'>
             <img src='/images/vanilaSkyPoster.jpeg' alt='바닐라스카이꼭보세요'></img>

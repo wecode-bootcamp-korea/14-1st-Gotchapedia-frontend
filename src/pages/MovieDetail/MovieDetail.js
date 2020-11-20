@@ -7,12 +7,32 @@ import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
 
 class MovieDetail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isWantToSee: false,
+      contentsData: [],
+    }
+  }
+
+  componentDidMount() {
+    fetch("/Data/contentdata.json", {
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        contentsData: res.data,
+      })
+    })
+  }
+
   render() {
+    const { contentsData } = this.state;
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>
           <Nav />
-          <MovieHeader />
+          <MovieHeader contentsData={contentsData && contentsData}/>
         </div>
         <div className='MovieContentWrapper'>
           <MovieContent />

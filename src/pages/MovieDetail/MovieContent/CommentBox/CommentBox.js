@@ -13,13 +13,18 @@ class CommentBox extends Component {
   }
 
   render() {
-    const { contentData, comment, key } = this.props;
+    let { contentData } = this.props;
 
+    // 리버스가 안 먹는다....
+    // contentData = contentData.reverse();
     // console.log(comment[key].comment);
     // console.log(comment[key]);
 
     // console.log(contentData.comment);
 
+
+    // 댓글이 추가가 되는데 뒤에 담긴다 reverse? unshift?
+    // 새로달린 댓글들 UI가 사라졌다
     return (
       <>
         {/* 댓글값? */}
@@ -28,14 +33,14 @@ class CommentBox extends Component {
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              {/* <img src={contentData.profile} alt='작성자아이콘' /> */}
+              <img src={contentData.profileImage} alt='작성자아이콘' />
               <div className='writerId'>{contentData.writerId}
                 <div className='writerIcon'></div>
               </div>
             </div>
             <div className='titleRight'>
               <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {contentData.rating}
+              {contentData.starRating}
             </div>
           </div>
           <div className='commentContent'>

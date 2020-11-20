@@ -17,6 +17,12 @@ class MovieContent extends Component {
       commentString: '',
       commentArray: [],
       isColor: false,
+      writerId: "",
+      profileImage: "",
+      starRating: "",
+      thumbsUp: "",
+      countComment: "",
+
     }
   };
 
@@ -37,19 +43,29 @@ class MovieContent extends Component {
         commentString: e.target.value,
         isColor: true,
       })
+    } else {
+      this.setState({
+        isColor: false,
+      })
     }
+    console.log(e);
   }
   
   addComment = (e) => {
-    const { commentString, contentData, commentArray } = this.state;
-    
+    const { commentString, contentData } = this.state;
+    const ran = Math.floor(Math.random() * 7)
     e.preventDefault();
     const written_time = Date.now();
     const obj = {
       id: written_time,
-      comment: commentString
+      comment: commentString,
+      writerId: this.state.contentData[ran].writerId,
+      starRating: this.state.contentData[ran].starRating,
+      profileImage: this.state.contentData[ran].profileImage,
+      thumbsup: this.state.contentData[ran].thumbsup,
+      countComment: this.state.contentData[ran].countComment,
     }
-
+    
     // this.setState({
     //   commentArray: [...commentArray, obj]
     // })
@@ -62,11 +78,21 @@ class MovieContent extends Component {
       // obj는 새로 추가한 데이터 <== 입력한 댓글값
       // 기존 데이터는 4개
       // length로 어떻게 하면 될것 같다
-      
-      contentData: [...contentData, obj]
-
+      // conmmentArray: [...commentArray, obj],
+      contentData: [...contentData, obj],
     })
+    
+    // this.showComment();
+    // this.reverseArray();
+    this.closeModalComment();
+    
   }
+
+  // showComment = () => {
+  //   this.setState({
+  //     commentShow: true,
+  //   })
+  // }
 
   goToCommentDetail = () => {
     this.props.history.push("/movie-detail/comments");
@@ -87,9 +113,15 @@ class MovieContent extends Component {
       isComment: false,
     })
   }
+
+  // reverseArray = () => {
+  //   this.setState({
+  //     contentData: this.state.contentData.reverse()
+  //   })
+  // }
   
   render() {
-
+    
     const settings = {
       dots: false,
       infinite: true,
@@ -98,8 +130,9 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment, commentArray } = this.state;
-
+    const { contentData, isComment } = this.state;
+    // console.log(contentData)
+    // console.log(commentArray);
     // console.log(commentArray);
     // 데이터가 잘 담긴다
     // console.log(contentData?.content);
@@ -120,7 +153,12 @@ class MovieContent extends Component {
     // 나는 개 멍청이인가
 
     // console.log(contentData);
+
     
+    // console.log(reverseData);
+
+    // console.log(this.state.contentData.reverse());
+
     return (
       <>
         <div className='MovieContent'>
@@ -169,6 +207,7 @@ class MovieContent extends Component {
                           // contentData={contentData}
                           // comment={this.state.commentArray}
                           contentData={el}
+                          // reverseArray={this.reverseArray}
                           // comment={this.state.commentArray}
                         />
                       )

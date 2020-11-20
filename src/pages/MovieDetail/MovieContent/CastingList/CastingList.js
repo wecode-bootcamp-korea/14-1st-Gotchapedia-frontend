@@ -49,10 +49,10 @@ class CastingList extends Component {
             return (
               <div>
                 <div key={idx} className='castingContentList'>
-                  <img src={el.image} alt='배우'></img>
+                  <img className='castingImage' src={el.castingImage} alt='배우'></img>
                   <div className='profileDetail'>
-                    <div className='name'>{el.name}</div>
-                    <div className='role'>{el.role}</div>
+                    <div className='castingName'>{el.castingName}</div>
+                    <div className='castingRole'>{el.castingRole}</div>
                   </div>
                 </div>
               </div>

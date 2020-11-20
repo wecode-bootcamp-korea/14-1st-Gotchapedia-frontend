@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaThList } from 'react-icons/fa';
 import './StarRating.scss';
 
 class StarRating extends Component {
@@ -11,8 +11,16 @@ class StarRating extends Component {
     }
   }
 
+  ratingStars = (ratingValue) => {
+    this.setState({
+      rating: ratingValue
+    })
+  }
+
   render() {
     const { rating, hover } = this.state;
+    
+    // console.log(hover);
     
     return (
       <div className='StarRating'>
@@ -27,6 +35,7 @@ class StarRating extends Component {
                 onClick={() => this.setState({ rating: ratingValue })}
               >
               </input>
+
               <FaStar 
                 className='star' 
                 color={ratingValue <= (hover || rating) ? "#FFC107" : "#E4E5E9"} 

@@ -78,5 +78,14 @@
 }
 
 .slick-list {
-  width: 500px;
+  display: inline-block;
+  width: 550px;
+  height: 300px;
+  line-height: 1.2;
+
+  overflow: hidden;
+  // // 여기서부터 시작을 할거야
+  // white-space: nowrap;
+  // // ... 으로 감춰
+  text-overflow: ellipsis;
 }

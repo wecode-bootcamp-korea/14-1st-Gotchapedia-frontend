@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Nav from '../../../../../components/Nav/Nav';
 import './CommentDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,6 +28,10 @@ class CommentDetail extends Component {
     })
   }
 
+  goToMovieDetail = () => {
+    this.props.history.push("/movie-detail");
+  }
+
   render() {
     const { contentData } = this.state;
 
@@ -34,7 +39,7 @@ class CommentDetail extends Component {
       <>
         <Nav />
         <div className='detailHeading'>
-          <FontAwesomeIcon className='headingArrow' icon={faArrowLeft} />
+          <FontAwesomeIcon className='headingArrow' onClick={this.goToMovieDetail} icon={faArrowLeft} />
           <div className='headingTitle'>코멘트</div>
         </div>      
         <div className='commentBoxWrapper'>
@@ -43,19 +48,20 @@ class CommentDetail extends Component {
               <div key={idx} className='commentBox'>
                 <div className='commentTitle'>
                   <div className='titleLeft'>
-                    <img src={el.image} alt='작성자아이콘'></img>
+                    {/* 왜 profileImage를 쓰면 안되는거지?? */}
+                    <img src={el.castingImage} alt='작성자아이콘'></img>
                     <div className='writerId'>{el.writerId}
                       <div className='writerIcon'></div>
                     </div>
                   </div>
                   <div className='titleRight'>
                     <FontAwesomeIcon className='writerStar' icon={faStar} />
-                    {el.rating}
+                    {el.starRating}
                   </div>
                 </div>
                 <div className='commentContent'>
                   <p>
-                    {el.desc}
+                    {el.comment}
                   </p>
                 </div>
                 <div className='commentIcons'>
@@ -65,7 +71,7 @@ class CommentDetail extends Component {
                   </div>
                   <div className='commentWrapper'>
                     <FontAwesomeIcon className='commentIcon' icon={faComment} />
-                    {el.comment}
+                    {el.countComment}
                   </div>
                 </div>
                 <div className='like'>좋아요</div>
@@ -78,4 +84,4 @@ class CommentDetail extends Component {
   }
 }
 
-export default CommentDetail;
+export default withRouter(CommentDetail);

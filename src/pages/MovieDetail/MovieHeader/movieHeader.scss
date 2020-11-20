@@ -1,0 +1,140 @@
+@import '../../../styles/common.scss';
+
+// max, min width 확인해서 적용
+
+.MovieHeaderWrapper {
+  .MovieHeaderTop {
+    @include flex-center;
+    background-color: #eee;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .MovieHeaderBottom {
+    @include flex-center;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    height: 250px;
+    padding: 0 8px;
+    // margin-bottom: 50px;
+
+    .posterWrapper {
+      display: flex;
+      position: absolute;
+      width: 769px;
+      height: 199px;
+      top: -20px;
+      img {
+        @include mediumSize;
+        border: 2px solid #fff;
+      }
+
+      // 여기는 디테일 부분
+      .posterDetailWrapper {
+        // padding-left: 10px;
+
+        .posterRanking {
+          width: 769px;
+          font-size: 13px;
+          color: $grey;
+          padding: 0 0 10px 25px;
+          margin: 0 -4px;
+
+          span {
+            color: #eee;
+          }
+        }
+
+        .posterTitle {
+          width: 769px;
+          font-size: 25px;
+          font-weight: bold;
+          padding: 14px 16px 22px;
+        }
+
+        .posterTitleDetail {
+          font-size: 15px;
+          color: $grey;
+          margin: 4px 0 0;
+          padding: 0 16px 0px;
+        }
+
+        .posterRating {
+          font-size: 15px;
+          color: #eee;
+          padding: 0 16px 22px;
+
+          .averageRating {
+            font-size: 15px;
+            color: #000;
+            margin: 14px 0 0;
+            padding: 8px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+          }
+
+          .ratingContent {
+            display: flex;
+            margin-top: 30px;
+
+            .buttonContainer {
+              display: flex;
+              width: 213px;
+              height: 40px;
+              margin-right: 40px;
+
+              .wantToSeeWrapper {
+                // display: flex;
+                // display: inline-block;
+                @include flex-center;
+                width: 162px;
+                // height: 100%;
+                background-color: $pink;
+                border-radius: 5px 0 0 5px;
+                color: #fff;
+                font-size: 17px;
+                border-width: bold;
+                border-right: 1px solid crimson;
+
+                .plusIcon {
+                  font-size: 25px;
+                  margin-right: 10px;
+                }
+
+                .wantToSee {
+                  // display: inline-block;
+                  display: flex;
+                }
+
+                .modal {
+                  // display: inline-block;
+                }
+              }
+
+              // scss 나중에 수정
+              .modal {
+                width: 51px;
+                height: 100%;
+                background-color: $pink;
+                border-radius: 0 5px 5px 0;
+                color: #fff;
+              }
+            }
+
+            .starRatingBox {
+              margin-top: -10px;
+              .ratingTitle {
+                font-size: 12px;
+                color: $grey;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.displayNone {
+  display: none;
+}

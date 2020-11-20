@@ -21,7 +21,6 @@ $yellow: #ffa136;
 $lightyellow: #ffdd64;
 
 /* profile img size */
-
 @mixin smallProfile {
   width: 2em;
   height: 2em;
@@ -103,7 +102,8 @@ input {
   align-items: center;
 }
 
-@mixin flex-cloumn-center {
+@mixin flex-column-center {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }

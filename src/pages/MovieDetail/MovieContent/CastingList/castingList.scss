@@ -1,0 +1,30 @@
+@import '../../../../styles/common.scss';
+
+.castingContentList {
+  // 여기 왜 flex가 안먹음??
+  display: flex;
+  margin: 10px;
+  border-bottom: 1px solid #ddd;
+
+  img {
+    @include mediumProfile;
+    margin: 10px;
+  }
+
+  .profileDetail {
+    margin: auto 0;
+
+    .name {
+      margin-bottom: 5px;
+    }
+
+    .role {
+      color: $grey;
+    }
+  }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #ddd !important;
+}

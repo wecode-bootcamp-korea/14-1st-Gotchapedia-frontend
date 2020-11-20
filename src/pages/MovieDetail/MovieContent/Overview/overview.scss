@@ -1,0 +1,123 @@
+@import '../../../../styles/common.scss';
+
+.overviewHeading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 5.313em;
+  border-bottom: 1px solid #ddd;
+
+  .headingArrow {
+    color: $pink;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0px 20px;
+  }
+
+  .headingTitle {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 20px;
+  }
+}
+
+.overviewContentsWrapper {
+  margin: 0 auto;
+  max-width: 728px;
+
+  .overviewContents {
+    .overviewTitle {
+      display: flex;
+      margin-top: 10px;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      line-height: 20px;
+
+      .title {
+        width: 12.5em;
+        color: $grey;
+        margin-right: 30px;
+      }
+      .content {
+        font-size: 15px;
+      }
+    }
+    .overviewYears {
+      display: flex;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      line-height: 20px;
+
+      .title {
+        width: 12.5em;
+        color: $grey;
+        margin-right: 30px;
+      }
+      .content {
+        font-size: 15px;
+      }
+    }
+    .overviewCountry {
+      display: flex;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      line-height: 20px;
+
+      .title {
+        width: 12.5em;
+        color: $grey;
+        margin-right: 30px;
+      }
+      .content {
+        font-size: 15px;
+      }
+    }
+    .overviewGenre {
+      display: flex;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      line-height: 20px;
+
+      .title {
+        width: 12.5em;
+        color: $grey;
+        margin-right: 30px;
+      }
+      .content {
+        font-size: 15px;
+      }
+    }
+    .overviewTime {
+      display: flex;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      line-height: 20px;
+
+      .title {
+        width: 12.5em;
+        color: $grey;
+        margin-right: 30px;
+      }
+      .content {
+        font-size: 15px;
+      }
+    }
+    .overviewDetail {
+      display: flex;
+      flex-direction: column;
+      padding: 14px 0;
+      border-bottom: 1px solid #ddd;
+      line-height: 20px;
+      .title {
+        width: 12.5em;
+        margin: 15px 0;
+        color: $grey;
+        margin-right: 30px;
+      }
+      .content {
+        font-size: 15px;
+        line-height: 24px;
+      }
+    }
+  }
+}

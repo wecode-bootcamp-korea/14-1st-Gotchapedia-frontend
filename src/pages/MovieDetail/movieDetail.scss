@@ -1,0 +1,19 @@
+@import '../../styles/common.scss';
+
+.MovieDetailPage {
+  // min-width: 719px;
+  display: flex;
+  flex-direction: column;
+
+  .MovieHeaderWrapper {
+    // min-width: 719px;
+    border: 1px solid #eee;
+  }
+
+  .MovieContentWrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    background-color: #eee;
+  }
+}

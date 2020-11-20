@@ -5,6 +5,7 @@ import '../../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
 import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
+import CommentWrite from './CommentWrite/CommentWrite';
 import './movieContent.scss';
 
 class MovieContent extends Component {
@@ -12,10 +13,9 @@ class MovieContent extends Component {
     super();
     this.state = {
       contentData: [],
+      isComment: false,
     }
   };
-
-
 
   componentDidMount() {
     fetch("/Data/contentdata.json", {
@@ -36,6 +36,18 @@ class MovieContent extends Component {
     this.props.history.push("/movie-detail/overview");
 
   }
+
+  openModalComment = () => {
+    this.setState({
+      isComment: true,
+    })
+  }
+
+  closeModalComment = () => {
+    this.setState({
+      isComment: false,
+    })
+  }
   
   render() {
 
@@ -47,13 +59,15 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData } = this.state;
+    const { contentData, isComment } = this.state;
+
     return (
+      <>
         <div className='MovieContent'>
           {/* 얘는 별점줄때 display가 보이도록 설정*/}
           <div className='hiddenComment'>
             <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div>
-            <button>코멘트 남기기</button>
+            <button onClick={this.openModalComment} >코멘트 남기기</button>
           </div>
           <div className='movieContentBox'>
             <div className='predictStar'>
@@ -94,6 +108,13 @@ class MovieContent extends Component {
             </div>
           </div>
         </div>
+        <div className={isComment ? '' : 'displayNone'}>
+          <CommentWrite 
+            isComment={isComment}
+            closeModalComment={this.closeModalComment}
+          />
+        </div>
+      </>
     )
   }
 }

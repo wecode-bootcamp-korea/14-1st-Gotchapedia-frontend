@@ -26,7 +26,6 @@
   }
 
   .MovieContent {
-    // display: inline-block;
     width: 640px;
     // min-width: 1023px;
     border-radius: 5px;
@@ -56,9 +55,6 @@
       border: 1px solid #ddd;
 
       .predictStar {
-        // 이거 왜 안됨??
-        // border-radius: 5px;
-
         .predictHeading {
           font-size: 19px;
           font-weight: bold;
@@ -146,19 +142,16 @@
 
       .commentWrapper {
         .commentHeading {
-          // scss 왜 안먹지??
           display: flex;
           justify-content: space-between;
           align-items: center;
-          // margin: 0 auto;
+
           font-size: 19px;
           font-weight: bold;
           padding: 10px 0 10px 10px;
 
           .headingLeft {
-            // display: inline-block !important;
             span {
-              // display: inline-block !important;
               font-size: 15px;
               color: $grey;
             }
@@ -174,4 +167,8 @@
       }
     }
   }
+}
+
+.displayNone {
+  display: none;
 }

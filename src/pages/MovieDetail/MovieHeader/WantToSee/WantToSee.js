@@ -17,7 +17,7 @@ class WantToSee extends Component {
 
     return(
     <div className='WantToSee' onClick={closeWantToSee}>
-      <div className='modalContainer'>
+      <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
         <div className='seeTitle'>
           <img className='seeTitleImage' src='/images/vanilaSkyPoster.jpeg' alt='보고싶어요이미지'></img>
           <div className='seeTitleContent'>
@@ -44,7 +44,7 @@ class WantToSee extends Component {
           관심없어요
           <FontAwesomeIcon className='noInterestIcon' icon={faBan} />
         </div>
-        <div className='seeCancel'>
+        <div className='seeCancel' onClick={closeWantToSee}>
           취소
         </div>
       </div>

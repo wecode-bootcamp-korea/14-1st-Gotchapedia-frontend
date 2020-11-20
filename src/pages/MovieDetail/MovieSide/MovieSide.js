@@ -1,27 +1,66 @@
 import React, { Component } from 'react';
+// import Slider from 'react-slick';
+// import GalleryBox from './GalleryBox/GalleryBox';
+import '../../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
+// import VideoBox from './VideoBox/VideoBox';
 import './movieSide.scss';
 
 class MovieSide extends Component {
+  constructor() {
+    super();
+    this.state = {
+      pictureVideoData: [],
+    }
+  }
+
+  componentDidMount() {
+    fetch("/Data/contentdata.json", {
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        pictureVideoData: res.data,
+      })
+    })
+  }
+
   render() {
+
+    const settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+    };
+
+    // 슬릭 슬라이더 나중에 너무 강함
+    const { pictureVideoData } = this.state;
     return (
       <div className='MovieSide'>
         <div className='galleryWrapper'>
           <div className='galleryHeading'>갤러리</div>
-          <img src='/images/vanilaSkyHeader.png' alt='갤러리이미지'></img>
-          <img src='/images/vaniliaSkyImage.png' alt='갤러리이미지'></img>
+          {/* <Slider {...settings}>
+            {pictureVideoData.map((el, idx) => {
+              return (
+                <GalleryBox key={idx} pictureVideoData={el}/>
+              )
+            })}
+           
+          </Slider> */}
         </div>
         <div className='border'></div>
         <div className='videoWrapper'>
           <div className='videoHeading'>동영상</div>
           <div className='videoBoxWrapper'>
-            <div className='videoBox'>
-              <iframe src='https://www.youtube.com/watch?v=ziU2MBPbKAs' alt='동영상'></iframe>
-              <div className='videoDetail'>메인 예고편</div>
-            </div>
-            <div className='videoBox'>
-              <iframe src='https://www.youtube.com/watch?v=ziU2MBPbKAs' alt='동영상'></iframe>
-              <div className='videoDetail'>바닐라 스카이 짱</div>
-            </div>
+            {/* <Slider {...settings}>
+              {pictureVideoData.map((el, idx) => {
+                return (
+                  <VideoBox key={idx} pictureVideoData={el}/>
+                )
+              })}
+            </Slider> */}
           </div>
         </div>
       </div>

@@ -1,0 +1,59 @@
+@import '../../../../styles/common.scss';
+
+.CommentWrite {
+  @include flex-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 17px;
+  font-weight: bold;
+
+  .modalContainer {
+    width: 640px;
+    height: 540px;
+    background-color: #fff;
+
+    .commentHeading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 11px;
+      line-height: 22px;
+
+      .headingX {
+        color: $pink;
+        cursor: pointer;
+      }
+      .headingTitle {
+      }
+      .headingComment {
+        color: #ddd;
+        cursor: pointer;
+      }
+      .coloredHeadingComment {
+        color: $pink;
+      }
+    }
+
+    .commentContent {
+      border-top: 1px solid #eee;
+      .writeComment {
+        width: 100%;
+        height: 100%;
+        padding: 30px 0px 0 20px;
+        // margin: 20px;
+        box-sizing: border-box;
+
+        &::placeholder {
+          // margin: 20px;
+          color: $grey;
+          font-size: 17px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+}

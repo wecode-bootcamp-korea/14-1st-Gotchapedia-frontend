@@ -1,21 +1,21 @@
 @import '../../../../styles/common.scss';
 
 .MovieBox {
- width: 16.699em;
+  width: 16.699em;
+
   .movieAllWrap {
     display: flex;
     height: 28.634em;
     width: 16.699em;
-    margin: 0px;
     padding: 0 6px 0 6px;
 
     .moviePosterInside {
       height: 28.5em;
       width: 15.675em;
-      object-fit: contain;
       position: relative;
 
       .moviePosterWrap {
+
         .moviePoster {
           @include bigSize;
           object-fit: cover;
@@ -30,6 +30,7 @@
         right: 183.797px;
         left: 6px;
       }
+
       .movieInfo {
         height: 5.438em;
         width: 13.05em;
@@ -52,6 +53,7 @@
         .movieRate {
           color: #555765;
           margin: 2px 0 0 0;
+
           .iconStar {
             font-size: 12px;
           }

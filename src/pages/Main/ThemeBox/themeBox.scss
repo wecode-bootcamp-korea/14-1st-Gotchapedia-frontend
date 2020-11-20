@@ -1,30 +1,84 @@
-.boxRankingWrap {
-  height: 30.517em;
-  width: 84.438em;
-  margin-bottom: 42px;
-  border: solid blue;
-  .boxRankingHeadWrap {
-    height: 7em;
-    width: 165em;
-    border: solid red;
-    margin: 0 60px;
-    padding: 12px 0 14px;
-    // display: grid;
-    .boxRankingHead {
-      display: flex;
-      height: 3.75em;
-      width: 165em;
-      border: solid green;
-      font-size: 22px;
-      font-weight: 700px;
-      letter-spacing: -0.4px;
+.onesPick {
+  display: flex;
+  height: 35em;
+  width: 90em;
+  margin-bottom: 30px;
+  // border: solid Red;
+  margin: 0 60px 0 60px;
+
+  .onesPickHeadWrap {
+    // position: relative;
+    display: flex;
+    // float: left;
+    height: 3em;
+    width: 82.5em;
+    max-height: 3.75em;
+    max-width: 82.5em;
+    // margin-bottom: 10px;
+    // padding: 12px 0 14px 0;
+    border: solid orange;
+
+    .onesPickHeadCover {
+      .onesPickHead {
+        display: flex;
+        height: 1.875em;
+        width: 55em;
+        font-size: 22px;
+        letter-spacing: -0.4;
+        // margin-left: 15px;
+        // margin-bottom: 10px;sn
+        border: dashed 1px black;
+        // top: 6px;
+        // right: 10px;
+      }
     }
-    .boxRankingBodyWrap {
-      display: flex;
-      height: 168.875em;
-      width: 61.034em;
-      border: solid orange;
-      margin: 0 0 42px;
+    .boxRankingCover {
+      height: 30.517em;
+      width: 84.438em;
+      // margin-top: 100px;;
+      // margin: 0 28.406px 0 28.406px;
+      border: dashed rgb(255, 0, 149);
+
+      .boxRankingWrap {
+        display: flex;
+        height: 30.517em;
+        width: 84.438em;
+        margin-top: 15px;
+        border: solid blue;
+        bottom: 100px;
+
+        .blankLeft {
+          height: 373.36px;
+          width: 6px;
+          border: solid black;
+        }
+
+        .blankRight {
+          height: 373.36px;
+          width: 6px;
+          border: solid black;
+        }
+      }
+
+      .leftArrow {
+      }
+
+      .rightArrow {
+      }
     }
   }
+  // .onesPickBody {
+  //   display: flex;
+  //   height: 73.25em;
+  //   width: 25.945em;
+  //   margin: 0 60px 0 60px;
+
+  //   // .boxRankingWrap {
+  //   //   display: flex;
+  //   //   height: 30.517em;
+  //   //   width: 84.438em;
+  //   //   margin-bottom: 42px;
+  border: solid blue;
+  //   // }
+  // }
 }

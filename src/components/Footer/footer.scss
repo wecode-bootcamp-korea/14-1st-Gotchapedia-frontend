@@ -1,0 +1,102 @@
+@import '../../styles/common.scss';
+
+.Footer {
+  height: 100%;
+  width: 100%;
+  // width: 89.88em;
+  border: solid green;
+
+  .footerHead {
+    height: 3.75em;
+    width: 100%;
+    // width: 89.88em;
+    background-color: #101113;
+    border: solid blue;
+
+    .footerHeadFont {
+      display: flex;
+      font-size: 19px;
+      letter-spacing: -0.3px;
+      font-weight: 500;
+      color: #d1d1d2;
+      border: solid red;
+      justify-content: center;
+      align-content: center;
+
+      em {
+        color: #ff0358;
+      }
+    }
+  }
+  .footerBodyWrap {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 20px 0 38px 0;
+    background-color: #1c1e20;
+
+    .footerBody {
+      display: flex;
+      margin: 0 29.35px 0 20.35px;
+
+      .footerBodyContents {
+        height: 163px;
+        width: 1230px;
+
+        .footerBodyOne {
+          height: 22px;
+          color: #a5a5a7;
+        }
+
+        .footerBodyTwo {
+          height: 22px;
+          display: flex;
+          margin-top: 12px;
+          color: #a5a5a7;
+        }
+
+        .footerBodyThree {
+          height: 22px;
+          color: #a5a5a7;
+        }
+
+        .footerBodyFour {
+          height: 22px;
+          display: flex;
+          margin-top: 13px;
+          color: #848485;
+        }
+
+        .footerBodyFive {
+          height: 22px;
+          color: #848485;
+        }
+
+        .footerBodySix {
+          height: 22px;
+          margin-top: 2px;
+          color: #848485;
+        }
+      }
+      .footerRightBody {
+        height: 10em;
+        width: 7.5em;
+        border: dashed 1px grey;
+
+        .footerLang {
+          height: 1.75em;
+          width: 7.5em;
+
+          .langButton {
+            height: 1.75em;
+            width: 7.7em;
+            color: #a5a5a7;
+            background-color: #1c1e20;
+            border: solid 1px #a5a5a7;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

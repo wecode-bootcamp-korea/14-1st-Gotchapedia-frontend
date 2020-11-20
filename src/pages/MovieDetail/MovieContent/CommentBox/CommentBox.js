@@ -13,14 +13,22 @@ class CommentBox extends Component {
   }
 
   render() {
-    const { contentData } = this.props;
+    const { contentData, comment, key } = this.props;
+
+    // console.log(comment[key].comment);
+    // console.log(comment[key]);
+
+    // console.log(contentData.comment);
 
     return (
       <>
+        {/* 댓글값? */}
+        {/* {comment} */}
+
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img src={contentData.profile} alt='작성자아이콘' />
+              {/* <img src={contentData.profile} alt='작성자아이콘' /> */}
               <div className='writerId'>{contentData.writerId}
                 <div className='writerIcon'></div>
               </div>
@@ -32,7 +40,7 @@ class CommentBox extends Component {
           </div>
           <div className='commentContent'>
             <p>
-              {contentData.desc}
+              {contentData.comment}
             </p>
           </div>
           <div className='commentIcons'>
@@ -42,7 +50,7 @@ class CommentBox extends Component {
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {contentData.comment}
+              {contentData.countComment}
             </div>
           </div>
           <div className='like'>좋아요</div>

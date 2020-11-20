@@ -14,6 +14,9 @@ class MovieContent extends Component {
     this.state = {
       contentData: [],
       isComment: false,
+      commentString: '',
+      commentArray: [],
+      isColor: false,
     }
   };
 
@@ -28,13 +31,49 @@ class MovieContent extends Component {
     })
   }
 
+  handleChange = (e) => {
+    if(e.target.value) {
+      this.setState({
+        commentString: e.target.value,
+        isColor: true,
+      })
+    }
+  }
+  
+  addComment = (e) => {
+    const { commentString, contentData, commentArray } = this.state;
+    
+    e.preventDefault();
+    const written_time = Date.now();
+    const obj = {
+      id: written_time,
+      comment: commentString
+    }
+
+    // this.setState({
+    //   commentArray: [...commentArray, obj]
+    // })
+
+    // let comments = Array.from()
+    this.setState({
+      
+      // commentArray: [...commentArray, obj],
+      // contentData는 지금 기존에 있던 데이터
+      // obj는 새로 추가한 데이터 <== 입력한 댓글값
+      // 기존 데이터는 4개
+      // length로 어떻게 하면 될것 같다
+      
+      contentData: [...contentData, obj]
+
+    })
+  }
+
   goToCommentDetail = () => {
     this.props.history.push("/movie-detail/comments");
   }
 
   goToOverview = () => {
     this.props.history.push("/movie-detail/overview");
-
   }
 
   openModalComment = () => {
@@ -59,8 +98,29 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment } = this.state;
+    const { contentData, isComment, commentArray } = this.state;
 
+    // console.log(commentArray);
+    // 데이터가 잘 담긴다
+    // console.log(contentData?.content);
+    // 값에 접근했음 이걸 어떻게 전달해서 뿌려주기만 하면됨
+    // 그냥 한줄 더 추가한건데 왜 안되지??
+
+    // console.log(contentData[commentLength]?.comment);
+    // console.log(commentLength);
+
+    // console.log(contentData[commentLength-1]?.comment);
+
+    // comment 자체가 안잡힘
+    // for(let i = 0; i < contentData.length; i++) {
+    //   console.log(contentData[i].comment);
+
+    // } 
+
+    // 나는 개 멍청이인가
+
+    // console.log(contentData);
+    
     return (
       <>
         <div className='MovieContent'>
@@ -100,16 +160,30 @@ class MovieContent extends Component {
                 <Slider {...settings}>
                     {contentData.map((el, idx) => {
                       return (
-                        <CommentBox key={idx} contentData={el} />
+                        <CommentBox 
+                          key={idx}
+                          // contentData={contentData[commentLength-1]?.comment && el}
+                          // 왜 el를 보내면 뻗어버리지???
+
+                          // contentData={el}
+                          // contentData={contentData}
+                          // comment={this.state.commentArray}
+                          contentData={el}
+                          // comment={this.state.commentArray}
+                        />
                       )
                     })}
                 </Slider>
+                
               </div>
             </div>
           </div>
         </div>
         <div className={isComment ? '' : 'displayNone'}>
-          <CommentWrite 
+          <CommentWrite
+            handleChange={this.handleChange}
+            addComment={this.addComment}
+            isColor={this.state.isColor}
             isComment={isComment}
             closeModalComment={this.closeModalComment}
           />

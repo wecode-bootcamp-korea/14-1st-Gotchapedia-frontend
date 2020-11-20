@@ -7,9 +7,9 @@
       "profile": "./images/chorong2.png",
       "writerId": "김태현태김",
       "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
+      "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
       "thumbsup": "14",
-      "comment": "0"
+      "countComment": "0"
     },
     {
       "image": "/images/tomcruise.jpeg",
@@ -17,10 +17,10 @@
       "role": "주연 | 데이빗 에임즈",
       "profile": "./images/chorong2.png",
       "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"
+      "rating":"4.0",
+      "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
+      "thumbsup": "31",
+      "countComment": "4"
     },
     {
       "image": "/images/penelopeCruise.jpeg",
@@ -28,10 +28,10 @@
       "role": "주연 | 소피아 세리노",
       "profile": "./images/chorong2.png",
       "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "rating":"3.0",
+      "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
+      "thumbsup": "21",
+      "countComment": "6"    
     },
     {
       "image": "/images/cameronDiaz.jpeg",
@@ -39,10 +39,10 @@
       "role": "주연 | 줄리아나 줄리 지안니",
       "profile": "./images/chorong2.png",
       "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "rating":"3.7",
+      "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
+      "thumbsup": "22",
+      "countComment": "7"    
     },
     {
       "image": "/images/kurtRussel.jpg",
@@ -50,10 +50,10 @@
       "role": "주연 | 커티스 맥케이브 박사",
       "profile": "./images/chorong2.png",
       "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "rating":"4.6",
+      "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
+      "thumbsup": "33",
+      "countComment": "5"    
     },
     {
       "image": "/images/brianShelby.webp",
@@ -61,65 +61,10 @@
       "role": "조연 | 브라이언 쉘비",
       "profile": "./images/chorong2.png",
       "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/cameronCrow.jpg",
-      "name": "카메론 크로우",
-      "role": "감독",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"
-    },
-    {
-      "image": "/images/tomcruise.jpeg",
-      "name": "톰 크루즈",
-      "role": "주연 | 데이빗 에임즈",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/penelopeCruise.jpeg",
-      "name": "페넬로페 크루즈",
-      "role": "주연 | 소피아 세리노",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/cameronDiaz.jpeg",
-      "name": "카메론 디아즈",
-      "role": "주연 | 줄리아나 줄리 지안니",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/kurtRussel.jpg",
-      "name": "커트 러셀",
-      "role": "주연 | 커티스 맥케이브 박사",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "rating":"4.9",
+      "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
+      "thumbsup": "31",
+      "countComment": "16"    
     },
     {
       "image": "/images/brianShelby.webp",
@@ -127,10 +72,10 @@
       "role": "조연 | 브라이언 쉘비",
       "profile": "./images/chorong2.png",
       "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "rating":"4.9",
+      "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
+      "thumbsup": "31",
+      "countComment": "16"    
     }
   ]
 }

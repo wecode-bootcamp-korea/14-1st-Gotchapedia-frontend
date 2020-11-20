@@ -6,9 +6,6 @@ import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { faBan } from '@fortawesome/free-solid-svg-icons';
 import './wantToSee.scss';
 
-
-// 모달창 닫는거 은정님한테 질문!!
-
 class WantToSee extends Component {
 
   render() {

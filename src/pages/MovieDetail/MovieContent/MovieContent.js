@@ -7,7 +7,7 @@ import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
 import './movieContent.scss';
-// import CommentDetail from './CommentBox/CommnetDetail/CommentDetail';
+// import CommentDetail from './CommentBox/CommentDetail/CommentDetail';
 
 class MovieContent extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class MovieContent extends Component {
   addComment = (e) => {
 
     this.setState({
-      
+
     })
   }
 

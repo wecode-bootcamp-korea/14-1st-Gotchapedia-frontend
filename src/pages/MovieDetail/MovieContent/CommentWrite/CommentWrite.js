@@ -29,7 +29,6 @@ class CommentWrite extends Component {
           <div className='commentHeading'>
             <div className='headingX' onClick={closeModalComment}>X</div>
             <div className='headingTitle'>바닐라스카이</div>
-            {/* 'headingComment' */}
             <div className={isColor ? 'coloredHeadingComment' : 'headingComment'}>코멘트 작성</div>
           </div>
           <div className='commentContent'>

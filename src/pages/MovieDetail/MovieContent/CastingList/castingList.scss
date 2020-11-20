@@ -6,7 +6,7 @@
   margin: 10px;
   border-bottom: 1px solid #ddd;
 
-  img {
+  .castingImage {
     @include mediumProfile;
     margin: 10px;
   }
@@ -14,11 +14,11 @@
   .profileDetail {
     margin: auto 0;
 
-    .name {
+    .castingName {
       margin-bottom: 5px;
     }
 
-    .role {
+    .castingRole {
       color: $grey;
     }
   }

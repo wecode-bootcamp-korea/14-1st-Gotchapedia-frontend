@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './overview.scss';
 import Nav from '../../../../components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,13 +7,17 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 class Overview extends Component {
 
+  goToMovieDetail = () => {
+    this.props.history.push('/movie-detail');
+  }
+
   render() {
 
     return(
       <>
         <Nav />
         <div className='overviewHeading'>
-          <FontAwesomeIcon className='headingArrow' icon={faArrowLeft} />
+          <FontAwesomeIcon className='headingArrow' icon={faArrowLeft} onClick={this.goToMovieDetail}/>
           <div className='headingTitle'>기본 정보</div>
         </div>
         <div className='overviewContentsWrapper'>
@@ -50,4 +55,4 @@ class Overview extends Component {
   }
 }
 
-export default Overview;
+export default withRouter(Overview);

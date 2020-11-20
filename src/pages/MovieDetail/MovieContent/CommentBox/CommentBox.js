@@ -14,35 +14,34 @@ class CommentBox extends Component {
 
   render() {
     const { contentData } = this.props;
-
     return (
       <>
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img src={contentData.profile} alt='작성자아이콘' />
+              <img src={contentData.profileImage} alt='작성자아이콘' />
               <div className='writerId'>{contentData.writerId}
                 <div className='writerIcon'></div>
               </div>
             </div>
             <div className='titleRight'>
               <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {contentData.rating}
+              {contentData.starRating}
             </div>
           </div>
           <div className='commentContent'>
             <p>
-              {contentData.desc}
+              {contentData.commentDescription}
             </p>
           </div>
           <div className='commentIcons'>
             <div className='thumbsUpWrapper'>
               <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-              {contentData.thumbsup}
+              {contentData.thumbsupCount}
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {contentData.comment}
+              {contentData.commentCount}
             </div>
           </div>
           <div className='like'>좋아요</div>

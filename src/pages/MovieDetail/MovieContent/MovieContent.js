@@ -7,6 +7,7 @@ import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
 import './movieContent.scss';
+// import CommentDetail from './CommentBox/CommnetDetail/CommentDetail';
 
 class MovieContent extends Component {
   constructor() {
@@ -28,12 +29,19 @@ class MovieContent extends Component {
     })
   }
 
+  addComment = (e) => {
+
+    this.setState({
+      
+    })
+  }
+
   goToCommentDetail = () => {
-    this.props.history.push("/movie-detail/comments");
+    this.props.history.push('/movie-detail/comments');
   }
 
   goToOverview = () => {
-    this.props.history.push("/movie-detail/overview");
+    this.props.history.push('/movie-detail/overview');
 
   }
 
@@ -98,7 +106,7 @@ class MovieContent extends Component {
               </div>
               <div className='commentBoxWrapper'>
                 <Slider {...settings}>
-                    {contentData.map((el, idx) => {
+                    {contentData && contentData.map((el, idx) => {
                       return (
                         <CommentBox key={idx} contentData={el} />
                       )
@@ -110,6 +118,7 @@ class MovieContent extends Component {
         </div>
         <div className={isComment ? '' : 'displayNone'}>
           <CommentWrite 
+            // onSubmit={function()}
             isComment={isComment}
             closeModalComment={this.closeModalComment}
           />

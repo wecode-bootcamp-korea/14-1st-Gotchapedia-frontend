@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './movieBox.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import './movieBox.scss';
 
 class MovieBox extends Component {
   constructor() {
@@ -10,24 +10,11 @@ class MovieBox extends Component {
       movieList: [],
     };
   }
-//just in case
-  // componentDidMount() {
-  //   fetch('http://10.58.0.152:8000/movie/main', {
-  //     method: 'POST',
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       this.setState({
-  //         name: '김병준',
-  //         movieList: res.data,
-  //       });
-  //     });
-  // }
 
   render() {
     // console.log(this.state.movieList);
 
-    const { moviedate, movieimg, movierate, movietitle } = this.props;
+    const {moviedate, movieimg, movierate, movietitle} = this.props;
     return (
       <div className='MovieBox'>
         <div className='movieAllWrap'>

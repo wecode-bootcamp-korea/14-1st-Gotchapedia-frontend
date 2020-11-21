@@ -3,13 +3,11 @@
 .Footer {
   height: 100%;
   width: 100%;
-  // width: 89.88em;
   border: solid green;
 
   .footerHead {
     height: 3.75em;
     width: 100%;
-    // width: 89.88em;
     background-color: #101113;
     border: solid blue;
 
@@ -43,36 +41,36 @@
         height: 163px;
         width: 1230px;
 
-        .footerBodyOne {
+        .footerBodyService {
           height: 22px;
           color: #a5a5a7;
         }
 
-        .footerBodyTwo {
+        .footerBodyContact {
           height: 22px;
           display: flex;
           margin-top: 12px;
           color: #a5a5a7;
         }
 
-        .footerBodyThree {
+        .footerBodyPartner {
           height: 22px;
           color: #a5a5a7;
         }
 
-        .footerBodyFour {
+        .footerBodyOwner {
           height: 22px;
           display: flex;
           margin-top: 13px;
           color: #848485;
         }
 
-        .footerBodyFive {
+        .footerBodyCorNumber {
           height: 22px;
           color: #848485;
         }
 
-        .footerBodySix {
+        .footerBodyGotcha {
           height: 22px;
           margin-top: 2px;
           color: #848485;

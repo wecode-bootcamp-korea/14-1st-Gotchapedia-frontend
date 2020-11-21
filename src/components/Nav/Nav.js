@@ -39,7 +39,8 @@ class Nav extends Component {
       <div className='Nav'>
         Nav
         <Search />
-        <Signup />
+        {/* <Login /> */}
+        {/* <Signup /> */}
       </div>
     );
   }

@@ -7,15 +7,11 @@
   margin: 0 60px 0 60px;
 
   .onesPickHeadWrap {
-    // position: relative;
     display: flex;
-    // float: left;
     height: 3em;
     width: 82.5em;
     max-height: 3.75em;
     max-width: 82.5em;
-    // margin-bottom: 10px;
-    // padding: 12px 0 14px 0;
     border: solid orange;
 
     .onesPickHeadCover {
@@ -25,21 +21,16 @@
         width: 55em;
         font-size: 22px;
         letter-spacing: -0.4;
-        // margin-left: 15px;
-        // margin-bottom: 10px;sn
         border: dashed 1px black;
-        // top: 6px;
-        // right: 10px;
       }
     }
     .boxRankingCover {
       height: 30.517em;
       width: 84.438em;
-      // margin-top: 100px;;
-      // margin: 0 28.406px 0 28.406px;
       border: dashed rgb(255, 0, 149);
 
       .boxRankingWrap {
+        z-index: 1;
         display: flex;
         height: 30.517em;
         width: 84.438em;

@@ -11,12 +11,12 @@ class Signup extends Component {
     };
   }
 
-  handleInput = e => {
+  handleInput = (e) => {
     const { value, name } = e.target;
     this.setState({
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
   checkValidation = (e) => {
     e.preventDefault();
@@ -24,8 +24,32 @@ class Signup extends Component {
     const checkName = name.length > 0;
     const checkEmail = email.includes('@');
     const checkPassword = password.length > 6;
-    if (checkName && checkEmail && checkPassword) console.log('okay');
-    if (!checkName) alert('이름을 입력해주세요');
+    if (checkName && checkEmail && checkPassword) {
+      console.log('okay');
+      this.makeRequest(name, email, password);
+    } else if (!checkName) alert('이름을 입력해주세요');
+  };
+
+  makeRequest = (name, email, password) => {
+    fetch('http://10.58.7.77:8000/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: '김병준',
+        email: 'qudwns123@gmail.com',
+        password: 'qudwns123',
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        alert(res.message);
+        // this.setState({
+        // 'name': '김태현',
+        // 'email':
+      });
+    // });
   };
 
   render() {
@@ -44,7 +68,6 @@ class Signup extends Component {
               <input
                 type='text'
                 className='name'
-                
                 placeholder='이름'
                 onChange={this.handleInput}
                 name='name'

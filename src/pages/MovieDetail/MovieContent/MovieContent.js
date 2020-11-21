@@ -65,35 +65,14 @@ class MovieContent extends Component {
       thumbsup: this.state.contentData[ran].thumbsup,
       countComment: this.state.contentData[ran].countComment,
     }
-    
-    // this.setState({
-    //   commentArray: [...commentArray, obj]
-    // })
 
-    // let comments = Array.from()
     this.setState({
-      
-      // commentArray: [...commentArray, obj],
-      // contentData는 지금 기존에 있던 데이터
-      // obj는 새로 추가한 데이터 <== 입력한 댓글값
-      // 기존 데이터는 4개
-      // length로 어떻게 하면 될것 같다
-      // conmmentArray: [...commentArray, obj],
-      contentData: [...contentData, obj],
+      contentData: [obj, ...contentData],
     })
     
-    // this.showComment();
-    // this.reverseArray();
     this.closeModalComment();
     
   }
-
-  // showComment = () => {
-  //   this.setState({
-  //     commentShow: true,
-  //   })
-  // }
-
   goToCommentDetail = () => {
     this.props.history.push("/movie-detail/comments");
   }
@@ -131,34 +110,7 @@ class MovieContent extends Component {
     };
 
     const { contentData, isComment } = this.state;
-    // console.log(contentData)
-    // console.log(commentArray);
-    // console.log(commentArray);
-    // 데이터가 잘 담긴다
-    // console.log(contentData?.content);
-    // 값에 접근했음 이걸 어떻게 전달해서 뿌려주기만 하면됨
-    // 그냥 한줄 더 추가한건데 왜 안되지??
-
-    // console.log(contentData[commentLength]?.comment);
-    // console.log(commentLength);
-
-    // console.log(contentData[commentLength-1]?.comment);
-
-    // comment 자체가 안잡힘
-    // for(let i = 0; i < contentData.length; i++) {
-    //   console.log(contentData[i].comment);
-
-    // } 
-
-    // 나는 개 멍청이인가
-
-    // console.log(contentData);
-
     
-    // console.log(reverseData);
-
-    // console.log(this.state.contentData.reverse());
-
     return (
       <>
         <div className='MovieContent'>

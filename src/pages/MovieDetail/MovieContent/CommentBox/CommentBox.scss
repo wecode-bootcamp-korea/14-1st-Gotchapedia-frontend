@@ -74,6 +74,7 @@
       margin: 0 0 5px 10px;
       color: $pink;
       font-weight: normal;
+      cursor: pointer;
     }
 
     .pushedLike {
@@ -86,6 +87,7 @@
       color: #fff;
       background-color: $pink;
       border-radius: 5px;
+      cursor: pointer;
     }
   }
 }

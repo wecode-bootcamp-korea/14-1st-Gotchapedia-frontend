@@ -6,6 +6,10 @@ import MovieHeader from './MovieHeader/MovieHeader';
 import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
 
+
+const MOVIEDETAIL_API = 'http://localhost:3000/data/contentdata.json'
+// const MOVIEDETAIL_API = "백엔드 주소"
+
 class MovieDetail extends Component {
   constructor() {
     super();
@@ -16,7 +20,11 @@ class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    fetch("/Data/contentdata.json", {
+    this.loadMovieDetailData()
+  }
+
+  loadMovieDetailData = () => {
+    fetch(MOVIEDETAIL_API, {
     })
     .then(res => res.json())
     .then(res => {
@@ -25,6 +33,8 @@ class MovieDetail extends Component {
       })
     })
   }
+
+
 
   render() {
     const { contentsData } = this.state;

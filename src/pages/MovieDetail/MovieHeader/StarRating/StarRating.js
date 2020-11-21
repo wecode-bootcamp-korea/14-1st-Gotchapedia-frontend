@@ -1,26 +1,11 @@
 import React, { Component } from 'react';
-import { FaStar, FaThList } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
 import './StarRating.scss';
 
 class StarRating extends Component {
-  constructor() {
-    super();
-    this.state = {
-      rating: null,
-      hover: null,
-    }
-  }
-
-  ratingStars = (ratingValue) => {
-    this.setState({
-      rating: ratingValue
-    })
-  }
 
   render() {
-    const { rating, hover } = this.state;
-    
-    // console.log(hover);
+    const { starPoint, starHover, ratingStars, mouseEnterEvent, mouseLeaveEvent } = this.props;
     
     return (
       <div className='StarRating'>
@@ -30,18 +15,18 @@ class StarRating extends Component {
             <label key={i}>
               <input 
                 type='radio' 
-                name='rating' 
+                name='starPoint' 
                 value={ratingValue} 
-                onClick={() => this.setState({ rating: ratingValue })}
+                onClick={() => ratingStars(ratingValue)}
               >
               </input>
 
               <FaStar 
                 className='star' 
-                color={ratingValue <= (hover || rating) ? "#FFC107" : "#E4E5E9"} 
+                color={ratingValue <= (starHover || starPoint) ? "#FFC107" : "#E4E5E9"} 
                 size={30}
-                onMouseEnter={() => this.setState({ hover: ratingValue })}
-                onMouseLeave={() => this.setState({ hover: null })}
+                onMouseEnter={() => mouseEnterEvent(ratingValue)}
+                onMouseLeave={() => mouseLeaveEvent(null)}
               />
             </label>
           )

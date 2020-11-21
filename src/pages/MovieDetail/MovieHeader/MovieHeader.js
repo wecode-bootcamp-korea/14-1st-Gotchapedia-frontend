@@ -6,12 +6,16 @@ import StarRating from './StarRating/StarRating';
 import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
+const STARAPI = '스타 API 주소';
+
 class MovieHeader extends Component {
   constructor() {
     super();
+    // userId, movieId, starPoint
     this.state = {
       isWantToSee: false,
-      // headerData: this.props.contentsData
+      starPoint: null,
+      starHover: null,
     }
   }
 
@@ -27,12 +31,43 @@ class MovieHeader extends Component {
     })
   }
 
-  render() {
-    const { isWantToSee, headerData } = this.state;
-    const { contentsData } = this.props;
 
-    // 이게 왜 안되는거야??
-    // console.log(contentsData[0].headerImage);
+  sendStarPoint = () => {
+    const { starPoint } = this.state;
+    fetch(STARAPI, {
+      method: 'POST',
+      body: JSON.stringify({
+        starPoint: starPoint
+      }),
+    })
+      .then((res) => { return res.json()})
+      .then((res) => console.log(res))
+  }
+  
+
+  ratingStars = (ratingValue) => {
+    this.setState({
+      starPoint: ratingValue, 
+    })
+    this.sendStarPoint();
+  }
+
+  mouseLeaveEvent = () => {
+    this.setState({
+      starHover: null,
+    })
+  }
+
+  mouseEnterEvent = (ratingValue) => {
+    this.setState({
+      starHover: ratingValue,
+    })
+  }
+
+  render() {
+    const { isWantToSee, starPoint, starHover } = this.state;
+    // const { contentsData } = this.props;
+
     return (
       <>
         <div className='MovieHeaderTop'><img src="/images/vanilaSkyHeaderImage.jpg" alt='바닐라스카이재밌어요'></img></div>
@@ -48,14 +83,16 @@ class MovieHeader extends Component {
                 <div className='ratingContent'>
                   <div className='buttonContainer'>
                     <button className='wantToSeeWrapper'>
-                      <div className='plusIcon'><FontAwesomeIcon className='plusIcon' icon={faPlus} /></div>
+                      <div className='plusIconWrapper'><FontAwesomeIcon className='plusIcon' icon={faPlus} /></div>
                       <div className='wantToSee' onClick={this.openWantToSee} >보고싶어요</div>
                     </button>
-                    <button className='modal'>▾</button>
+                    <button className='modalBtnWrapper'>
+                      <div className='modalBtn'>▾</div>
+                    </button>
                   </div>
                   <div className='starRatingBox'>
                     <div className='ratingTitle'>평가하기</div>
-                    <StarRating />
+                    <StarRating mouseEnterEvent={this.mouseEnterEvent} mouseLeaveEvent={this.mouseLeaveEvent} ratingStars={this.ratingStars} starPoint={starPoint} starHover={starHover} />
                   </div> 
                 </div>
               </div>

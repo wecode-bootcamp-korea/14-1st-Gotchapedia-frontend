@@ -3,7 +3,6 @@
 .MyPage {
   .header {
     height: 30px;
-    // border-bottom: 1px solid #ddd;
 
     .headerArrow {
       margin: 15px 20px 5px 20px;
@@ -19,7 +18,7 @@
     }
   }
   section {
-    margin: 10px 0;
+    margin: 10px 20px;
     border-bottom: 1px solid #ececec;
     .sectionHeader {
       @include flex-spaceBetween-center;
@@ -47,6 +46,8 @@
       display: flex;
       height: 280px;
       padding: 10px 15px;
+      margin-bottom: 20px;
+      overflow-y: scroll;
 
       .movieBox {
         margin: 5px;
@@ -60,10 +61,15 @@
           }
         }
         .movieTitle {
+          width: 141px;
+          height: 16px;
           margin-top: 5px;
           color: #292a32;
           font-size: 15px;
           font-weight: 800;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
 
         .movieScore {

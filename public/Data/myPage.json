@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "movieId": 48,
+      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "title": "기묘한 이야기: 리플레이",
+      "rate": "5.0",
+      "date": "2020 . 미국"
+    },
+    {
+      "movieId": 24,
+      "imageURL": "/images/chorong2.png",
+      "title": "특수요원",
+      "rate": "5.0",
+      "date": "2020 . 한국"
+    },
+    {
+      "movieId": 68,
+      "imageURL": "/images/kurtRussel.jpg",
+      "title": "공포체험라디오 4DX",
+      "rate": "5.0",
+      "date": "2020 . 한국"
+    },
+    {
+      "movieId": 16,
+      "imageURL": "/images/poster1.jpg",
+      "title": "기기괴괴 성형수",
+      "rate": "5.0",
+      "date": "2020 . 한국"
+    },
+    {
+      "movieId": 67,
+      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "title": "국제수사",
+      "rate": "5.0",
+      "date": "2020 . 한국"
+    },
+    {
+      "movieId": 53,
+      "imageURL": "https://ssl.pstatic.net/imgmovie/mdi/mit110/0629/F2920-01.jpg",
+      "title": "위자 악마소환게임",
+      "rate": "5.0",
+      "date": "2020 . 헝가리"
+    },
+    {
+      "movieId": 6,
+      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "title": "해머 오브 갓",
+      "rate": "5.0",
+      "date": "2013 . 영국"
+    },
+    {
+      "movieId": 56,
+      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "title": "마이 리틀 포니: 레인보우 로드 트립",
+      "rate": "5.0",
+      "date": "2019 . 미국"
+    },
+    {
+      "movieId": 57,
+      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "title": "이비자",
+      "rate": "5.0",
+      "date": "2019 . 프랑스"
+    },
+    {
+      "movieId": 52,
+      "imageURL": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1643/164301_P00_154914.jpg",
+      "title": "좀비랜드 파이널",
+      "rate": "4.5",
+      "date": "2020 . 헝가리"
+    }
+  ]
+}

@@ -26,20 +26,9 @@ class Mytaste extends Component {
         datasets: [
           {
             label: 'Star Ratings',
+            barThickness: 35,
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            backgroundColor: [
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-              '#fbdd62',
-            ],
+            backgroundColor: Array(10).fill('#fbdd62'),
           },
         ],
       },
@@ -73,14 +62,9 @@ class Mytaste extends Component {
     })
       .then((res) => res.json())
       .then((res) =>
-        this.setState(
-          {
-            myStar: res.user,
-          },
-          () => {
-            this.setMyStar();
-          }
-        )
+        this.setState({ myStar: res.user }, () => {
+          this.setMyStar();
+        })
       )
       .catch((error) => console.log('error', error));
   };

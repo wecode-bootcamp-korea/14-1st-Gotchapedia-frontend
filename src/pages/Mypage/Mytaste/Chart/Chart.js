@@ -27,6 +27,9 @@ class Chart extends Component {
               stepSize: 3,
               fontColor: '#a5a5a5',
             },
+            gridLines: {
+              display: false,
+            },
           },
         ],
         yAxes: [{ display: false }],

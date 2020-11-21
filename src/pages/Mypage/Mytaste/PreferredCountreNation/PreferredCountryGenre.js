@@ -9,7 +9,7 @@ class PreferredCountryGenre extends Component {
           <div className='title'>영화 선호국가</div>
           <ul className='top3'>
             <li>
-              <div className='bold big'>{preferredData[0].label}</div>
+              {/* <div className='bold big'>{preferredData[0].label}</div>
               <div className='grey small'>
                 {preferredData[0].score}점 ・ {preferredData[0].count}편
               </div>
@@ -24,28 +24,22 @@ class PreferredCountryGenre extends Component {
               <div className='bold big'>{preferredData[2].label}</div>
               <div className='grey small'>
                 {preferredData[2].score}점 ・ {preferredData[2].count}편
-              </div>
+              </div> */}
             </li>
           </ul>
           <ul className='top6 grey'>
-            <li>
+            {/* <li>
               <div>{preferredData[3].label}</div>
-              <div className='small'>
-                {preferredData[3].score}점 ・ {preferredData[3].count}편
-              </div>
+              <div className='small'>{preferredData[3].score}점 ・ {preferredData[3].count}편</div>
             </li>
             <li>
               <div>{preferredData[4].label}</div>
-              <div className='small'>
-                {preferredData[4].score}점 ・ {preferredData[4].count}편
-              </div>
+              <div className='small'>{preferredData[4].score}점 ・ {preferredData[4].count}편</div>
             </li>
             <li>
               <div>{preferredData[5].label}</div>
-              <div className='small'>
-                {preferredData[5].score}점 ・ {preferredData[5].count}편
-              </div>
-            </li>
+              <div className='small'>{preferredData[5].score}점 ・ {preferredData[5].count}편</div>
+            </li> */}
           </ul>
         </div>
         <div className='preferredGenre'>

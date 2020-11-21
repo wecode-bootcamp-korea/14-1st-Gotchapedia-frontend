@@ -29,9 +29,7 @@ class MovieClip extends Component {
 
   render() {
     const { videos } = this.state;
-    console.log(videos.items);
     const videoArr = videos.items;
-    console.log(videoArr);
     return (
       <div className='MovieClip'>
         <ul>

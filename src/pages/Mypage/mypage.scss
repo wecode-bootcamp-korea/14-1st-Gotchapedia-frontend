@@ -18,7 +18,7 @@
     }
   }
   section {
-    margin: 10px 20px;
+    margin: 30px 20px;
     border-bottom: 1px solid #ececec;
     .sectionHeader {
       @include flex-spaceBetween-center;
@@ -44,10 +44,10 @@
     }
     .movieList {
       display: flex;
-      height: 280px;
+      height: 300px;
       padding: 10px 15px;
       margin-bottom: 20px;
-      overflow-y: scroll;
+      overflow-x: scroll;
 
       .movieBox {
         margin: 5px;

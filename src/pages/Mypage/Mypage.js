@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
-// import MovieClip from '../MovieDetail/MovieSide/MovieClip/MovieClip';
+import MovieClip from '../MovieDetail/MovieSide/MovieClip/MovieClip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './mypage.scss';
-import { isCompositeComponent } from 'react-dom/test-utils';
 
 const MYPAGE_API = 'http://localhost:3000/data/myPage.json';
 const MYPAGE_TOKEN = '';
@@ -36,9 +35,11 @@ class Mypage extends Component {
   render() {
     const { myData } = this.state;
     const movieData = myData.data;
+
     return (
       <>
         <Nav />
+        <MovieClip />
         <div className='MyPage'>
           <div className='header'>
             <FontAwesomeIcon className='headerArrow' icon={faArrowLeft} />
@@ -47,7 +48,9 @@ class Mypage extends Component {
             <div className='sectionHeader'>
               <div className='headerLeft'>
                 <span>평가</span>
-                <span className='sectionCount'>918</span>
+                <span className='sectionCount'>
+                  {movieData && movieData.length}
+                </span>
               </div>
               <div className='headerRight'>더보기</div>
             </div>
@@ -73,7 +76,9 @@ class Mypage extends Component {
             <div className='sectionHeader'>
               <div className='headerLeft'>
                 <span>보고싶어요</span>
-                <span className='sectionCount'>918</span>
+                <span className='sectionCount'>
+                  {movieData && movieData.length}
+                </span>
               </div>
               <div className='headerRight'>더보기</div>
             </div>
@@ -99,7 +104,9 @@ class Mypage extends Component {
             <div className='sectionHeader'>
               <div className='headerLeft'>
                 <span>보는중</span>
-                <span className='sectionCount'>918</span>
+                <span className='sectionCount'>
+                  {movieData && movieData.length}
+                </span>
               </div>
               <div className='headerRight'>더보기</div>
             </div>

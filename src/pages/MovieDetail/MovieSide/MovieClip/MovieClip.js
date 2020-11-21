@@ -42,7 +42,7 @@ class MovieClip extends Component {
                 <li>
                   <div className='thumbnail'>
                     <div className='playIcon'>
-                      <FontAwesomeIcon icon={faPlayCircle} />
+                      <FontAwesomeIcon icon={faPlayCircle} size='2x' />
                     </div>
                     <img
                       src={video.snippet.thumbnails.default.url}

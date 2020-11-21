@@ -30,7 +30,7 @@
     },
     {
       "movieId": 67,
-      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "imageURL": "/images/cameronCrow.jpg",
       "title": "국제수사",
       "rate": "5.0",
       "date": "2020 . 한국"
@@ -44,14 +44,14 @@
     },
     {
       "movieId": 6,
-      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "imageURL": "/images/cameronDiaz.jpeg",
       "title": "해머 오브 갓",
       "rate": "5.0",
       "date": "2013 . 영국"
     },
     {
       "movieId": 56,
-      "imageURL": "/images/vanilaSkyPoster.jpeg",
+      "imageURL": "/images/penelopeCruise.jpeg",
       "title": "마이 리틀 포니: 레인보우 로드 트립",
       "rate": "5.0",
       "date": "2019 . 미국"

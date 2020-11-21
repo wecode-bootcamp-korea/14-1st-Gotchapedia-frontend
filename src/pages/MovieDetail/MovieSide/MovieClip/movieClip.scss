@@ -3,6 +3,7 @@
 .MovieClip {
   width: 318px;
   height: 153px;
+  padding: 10px 0px;
   border: 1px solid #bebebe;
   border-radius: 5px;
   overflow: hidden;
@@ -10,6 +11,8 @@
 
   ul {
     display: flex;
+    height: 100%;
+
     a {
       text-decoration: none;
       color: black;
@@ -19,26 +22,29 @@
       li {
         @include flex-spaceBetween-column;
         width: 135px;
+        height: 100%;
+        margin: 0 5px;
 
-        margin: 5px;
         .thumbnail {
           position: relative;
           width: 132px;
           height: 90px;
+
           .playIcon {
-            width: 24px;
+            width: 30px;
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 40%;
+            left: 40%;
             color: white;
           }
           img {
             width: 132px;
           }
         }
+
         .videoTitle {
           width: 134px;
-          height: 30px;
+          height: 20px;
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;

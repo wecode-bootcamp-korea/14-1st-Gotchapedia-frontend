@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import './movieClip.scss';
 
-const API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=bts&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
+const YOUTUBE_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=bts&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
 
 class MovieClip extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class MovieClip extends Component {
   }
 
   callApi = () => {
-    return fetch(API, {
+    return fetch(YOUTUBE_API, {
       method: 'GET',
       redirect: 'follow',
     })

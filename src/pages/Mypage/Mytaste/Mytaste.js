@@ -5,44 +5,19 @@ import './mytaste.scss';
 import WordCloud from './wordCloud/wordCloud';
 
 const randomScalingFactor = () => {
-  return Math.floor(Math.random() * 100)
-}
+  return Math.floor(Math.random() * 100);
+};
 
 class Mytaste extends Component {
   constructor() {
     super();
     this.state = {
-      chartData: {},
-    };
-  }
-
-  componentWillMount() {
-    // this.getchartData(); // this should be this.getChartData();
-    this.getChartData();
-  }
-
-  getChartData() {
-
-
-    this.setState({
       chartData: {
         labels: ['', '1', '', '2', '', '3', '', '4', '', '5'],
         datasets: [
           {
             label: 'Star Ratings',
-            data: [
-              // 40, 25, 45, 30, 20, 19, 22, 40, 18, 22
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-              randomScalingFactor(),
-            ],
+            data: [10, 4, 2, 1, 5, 7, 9, 10, 10, 10, 10],
             backgroundColor: [
               '#fbdd62',
               '#fbdd62',
@@ -59,10 +34,48 @@ class Mytaste extends Component {
           },
         ],
       },
-    });
+      myStar: {},
+    };
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3000/data/my_star.json', {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState(
+          {
+            myStar: res.user,
+          },
+          () => {
+            this.setMyStar();
+          }
+        );
+      });
+  }
+
+  setMyStar = () => {
+    const { myStar, chartData } = this.state;
+    console.log(myStar);
+    console.log(chartData.datasets[0].data);
+    const temp = [];
+    temp.push(myStar['0.5']);
+    temp.push(myStar['1.0']);
+    temp.push(myStar['1.5']);
+    temp.push(myStar['2.0']);
+    temp.push(myStar['2.5']);
+    temp.push(myStar['3.0']);
+    temp.push(myStar['3.5']);
+    temp.push(myStar['4.0']);
+    temp.push(myStar['4.5']);
+    temp.push(myStar['5.0']);
+    chartData.datasets[0].data = temp;
+    this.setState({ chartData });
+  };
+
   render() {
+    // console.log(this.state.myStar);
     return (
       <>
         <Nav />
@@ -95,12 +108,7 @@ class Mytaste extends Component {
                     평가에 상대적으로 깐깐한 '깐새우파'.
                   </div>
                   <div className='graph'>
-                    <Chart
-                      chartData={this.state.chartData}
-                      location='Massachusetts'
-                      legendPosition='bottom'
-                    />
-                    {/* <img src='/images/graph.png' alt='graph' /> */}
+                    <Chart chartData={this.state.chartData} />
                   </div>
                   <ul className='row'>
                     <li>

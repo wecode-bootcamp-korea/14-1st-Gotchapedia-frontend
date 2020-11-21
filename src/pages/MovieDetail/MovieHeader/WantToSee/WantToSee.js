@@ -42,7 +42,9 @@ class WantToSee extends Component {
           <FontAwesomeIcon className='noInterestIcon' icon={faBan} />
         </div>
         <div className='seeCancel' onClick={closeWantToSee}>
-          취소
+          <div className='seeCancelBtn'>
+            취소
+          </div>
         </div>
       </div>
     </div>

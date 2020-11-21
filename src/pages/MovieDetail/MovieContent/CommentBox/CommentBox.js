@@ -9,12 +9,27 @@ class CommentBox extends Component {
   constructor() {
     super();
     this.state = {
+      isLike: false,
+      // cnt: 1,
     }
   }
 
-  render() {
-    let { contentData } = this.props;
+  likeEvent = (cnt) => {
+    const { isLike } = this.state;
+    // let likeCount = this.props.contentData.thumbsup;
+    // likeCount = Number(likeCount) + Number(cnt);
+    // console.log(likeCount);
+     
+      this.setState({
+        isLike: !isLike,
+      })
+  }
 
+
+  render() {
+    const { contentData, } = this.props;
+    let cnt = Number(this.props.contentData.thumbsup);
+    const { isLike } = this.state;
     // 리버스가 안 먹는다....
     // contentData = contentData.reverse();
     // console.log(comment[key].comment);
@@ -25,6 +40,8 @@ class CommentBox extends Component {
 
     // 댓글이 추가가 되는데 뒤에 담긴다 reverse? unshift?
     // 새로달린 댓글들 UI가 사라졌다
+
+    console.log(cnt);
     return (
       <>
         {/* 댓글값? */}
@@ -33,7 +50,7 @@ class CommentBox extends Component {
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img src={contentData.profileImage} alt='작성자아이콘' />
+              <img src={contentData.castingImage} alt='작성자아이콘' />
               <div className='writerId'>{contentData.writerId}
                 <div className='writerIcon'></div>
               </div>
@@ -51,14 +68,17 @@ class CommentBox extends Component {
           <div className='commentIcons'>
             <div className='thumbsUpWrapper'>
               <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-              {contentData.thumbsup}
+              {isLike ? cnt += 1 : cnt}
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
               {contentData.countComment}
             </div>
           </div>
-          <div className='like'>좋아요</div>
+          <div className='likeEventContainer'>
+            <div className={isLike ? 'pushedLike' : 'unpushedLike'} onClick={this.likeEvent}>좋아요</div>
+          </div>
+          
         </div>
       </>  
     )

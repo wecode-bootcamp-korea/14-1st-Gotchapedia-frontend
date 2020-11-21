@@ -2,7 +2,7 @@
 
 .commentBox {
   display: block;
-  // width: 294px;
+  height: 290px;
   background-color: #eee;
 
   border-radius: 5px;
@@ -69,11 +69,24 @@
     }
   }
 
-  .like {
-    color: $pink;
-    font-size: 15px;
-    padding: 5px 10px;
-    border-top: 1px solid #ddd;
+  .likeEventContainer {
+    .unpushedLike {
+      margin: 0 0 5px 10px;
+      color: $pink;
+      font-weight: normal;
+    }
+
+    .pushedLike {
+      width: 60px;
+      height: 20px;
+      @include flex-center;
+      margin-left: 6px;
+      color: $pink;
+      border-top: 1px solid #ddd;
+      color: #fff;
+      background-color: $pink;
+      border-radius: 5px;
+    }
   }
 }
 

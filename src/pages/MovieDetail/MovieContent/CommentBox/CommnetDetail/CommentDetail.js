@@ -45,6 +45,7 @@ class CommentDetail extends Component {
         <div className='commentBoxWrapper'>
           {contentData && contentData.map((el, idx) => {
             return (
+            <div style={{width: "600px"}}>
               <div key={idx} className='commentBox'>
                 <div className='commentTitle'>
                   <div className='titleLeft'>
@@ -76,6 +77,7 @@ class CommentDetail extends Component {
                 </div>
                 <div className='like'>좋아요</div>
               </div>              
+              </div>
             )
           })}
         </div>

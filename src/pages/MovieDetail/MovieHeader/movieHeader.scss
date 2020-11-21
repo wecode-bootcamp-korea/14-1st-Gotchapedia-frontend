@@ -95,6 +95,7 @@
                 font-size: 17px;
                 border-width: bold;
                 border-right: 1px solid crimson;
+                cursor: pointer;
 
                 .plusIcon {
                   font-size: 25px;
@@ -118,6 +119,7 @@
                 background-color: $pink;
                 border-radius: 0 5px 5px 0;
                 color: #fff;
+                cursor: pointer;
               }
             }
 
@@ -137,4 +139,13 @@
 
 .displayNone {
   display: none;
+}
+.plusIcon {
+  transition: 0.5s;
+  width: 27px;
+  height: 27px;
+  &:hover {
+    transform: rotate(30deg);
+    transition: 0.5s;
+  }
 }

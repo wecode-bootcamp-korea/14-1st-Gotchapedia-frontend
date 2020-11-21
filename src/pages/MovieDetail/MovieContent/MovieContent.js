@@ -18,7 +18,7 @@ class MovieContent extends Component {
       commentArray: [],
       isColor: false,
       writerId: "",
-      profileImage: "",
+      castingImage: "",
       starRating: "",
       thumbsUp: "",
       countComment: "",
@@ -61,7 +61,7 @@ class MovieContent extends Component {
       comment: commentString,
       writerId: this.state.contentData[ran].writerId,
       starRating: this.state.contentData[ran].starRating,
-      profileImage: this.state.contentData[ran].profileImage,
+      castingImage: this.state.contentData[ran].castingImage,
       thumbsup: this.state.contentData[ran].thumbsup,
       countComment: this.state.contentData[ran].countComment,
     }
@@ -194,7 +194,7 @@ class MovieContent extends Component {
                 </div> 
                 <span onClick={this.goToCommentDetail}>더보기</span>
               </div>
-              <div className='commentBoxWrapper'>
+              <div style={{}} className='commentBoxWrapper'>
                 <Slider {...settings}>
                     {contentData.map((el, idx) => {
                       return (

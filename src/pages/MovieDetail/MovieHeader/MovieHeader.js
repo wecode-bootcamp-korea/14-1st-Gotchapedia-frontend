@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import StarRating from './StarRating/StarRating';
 import WantToSee from './WantToSee/WantToSee';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 class MovieHeader extends Component {
   constructor() {
@@ -47,7 +48,7 @@ class MovieHeader extends Component {
                 <div className='ratingContent'>
                   <div className='buttonContainer'>
                     <button className='wantToSeeWrapper'>
-                      <div className='plusIcon'>+</div>
+                      <div className='plusIcon'><FontAwesomeIcon className='plusIcon' icon={faPlus} /></div>
                       <div className='wantToSee' onClick={this.openWantToSee} >보고싶어요</div>
                     </button>
                     <button className='modal'>▾</button>

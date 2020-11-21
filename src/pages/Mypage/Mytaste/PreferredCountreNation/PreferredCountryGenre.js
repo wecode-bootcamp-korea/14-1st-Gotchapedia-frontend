@@ -2,36 +2,49 @@ import React, { Component } from 'react';
 
 class PreferredCountryGenre extends Component {
   render() {
+    const preferredData = this.props.userData.data;
     return (
       <>
         <div className='preferredCountry'>
           <div className='title'>영화 선호국가</div>
           <ul className='top3'>
             <li>
-              <div className='bold big'>미국</div>
-              <div className='grey small'>94점 ・ 485편</div>
+              <div className='bold big'>{preferredData[0].label}</div>
+              <div className='grey small'>
+                {preferredData[0].score}점 ・ {preferredData[0].count}편
+              </div>
             </li>
             <li>
-              <div className='bold big'>영국</div>
-              <div className='grey small'>84점 ・ 142편</div>
+              <div className='bold big'>{preferredData[1].label}</div>
+              <div className='grey small'>
+                {preferredData[1].score}점 ・ {preferredData[1].count}편편
+              </div>
             </li>
             <li>
-              <div className='bold big'>한국</div>
-              <div className='grey small'>82점 ・ 157편</div>
+              <div className='bold big'>{preferredData[2].label}</div>
+              <div className='grey small'>
+                {preferredData[2].score}점 ・ {preferredData[2].count}편
+              </div>
             </li>
           </ul>
           <ul className='top6 grey'>
             <li>
-              <div>독일</div>
-              <div className='small'>72점 ・ 60편</div>
+              <div>{preferredData[3].label}</div>
+              <div className='small'>
+                {preferredData[3].score}점 ・ {preferredData[3].count}편
+              </div>
             </li>
             <li>
-              <div>프랑스</div>
-              <div className='small'>67점 ・ 60편</div>
+              <div>{preferredData[4].label}</div>
+              <div className='small'>
+                {preferredData[4].score}점 ・ {preferredData[4].count}편
+              </div>
             </li>
             <li>
-              <div>캐나다</div>
-              <div className='small'>64점 ・ 39편</div>
+              <div>{preferredData[5].label}</div>
+              <div className='small'>
+                {preferredData[5].score}점 ・ {preferredData[5].count}편
+              </div>
             </li>
           </ul>
         </div>

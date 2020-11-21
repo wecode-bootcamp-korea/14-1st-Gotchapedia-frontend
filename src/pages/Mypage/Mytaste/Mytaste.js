@@ -5,16 +5,22 @@ import './mytaste.scss';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import WordCloud from './wordCloud/wordCloud';
 
-const TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OH0.0NYJB4XhN_uScgqWtaVeLsXNmqSTi2TeQ68YvnMs2bE';
-// const MYSTAR_API = 'http://10.58.7.222:8000/analysis/my_star';
-const MYSTAR_API = 'http://localhost:3000/data/my_star.json';
-// 'http://localhost:3000/data/my_star.json'
+const PREFERRED_TOKEN =
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
+const PREFERRED_API =
+  'http://10.58.0.152:8000/analysis/favorite?category=country';
+// const PREFERRED_API = 'http://localhost:3000/data/preferredCountryGenre.json';
+
+const MYSTAR_TOKEN =
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
+const MYSTAR_API = 'http://10.58.7.222:8000/analysis/my_star';
+// const MYSTAR_API = 'http://localhost:3000/data/my_star.json';
 
 class Mytaste extends Component {
   constructor() {
     super();
     this.state = {
+      userData: {},
       chartData: {
         labels: ['', '1', '', '2', '', '3', '', '4', '', '5'],
         datasets: [
@@ -42,14 +48,27 @@ class Mytaste extends Component {
   }
 
   componentDidMount() {
-    this.loadData();
+    this.loadMystarData();
+    this.loadPreferredData();
   }
 
-  loadData = () => {
+  loadPreferredData = () => {
+    fetch(PREFERRED_API, {
+      method: 'GET',
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ userData: res }))
+      .catch((error) => console.log('error', error));
+  };
+
+  loadMystarData = () => {
     fetch(MYSTAR_API, {
       method: 'GET',
       headers: {
-        Authorization: TOKEN,
+        Authorization: MYSTAR_TOKEN,
       },
     })
       .then((res) => res.json())
@@ -77,6 +96,7 @@ class Mytaste extends Component {
   };
 
   render() {
+    const { userData } = this.state;
     return (
       <>
         <Nav />
@@ -98,7 +118,7 @@ class Mytaste extends Component {
               <div className='movieCount'>
                 <div className='title'>평가수</div>
                 <div className='content'>
-                  <p className='count bold big'>1120</p>
+                  <p className='count bold big'>{userData.wholeCount}</p>
                   <p className='grey small'>영화</p>
                 </div>
               </div>
@@ -117,7 +137,7 @@ class Mytaste extends Component {
                       <div className='grey small'>별점 평균</div>
                     </li>
                     <li>
-                      <div className='bold big'>1110</div>
+                      <div className='bold big'>{userData.wholeCount}</div>
                       <div className='grey small'>별점 개수</div>
                     </li>
                     <li>
@@ -149,11 +169,13 @@ class Mytaste extends Component {
                   <img src='/images/belovedActor.png' alt='actor' />
                 </div>
               </div>
-              <PreferredCountryGenre />
+              <PreferredCountryGenre userData={userData} />
               <div className='movieWatchingTime'>
                 <div className='title'>영화 감상 시간</div>
                 <div className='timeWrapper'>
-                  <div className='totalTime pink big bold'>1751 시간</div>
+                  <div className='totalTime pink big bold'>
+                    {userData.watchingTime} 시간
+                  </div>
                   <div className='timeMbti pink'>
                     상위 0.1%의 고지가 저 앞에 보여요.
                   </div>

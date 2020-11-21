@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import './mytaste.scss';
+import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import WordCloud from './wordCloud/wordCloud';
 
-const randomScalingFactor = () => {
-  return Math.floor(Math.random() * 100);
-};
+const TOKEN =
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6OH0.0NYJB4XhN_uScgqWtaVeLsXNmqSTi2TeQ68YvnMs2bE';
+// const MYSTAR_API = 'http://10.58.7.222:8000/analysis/my_star';
+const MYSTAR_API = 'http://localhost:3000/data/my_star.json';
+// 'http://localhost:3000/data/my_star.json'
 
 class Mytaste extends Component {
   constructor() {
@@ -17,7 +20,7 @@ class Mytaste extends Component {
         datasets: [
           {
             label: 'Star Ratings',
-            data: [10, 4, 2, 1, 5, 7, 9, 10, 10, 10, 10],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: [
               '#fbdd62',
               '#fbdd62',
@@ -39,11 +42,18 @@ class Mytaste extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/my_star.json', {
+    this.loadData();
+  }
+
+  loadData = () => {
+    fetch(MYSTAR_API, {
       method: 'GET',
+      headers: {
+        Authorization: TOKEN,
+      },
     })
       .then((res) => res.json())
-      .then((res) => {
+      .then((res) =>
         this.setState(
           {
             myStar: res.user,
@@ -51,31 +61,22 @@ class Mytaste extends Component {
           () => {
             this.setMyStar();
           }
-        );
-      });
-  }
+        )
+      )
+      .catch((error) => console.log('error', error));
+  };
 
   setMyStar = () => {
     const { myStar, chartData } = this.state;
-    console.log(myStar);
-    console.log(chartData.datasets[0].data);
-    const temp = [];
-    temp.push(myStar['0.5']);
-    temp.push(myStar['1.0']);
-    temp.push(myStar['1.5']);
-    temp.push(myStar['2.0']);
-    temp.push(myStar['2.5']);
-    temp.push(myStar['3.0']);
-    temp.push(myStar['3.5']);
-    temp.push(myStar['4.0']);
-    temp.push(myStar['4.5']);
-    temp.push(myStar['5.0']);
-    chartData.datasets[0].data = temp;
+    let tempData = [];
+    for (let key in myStar) {
+      tempData.push(myStar[key]);
+    }
+    chartData.datasets[0].data = tempData;
     this.setState({ chartData });
   };
 
   render() {
-    // console.log(this.state.myStar);
     return (
       <>
         <Nav />
@@ -148,74 +149,7 @@ class Mytaste extends Component {
                   <img src='/images/belovedActor.png' alt='actor' />
                 </div>
               </div>
-              <div className='preferredCountry'>
-                <div className='title'>영화 선호국가</div>
-                <ul className='top3'>
-                  <li>
-                    <div className='bold big'>미국</div>
-                    <div className='grey small'>94점 ・ 485편</div>
-                  </li>
-                  <li>
-                    <div className='bold big'>영국</div>
-                    <div className='grey small'>84점 ・ 142편</div>
-                  </li>
-                  <li>
-                    <div className='bold big'>한국</div>
-                    <div className='grey small'>82점 ・ 157편</div>
-                  </li>
-                </ul>
-                <ul className='top6 grey'>
-                  <li>
-                    <div>독일</div>
-                    <div className='small'>72점 ・ 60편</div>
-                  </li>
-                  <li>
-                    <div>프랑스</div>
-                    <div className='small'>67점 ・ 60편</div>
-                  </li>
-                  <li>
-                    <div>캐나다</div>
-                    <div className='small'>64점 ・ 39편</div>
-                  </li>
-                </ul>
-              </div>
-              <div className='preferredGenre'>
-                <div className='title'>영화 선호장르</div>
-                <div className='genreWrapper'>
-                  <div className='genreMbti pink'>
-                    인생은 역시 한 편의 드라마!
-                  </div>
-                  <ul className='top3'>
-                    <li>
-                      <div className='bold big'>드라마</div>
-                      <div className='grey small'>91점 ・ 485편</div>
-                    </li>
-                    <li>
-                      <div className='bold big'>모험</div>
-                      <div className='grey small'>90점 ・ 275편</div>
-                    </li>
-                    <li>
-                      <div className='bold big'>액션</div>
-                      <div className='grey small'>89점 ・ 288편</div>
-                    </li>
-                  </ul>
-                  <ul className='top6 grey'>
-                    <li>
-                      <div>코미디</div>
-                      <div className='small'>88점 ・ 298편</div>
-                    </li>
-                    <li>
-                      <div>판타지</div>
-                      <div className='small'>88점 ・ 211편</div>
-                    </li>
-                    <li>
-                      <div>SF</div>
-                      <div className='small'>87점 ・ 172편</div>
-                    </li>
-                  </ul>
-                  <button className='moreBtn bold'>더보기</button>
-                </div>
-              </div>
+              <PreferredCountryGenre />
               <div className='movieWatchingTime'>
                 <div className='title'>영화 감상 시간</div>
                 <div className='timeWrapper'>

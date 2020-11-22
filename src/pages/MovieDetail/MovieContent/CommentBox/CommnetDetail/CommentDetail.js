@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Nav from '../../../../../components/Nav/Nav';
+import CommentDetailBox from './CommentDetailBox/CommentDetailBox';
 import './CommentDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { faComment } from '@fortawesome/free-solid-svg-icons';
-// import CommentBox from '../CommentBox';
 
 class CommentDetail extends Component {
   constructor() {
     super();
     this.state = {
-      commentData: [],
+      contentData: [],
+      newCommentStr: '',
+      newCommentArr: [],
     }
   }
 
@@ -32,8 +31,32 @@ class CommentDetail extends Component {
     this.props.history.push("/movie-detail");
   }
 
+  handleComment = (e) => {
+    this.setState({
+      newCommentStr: e.target.value,
+    })
+  } 
+
+  enterAddEvent = (e) => {
+    const { newCommentStr, newCommentArr } = this.state;
+    e.preventDefault();
+
+    if(e.keyCode === 13) {
+
+      const writtenTime = Date.now();
+      const obj = {
+        id: writtenTime,
+        comment: newCommentStr,
+      }
+
+      this.setState((prevState) => ({
+        newCommentArr: [...newCommentArr, obj],
+      }))
+    }
+  }
+
   render() {
-    const { contentData } = this.state;
+    const { contentData, newCommentArr } = this.state;
 
     return (
       <>
@@ -43,43 +66,7 @@ class CommentDetail extends Component {
           <div className='headingTitle'>코멘트</div>
         </div>      
         <div className='commentBoxWrapper'>
-          {contentData && contentData.map((el, idx) => {
-            return (
-            <div style={{width: "600px"}}>
-              <div key={idx} className='commentBox'>
-                <div className='commentTitle'>
-                  <div className='titleLeft'>
-                    {/* 왜 profileImage를 쓰면 안되는거지?? */}
-                    <img src={el.castingImage} alt='작성자아이콘'></img>
-                    <div className='writerId'>{el.writerId}
-                      <div className='writerIcon'></div>
-                    </div>
-                  </div>
-                  <div className='titleRight'>
-                    <FontAwesomeIcon className='writerStar' icon={faStar} />
-                    {el.starRating}
-                  </div>
-                </div>
-                <div className='commentContent'>
-                  <p>
-                    {el.comment}
-                  </p>
-                </div>
-                <div className='commentIcons'>
-                  <div className='thumbsUpWrapper'>
-                    <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-                    {el.thumbsup}
-                  </div>
-                  <div className='commentWrapper'>
-                    <FontAwesomeIcon className='commentIcon' icon={faComment} />
-                    {el.countComment}
-                  </div>
-                </div>
-                <div className='like'>좋아요</div>
-              </div>              
-              </div>
-            )
-          })}
+          <CommentDetailBox handleComment={this.handleComment} enterAddEvent={this.enterAddEvent} commentDetailBoxData={contentData} newCommentArr={newCommentArr}/>
         </div>
       </>
     )

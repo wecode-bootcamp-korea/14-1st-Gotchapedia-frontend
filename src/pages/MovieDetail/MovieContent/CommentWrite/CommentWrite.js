@@ -11,14 +11,14 @@ class CommentWrite extends Component {
 
 
   render() {
-    const { closeModalComment, addComment, handleChange, isColor } = this.props;
+    const { commentWriteData, closeModalComment, addComment, handleChange, isColor } = this.props;
 
     return(
       <div className='CommentWrite' onClick={closeModalComment}>
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
           <div className='commentHeading'>
             <div className='headingX' onClick={closeModalComment}>X</div>
-            <div className='headingTitle'>바닐라스카이</div>
+            <div className='headingTitle'>{commentWriteData[0]?.name}</div>
             <div className={isColor ? 'coloredHeadingComment' : 'headingComment'} onClick={addComment}>코멘트 작성</div>
           </div>
           <div className='commentContent'>

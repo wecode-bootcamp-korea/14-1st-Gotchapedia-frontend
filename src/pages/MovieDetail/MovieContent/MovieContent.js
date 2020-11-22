@@ -25,19 +25,6 @@ class MovieContent extends Component {
     }
   };
 
-  // props로 받는걸로 변경해서 지금 이 과정이 없음
-  // 그냥 여기는 컨디마로 데이터 받자 나중에 수정
-  componentDidMount() {
-    fetch("/Data/contentdata.json", {
-    })
-    .then(res => res.json())
-    .then(res => {
-      this.setState({
-        contentData: res.data,
-      })
-    })
-  }
-
   handleChange = (e) => {
     if(e.target.value) {
       this.setState({
@@ -49,7 +36,6 @@ class MovieContent extends Component {
         isColor: false,
       })
     }
-    console.log(e);
   }
   
   addComment = (e) => {
@@ -61,8 +47,10 @@ class MovieContent extends Component {
       id: written_time,
       comment: commentString,
       commentorId: contentData[ran].commentorId,
-      starRating: contentData[ran].starRating,
-      castingImage: contentData[ran].castingImage,
+      // 별점 반영부분 수정필요
+      // starPoint: contentData[ran].starPoint,
+      starPoint: '5.0',
+      commentorImage: contentData[ran].commentorImage,
       thumbsup: contentData[ran].thumbsup,
       countComment: contentData[ran].countComment,
     }
@@ -105,9 +93,11 @@ class MovieContent extends Component {
     };
 
     const { contentData, isComment } = this.state;
-    const { movieContentData } = this.props;
-    const temp = movieContentData;
 
+    const { movieContentData } = this.props;
+
+    console.log(movieContentData);
+    
     return (
       <>
         <div className='MovieContent'>
@@ -126,20 +116,16 @@ class MovieContent extends Component {
             <div className='normalInfo'>
               <div className='infoHeading' onClick={this.goToOverview} >기본 정보<span>더보기</span></div>
               <div className='infoContent'>
-    {/* <div className='contentHeading'>{temp[0].movieName}</div> */}
-                <div className='contentHeading'>Radioactive</ div>
-    {/* <div className='contentInfo'>{temp[0].movieGenre}</div> */}
-                <div className='contentInfo'>2019 · 영국 · 드라마</div>
-    {/* <div className='contentTime'>{temp[0].movieShowTime} 분</div> */}
-                <div className='contentTime'>1시간 43분</div>
-    {/* <div className='detailContent'>{temp[0].movieDescription}</div> */}
-                <div className='detailContent'>새로운 세상을 만든 천재 과학자 그녀의 빛나는 도전과 숨겨진 이야기! 뛰어난 연구 실적에도 불구하고 거침없는 성격 때문에 연구실에서 쫓겨난 과학자 ‘마리’. 평소 그녀의 연구를 눈여겨본 ‘피에르’는 공동 연구를 제안하고, 두 사람은 자연스럽게 사랑...</div>
+                <div className='contentHeading'>{movieContentData[0]?.name}</div>
+                <div className='contentInfo'>{movieContentData[0]?.genre}</div>
+                <div className='contentTime'>{movieContentData[0]?.showTime} 분</div>
+                <div className='detailContent'>{movieContentData[0]?.description}</div>
               </div>
             </div>
             <div className='castingWrapper'>                                                                                                                   
               <div className='castingHeading'>출연/제작</div>
               <div className='castingContent'>
-                {contentData && <CastingList castingListData={movieContentData}/>}
+                {/* {contentData && <CastingList castingListData={movieContentData}/>} */}
               </div>
             </div>
             <div className='commentWrapper'>
@@ -149,26 +135,26 @@ class MovieContent extends Component {
                 </div> 
                 <span onClick={this.goToCommentDetail}>더보기</span>
               </div>
-              <div style={{}} className='commentBoxWrapper'>
-                <Slider {...settings}>
-                    {contentData.map((el, idx) => {
+              <div className='commentBoxWrapper'>
+                {/* <Slider {...settings}>
+                    {movieContentData && movieContentData?.map((el, idx) => {
                       return (
-                        <CommentBox 
-                          key={idx}
-                          commentData={el}
+                        <CommentBox
+                          key={movieContentData && idx}
+                          commentData={movieContentData && el}
                         />
                       )
                     })}
-                </Slider>
+                </Slider> */}
               </div>
             </div>
           </div>
         </div>
         <div className={isComment ? '' : 'displayNone'}>
           <CommentWrite
+            commentWriteData={contentData && contentData}
             handleChange={this.handleChange}
             addComment={this.addComment}
-
             isColor={this.state.isColor}
             isComment={isComment}
             closeModalComment={this.closeModalComment}

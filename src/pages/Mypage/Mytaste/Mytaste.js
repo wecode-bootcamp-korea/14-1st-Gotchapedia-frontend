@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
-import './mytaste.scss';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import WordCloud from './wordCloud/wordCloud';
+import { PREFERRED_API, PREFERRED_TOKEN, MYSTAR_API, MYSTAR_TOKEN } from "../../../config";
+import './mytaste.scss';
 
-const PREFERRED_TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
-const PREFERRED_API =
-  'http://10.58.0.152:8000/analysis/favorite?category=country';
-// const PREFERRED_API = 'http://localhost:3000/data/preferredCountryGenre.json';
-
-const MYSTAR_TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
-const MYSTAR_API = 'http://10.58.7.222:8000/analysis/my_star';
-// const MYSTAR_API = 'http://localhost:3000/data/my_star.json';
 
 class Mytaste extends Component {
   constructor() {

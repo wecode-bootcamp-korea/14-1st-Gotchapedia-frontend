@@ -30,7 +30,7 @@ class Search extends Component {
       },
     })
       .then((res) => res.json())
-      .then((res) => this.setState({ detailData: res }))
+      .then((res) => this.setState({ detailData: res.data }))
       .catch((error) => console.log('error', error));
   };
 
@@ -38,6 +38,11 @@ class Search extends Component {
     console.log('click');
     this.props.history.push(`/monsters/detail/${event.key}`);
     this.setState({ isListActive: false });
+  };
+
+  saveKeyword = () => {
+    const { searchValue } = this.state;
+    console.log('enter');
   };
 
   searchMovie = (event) => {
@@ -59,7 +64,9 @@ class Search extends Component {
         tempSearchPool = [...tempFilteredMovie];
       }
     });
-
+    // if (event.key === 'Enter') {
+    //   localStorage.setItem(RECENT_KEYWORDS, searchValue);
+    // }
     this.setState({ filteredMovie: tempFilteredMovie });
   };
 
@@ -75,9 +82,13 @@ class Search extends Component {
       filteredMovie,
       detailData,
     } = this.state;
-    console.log(detailData);
+    console.log(detailData.subImage && detailData.subImage[0].url);
+
     return (
       <>
+        <div className='temp'>
+          {/* <img src={detailData && detailData.subImage[0].url} alt="temp"/> */}
+        </div>
         <input
           type='text'
           className='searchInput'

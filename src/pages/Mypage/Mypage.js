@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { MYPAGE_API, MYPAGE_TOKEN } from '../../config';
 import './mypage.scss';
 
-const MYPAGE_API = 'http://localhost:3000/data/myPage.json';
-const MYPAGE_TOKEN = '';
+
 
 class Mypage extends Component {
   constructor() {

@@ -81,7 +81,7 @@ class Mytaste extends Component {
         <Nav />
         <div className='Mytaste'>
           <div className='header'>
-            <img src='/images/logoPink.png' alt='logo' className='logo' />
+            <img src='/images/gotchapediaPink.png' alt='logo' className='logo' />
             <div className='text'>취향분석</div>
             <img src='/images/profile.jpg' alt='profile' className='profile' />
             <div className='userName'>고은정</div>

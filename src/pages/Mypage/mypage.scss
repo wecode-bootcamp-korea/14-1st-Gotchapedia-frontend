@@ -2,7 +2,10 @@
 
 .MyPage {
   .header {
-    height: 30px;
+    @include flex-spaceBetween-center;
+    // display: flex;
+    height: 50px;
+    border-bottom: 1px solid #eeeeee;
 
     .headerArrow {
       margin: 15px 20px 5px 20px;
@@ -11,16 +14,18 @@
       color: $pink;
     }
 
-    .headerName {
-      margin: 10px 20px;
+    .myTasteBtn {
+      margin: 20px 20px;
       font-size: 22px;
       font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
     }
   }
   section {
     margin: 30px 20px;
     border-bottom: 1px solid #ececec;
-    
+
     .sectionHeader {
       @include flex-spaceBetween-center;
       height: 48px;

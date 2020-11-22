@@ -42,7 +42,7 @@ class Nav extends Component {
           <div className='navWrapper'>
             <div className='navLeft'>
               <img
-                src='/images/watchaText.png'
+                src='/images/gotchapediaText.png'
                 alt='gotchapediaLogo'
                 className='gotchapediaLogo'
               />

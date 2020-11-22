@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'; 
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -35,6 +36,7 @@ class Mypage extends Component {
         <div className='MyPage'>
           <div className='header'>
             <FontAwesomeIcon className='headerArrow' icon={faArrowLeft} />
+            <div className='myTasteBtn'><Link to="/mypage-mytaste">취향분석</Link></div>
           </div>
           <section className='evaluationSection'>
             <div className='sectionHeader'>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Nav from '../../components/Nav/Nav';
-import MovieClip from '../MovieDetail/MovieSide/MovieClip/MovieClip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './mypage.scss';
@@ -38,8 +37,7 @@ class Mypage extends Component {
 
     return (
       <>
-        <Nav />
-        <MovieClip />
+        <Nav myData={myData && myData} />
         <div className='MyPage'>
           <div className='header'>
             <FontAwesomeIcon className='headerArrow' icon={faArrowLeft} />
@@ -67,7 +65,7 @@ class Mypage extends Component {
                       />
                     </div>
                     <div className='movieTitle'>{movie.title}</div>
-                    <div className='movieScore'>평가함 ★ {movie.rate}}</div>
+                    <div className='movieScore'>평가함 ★ {movie.rate}</div>
                   </div>
                 ))}
             </div>
@@ -95,7 +93,7 @@ class Mypage extends Component {
                       />
                     </div>
                     <div className='movieTitle'>{movie.title}</div>
-                    <div className='movieScore'>평가함 ★ {movie.rate}}</div>
+                    <div className='movieScore'>평가함 ★ {movie.rate}</div>
                   </div>
                 ))}
             </div>
@@ -123,7 +121,7 @@ class Mypage extends Component {
                       />
                     </div>
                     <div className='movieTitle'>{movie.title}</div>
-                    <div className='movieScore'>평가함 ★ {movie.rate}}</div>
+                    <div className='movieScore'>평가함 ★ {movie.rate}</div>
                   </div>
                 ))}
             </div>

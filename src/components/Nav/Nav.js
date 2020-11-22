@@ -34,6 +34,7 @@ class Nav extends Component {
 
   render() {
     const { isSignup, isLogin } = this.state;
+    const { myData } = this.props;
 
     return (
       <>
@@ -45,7 +46,6 @@ class Nav extends Component {
                 alt='gotchapediaLogo'
                 className='gotchapediaLogo'
               />
-              <div className='mytaste'>취향분석</div>
             </div>
             <div className='navRight'>
               <div className='magnifierIcon'>
@@ -55,11 +55,9 @@ class Nav extends Component {
                 <div className='searchIcon'>
                   <FontAwesomeIcon icon={faSearch} />
                 </div>
-                <input
-                  type='text'
-                  className='searchInput'
-                  placeholder='작품 제목,배우,감독을 검색해보세요.'
-                />
+                <div className='searchInput'>
+                  <Search searchData={myData} />
+                </div>
               </div>
 
               <button className='loginBtn' onClick={this.openLogin}>
@@ -81,9 +79,7 @@ class Nav extends Component {
           </div>
         </div>
         <div className={isSignup ? '' : 'displayNone'}>
-          <Signup
-            closeSignup={this.closeSignup}
-          />
+          <Signup closeSignup={this.closeSignup} />
         </div>
         <div className={isLogin ? '' : 'displayNone'}>
           <Login isLogin={this.state.isLogin} closeLogin={this.closeLogin} />

@@ -20,6 +20,7 @@
   section {
     margin: 30px 20px;
     border-bottom: 1px solid #ececec;
+    
     .sectionHeader {
       @include flex-spaceBetween-center;
       height: 48px;

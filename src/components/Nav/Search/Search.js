@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { DETAIL_API, DETAIL_TOKEN } from '../../../config';
 import './search.scss';
-
-const DETAIL_API = 'http://10.58.1.5:8000/movie/23';
-const DETAIL_TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
 
 class Search extends Component {
   constructor() {
@@ -18,25 +15,26 @@ class Search extends Component {
     };
   }
 
-  componentDidMount() {
-    this.loadDetailData();
-  }
+  // 잠시 꺼놓습니다..
+  // componentDidMount() {
+  //   this.loadDetailData();
+  // }
 
-  loadDetailData = () => {
-    fetch(DETAIL_API, {
-      method: 'GET',
-      headers: {
-        Authorization: DETAIL_TOKEN,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => this.setState({ detailData: res.data }))
-      .catch((error) => console.log('error', error));
-  };
+  // loadDetailData = () => {
+  //   fetch(DETAIL_API, {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: DETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => this.setState({ detailData: res.data }))
+  //     .catch((error) => console.log('error', error));
+  // };
 
   goToDetail = (event) => {
-    console.log('click');
-    this.props.history.push(`/monsters/detail/${event.key}`);
+    console.log('click') // 표시되지 않음... why..?
+    this.props.history.push(`movie-detail/${event.key}`);
     this.setState({ isListActive: false });
   };
 
@@ -86,9 +84,6 @@ class Search extends Component {
 
     return (
       <>
-        <div className='temp'>
-          {/* <img src={detailData && detailData.subImage[0].url} alt="temp"/> */}
-        </div>
         <input
           type='text'
           className='searchInput'

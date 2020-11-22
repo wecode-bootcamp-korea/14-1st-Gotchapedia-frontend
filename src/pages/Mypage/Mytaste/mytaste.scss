@@ -2,38 +2,44 @@
 
 .Mytaste {
   @include flex-column-center;
-  // img {
-  //   object-fit: cover;
-  // }
   font-family: roboto;
   background-color: $lightgrey;
+
   .title {
     height: 44px;
     font-weight: 700;
     font-size: 17px;
   }
+
   .content {
     @include flex-column-center;
     margin-bottom: 20px;
   }
+
   .grey {
     color: #a5a5a5;
   }
+
   .pink {
     color: $pink;
   }
+
   .big {
     font-size: 17px;
   }
+
   .small {
     font-size: 12px;
   }
+
   .bold {
     font-weight: 700;
   }
+
   .row {
     @include flex-spaceBetween-center;
   }
+
   .header {
     @include flex-column-center;
     justify-content: center;
@@ -47,10 +53,12 @@
     .logo {
       width: 120px;
     }
+
     .text {
       margin: 12px 0;
       font-size: 12px;
     }
+
     .profile {
       @include mediumProfile;
     }
@@ -61,6 +69,7 @@
       font-size: 19px;
     }
   }
+  
   .main {
     width: 638px;
     section {

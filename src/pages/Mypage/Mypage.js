@@ -5,8 +5,6 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { MYPAGE_API, MYPAGE_TOKEN } from '../../config';
 import './mypage.scss';
 
-
-
 class Mypage extends Component {
   constructor() {
     super();
@@ -16,10 +14,6 @@ class Mypage extends Component {
   }
 
   componentDidMount() {
-    this.loadMypageData();
-  }
-
-  loadMypageData = () => {
     fetch(MYPAGE_API, {
       method: 'GET',
       headers: {
@@ -29,7 +23,7 @@ class Mypage extends Component {
       .then((res) => res.json())
       .then((res) => this.setState({ myData: res }))
       .catch((error) => console.log('error', error));
-  };
+  }
 
   render() {
     const { myData } = this.state;

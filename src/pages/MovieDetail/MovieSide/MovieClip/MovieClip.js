@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { YOUTUBE_API } from '../../../../config';
 import './movieClip.scss';
-
-const YOUTUBE_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=bts&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
 
 class MovieClip extends Component {
   constructor() {
@@ -14,27 +13,22 @@ class MovieClip extends Component {
   }
 
   componentDidMount() {
-    this.callApi();
-  }
-
-  callApi = () => {
     return fetch(YOUTUBE_API, {
       method: 'GET',
       redirect: 'follow',
     })
       .then((response) => response.json())
-      .then((result) => this.setState({ videos: result }))
+      .then((result) => this.setState({ videos: result.items }))
       .catch((error) => console.log('error', error));
-  };
+  }
 
   render() {
     const { videos } = this.state;
-    const videoArr = videos.items;
     return (
       <div className='MovieClip'>
         <ul>
-          {videoArr &&
-            videoArr.map((video) => (
+          {videos &&
+            videos.map((video) => (
               <a
                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                 target='_blank'

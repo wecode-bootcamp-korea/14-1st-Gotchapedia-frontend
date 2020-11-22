@@ -3,9 +3,13 @@ import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import WordCloud from './wordCloud/wordCloud';
-import { PREFERRED_API, PREFERRED_TOKEN, MYSTAR_API, MYSTAR_TOKEN } from "../../../config";
+import {
+  PREFERRED_API,
+  PREFERRED_TOKEN,
+  MYSTAR_API,
+  MYSTAR_TOKEN,
+} from '../../../config';
 import './mytaste.scss';
-
 
 class Mytaste extends Component {
   constructor() {
@@ -18,7 +22,7 @@ class Mytaste extends Component {
           {
             label: 'Star Ratings',
             barThickness: 35,
-            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            data: [3, 2, 6, 7, 8, 1, 2, 3, 4, 6, 9],
             backgroundColor: Array(10).fill('#fbdd62'),
           },
         ],
@@ -75,15 +79,9 @@ class Mytaste extends Component {
     return (
       <>
         <Nav />
-
         <div className='Mytaste'>
           <div className='header'>
-            <img
-              src='/images/logoPink.png
-            '
-              alt='logo'
-              className='logo'
-            />
+            <img src='/images/logoPink.png' alt='logo' className='logo' />
             <div className='text'>취향분석</div>
             <img src='/images/profile.jpg' alt='profile' className='profile' />
             <div className='userName'>고은정</div>

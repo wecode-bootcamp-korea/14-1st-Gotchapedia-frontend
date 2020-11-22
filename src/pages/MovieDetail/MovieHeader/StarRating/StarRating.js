@@ -5,7 +5,7 @@ import './StarRating.scss';
 class StarRating extends Component {
 
   render() {
-    const { starPoint, starHover, ratingStars, mouseEnterEvent, mouseLeaveEvent } = this.props;
+    const { rateStar, starHover, ratingStars, mouseEnterEvent, mouseLeaveEvent } = this.props;
     
     return (
       <div className='StarRating'>
@@ -14,8 +14,8 @@ class StarRating extends Component {
           return (
             <label key={i}>
               <input 
-                type='radio' 
-                name='starPoint' 
+                type='radio'
+                name='rateStar' 
                 value={ratingValue} 
                 onClick={() => ratingStars(ratingValue)}
               >
@@ -23,7 +23,7 @@ class StarRating extends Component {
 
               <FaStar 
                 className='star' 
-                color={ratingValue <= (starHover || starPoint) ? "#FFC107" : "#E4E5E9"} 
+                color={ratingValue <= (starHover || rateStar) ? "#FFC107" : "#E4E5E9"} 
                 size={30}
                 onMouseEnter={() => mouseEnterEvent(ratingValue)}
                 onMouseLeave={() => mouseLeaveEvent(null)}

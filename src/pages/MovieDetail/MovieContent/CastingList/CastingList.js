@@ -25,7 +25,7 @@ class CastingList extends Component {
   }
 
   render() {
-    const { contentData } = this.props;
+    const { castingListData } = this.props;
 
     const settings = {
       className: "center",
@@ -45,14 +45,14 @@ class CastingList extends Component {
     return (
       <>
         <Slider {...settings}>
-          {contentData.map((el, idx) => {
+          {castingListData.map((el, idx) => {
             return (
               <div>
                 <div key={idx} className='castingContentList'>
-                  <img className='castingImage' src={el.castingImage} alt='배우'></img>
+                  <img className='castingImage' src={el.movieStaff[idx].staffImage} alt='배우'></img>
                   <div className='profileDetail'>
-                    <div className='castingName'>{el.castingName}</div>
-                    <div className='castingRole'>{el.castingRole}</div>
+                    <div className='castingName'>{el.movieStaff[idx].staffName}</div>
+                    <div className='castingRole'>{el.movieStaff[idx].staffPosition}</div>
                   </div>
                 </div>
               </div>

@@ -8,6 +8,8 @@
     background-color: #eee;
     height: 300px;
     overflow: hidden;
+    // 헤더 배경 scss 손 볼것!!
+    // background-image: linear-gradient(-180deg);
   }
 
   .MovieHeaderBottom {
@@ -27,6 +29,7 @@
       img {
         @include mediumSize;
         border: 2px solid #fff;
+        object-fit: cover;
       }
 
       // 여기는 디테일 부분
@@ -46,10 +49,10 @@
         }
 
         .posterTitle {
-          width: 769px;
+          width: 100%;
           font-size: 25px;
           font-weight: bold;
-          padding: 14px 16px 22px;
+          padding: 29px 16px 22px;
         }
 
         .posterTitleDetail {

@@ -15,7 +15,7 @@ class MovieDetail extends Component {
     super();
     this.state = {
       isWantToSee: false,
-      contentsData: [],
+      movieDetailData: [],
     }
   }
 
@@ -29,7 +29,7 @@ class MovieDetail extends Component {
     .then(res => res.json())
     .then(res => {
       this.setState({
-        contentsData: res.data,
+        movieDetailData: res.data,
       })
     })
   }
@@ -37,16 +37,16 @@ class MovieDetail extends Component {
 
 
   render() {
-    const { contentsData } = this.state;
+    const { movieDetailData } = this.state;
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>
           <Nav />
-          <MovieHeader contentsData={contentsData && contentsData}/>
+          <MovieHeader movieHeaderData={movieDetailData && movieDetailData} />
         </div>
         <div className='MovieContentWrapper'>
-          <MovieContent />
-          <MovieSide />
+          <MovieContent movieContentData={movieDetailData && movieDetailData} />
+          <MovieSide movieSideData={movieDetailData && movieDetailData} />
         </div>
         <Footer />
       </div>

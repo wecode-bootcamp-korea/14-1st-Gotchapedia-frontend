@@ -5,27 +5,13 @@ class CommentWrite extends Component {
   constructor() {
     super();
     this.state = ({
-      // isColor: false,
 
     })
   }
 
-  // changeColor = (e) => {
-  //   console.log(e.target.value);
-  //   e.target.value ? this.setState({
-  //     isColor: true,
-  //   }) : this.setState({
-  //     isColor: false,
-  //   })
-  // }
-
-
 
   render() {
-
     const { closeModalComment, addComment, handleChange, isColor } = this.props;
-
-    // console.log(commentArray);
 
     return(
       <div className='CommentWrite' onClick={closeModalComment}>

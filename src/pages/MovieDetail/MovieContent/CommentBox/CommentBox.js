@@ -10,59 +10,40 @@ class CommentBox extends Component {
     super();
     this.state = {
       isLike: false,
-      // cnt: 1,
     }
   }
 
   likeEvent = (cnt) => {
     const { isLike } = this.state;
-    // let likeCount = this.props.contentData.thumbsup;
-    // likeCount = Number(likeCount) + Number(cnt);
-    // console.log(likeCount);
-     
-      this.setState({
-        isLike: !isLike,
-      })
+    this.setState({
+      isLike: !isLike,
+    })
   }
 
 
   render() {
-    const { contentData, } = this.props;
-    let cnt = Number(this.props.contentData.thumbsup);
+    const { commentData } = this.props;
+    let cnt = Number(this.props.commentData.thumbsup);
     const { isLike } = this.state;
-    // 리버스가 안 먹는다....
-    // contentData = contentData.reverse();
-    // console.log(comment[key].comment);
-    // console.log(comment[key]);
 
-    // console.log(contentData.comment);
-
-
-    // 댓글이 추가가 되는데 뒤에 담긴다 reverse? unshift?
-    // 새로달린 댓글들 UI가 사라졌다
-
-    console.log(cnt);
     return (
       <>
-        {/* 댓글값? */}
-        {/* {comment} */}
-
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img src={contentData.castingImage} alt='작성자아이콘' />
-              <div className='writerId'>{contentData.writerId}
-                <div className='writerIcon'></div>
-              </div>
+              {/* src를 못 읽어서 하드코딩 해둠 */}
+              {/* <img src={commentData.commentorImage} alt='작성자아이콘' /> */}
+              <img src='/images/chorong2.png' alt='작성자아이콘' />
+              <div className='commentorId'>{commentData.commentorId} </div>
             </div>
             <div className='titleRight'>
               <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {contentData.starRating}
+              {commentData.starPoint}
             </div>
           </div>
           <div className='commentContent'>
             <p>
-              {contentData.comment}
+              {commentData.comment}
             </p>
           </div>
           <div className='commentIcons'>
@@ -72,13 +53,12 @@ class CommentBox extends Component {
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {contentData.countComment}
+              {commentData.countComment}
             </div>
           </div>
           <div className='likeEventContainer'>
             <div className={isLike ? 'pushedLike' : 'unpushedLike'} onClick={this.likeEvent}>좋아요</div>
-          </div>
-          
+          </div>        
         </div>
       </>  
     )

@@ -35,13 +35,17 @@
   ul {
     li {
       height: 30px;
-      width: 252px;
+      width: 100%;
       padding: 8px 5px;
       margin-bottom: 2px;
       font-size: 15px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      cursor: pointer;
+      &:hover {
+        background-color: #eeeeee;
+      }
     }
   }
 }

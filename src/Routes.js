@@ -17,6 +17,7 @@ class Routes extends Component {
           <Route exact path='/mypage' component={Mypage} />
           <Route exact path='/mypage-mytaste' component={Mytaste} />
           <Route exact path='/movie-detail' component={MovieDetail} />
+          <Route exact path='/movie-detail/:id' component={MovieDetail} />
           <Route exact path='/movie-detail/comments' component={CommentDetail} />
           <Route exact paht='/movie-detail/overview' component={Overview} />
         </Switch>

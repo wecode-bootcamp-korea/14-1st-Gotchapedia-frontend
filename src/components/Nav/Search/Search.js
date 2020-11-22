@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './search.scss';
+
+const DETAIL_API = 'http://10.58.1.5:8000/movie/23';
+const DETAIL_TOKEN =
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
 
 class Search extends Component {
   constructor() {
@@ -9,12 +14,35 @@ class Search extends Component {
       isSearchOn: false,
       isListActive: false,
       filteredMovie: [],
+      detailData: {},
     };
   }
 
+  componentDidMount() {
+    this.loadDetailData();
+  }
+
+  loadDetailData = () => {
+    fetch(DETAIL_API, {
+      method: 'GET',
+      headers: {
+        Authorization: DETAIL_TOKEN,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ detailData: res }))
+      .catch((error) => console.log('error', error));
+  };
+
+  goToDetail = (event) => {
+    console.log('click');
+    this.props.history.push(`/monsters/detail/${event.key}`);
+    this.setState({ isListActive: false });
+  };
+
   searchMovie = (event) => {
-    const { searchValue, filteredMovie } = this.state;
     event.preventDefault();
+    const { searchValue } = this.state;
     const { searchData } = this.props;
     const searchPool = searchData.data;
     const searchKeywords = searchValue.split(' ');
@@ -40,8 +68,14 @@ class Search extends Component {
   };
 
   render() {
-    const { searchValue, isSearchOn, isListActive, filteredMovie } = this.state;
-
+    const {
+      searchValue,
+      isSearchOn,
+      isListActive,
+      filteredMovie,
+      detailData,
+    } = this.state;
+    console.log(detailData);
     return (
       <>
         <input
@@ -66,7 +100,12 @@ class Search extends Component {
             <ul className='latestList'>
               {filteredMovie &&
                 filteredMovie.map((movie) => (
-                  <li className='resultMovie'>{movie.title}</li>
+                  <li
+                    className='resultMovie'
+                    key={movie.movieId}
+                    className={movie.movieId}>
+                    {movie.title}
+                  </li>
                 ))}
             </ul>
           </div>
@@ -76,7 +115,9 @@ class Search extends Component {
               <div className='keywordDeleteBtn'>모두 삭제</div>
             </div>
             <ul className='latestList'>
-              <li className='resultMovie'>바닐라 스카이</li>
+              <li className='resultMovie' key='23' onClick={this.goToDetail}>
+                바닐라 스카이
+              </li>
               <li className='resultMovie'>라라랜드</li>
               <li className='resultMovie'>붉은 돼지</li>
             </ul>
@@ -87,4 +128,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);

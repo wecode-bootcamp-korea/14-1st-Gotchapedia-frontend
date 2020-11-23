@@ -164,6 +164,10 @@ class Search extends Component {
                     {movie.title}
                   </li>
                 ))}
+              {/* {loadedKeywords &&
+                loadedKeywords.map((keyword) => (
+                  <li className='resultMovie'>{keyword}</li>
+                ))} */}
             </ul>
           </div>
           <div className='popularList'>

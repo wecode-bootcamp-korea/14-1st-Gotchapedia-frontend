@@ -27,24 +27,10 @@ class Search extends Component {
   }
 
   handleInputBlur = (e) => {
-    // e.stopPropagation();
-
     const isExist = e.composedPath().includes(this.props.inputRef.current);
-
-    console.log(isExist);
     if (!isExist) {
       this.setState({ isListActive: false });
     }
-    // for (let node of e.composedPath()) {
-    //   console.log(node == this.input.current);
-    //   // console.log();
-    // }
-
-    // if (!isExist) console.log('input', e.path);
-
-    // if (!isExist) {
-    //   this.setState({ isListActive: false });
-    // }
   };
 
   // 잠시 꺼놓습니다..
@@ -65,13 +51,8 @@ class Search extends Component {
   // };
 
   goToDetail = (e) => {
-    // event.stopPropagation();
-    // console.log(e);
     const isExist = e.nativeEvent.path.includes(this.props.inputRef.current);
-    console.log(isExist);
-    // console.log('검색결과', isExist);
-    // this.props.history.push(`movie-detail/${event.key}`);
-    // this.setState({ isListActive: false });
+    console.log(isExist); // 태현님 머지 후 수정 예정
   };
 
   saveKeyword = () => {
@@ -82,7 +63,8 @@ class Search extends Component {
   };
 
   deleteKeywords = () => {
-    console.log('click'); // 클릭이 안 됨.. 왜...?
+    console.log('click');
+    localStorage.removeItem(RECENT_KEYWORDS);
   };
 
   searchMovie = (event) => {
@@ -111,7 +93,7 @@ class Search extends Component {
     }
     this.setState({ filteredMovie: tempFilteredMovie });
   };
-
+  
   onSearchInputChange = (event) => {
     this.setState({ searchValue: event.target.value });
   };
@@ -124,7 +106,7 @@ class Search extends Component {
       filteredMovie,
       detailData,
     } = this.state;
-    let loadedKeywords = localStorage.getItem(RECENT_KEYWORDS);
+    let loadedKeywords = JSON.parse(localStorage.getItem(RECENT_KEYWORDS));
     console.log(loadedKeywords);
 
     return (
@@ -164,10 +146,10 @@ class Search extends Component {
                     {movie.title}
                   </li>
                 ))}
-              {/* {loadedKeywords &&
+              {loadedKeywords &&
                 loadedKeywords.map((keyword) => (
                   <li className='resultMovie'>{keyword}</li>
-                ))} */}
+                ))}
             </ul>
           </div>
           <div className='popularList'>

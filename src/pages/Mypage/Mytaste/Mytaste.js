@@ -82,7 +82,7 @@ class Mytaste extends Component {
         <div className='Mytaste'>
           <div className='header'>
             <img
-              src='/images/gotchapediaPink.png'
+              src='/images/gotchapediawhite.png'
               alt='logo'
               className='logo'
             />
@@ -151,7 +151,7 @@ class Mytaste extends Component {
                 <div className='title'>영화 감상 시간</div>
                 <div className='timeWrapper'>
                   <div className='totalTime pink big bold'>
-                    {userData.watchingTime} 시간
+                    {userData.watchingTime / 60} 시간
                   </div>
                   <div className='timeMbti pink'>
                     상위 0.1%의 고지가 저 앞에 보여요.

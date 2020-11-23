@@ -41,7 +41,7 @@ class Mypage extends Component {
   };
 
   loadWannaWatchData = () => {
-    fetch(WANNAWATCH_API, {
+    fetch(MYPAGE_API, {
       method: 'GET',
       headers: {
         Authorization: MYPAGE_TOKEN,
@@ -53,7 +53,7 @@ class Mypage extends Component {
   };
 
   loadWatchingData = () => {
-    fetch(WATCHING_API, {
+    fetch(MYPAGE_API, {
       method: 'GET',
       headers: {
         Authorization: MYPAGE_TOKEN,

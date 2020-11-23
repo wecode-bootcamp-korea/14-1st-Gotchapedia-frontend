@@ -43,12 +43,24 @@
   .header {
     @include flex-column-center;
     justify-content: center;
+    position: relative;
     width: 638px;
     height: 245px;
     margin: 50px 0 15px 0;
     border-radius: 5px;
     color: white;
     background-color: $pink;
+
+    .userCog {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      opacity: 0.8;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+    }
 
     .logo {
       width: 120px;
@@ -69,7 +81,7 @@
       font-size: 19px;
     }
   }
-  
+
   .main {
     width: 638px;
     section {
@@ -96,7 +108,6 @@
         width: 377px;
         height: 110px;
         margin: 20px 0;
-
       }
       ul {
         display: flex;
@@ -113,7 +124,7 @@
         }
       }
     }
-    
+
     .movieSection {
       .movieTag {
         border-bottom: 1px solid #eeeeee;

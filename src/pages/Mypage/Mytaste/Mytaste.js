@@ -3,6 +3,9 @@ import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import WordCloud from './wordCloud/wordCloud';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCog } from '@fortawesome/free-solid-svg-icons';
+
 import {
   PREFERRED_API,
   PREFERRED_TOKEN,
@@ -81,6 +84,9 @@ class Mytaste extends Component {
         <Nav />
         <div className='Mytaste'>
           <div className='header'>
+            <div className='userCog'>
+              <FontAwesomeIcon className='headerArrow' icon={faUserCog} />
+            </div>
             <img
               src='/images/gotchapediawhite.png'
               alt='logo'

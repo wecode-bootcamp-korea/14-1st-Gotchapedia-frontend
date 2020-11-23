@@ -51,6 +51,7 @@ class Search extends Component {
   // };
 
   goToDetail = (e) => {
+    console.log(e);
     const isExist = e.nativeEvent.path.includes(this.props.inputRef.current);
     console.log(isExist); // 태현님 머지 후 수정 예정
   };
@@ -71,7 +72,10 @@ class Search extends Component {
     // event.preventDefault();
     const { searchValue } = this.state;
     const { searchData } = this.props;
-    const searchPool = searchData.data;
+    let searchPool = [];
+    if (searchData) {
+      searchPool = searchData.data;
+    }
     const searchKeywords = searchValue.split(' ');
     let tempSearchPool = [...searchPool];
     let tempFilteredMovie = [];
@@ -93,7 +97,7 @@ class Search extends Component {
     }
     this.setState({ filteredMovie: tempFilteredMovie });
   };
-  
+
   onSearchInputChange = (event) => {
     this.setState({ searchValue: event.target.value });
   };
@@ -107,7 +111,6 @@ class Search extends Component {
       detailData,
     } = this.state;
     let loadedKeywords = JSON.parse(localStorage.getItem(RECENT_KEYWORDS));
-    console.log(loadedKeywords);
 
     return (
       <>
@@ -120,12 +123,6 @@ class Search extends Component {
           onChange={this.onSearchInputChange}
           onFocus={() => this.setState({ isListActive: true })}
           ref={this.input}
-          // onBlur={(e) =>
-          //   {
-          //     console.log(e)
-          //     this.setState({ isListActive: false })
-          //   }
-          // }
           onKeyUp={this.searchMovie}
         />
         <div className={isListActive ? 'listBox' : 'displayNone'}>

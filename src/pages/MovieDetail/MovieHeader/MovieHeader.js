@@ -6,11 +6,8 @@ import StarRating from './StarRating/StarRating';
 import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const STARAPI = '스타 API 주소';
-
-// const MOVIEDETAIL_API = "http://10.58.1.5:8000/movie/23";
+const STAR_API = "http://10.58.1.5:8000/analysis/star/23"
 // const MOVIEDETAIL_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
-
 
 class MovieHeader extends Component {
   constructor() {
@@ -22,24 +19,10 @@ class MovieHeader extends Component {
       isWantToSee: false,
       rateStar: null,
       starHover: null,
+      starScore: null,
+      scoreText: '평가하기'
     }
   }
-
-  // componentDidMount() {
-  //   fetch(MOVIEDETAIL_API, {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: MOVIEDETAIL_TOKEN,
-  //     },
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     this.setState({
-  //       headerData: res.data,
-  //     })
-  //   })
-  //   .catch((err) => console.log('err >>>>> ', err));
-  // }
 
   openWantToSee = () => {
     this.setState({
@@ -55,14 +38,13 @@ class MovieHeader extends Component {
 
   sendRateStarData = () => {
     const { rateStar } = this.state;
-    fetch(STARAPI, {
+    fetch(STAR_API, {
       method: 'POST',
       body: JSON.stringify({
         starPoint: rateStar
       }),
     })
       .then((res) => { return res.json()})
-      // .then((res) => console.log(res))
   }
   
   ratingStars = (ratingValue) => {
@@ -84,24 +66,37 @@ class MovieHeader extends Component {
     })
   }
 
+  howMuchStar = () => {
+    // const { rateStar } = this.state;
+
+    // if(Number(rateStar) > 4) {
+    //   return '개꿀잼'
+    // } else if (Number(rateStar) > 3) {
+    //   return '꿀잼'
+    // } else if (Number(rateStar) > 2) {
+    //   return '잼'
+    // } else if (Number(rateStar) > 1) {
+    //   return '노잼'
+    // } else {
+    //   return '핵노잼'
+    // }
+  }
+
   render() {
     const { isWantToSee, rateStar, starHover } = this.state;
     const { movieHeaderData } = this.props;
     const subImage = movieHeaderData.subImage;
+    const genre = movieHeaderData.genre;
 
-    console.log(movieHeaderData);
-
-    console.log(subImage);
     // 잘나옴 서브 첫번째 이미지
     // console.log(movieHeaderData?.subImage[0].url);
     // console.log(movieHeaderData?.genre[0].name);
 
+    // console.log('starScore >>>>>>>>>>>>>>> ',this.state.starScore.url);
+    
     return (
-      <>
-        {/* 여기 인덱스를 어떻게 줌?? map도 아닌데?? */}
-
+      <div>
         <div className='MovieHeaderTop'><img src={subImage && subImage[0].url} alt='무비서브이미지'></img></div>
-
         {/* <div className='MovieHeaderTop'><img src='/images/url1.jpg' alt='무비서브이미지'></img></div> */}
         <div className='MovieHeaderBottom'>
           <div className='posterWrapper'>
@@ -113,7 +108,7 @@ class MovieHeader extends Component {
               <div className='posterTitle'>{movieHeaderData?.name}</div>
               {/* <div className='posterTitle'>바닐라스카이</div> */}
 
-              {/* <div className='posterTitleDetail'>{movieHeaderData?.genre[0].name}</div> */}
+              <div className='posterTitleDetail'>{genre && genre[0].name}</div>
 
               {/* <div className='posterTitleDetail'>2001 · 스릴러 · SF</div> */}
               <div className='posterRating'>
@@ -131,7 +126,9 @@ class MovieHeader extends Component {
                     </button>
                   </div>
                   <div className='starRatingBox'>
-                    <div className='ratingTitle'>평가하기</div>
+                    <div className='ratingTitle'>{rateStar > 3 ? '재미있어요' : '평가하기'}</div>
+                    {/* <div className='ratingTitle'>{
+                    }</div> */}
                     {/* 별점 부분 연결 어떻게?? 질문 */}
                     <StarRating mouseEnterEvent={this.mouseEnterEvent} mouseLeaveEvent={this.mouseLeaveEvent} ratingStars={this.ratingStars} rateStar={rateStar} starHover={starHover} />
                   </div> 
@@ -147,7 +144,7 @@ class MovieHeader extends Component {
             closeWantToSee={this.closeWantToSee}
           /> */}
         </div>
-      </>
+      </div>
     )
   }
 }

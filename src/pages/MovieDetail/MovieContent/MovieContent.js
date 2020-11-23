@@ -8,6 +8,9 @@ import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
 import './movieContent.scss';
 
+
+const COMMENT_API = 'http://localhost:3000/data/contentdata.json';
+
 class MovieContent extends Component {
   constructor() {
     super();
@@ -37,7 +40,20 @@ class MovieContent extends Component {
       })
     }
   }
+
+   componentDidMount() {
+    fetch(COMMENT_API, {
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        contentData: res.data,
+      })
+    })
+    .catch((err) => console.log('err >>>>> ', err));
+  }
   
+
   addComment = (e) => {
     const { commentString, contentData } = this.state;
     const ran = Math.floor(Math.random() * 7)
@@ -96,8 +112,18 @@ class MovieContent extends Component {
 
     const { movieContentData } = this.props;
 
-    console.log(movieContentData);
-    
+    const genre = movieContentData.genre;
+
+    // const staff = movieContentData.staff;
+
+    // console.log(staff);
+
+    // 백엔드 데이터 
+    // console.log(movieContentData);
+
+    // 내 목업 데이터 댓글 뿌릴거임
+    // console.log(contentData);
+
     return (
       <>
         <div className='MovieContent'>
@@ -116,16 +142,17 @@ class MovieContent extends Component {
             <div className='normalInfo'>
               <div className='infoHeading' onClick={this.goToOverview} >기본 정보<span>더보기</span></div>
               <div className='infoContent'>
-                <div className='contentHeading'>{movieContentData[0]?.name}</div>
-                <div className='contentInfo'>{movieContentData[0]?.genre}</div>
-                <div className='contentTime'>{movieContentData[0]?.showTime} 분</div>
-                <div className='detailContent'>{movieContentData[0]?.description}</div>
+                <div className='contentHeading'>{movieContentData.name}</div>
+                <div className='contentInfo'>{genre[0].name}</div>
+                <div className='contentTime'>{movieContentData.showTime} 분</div>
+                <div className='detailContent'>{movieContentData.description}</div>
               </div>
             </div>
             <div className='castingWrapper'>                                                                                                                   
               <div className='castingHeading'>출연/제작</div>
               <div className='castingContent'>
-                {/* {contentData && <CastingList castingListData={movieContentData}/>} */}
+                {/* 잘뜸 */}
+                <CastingList castingListData={movieContentData}/>
               </div>
             </div>
             <div className='commentWrapper'>
@@ -136,23 +163,27 @@ class MovieContent extends Component {
                 <span onClick={this.goToCommentDetail}>더보기</span>
               </div>
               <div className='commentBoxWrapper'>
-                {/* <Slider {...settings}>
-                    {movieContentData && movieContentData?.map((el, idx) => {
+
+                {/* 코멘트 API가 아직 없어서 목업데이터 활용해야 함 */}
+                <Slider {...settings}>
+                    {contentData.length > 0 && contentData.map((el) => {
                       return (
                         <CommentBox
-                          key={movieContentData && idx}
-                          commentData={movieContentData && el}
+                          // key={}
+                          id={el.id}
+                          key={el.id}
+                          commentData={el}
                         />
                       )
                     })}
-                </Slider> */}
+                </Slider>
               </div>
             </div>
           </div>
         </div>
         <div className={isComment ? '' : 'displayNone'}>
           <CommentWrite
-            commentWriteData={contentData && contentData}
+            commentWriteData={contentData.length > 0 && contentData}
             handleChange={this.handleChange}
             addComment={this.addComment}
             isColor={this.state.isColor}

@@ -5,15 +5,14 @@ class AddComment extends Component {
 
 
   render() {
-    const { comments, handleComment, enterAddEvent } = this.props;
-    // 지금 단체로 댓글이 뜸, 개별적으로 안뜸, 컴포넌트 분리시켰는데
-    // console.log(comments index);
+    const { comments } = this.props;
+
     return(
       <>
         <div className='commentAdd'>
-          {comments.map((element, index) => {
+          {comments?.map((element) => {
             return (
-              <div className={index}>{element.comment}</div>
+              <div className='newComment'>{element.comment}</div>
             )
           })}
         </div>
@@ -23,9 +22,3 @@ class AddComment extends Component {
 }
 
 export default AddComment;
-
-// {newCommentArr.map((element, index) => {
-//   return (
-//     <AddComment index={index} comments={element}/>
-//   )
-// })}

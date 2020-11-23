@@ -42,16 +42,14 @@ class CommentDetail extends Component {
     e.preventDefault();
 
     if(e.keyCode === 13) {
-
-      const writtenTime = Date.now();
       const obj = {
-        id: writtenTime,
-        comment: newCommentStr,
+        id: e.target.id,
+        comment: newCommentStr
       }
 
-      this.setState((prevState) => ({
-        newCommentArr: [...newCommentArr, obj],
-      }))
+      this.setState({
+        newCommentArr: [...newCommentArr, obj]
+      })
     }
   }
 

@@ -9,7 +9,6 @@ class CommentWrite extends Component {
     })
   }
 
-
   render() {
     const { commentWriteData, closeModalComment, addComment, handleChange, isColor } = this.props;
 

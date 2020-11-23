@@ -23,27 +23,34 @@ class CommentBox extends Component {
 
 
   render() {
-    const { commentData, key } = this.props;
-    let cnt = Number(commentData?.comments[0].thumbsup);
+    const { commentData, id } = this.props;
+    let cnt = Number(commentData?.comments[id].thumbsup);
+    const comments = commentData.comments;
+
     const { isLike } = this.state;
-    // 키 값이 왜 언디파인드??
+
+    // console.log(commentData);
+
+    // 키가 왜 언디파인드 뜨는지 모르겠다
+    // console.log(key);
+
     return (
       <>
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
               {/* src를 못 읽어서 하드코딩 해둠 */}
-              <img src={commentData?.comments[0].commentorImage} alt='작성자아이콘' />
-              <div className='commentorId'>{commentData?.comments[0].commentorName} </div>
+              <img src={comments && comments[id]?.commentorImage} alt='작성자아이콘' />
+              <div className='commentorId'>{comments && comments[id]?.commentorName} </div>
             </div>
             <div className='titleRight'>
               <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {commentData?.comments[0].starPoint}
+              {comments && comments[id]?.starPoint}
             </div>
           </div>
           <div className='commentContent'>
             <p>
-              {commentData?.comments[0].comment}
+              {comments && comments[id]?.comment}
             </p>
           </div>
           <div className='commentIcons'>
@@ -53,12 +60,12 @@ class CommentBox extends Component {
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {commentData?.comments[0].countComment}
+              {comments && comments[id]?.countComment}
             </div>
           </div>
           <div className='likeEventContainer'>
             <div className={isLike ? 'pushedLike' : 'unpushedLike'} onClick={this.likeEvent}>좋아요</div>
-          </div>        
+          </div>
         </div>
       </>  
     )

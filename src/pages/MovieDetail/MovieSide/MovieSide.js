@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 // import Slider from 'react-slick';
-// import GalleryBox from './GalleryBox/GalleryBox';
+import GalleryBox from './GalleryBox/GalleryBox';
 import '../../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
-// import VideoBox from './VideoBox/VideoBox';
+import VideoBox from './VideoBox/VideoBox';
 import './movieSide.scss';
 
-class MovieSide extends Component {
+class MovieSide extends Component { 
   constructor() {
     super();
     this.state = {
@@ -49,6 +49,14 @@ class MovieSide extends Component {
             })}
            
           </Slider> */}
+
+          {/* {pictureVideoData.map((el, idx) => {
+            return (
+              <GalleryBox key={idx} pictureVideoData={el}/>
+            )
+          })} */}
+          {/* <GalleryBox /> */}
+           
         </div>
         <div className='border'></div>
         <div className='videoWrapper'>
@@ -61,6 +69,12 @@ class MovieSide extends Component {
                 )
               })}
             </Slider> */}
+            {/* {pictureVideoData.map((el, idx) => {
+              return (
+                <VideoBox key={idx} pictureVideoData={el}/>
+              )
+            })} */}
+            {/* <VideoBox /> */}
           </div>
         </div>
       </div>

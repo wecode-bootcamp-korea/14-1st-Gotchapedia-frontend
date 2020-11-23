@@ -42,17 +42,21 @@ class CastingList extends Component {
       // prevArrow:<PrevArrow/>
     };
 
+    // console.log(castingListData);
+
+    const staff = castingListData.staff;
+
     return (
       <>
         <Slider {...settings}>
-          {castingListData.map((el, idx) => {
+          {staff.map((el,idx) => {
             return (
               <div>
                 <div key={idx} className='castingContentList'>
-                  <img className='castingImage' src={el.staff[idx].image} alt='배우'></img>
+                  <img className='castingImage' src={staff[idx]?.image} alt='배우'></img>
                   <div className='profileDetail'>
-                    <div className='castingName'>{el.staff[idx].name}</div>
-                    <div className='castingRole'>{el.staff[idx].position}</div>
+                    <div className='castingName'>{staff[idx]?.name}</div>
+                    <div className='castingRole'>{staff[idx]?.position}</div>
                   </div>
                 </div>
               </div>

@@ -25,7 +25,7 @@ class Mytaste extends Component {
           {
             label: 'Star Ratings',
             barThickness: 35,
-            data: [3, 2, 6, 7, 8, 1, 2, 3, 4, 6, 9],
+            data: [1, 2, 3, 4, 9, 5, 3, 2, 1, 4],
             backgroundColor: Array(10).fill('#fbdd62'),
           },
         ],
@@ -36,6 +36,7 @@ class Mytaste extends Component {
 
   componentDidMount() {
     this.loadMystarData();
+    // this.changeColorChart();
     this.loadPreferredData();
   }
 
@@ -74,11 +75,23 @@ class Mytaste extends Component {
       tempData.push(myStar[key]);
     }
     chartData.datasets[0].data = tempData;
+    this.changeColorChart(chartData);
+  };
+
+  changeColorChart = (chartData) => {
+    // console.log(chartData);
+    const data = chartData.datasets[0].data;
+    const backgroundColor = this.state.chartData.datasets[0].backgroundColor;
+    console.log(backgroundColor);
+    let idx = data.indexOf(Math.max(...data));
+    backgroundColor[idx] = '#f8a236';
+    chartData.datasets[0]['backgroundColor'] = backgroundColor;
+    console.log(chartData);
     this.setState({ chartData });
   };
 
   render() {
-    const { userData } = this.state;
+    const { userData, chartData } = this.state;
     return (
       <>
         <Nav />

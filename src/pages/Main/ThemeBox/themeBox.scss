@@ -1,0 +1,75 @@
+.onesPick {
+  display: flex;
+  height: 35em;
+  width: 90em;
+  margin-bottom: 30px;
+  // border: solid Red;
+  margin: 0 60px 0 60px;
+
+  .onesPickHeadWrap {
+    display: flex;
+    height: 3em;
+    width: 82.5em;
+    max-height: 3.75em;
+    max-width: 82.5em;
+    border: solid orange;
+
+    .onesPickHeadCover {
+      .onesPickHead {
+        display: flex;
+        height: 1.875em;
+        width: 55em;
+        font-size: 22px;
+        letter-spacing: -0.4;
+        border: dashed 1px black;
+      }
+    }
+    .boxRankingCover {
+      height: 30.517em;
+      width: 84.438em;
+      border: dashed rgb(255, 0, 149);
+
+      .boxRankingWrap {
+        z-index: 1;
+        display: flex;
+        height: 30.517em;
+        width: 84.438em;
+        margin-top: 15px;
+        border: solid blue;
+        bottom: 100px;
+
+        .blankLeft {
+          height: 373.36px;
+          width: 6px;
+          border: solid black;
+        }
+
+        .blankRight {
+          height: 373.36px;
+          width: 6px;
+          border: solid black;
+        }
+      }
+
+      .leftArrow {
+      }
+
+      .rightArrow {
+      }
+    }
+  }
+  // .onesPickBody {
+  //   display: flex;
+  //   height: 73.25em;
+  //   width: 25.945em;
+  //   margin: 0 60px 0 60px;
+
+  //   // .boxRankingWrap {
+  //   //   display: flex;
+  //   //   height: 30.517em;
+  //   //   width: 84.438em;
+  //   //   margin-bottom: 42px;
+  border: solid blue;
+  //   // }
+  // }
+}

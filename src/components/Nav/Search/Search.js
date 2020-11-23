@@ -18,6 +18,35 @@ class Search extends Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('click', this.handleInputBlur);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.handleInputBlur);
+  }
+
+  handleInputBlur = (e) => {
+    // e.stopPropagation();
+
+    const isExist = e.composedPath().includes(this.props.inputRef.current);
+
+    console.log(isExist);
+    if (!isExist) {
+      this.setState({ isListActive: false });
+    }
+    // for (let node of e.composedPath()) {
+    //   console.log(node == this.input.current);
+    //   // console.log();
+    // }
+
+    // if (!isExist) console.log('input', e.path);
+
+    // if (!isExist) {
+    //   this.setState({ isListActive: false });
+    // }
+  };
+
   // 잠시 꺼놓습니다..
   // componentDidMount() {
   //   this.loadDetailData();
@@ -35,8 +64,12 @@ class Search extends Component {
   //     .catch((error) => console.log('error', error));
   // };
 
-  goToDetail = (event) => {
-    console.log('click'); // 표시되지 않음... why..?
+  goToDetail = (e) => {
+    // event.stopPropagation();
+    // console.log(e);
+    const isExist = e.nativeEvent.path.includes(this.props.inputRef.current);
+    console.log(isExist);
+    // console.log('검색결과', isExist);
     // this.props.history.push(`movie-detail/${event.key}`);
     // this.setState({ isListActive: false });
   };
@@ -53,7 +86,7 @@ class Search extends Component {
   };
 
   searchMovie = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     const { searchValue } = this.state;
     const { searchData } = this.props;
     const searchPool = searchData.data;
@@ -104,9 +137,13 @@ class Search extends Component {
           value={searchValue}
           onChange={this.onSearchInputChange}
           onFocus={() => this.setState({ isListActive: true })}
-          onBlur={() =>
-            this.setState({ isListActive: false, isSearchOn: false })
-          }
+          ref={this.input}
+          // onBlur={(e) =>
+          //   {
+          //     console.log(e)
+          //     this.setState({ isListActive: false })
+          //   }
+          // }
           onKeyUp={this.searchMovie}
         />
         <div className={isListActive ? 'listBox' : 'displayNone'}>
@@ -135,7 +172,10 @@ class Search extends Component {
               <div className='keywordDeleteBtn'>모두 삭제</div>
             </div>
             <ul className='latestList'>
-              <li className='resultMovie' key='23' onClick={this.goToDetail}>
+              <li
+                className='resultMovie'
+                key='23'
+                onClickCapture={this.goToDetail}>
                 바닐라 스카이
               </li>
               <li className='resultMovie'>라라랜드</li>

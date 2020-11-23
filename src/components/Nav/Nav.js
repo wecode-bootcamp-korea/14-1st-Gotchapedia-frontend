@@ -14,6 +14,7 @@ class Nav extends Component {
       isSignup: false,
       isLogin: false,
     };
+    this.input = React.createRef();
   }
 
   openSignup = () => {
@@ -51,12 +52,12 @@ class Nav extends Component {
               <div className='magnifierIcon'>
                 <FontAwesomeIcon icon={faSearch} />
               </div>
-              <div className='inputBox'>
+              <div className='inputBox' ref={this.input}>
                 <div className='searchIcon'>
                   <FontAwesomeIcon icon={faSearch} />
                 </div>
                 <div className='searchInput'>
-                  <Search searchData={myData} />
+                  <Search searchData={myData} inputRef={this.input} />
                 </div>
               </div>
 

@@ -36,60 +36,12 @@ class Nav extends Component {
     const { isSignup, isLogin } = this.state;
 
     return (
-      <>
-        <div className='Nav'>
-          <div className='navWrapper'>
-            <div className='navLeft'>
-              <img
-                src='/images/watchaText.png'
-                alt='gotchapediaLogo'
-                className='gotchapediaLogo'
-              />
-              <div className='mytaste'>취향분석</div>
-            </div>
-            <div className='navRight'>
-              <div className='magnifierIcon'>
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
-              <div className='inputBox'>
-                <div className='searchIcon'>
-                  <FontAwesomeIcon icon={faSearch} />
-                </div>
-                <input
-                  type='text'
-                  className='searchInput'
-                  placeholder='작품 제목,배우,감독을 검색해보세요.'
-                />
-              </div>
-
-              <button className='loginBtn' onClick={this.openLogin}>
-                로그인
-              </button>
-              <button className='signupBtn' onClick={this.openSignup}>
-                회원가입
-              </button>
-              <div className='starIcon'>
-                <FontAwesomeIcon icon={faStar} />
-              </div>
-              <div className='rate'>평가하기</div>
-              <img
-                src='/images/profile.jpg'
-                alt='profile'
-                className='profile'
-              />
-            </div>
-          </div>
-        </div>
-        <div className={isSignup ? '' : 'displayNone'}>
-          <Signup
-            isSignup={this.state.isSignup}
-            closeSignup={this.closeSignup}
-          />
-        </div>
-        <div className={isLogin ? '' : 'displayNone'}>
-          <Login isLogin={this.state.isLogin} closeLogin={this.closeLogin} />
-        </div>
-      </>
+      <div className='Nav'>
+        Nav
+        <Search />
+        {/* <Login /> */}
+        {/* <Signup /> */}
+      </div>
     );
   }
 }

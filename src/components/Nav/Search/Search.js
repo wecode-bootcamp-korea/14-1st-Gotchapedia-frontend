@@ -37,14 +37,15 @@ class Search extends Component {
 
   goToDetail = (event) => {
     console.log('click'); // 표시되지 않음... why..?
-    this.props.history.push(`movie-detail/${event.key}`);
-    this.setState({ isListActive: false });
+    // this.props.history.push(`movie-detail/${event.key}`);
+    // this.setState({ isListActive: false });
   };
 
   saveKeyword = () => {
     const { searchValue } = this.state;
     searchValueList.push(searchValue);
-    localStorage.setItem(RECENT_KEYWORDS, searchValueList);
+    const setSearchValueList = Array.from(new Set(searchValueList));
+    localStorage.setItem(RECENT_KEYWORDS, JSON.stringify(setSearchValueList));
   };
 
   deleteKeywords = () => {

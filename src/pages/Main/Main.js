@@ -5,6 +5,7 @@ import './main.scss';
 import ThemeBox from './ThemeBox/ThemeBox';
 
 class Main extends Component {
+
   render() {
     return (
       <>

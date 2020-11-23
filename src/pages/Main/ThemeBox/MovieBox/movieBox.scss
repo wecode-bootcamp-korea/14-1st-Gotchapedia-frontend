@@ -1,0 +1,66 @@
+@import '../../../../styles/common.scss';
+
+.MovieBox {
+  width: 16.699em;
+
+  .movieAllWrap {
+    display: flex;
+    height: 28.634em;
+    width: 16.699em;
+    padding: 0 6px 0 6px;
+
+    .moviePosterInside {
+      height: 28.5em;
+      width: 15.675em;
+      position: relative;
+
+      .moviePosterWrap {
+
+        .moviePoster {
+          @include bigSize;
+          object-fit: cover;
+          display: grid;
+        }
+      }
+      .movieRank {
+        @include rankIcon;
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        right: 183.797px;
+        left: 6px;
+      }
+
+      .movieInfo {
+        height: 5.438em;
+        width: 13.05em;
+        margin: 5px 10px 0 0;
+
+        .movieTitle {
+          font-weight: 400;
+          font-size: 16px;
+          margin: 0 0 3px 0;
+          outline: none;
+        }
+        .movieDate {
+          outline: none;
+          padding: 0 0 1px 0;
+        }
+        .movieRate {
+          color: #555765;
+          margin: 2px 0 0 0;
+
+          .iconStar {
+            font-size: 12px;
+          }
+        }
+        .movieRatio {
+          color: #74747b;
+          font-size: 13px;
+          letter-spacing: -0.3px;
+          margin: 5px 0 0 0;
+        }
+      }
+    }
+  }
+}

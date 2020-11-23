@@ -3,6 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { DETAIL_API, DETAIL_TOKEN } from '../../../config';
 import './search.scss';
 
+const RECENT_KEYWORDS = 'RECENT_KEYWORDS';
+let searchValueList = [];
+
 class Search extends Component {
   constructor() {
     super();
@@ -33,14 +36,19 @@ class Search extends Component {
   // };
 
   goToDetail = (event) => {
-    console.log('click') // 표시되지 않음... why..?
+    console.log('click'); // 표시되지 않음... why..?
     this.props.history.push(`movie-detail/${event.key}`);
     this.setState({ isListActive: false });
   };
 
   saveKeyword = () => {
     const { searchValue } = this.state;
-    console.log('enter');
+    searchValueList.push(searchValue);
+    localStorage.setItem(RECENT_KEYWORDS, searchValueList);
+  };
+
+  deleteKeywords = () => {
+    console.log('click'); // 클릭이 안 됨.. 왜...?
   };
 
   searchMovie = (event) => {
@@ -51,7 +59,9 @@ class Search extends Component {
     const searchKeywords = searchValue.split(' ');
     let tempSearchPool = [...searchPool];
     let tempFilteredMovie = [];
-
+    if (searchValue.trim() === '') {
+      return;
+    }
     searchKeywords.forEach((key) => {
       if (key !== '') {
         tempFilteredMovie = tempSearchPool.filter((movie) => {
@@ -62,9 +72,9 @@ class Search extends Component {
         tempSearchPool = [...tempFilteredMovie];
       }
     });
-    // if (event.key === 'Enter') {
-    //   localStorage.setItem(RECENT_KEYWORDS, searchValue);
-    // }
+    if (event.key === 'Enter') {
+      this.saveKeyword();
+    }
     this.setState({ filteredMovie: tempFilteredMovie });
   };
 
@@ -80,7 +90,8 @@ class Search extends Component {
       filteredMovie,
       detailData,
     } = this.state;
-    console.log(detailData.subImage && detailData.subImage[0].url);
+    let loadedKeywords = localStorage.getItem(RECENT_KEYWORDS);
+    console.log(loadedKeywords);
 
     return (
       <>
@@ -101,7 +112,9 @@ class Search extends Component {
           <div className='searchList'>
             <div className='searchHeaderWrapper'>
               <span>최근 검색어</span>
-              <div className='keywordDeleteBtn'>모두 삭제</div>
+              <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
+                모두 삭제
+              </div>
             </div>
             <ul className='latestList'>
               {filteredMovie &&

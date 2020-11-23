@@ -18,16 +18,6 @@ class Signup extends Component {
     });
   };
 
-  // showLogin = (e) => {
-  //   e.preventDefault();
-  //   const button = document.getElementById('button1');
-  //   const button1 = document.getElementById('button2');
-  //   const nameText = document.getElementById('nameText');
-  //   button.textContent = '로그인';
-  //   button1.textContent = '로그인';
-  //   nameText.hidden = true;
-  // };
-
   checkValidation = (e) => {
     e.preventDefault();
     const { name, email, password } = this.state;
@@ -40,6 +30,7 @@ class Signup extends Component {
     } else if (!checkName) alert('이름을 입력해주세요');
   };
 
+  // Signup Requst
   makeRequest = (name, email, password) => {
     fetch('http://10.58.7.77:8000/user', {
       method: 'POST',
@@ -58,8 +49,26 @@ class Signup extends Component {
       });
   };
 
+  // Login Request
+  makeRequest = (email, password) => {
+    fetch('http://10.58.7.77:8000/user/log-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: 'qudwns123@gmail.com',
+        password: 'qudwns123',
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        alert(res.message);
+      });
+  };
+
   render() {
-    const { closeSignup, isSignup, isLogin } = this.props;
+    const { closeSignup } = this.props;
     return (
       <div className='Signup' onClick={closeSignup}>
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
@@ -69,11 +78,11 @@ class Signup extends Component {
               alt='gotchapediaLogoCol'
               className='gotchapediaLogoCol'
             />
-            <div className='signupText'>{isLogin ? '로그인' : '회원가입'}</div>
+            <div className='signupText'>회원가입</div>
             <form className='signupForm' onSubmit={this.checkValidation}>
               <input
                 type='text'
-                className={isLogin ? 'displayNone' : 'name'}
+                className='name'
                 placeholder='이름'
                 onChange={this.handleInput}
                 name='name'
@@ -92,15 +101,10 @@ class Signup extends Component {
                 onChange={this.handleInput}
                 name='password'
               />
-              <button className='signupBtn' >
-                {isSignup ? '회원가입' : '로그인'}
-              </button>
+              <button className='signupBtn'>회원가입</button>
             </form>
             <div className='loginText'>
-              이미 가입하셨나요?
-              <span className='loginBtn'>
-                {isLogin ? '회원가입' : '로그인'}
-              </span>
+              이미 가입하셨나요? <span>로그인</span>
             </div>
             <div className='or'></div>
             <button className='kakaoBtn'>카카오 로그인</button>

@@ -10,6 +10,20 @@ class Login extends Component {
     };
   }
 
+  // componentDidMount() {
+  //   console.loge(localStorage.getItem('token'));
+  // }
+
+  showSignup = (e) => {
+    e.preventDefault();
+    const button = document.getElementById('button1');
+    const button1 = document.getElementById('button2');
+    const nameText = document.getElementById('nameText');
+    button.textContent = '회원가입';
+    button1.textContent = '회원가입';
+    nameText.hidden = true;
+  };
+
   handleInput = (e) => {
     const { value, name } = e.target;
     console.log(e.target.name, e.target.value);
@@ -27,29 +41,33 @@ class Login extends Component {
       console.log('okay');
       this.makeRequest(email, password);
     } else {
-      alert('validation fail', email, password);
+      alert('이메일을 다시 확인해주세요', email, password);
     }
   };
 
   makeRequest = (email, password) => {
-    fetch('http://10.58.7.77:8000/user/log-in', {
+    fetch('http://10.58.0.152:8000/user/log-in', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: 'qudwns123@gmail.com',
-        password: 'qudwns123',
+        email,
+        password,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        alert(res.message);
-        // this.setState({
-        // 'name': '김태현',
-        // 'email':
+        console.log(res);
+        if (res.Authorization.token) {
+          localStorage.getItem('token')
+          console.log('token');
+          localStorage.getItem('token', res.Authorization);
+          // this.props.history.push('/main');
+        } else {
+          alert('이메일을 확인해주세요.');
+        }
       });
-    // });
   };
 
   render() {

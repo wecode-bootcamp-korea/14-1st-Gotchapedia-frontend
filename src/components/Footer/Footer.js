@@ -11,7 +11,7 @@ class Footer extends Component {
           <span className='footerHeadFont'>
             지금까지
             <em>
-              <FontAwesomeIcon icon={faStar} /> 583,583,390개의 평가가
+              <FontAwesomeIcon icon={faStar} /> 583,583,390개의 평가가 
             </em>
             쌓였어요.
           </span>
@@ -37,7 +37,6 @@ class Footer extends Component {
                   공동대표 고수희, 고은정, 김병준, 김태현, 이영주, 장규석 ㅣ
                 </span>
                 <span>
-                  
                   서울시 강남구 테헤란로 427 위워크 타워(위워크 선릉 2호점)
                 </span>
               </ul>

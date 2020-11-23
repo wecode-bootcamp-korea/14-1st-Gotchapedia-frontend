@@ -7,7 +7,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #00000080;
+  background: rgba(0, 0, 0, 0.5);
 
   .modalContainer {
     width: 375px;
@@ -67,15 +67,11 @@
           color: white;
           border-radius: 7px;
         }
-        .displayNone {
-          display: none;
-        }
       }
 
       .loginText {
         span {
           color: $pink;
-          cursor: pointer;
         }
         margin-top: 20px;
       }
@@ -111,7 +107,6 @@
         padding: 0;
         font-size: 16px;
         border-radius: 7px;
-        cursor: pointer;
       }
     }
   }

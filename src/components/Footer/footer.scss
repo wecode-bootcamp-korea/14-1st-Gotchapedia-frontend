@@ -3,13 +3,13 @@
 .Footer {
   height: 100%;
   width: 100%;
-  border: solid green;
+  // border: solid green;
 
   .footerHead {
     height: 3.75em;
     width: 100%;
     background-color: #101113;
-    border: solid blue;
+    // border: solid blue;
 
     .footerHeadFont {
       display: flex;
@@ -17,7 +17,7 @@
       letter-spacing: -0.3px;
       font-weight: 500;
       color: #d1d1d2;
-      border: solid red;
+      // border: solid red;
       justify-content: center;
       align-content: center;
 
@@ -79,7 +79,7 @@
       .footerRightBody {
         height: 10em;
         width: 7.5em;
-        border: dashed 1px grey;
+        // border: dashed 1px grey;
 
         .footerLang {
           height: 1.75em;
@@ -90,7 +90,7 @@
             width: 7.7em;
             color: #a5a5a7;
             background-color: #1c1e20;
-            border: solid 1px #a5a5a7;
+            // border: solid 1px #a5a5a7;
             text-align: left;
           }
         }

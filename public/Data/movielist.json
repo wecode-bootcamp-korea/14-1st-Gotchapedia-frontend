@@ -1,39 +1,53 @@
-{ 
+{
   "data": [
     {
       "movieimg": "/images/hangover.jpg",
       "movietitle": "hangover",
       "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movierate": "4.8",
       "rank": "1"
     },
     {
       "movieimg": "/images/hangover.jpg",
       "movietitle": "hangover",
       "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movierate": "4.8",
       "rank": "2"
     },
     {
       "movieimg": "/images/hangover.jpg",
       "movietitle": "hangover",
       "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movierate": "4.8",
       "rank": "3"
     },
     {
       "movieimg": "/images/hangover.jpg",
       "movietitle": "hangover",
       "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movierate": "4.8",
       "rank": "4"
     },
     {
       "movieimg": "/images/hangover.jpg",
       "movietitle": "hangover",
       "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movierate": "4.8",
       "rank": "5"
+    },
+    {
+      "movieimg": "/images/hangover.jpg",
+      "movietitle": "hangover",
+      "moviedate": "2020 ・ 미국",
+      "movierate": "4.8",
+      "rank": "6"
+    },
+    {
+      "movieimg": "/images/hangover.jpg",
+      "movietitle": "hangover",
+      "moviedate": "2020 ・ 미국",
+      "movierate": "4.8",
+      "rank": "7"
     }
   ]
-}
+} 

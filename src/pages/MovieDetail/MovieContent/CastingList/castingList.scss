@@ -9,6 +9,12 @@
   .castingImage {
     @include mediumProfile;
     margin: 10px;
+    overflow: hidden;
+    .castingImg {
+      object-fit: cover;
+      width: 3.5em;
+      height: 3.5em;
+    }
   }
 
   .profileDetail {

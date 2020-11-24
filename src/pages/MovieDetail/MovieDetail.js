@@ -5,14 +5,15 @@ import MovieContent from './MovieContent/MovieContent';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
+import { MOVIEDETAIL_MOCKUP_API, MOVIEDETAIL_SERVER_API, MOVIEDETAIL_TOKEN } from '../../config';   
 
-
-// const MOVIEDETAIL_API = 'http://localhost:3000/data/contentdata.json'
-const MOVIEDETAIL_API = 'http://10.58.2.189:8000/movie/23';
-// const MOVIEDETAIL_API = "http://192.168.0.16:8000/movie/23"
-const MOVIEDETAIL_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
+// 서버
+// MOVIEDETAIL_SERVER_API, MOVIEDETAIL_TOKEN
+// 목업
+// MOVIEDETAIL_MOCKUP_API
 
 class MovieDetail extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -21,24 +22,13 @@ class MovieDetail extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch(MOVIEDETAIL_API, {
-      method: 'GET',
-      headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-    .then(res => res.json())
-    .then(res => {
-      this.setState({
-        movieDetailData: res.data,
-      })
-    })
-    .catch((err) => console.log('err >>>>> ', err));
-  }
-
+  // 서버용
   // componentDidMount() {
-  //   fetch(MOVIEDETAIL_API, {
+  //   fetch(MOVIEDETAIL_MOCKUP_API, {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
   //   })
   //   .then(res => res.json())
   //   .then(res => {
@@ -49,6 +39,20 @@ class MovieDetail extends Component {
   //   .catch((err) => console.log('err >>>>> ', err));
   // }
 
+  // 목업용
+  componentDidMount() {
+    fetch(MOVIEDETAIL_MOCKUP_API, {
+      method: 'GET',
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        movieDetailData: res.data[0],
+      })
+      console.log('res.data >>>>>>>>>>> ', res.data);
+    })
+    .catch((err) => console.log('err >>>>> ', err));
+  }
 
   render() {
     const { movieDetailData } = this.state;
@@ -59,10 +63,13 @@ class MovieDetail extends Component {
           <Nav />
           {!!movieDetailData.id && <MovieHeader movieHeaderData={movieDetailData} />}
         </div>
-        {!!movieDetailData.id && <div className='MovieContentWrapper'>
-          <MovieContent movieContentData={movieDetailData} />
-          <MovieSide movieSideData={movieDetailData} />
-        </div>}
+        {
+          !!movieDetailData.id && 
+          <div className='MovieContentWrapper'>
+            <MovieContent movieContentData={movieDetailData} />
+            <MovieSide movieSideData={movieDetailData} />
+          </div>
+        }
         <Footer />
       </div>
     );

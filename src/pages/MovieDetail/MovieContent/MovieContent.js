@@ -25,6 +25,8 @@ class MovieContent extends Component {
       starRating: "",
       thumbsUp: "",
       countComment: "",
+      commentList:[],
+      commentObj: {},
     }
   };
 
@@ -48,31 +50,28 @@ class MovieContent extends Component {
     .then(res => {
       this.setState({
         contentData: res.data,
+        commentList:res.data[0].comments,
       })
     })
     .catch((err) => console.log('err >>>>> ', err));
   }
   
-
   addComment = (e) => {
-    const { commentString, contentData } = this.state;
-    const ran = Math.floor(Math.random() * 7)
+    const { commentString, commentObj, commentArray, commentList } = this.state;
+    const writtenTime = Date.now();
     e.preventDefault();
-    const written_time = Date.now();
     const obj = {
-      id: written_time,
+      commentId: writtenTime,
       comment: commentString,
-      commentorId: contentData[ran].commentorId,
       // 별점 반영부분 수정필요
-      // starPoint: contentData[ran].starPoint,
       starPoint: '5.0',
-      commentorImage: contentData[ran].commentorImage,
-      thumbsup: contentData[ran].thumbsup,
-      countComment: contentData[ran].countComment,
+      commentorImage: '/images/chorong2.png',
+      thumbsup: '0',
+      countComment: '0',
     }
 
     this.setState({
-      contentData: [obj, ...contentData],
+      commentList: [obj, ...commentList]
     })
     
     this.closeModalComment();
@@ -108,21 +107,9 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment } = this.state;
-
+    const { contentData, isComment, commentList } = this.state;
     const { movieContentData } = this.props;
-
-    const genre = movieContentData.genre;
-
-    // const staff = movieContentData.staff;
-
-    // console.log(staff);
-
-    // 백엔드 데이터 
-    // console.log(movieContentData);
-
-    // 내 목업 데이터 댓글 뿌릴거임
-    // console.log(contentData);
+    const staff = movieContentData.staff;
 
     return (
       <>
@@ -134,16 +121,14 @@ class MovieContent extends Component {
           </div>
           <div className='movieContentBox'>
             <div className='predictStar'>
-              {/* 여기 있는것도 있고 없는것도 있음 날리나? */}
               <div className='predictHeading'>내가 좋아할 이유</div>
-              {/* 이 부분 연관 영화 떠야되는데 처리 어떻게?? */}
               <div className='predictContent'><p>재밌게 본 비슷한 작품</p><div>아키라<img src='/images/akiraHeaderImage.jpg' alt='연관영화'></img></div></div>
             </div>
             <div className='normalInfo'>
               <div className='infoHeading' onClick={this.goToOverview} >기본 정보<span>더보기</span></div>
               <div className='infoContent'>
                 <div className='contentHeading'>{movieContentData.name}</div>
-                <div className='contentInfo'>{genre[0].name}</div>
+                <div className='contentInfo'>{movieContentData.genre[0].name}</div>
                 <div className='contentTime'>{movieContentData.showTime} 분</div>
                 <div className='detailContent'>{movieContentData.description}</div>
               </div>
@@ -151,8 +136,7 @@ class MovieContent extends Component {
             <div className='castingWrapper'>                                                                                                                   
               <div className='castingHeading'>출연/제작</div>
               <div className='castingContent'>
-                {/* 잘뜸 */}
-                <CastingList castingListData={movieContentData}/>
+                <CastingList castingListData={staff}/>
               </div>
             </div>
             <div className='commentWrapper'>
@@ -163,16 +147,11 @@ class MovieContent extends Component {
                 <span onClick={this.goToCommentDetail}>더보기</span>
               </div>
               <div className='commentBoxWrapper'>
-
-                {/* 코멘트 API가 아직 없어서 목업데이터 활용해야 함 */}
                 <Slider {...settings}>
-                    {contentData.length > 0 && contentData.map((el) => {
+                    {commentList.length > 0 && commentList.map((el) => {
                       return (
                         <CommentBox
-                          // key={}
-                          id={el.id}
-                          key={el.id}
-                          commentData={el}
+                          commentContent={el}
                         />
                       )
                     })}

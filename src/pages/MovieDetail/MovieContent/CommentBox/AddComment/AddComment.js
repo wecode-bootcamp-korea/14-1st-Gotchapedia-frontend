@@ -8,15 +8,13 @@ class AddComment extends Component {
     const { comments } = this.props;
 
     return(
-      <>
-        <div className='commentAdd'>
-          {comments?.map((element) => {
-            return (
-              <div className='newComment'>{element.comment}</div>
-            )
-          })}
-        </div>
-      </>
+      <div className='commentAdd'>
+        {comments?.map((element) => {
+          return (
+            <div className='newComment'>{element.comment}</div>
+          )
+        })}
+      </div>
     )
   }
 }

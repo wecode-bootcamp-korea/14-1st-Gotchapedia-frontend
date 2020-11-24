@@ -16,10 +16,10 @@ class WantToSee extends Component {
     <div className='WantToSee' onClick={closeWantToSee}>
       <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
         <div className='seeTitle'>
-          <img className='seeTitleImage' src={wantToSeeData[0]?.mainImage} alt='보고싶어요이미지'></img>
+          <img className='seeTitleImage' src={wantToSeeData.mainImage} alt='보고싶어요이미지'></img>
           <div className='seeTitleContent'>
-            <div className='contentTitle'>{wantToSeeData[0]?.name}</div>
-            <div className='contentDesc'>{wantToSeeData[0]?.genre}</div>
+            <div className='contentTitle'>{wantToSeeData.name}</div>
+            <div className='contentDesc'>{wantToSeeData.genre}</div>
           </div>
         </div>
         <div className='seeChoice'>

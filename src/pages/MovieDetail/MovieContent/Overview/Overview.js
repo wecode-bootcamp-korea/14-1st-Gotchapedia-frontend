@@ -29,7 +29,6 @@ class Overview extends Component {
   }
 
   render() {
-
     const { overviewData } = this.state;
 
     return(

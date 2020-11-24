@@ -23,34 +23,30 @@ class CommentBox extends Component {
 
 
   render() {
-    const { commentData, id } = this.props;
-    let cnt = Number(commentData?.comments[id].thumbsup);
-    const comments = commentData.comments;
-
+    const { commentContent } = this.props;
+    let cnt = Number(commentContent.thumbsup);
     const { isLike } = this.state;
 
-    // console.log(commentData);
-
-    // 키가 왜 언디파인드 뜨는지 모르겠다
-    // console.log(key);
-
+    // commentArray에 내가 만든 commentObj가 들어가야 한다
+    // console.log('comments >>>>>>>>> ', comments);
+    // console.log('')
     return (
       <>
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
               {/* src를 못 읽어서 하드코딩 해둠 */}
-              <img src={comments && comments[id]?.commentorImage} alt='작성자아이콘' />
-              <div className='commentorId'>{comments && comments[id]?.commentorName} </div>
+              <img src={commentContent.commentorImage} alt='작성자아이콘' />
+              <div className='commentorId'>{commentContent.commentorName} </div>
             </div>
             <div className='titleRight'>
               <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {comments && comments[id]?.starPoint}
+              {commentContent.starPoint}
             </div>
           </div>
           <div className='commentContent'>
             <p>
-              {comments && comments[id]?.comment}
+              {commentContent.comment}
             </p>
           </div>
           <div className='commentIcons'>
@@ -60,7 +56,7 @@ class CommentBox extends Component {
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {comments && comments[id]?.countComment}
+              {commentContent.countComment}
             </div>
           </div>
           <div className='likeEventContainer'>

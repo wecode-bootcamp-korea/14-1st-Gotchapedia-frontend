@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaStarHalfAlt} from 'react-icons/fa';
 import './StarRating.scss';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
+
 
 class StarRating extends Component {
 
@@ -12,7 +17,7 @@ class StarRating extends Component {
         {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
           return (
-            <label key={i}>
+            <span style={{width:"15px",overflow:"hidden"}}key={i}>
               <input 
                 type='radio'
                 name='rateStar' 
@@ -21,14 +26,15 @@ class StarRating extends Component {
               >
               </input>
 
-              <FaStar 
+              <FaStarHalfAlt 
                 className='star' 
                 color={ratingValue <= (starHover || rateStar) ? "#FFC107" : "#E4E5E9"} 
                 size={30}
                 onMouseEnter={() => mouseEnterEvent(ratingValue)}
                 onMouseLeave={() => mouseLeaveEvent(null)}
+                aria-hidden="true"
               />
-            </label>
+            </span>
           )
         })}
       </div>

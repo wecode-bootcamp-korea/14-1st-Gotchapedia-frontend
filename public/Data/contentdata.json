@@ -8,7 +8,12 @@
       "mainImage": "/images/mainImage.jpeg",
       "openDate": "2001-12-10",
       "showTime": 137,
-      "genre": "2001 · 스릴러 · SF",
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
       "staff": 
       [
         {
@@ -134,7 +139,12 @@
       "mainImage": "/images/vanilaSkyHeaderImage.jpg",
       "openDate": "2001-12-10",
       "showTime": 137,
-      "genre": "2008 · 액션 · 미국",
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
       "staff": 
       [
         {
@@ -260,7 +270,12 @@
       "mainImage": "/images/vanilaSkyHeaderImage.jpg",
       "openDate": "2001-12-10",
       "showTime": 137,
-      "genre": "2011 · 공포 · SF",
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
       "staff": 
       [
         {
@@ -386,7 +401,12 @@
       "mainImage": "/images/vanilaSkyHeaderImage.jpg",
       "openDate": "2001-12-10",
       "showTime": 137,
-      "genre": "1997 · 드라마 · 로맨스",
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
       "staff": 
       [
         {
@@ -512,7 +532,12 @@
       "mainImage": "/images/vanilaSkyHeaderImage.jpg",
       "openDate": "2001-12-10",
       "showTime": 137,
-      "genre": "2005 · 로맨스 · 코미디",
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
       "staff": 
       [
         {
@@ -638,7 +663,12 @@
       "mainImage": "/images/vanilaSkyHeaderImage.jpg",
       "openDate": "2001-12-10",
       "showTime": 137,
-      "genre": "1988 · 무협",
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
       "staff": 
       [
         {
@@ -764,7 +794,12 @@
       "mainImage": "/images/vanilaSkyHeaderImage.jpg",
       "openDate": "2001-12-10",
       "showTime": 137,
-      "genre": "2019 · 액션 ",
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
       "staff": 
       [
         {

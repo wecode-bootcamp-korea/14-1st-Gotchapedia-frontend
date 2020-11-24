@@ -28,7 +28,7 @@ class ShowComment extends Component {
                 수정
               </div>
             </div> */}
-            {commentList[0].comment}
+            {commentList[0].comment} 
       </div>
     )
   }

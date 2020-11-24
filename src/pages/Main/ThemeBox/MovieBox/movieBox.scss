@@ -13,9 +13,9 @@
       height: 28.5em;
       width: 15.675em;
       position: relative;
+      cursor: pointer;
 
       .moviePosterWrap {
-
         .moviePoster {
           @include bigSize;
           object-fit: cover;
@@ -37,19 +37,23 @@
         margin: 5px 10px 0 0;
 
         .movieTitle {
-          font-weight: 400;
+          font-weight: 500;
           font-size: 16px;
-          margin: 0 0 3px 0;
+          height: 22px;
+          margin-bottom: 3px;
           outline: none;
         }
         .movieDate {
           outline: none;
+          padding-bottom: 1px;
+          height: 22px;
           padding: 0 0 1px 0;
         }
         .movieRate {
+          display: flex;
           color: #555765;
-          margin: 2px 0 0 0;
-
+          margin-top: 2px;
+          height: 12px;
           .iconStar {
             font-size: 12px;
           }

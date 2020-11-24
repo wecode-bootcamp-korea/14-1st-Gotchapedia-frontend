@@ -2,34 +2,35 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-
+import './showComment.scss';
 
 class ShowComment extends Component {
 
   render() {
-    const { commentList } = this.props;
-    // const newcomment = commentList.splice(0,1);
+    const { commentList, deleteComment } = this.props;
+    
     // console.log(commentList);
     const commentContent = commentList[0];
 
     return (
       <div className='commentCrudWrapper'>
-            <div className='commentCrudLeft'>
-              {/* <img className='crudProfileImage' alt='댓글수정삭제프로필'>{commentContent.commentorImage}</img> */}
-              {commentContent.commentorName}
-            </div> 
-            <button onClick={this.openModalComment} >코멘트 남기기</button>
-            <div className='commentCrudRight'>
-              <div className='commentCrudDelete'>
-                <FontAwesomeIcon className='commentDeleteIcon' icon={faTrashAlt} />
-                삭제
-              </div>
-              <div className='commentCrudUpdate'>
-              <FontAwesomeIcon className='commentUpdateIcon' icon={faPencilAlt} />
-                수정
-              </div>
-            </div>
+        <div className='commentCrudLeft'>
+          <img className='crudProfileImage' src={commentContent.commentorImage} alt='댓글수정삭제프로필' ></img>
+          {commentContent.commentorId}
+          <div className='commentBox'>
             {commentContent.comment} 
+          </div>
+        </div>
+        <div className='commentCrudRight'>
+          <div className='commentCrudDelete'>
+            <FontAwesomeIcon className='commentDeleteIcon' icon={faTrashAlt} />
+            <button className='deleteBtn' onClick={deleteComment}>삭제</button>
+          </div>
+          <div className='commentCrudUpdate'>
+          <FontAwesomeIcon className='commentUpdateIcon' icon={faPencilAlt} />
+            <button className='updateBtn'>수정</button>
+          </div>
+        </div>
       </div>
     )
   }

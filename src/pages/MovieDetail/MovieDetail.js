@@ -54,12 +54,11 @@ class MovieDetail extends Component {
 
   render() {
     const { movieDetailData } = this.state;
-    console.log("sdfsdf: ", movieDetailData);
 
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>
-          {/* <Nav /> */}
+          <Nav />
           {!!movieDetailData.id && <MovieHeader movieHeaderData={movieDetailData} />}
         </div>
         {

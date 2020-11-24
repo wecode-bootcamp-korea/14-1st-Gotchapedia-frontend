@@ -122,13 +122,14 @@ class MovieContent extends Component {
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData } = this.props;
     const castingListData = movieContentData.staff;
-    // const comments = movieContentData.comments;
+
+    // console.log(commentList);
 
     return (
       <>
         <div className='MovieContent'>
           {/* 얘는 별점줄때 display가 보이도록 설정*/}
-          {isCommentdAdded ? <ShowComment onClick={this.deleteComment} commentList={!!commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
+          {isCommentdAdded ? <ShowComment onClick={this.deleteComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
             <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div> 
             <button onClick={this.openModalComment} >코멘트 남기기</button>
           </div>}

@@ -28,113 +28,214 @@ class ThemeBox extends Component {
       <>
         <div className='onesPick'>
           <div className='onesPickHeadWrap'>
-            <div className='onesPickHeadCover'>
-              <p className='onesPickHead'>Davey's pick!</p>
-              <div className='boxRankingCover'>
-                <div
-                  className='boxRankingWrap'
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <div className='blankLeft' direction='left'></div>
-                  {this.state.movieList.map((movieboxData) => {
-                    return (
-                      <MovieBox
-                        moviedate={movieboxData.moviedate}
-                        movieimg={movieboxData.movieimg}
-                        movierate={movieboxData.movierate}
-                        movietitle={movieboxData.movietitle}
-                      />
-                    );
-                  })}
-                  {/* <div className='blankLeft' direction='left'></div> */}
-                  <div className='blankRight' direction='right'></div>
-                </div>
-                <div className='leftArrow' direction='left'>
-                  <div className='leftArrowBody'>
-                    {/* <img className='leftArrowImg' alt='arrow' src='/images/totheleft'/> */}
+            <div className='fakeCover'>
+              <div className='onesPickHeadCover'>
+                <p className='onesPickHead'>고수희님의 Pick!</p>
+                <div className='boxRankingCover'>
+                  <div
+                    className='boxRankingWrap'
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
+                    <div className='blankLeft' direction='left'></div>
+                    {this.state.movieList.map((movieboxData) => {
+                      return (
+                        <MovieBox
+                          moviedate={movieboxData.moviedate}
+                          movieimg={movieboxData.movieimg}
+                          movierate={movieboxData.movierate}
+                          movietitle={movieboxData.movietitle}
+                        />
+                      );
+                    })}
+                    <div className='blankRight' direction='right'></div>
                   </div>
-                </div>
-                <div className='rightArrow' direction='right'>
-                  <div className='rightArrowBody'>
-                    {/* <img className='rightArrowImg' alt='arrow' src='/images/totheright'/> */}
+                  <div className='leftArrow' direction='left'>
+                    <div className='leftArrowBody'>
+                    </div>
+                  </div>
+                  <div className='rightArrow' direction='right'>
+                    <div className='rightArrowBody'>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-          {/* 두번째 Themebox */}
         <div className='onesPick'>
           <div className='onesPickHeadWrap'>
             <div className='fakeCover'>
-              <p className='onesPickHead'>Sooyeol's pick!</p>
-              <div className='boxRankingCover'>
-                <div
-                  className='boxRankingWrap'
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <div className='blankLeft' direction='left'></div>
-                  {this.state.movieList.map((movieboxData) => {
-                    return (
-                      <MovieBox
-                        moviedate={movieboxData.moviedate}
-                        movieimg={movieboxData.movieimg}
-                        movierate={movieboxData.movierate}
-                        movietitle={movieboxData.movietitle}
-                      />
-                    );
-                  })}
-                  {/* <div className='blankLeft' direction='left'></div> */}
-                  <div className='blankRight' direction='right'></div>
-                </div>
-                <div className='leftArrow' direction='left'>
-                  <div className='leftArrowBody'>
-                    {/* <img className='leftArrowImg' alt='arrow' src='/images/totheleft'/> */}
+              <div className='onesPickHeadCover'>
+                <p className='onesPickHead'>고은정님의 Pick!</p>
+                <div className='boxRankingCover'>
+                  <div
+                    className='boxRankingWrap'
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
+                    <div className='blankLeft' direction='left'></div>
+                    {this.state.movieList.map((movieboxData) => {
+                      return (
+                        <MovieBox
+                          moviedate={movieboxData.moviedate}
+                          movieimg={movieboxData.movieimg}
+                          movierate={movieboxData.movierate}
+                          movietitle={movieboxData.movietitle}
+                        />
+                      );
+                    })}
+                    <div className='blankRight' direction='right'></div>
                   </div>
-                </div>
-                <div className='rightArrow' direction='right'>
-                  <div className='rightArrowBody'>
-                    {/* <img className='rightArrowImg' alt='arrow' src='/images/totheright'/> */}
+                  <div className='leftArrow' direction='left'>
+                    <div className='leftArrowBody'>
+                    </div>
+                  </div>
+                  <div className='rightArrow' direction='right'>
+                    <div className='rightArrowBody'>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-                
-          {/* 세번째 Themebox */}
         <div className='onesPick'>
           <div className='onesPickHeadWrap'>
             <div className='fakeCover'>
-              <p className='onesPickHead'>bonnie's pick!</p>
-              <div className='boxRankingCover'>
-                <div
-                  className='boxRankingWrap'
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <div className='blankLeft' direction='left'></div>
-                  {this.state.movieList.map((movieboxData) => {
-                    return (
-                      <MovieBox
-                        moviedate={movieboxData.moviedate}
-                        movieimg={movieboxData.movieimg}
-                        movierate={movieboxData.movierate}
-                        movietitle={movieboxData.movietitle}
-                      />
-                    );
-                  })}
-                  {/* <div className='blankLeft' direction='left'></div> */}
-                  <div className='blankRight' direction='right'></div>
-                </div>
-                <div className='leftArrow' direction='left'>
-                  <div className='leftArrowBody'>
-                    {/* <img className='leftArrowImg' alt='arrow' src='/images/totheleft'/> */}
+              <div className='onesPickHeadCover'>
+                <p className='onesPickHead'>김병준님의 Pick!</p>
+                <div className='boxRankingCover'>
+                  <div
+                    className='boxRankingWrap'
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
+                    <div className='blankLeft' direction='left'></div>
+                    {this.state.movieList.map((movieboxData) => {
+                      return (
+                        <MovieBox
+                          moviedate={movieboxData.moviedate}
+                          movieimg={movieboxData.movieimg}
+                          movierate={movieboxData.movierate}
+                          movietitle={movieboxData.movietitle}
+                        />
+                      );
+                    })}
+                    <div className='blankRight' direction='right'></div>
+                  </div>
+                  <div className='leftArrow' direction='left'>
+                    <div className='leftArrowBody'>
+                    </div>
+                  </div>
+                  <div className='rightArrow' direction='right'>
+                    <div className='rightArrowBody'>
+                    </div>
                   </div>
                 </div>
-                <div className='rightArrow' direction='right'>
-                  <div className='rightArrowBody'>
-                    {/* <img className='rightArrowImg' alt='arrow' src='/images/totheright'/> */}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='onesPick'>
+          <div className='onesPickHeadWrap'>
+            <div className='fakeCover'>
+              <div className='onesPickHeadCover'>
+                <p className='onesPickHead'>김태현님의 Pick!</p>
+                <div className='boxRankingCover'>
+                  <div
+                    className='boxRankingWrap'
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
+                    <div className='blankLeft' direction='left'></div>
+                    {this.state.movieList.map((movieboxData) => {
+                      return (
+                        <MovieBox
+                          moviedate={movieboxData.moviedate}
+                          movieimg={movieboxData.movieimg}
+                          movierate={movieboxData.movierate}
+                          movietitle={movieboxData.movietitle}
+                        />
+                      );
+                    })}
+                    <div className='blankRight' direction='right'></div>
+                  </div>
+                  <div className='leftArrow' direction='left'>
+                    <div className='leftArrowBody'>
+                    </div>
+                  </div>
+                  <div className='rightArrow' direction='right'>
+                    <div className='rightArrowBody'>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='onesPick'>
+          <div className='onesPickHeadWrap'>
+            <div className='fakeCover'>
+              <div className='onesPickHeadCover'>
+                <p className='onesPickHead'>이영주님의 Pick!</p>
+                <div className='boxRankingCover'>
+                  <div
+                    className='boxRankingWrap'
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
+                    <div className='blankLeft' direction='left'></div>
+                    {this.state.movieList.map((movieboxData) => {
+                      return (
+                        <MovieBox
+                          moviedate={movieboxData.moviedate}
+                          movieimg={movieboxData.movieimg}
+                          movierate={movieboxData.movierate}
+                          movietitle={movieboxData.movietitle}
+                        />
+                      );
+                    })}
+                    <div className='blankRight' direction='right'></div>
+                  </div>
+                  <div className='leftArrow' direction='left'>
+                    <div className='leftArrowBody'>
+                    </div>
+                  </div>
+                  <div className='rightArrow' direction='right'>
+                    <div className='rightArrowBody'>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='onesPick'>
+          <div className='onesPickHeadWrap'>
+            <div className='fakeCover'>
+              <div className='onesPickHeadCover'>
+                <p className='onesPickHead'>장규석님의 Pick!</p>
+                <div className='boxRankingCover'>
+                  <div
+                    className='boxRankingWrap'
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
+                    <div className='blankLeft' direction='left'></div>
+                    {this.state.movieList.map((movieboxData) => {
+                      return (
+                        <MovieBox
+                          moviedate={movieboxData.moviedate}
+                          movieimg={movieboxData.movieimg}
+                          movierate={movieboxData.movierate}
+                          movietitle={movieboxData.movietitle}
+                        />
+                      );
+                    })}
+                    <div className='blankRight' direction='right'></div>
+                  </div>
+                  <div className='leftArrow' direction='left'>
+                    <div className='leftArrowBody'>
+                    </div>
+                  </div>
+                  <div className='rightArrow' direction='right'>
+                    <div className='rightArrowBody'>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -154,7 +154,7 @@ class MovieContent extends Component {
             </div>
             <div className='commentWrapper'>
               <div className='commentHeading'>
-                <div className='headingLeft'>
+                <div className='headgitingLeft'>
                   코멘트 <span>10+</span>
                 </div> 
                 <span onClick={this.goToCommentDetail}>더보기</span>

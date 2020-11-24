@@ -11,26 +11,51 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      isSignup: false,
-      isLogin: false,
+      isLoginOrSignupModalOn: false,
+      clickedType: '',
     };
   }
+  //함수 2개를 이용한 모달 on/off
+  // openSignup = () => {
+  //   console.log('click');
+  //   this.setState({ isSignup: true });
+  // };
 
-  openSignup = () => {
-    this.setState({ isSignup: true });
+  // closeSignup = () => {
+  //   console.log('click');
+  //   this.setState({ isSignup: false });
+  // };
+
+  //위 함수를 하나로 합침
+
+  handleClickedType = (e) => {
+    this.setState({ clickedType: e.target.innerText });
   };
 
-  closeSignup = () => {
-    this.setState({ isSignup: false });
+  handleLoginOrSignupModal = (e) => {
+    this.setState({
+      isLoginOrSignupModalOn: !this.state.isLoginOrSignupModalOn,
+    });
+    this.handleClickedType(e);
   };
+  //로그인 함수 2개
+  // openLogin = () => {
+  //   console.log('click');
+  //   this.setState({ isLogin: true });
+  // };
 
-  openLogin = () => {
-    this.setState({ isLogin: true });
-  };
+  // closeLogin = () => {
+  //   this.setState({ isLogin: false });
+  // };
 
-  closeLogin = () => {
-    this.setState({ isLogin: false });
-  };
+  //위 함수 하나로 합침
+  // handleLoginModal = () => {
+  //   console.log('login');
+  //   this.setState({
+  //     isLogin: !this.state.isLogin,
+  //     clickedType: e.target.innerText,
+  //   });
+  // };
 
   render() {
     const { isSignup, isLogin } = this.state;
@@ -39,8 +64,15 @@ class Nav extends Component {
       <div className='Nav'>
         Nav
         <Search />
-        {/* <Login /> */}
-        {/* <Signup /> */}
+        <span onClick={(e) => this.handleLoginOrSignupModal(e)}>로그인</span>
+        <span onClick={(e) => this.handleLoginOrSignupModal(e)}>회원가입</span>
+        {this.state.isLoginOrSignupModalOn && (
+          <Signup
+            handleClickedType={this.handleClickedType}
+            handleLoginOrSignupModal={this.handleLoginOrSignupModal}
+            clickedType={this.state.clickedType}
+          />
+        )}
       </div>
     );
   }

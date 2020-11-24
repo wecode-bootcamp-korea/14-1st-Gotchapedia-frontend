@@ -6,8 +6,8 @@ import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
 import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
+import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
-
 
 const COMMENT_API = 'http://localhost:3000/data/contentdata.json';
 
@@ -27,6 +27,7 @@ class MovieContent extends Component {
       countComment: "",
       commentList:[],
       commentObj: {},
+      isCommentdAdded: false,
     }
   };
 
@@ -57,7 +58,7 @@ class MovieContent extends Component {
   }
   
   addComment = (e) => {
-    const { commentString, commentObj, commentArray, commentList } = this.state;
+    const { commentString, commentObj, commentArray, commentList, isCommentdAdded } = this.state;
     const writtenTime = Date.now();
     e.preventDefault();
     const obj = {
@@ -71,7 +72,8 @@ class MovieContent extends Component {
     }
 
     this.setState({
-      commentList: [obj, ...commentList]
+      commentList: [obj, ...commentList],
+      isCommentdAdded: true,
     })
     
     this.closeModalComment();
@@ -107,18 +109,19 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment, commentList } = this.state;
+    const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData } = this.props;
-    const staff = movieContentData.staff;
+    const castingListData = movieContentData.staff;
+    const comments = movieContentData.comments;
 
     return (
       <>
         <div className='MovieContent'>
           {/* 얘는 별점줄때 display가 보이도록 설정*/}
-          <div className='hiddenComment'>
-            <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div>
+          {isCommentdAdded ? <ShowComment showCommentData={comments} /> : <div className='hiddenComment'>
+            <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div> 
             <button onClick={this.openModalComment} >코멘트 남기기</button>
-          </div>
+          </div>}
           <div className='movieContentBox'>
             <div className='predictStar'>
               <div className='predictHeading'>내가 좋아할 이유</div>
@@ -136,7 +139,7 @@ class MovieContent extends Component {
             <div className='castingWrapper'>                                                                                                                   
               <div className='castingHeading'>출연/제작</div>
               <div className='castingContent'>
-                <CastingList castingListData={staff}/>
+                <CastingList castingListData={castingListData}/>
               </div>
             </div>
             <div className='commentWrapper'>

@@ -12,8 +12,6 @@ class CommentWrite extends Component {
   render() {
     const { commentWriteData, closeModalComment, addComment, handleChange, isColor } = this.props;
 
-    console.log('commentWriteData >>>>>>>>> ', commentWriteData);
-
     return(
       <div className='CommentWrite' onClick={closeModalComment}>
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>

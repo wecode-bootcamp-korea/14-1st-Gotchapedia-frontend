@@ -1,13 +1,17 @@
-.StarRating {
-  margin-top: 5px;
-  margin-left: -5px;
+.starRatingBox {
+  display: flex;
+  flex-direction: column;
 
-  input[type='radio'] {
-    display: none;
-
-    // 지우기 ㄴㄴ
-    .star {
-      transition: color 200ms;
-    }
+  span {
+    margin: 3px 0 0 3px;
   }
+}
+
+.MuiBox-root {
+  color: #bbb;
+}
+
+.MuiRating-decimal {
+  font-size: 40px;
+  max-width: 30px;
 }

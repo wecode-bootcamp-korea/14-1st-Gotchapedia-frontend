@@ -5,13 +5,13 @@ class AddComment extends Component {
 
 
   render() {
-    const { comments } = this.props;
+    const { addedNewComments } = this.props;
 
     return(
       <div className='commentAdd'>
-        {comments?.map((element) => {
+        {addedNewComments.map((newComments) => {
           return (
-            <div className='newComment'>{element.comment}</div>
+            <div key={newComments.id} className='newComment'>{newComments.newComment}</div>
           )
         })}
       </div>

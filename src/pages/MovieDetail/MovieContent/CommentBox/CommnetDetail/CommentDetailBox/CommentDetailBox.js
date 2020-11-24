@@ -37,7 +37,7 @@ class CommentDetailBox extends Component {
                 {cmt?.comment}
               </p>
               <AddComment
-                comments={newCommentArr.filter((comment) => comment.id === cmt.commentId)} 
+                addedNewComments={newCommentArr.filter((comment) => comment.id === cmt.commentId)} 
                 handleComment={this.handleComment} 
                 enterAddEvent={this.enterAddEvent}
               />

@@ -12,7 +12,7 @@ class MovieBox extends Component {
   }
 
   render() {
-    const {moviedate, movieimg, movierate, movietitle} = this.props;
+    const {moviedate, movieimg, movierate, movietitle, movierank } = this.props;
     return (
       <div className='MovieBox'>
         <div className='movieAllWrap'>
@@ -20,7 +20,7 @@ class MovieBox extends Component {
             <div className='moviePosterWrap'>
               <img className='moviePoster' alt='poster' src={movieimg} />
             </div>
-            <div className='movieRank'></div>
+            <div className='movieRank'>{movierank}</div>
             <div className='movieInfo'>
               <div className='movieTitle'>{movietitle}</div>
               <div className='movieDate'>{moviedate}</div>

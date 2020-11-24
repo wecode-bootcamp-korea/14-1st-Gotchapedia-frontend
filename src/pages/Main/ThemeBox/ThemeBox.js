@@ -11,8 +11,9 @@ class ThemeBox extends Component {
     };
   }
 
+  // fetch('http://localhost:3001/data/movielist.json' 나중에 3000으로 고치세요 
   componentDidMount() {
-    fetch('http://localhost:3000/data/movielist.json', {
+    fetch('http://localhost:3001/data/movielist.json', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -24,45 +25,53 @@ class ThemeBox extends Component {
   }
 
   render() {
+    const { movieList } = this.state;
+    console.log(movieList);
     return (
       <>
-        <div className='onesPick'>
-          <div className='onesPickHeadWrap'>
-            <div className='fakeCover'>
-              <div className='onesPickHeadCover'>
-                <p className='onesPickHead'>고수희님의 Pick!</p>
-                <div className='boxRankingCover'>
-                  <div
-                    className='boxRankingWrap'
-                    style={{ display: 'flex', alignItems: 'center' }}
-                  >
-                    <div className='blankLeft' direction='left'></div>
-                    {this.state.movieList.map((movieboxData) => {
-                      return (
-                        <MovieBox
-                          moviedate={movieboxData.moviedate}
-                          movieimg={movieboxData.movieimg}
-                          movierate={movieboxData.movierate}
-                          movietitle={movieboxData.movietitle}
-                        />
-                      );
-                    })}
-                    <div className='blankRight' direction='right'></div>
-                  </div>
-                  <div className='leftArrow' direction='left'>
-                    <div className='leftArrowBody'>
+        {movieList.map((movie) => {
+          return (
+          <div className='onesPick'>
+            <div className='onesPickHeadWrap'>
+              <div className='fakeCover'>
+                <div className='onesPickHeadCover'>
+                  <p className='onesPickHead'>{movie.movieuser}<span>'s Pick !</span></p>
+                  <div className='boxRankingCover'>
+                    <div
+                      className='boxRankingWrap'
+                      style={{ display: 'flex', alignItems: 'center' }}
+                    >
+                      <div className='blankLeft' direction='left'></div>
+                      {this.state.movieList.map((movieboxData) => {
+                        return (
+                          <MovieBox
+                            moviedate={movieboxData.moviedate}
+                            movieimg={movieboxData.movieimg}
+                            movierate={movieboxData.movierate}
+                            movietitle={movieboxData.movietitle}
+                            movierank={movieboxData.rank}
+                          />
+                        );
+                      })}
+                      <div className='blankRight' direction='right'></div>
                     </div>
-                  </div>
-                  <div className='rightArrow' direction='right'>
-                    <div className='rightArrowBody'>
+                    <div className='leftArrow' direction='left'>
+                      <div className='leftArrowBody'>
+                      </div>
+                    </div>
+                    <div className='rightArrow' direction='right'>
+                      <div className='rightArrowBody'>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className='onesPick'>
+          )
+        })}
+        
+        {/* <div className='onesPick'>
           <div className='onesPickHeadWrap'>
             <div className='fakeCover'>
               <div className='onesPickHeadCover'>
@@ -241,7 +250,7 @@ class ThemeBox extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </>
     );
   }

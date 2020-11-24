@@ -38,39 +38,39 @@ class MovieHeader extends Component {
     })
   }
 
-  sendRateStarData = () => {
-    const { rateStar } = this.state;
-    fetch(STAR_API, {
-      method: 'POST',
-      body: JSON.stringify({
-        starPoint: rateStar
-      }),
-    })
-      .then((res) => { return res.json()})
-  }
+  // sendRateStarData = () => {
+  //   const { rateStar } = this.state;
+  //   fetch(STAR_API, {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       starPoint: rateStar
+  //     }),
+  //   })
+  //     .then((res) => { return res.json()})
+  // }
   
-  ratingStars = (ratingValue) => {
-    this.setState({
-      rateStar: ratingValue, 
-    })
-    this.sendRateStarData();
-  }
+  // ratingStars = (ratingValue) => {
+  //   this.setState({
+  //     rateStar: ratingValue, 
+  //   })
+  //   this.sendRateStarData();
+  // }
 
-  mouseLeaveEvent = () => {
-    this.setState({
-      starHover: null,
-    })
-  }
+  // mouseLeaveEvent = () => {
+  //   this.setState({
+  //     starHover: null,
+  //   })
+  // }
 
-  mouseEnterEvent = (ratingValue) => {
-    this.setState({
-      starHover: ratingValue,
-    })
-  }
+  // mouseEnterEvent = (ratingValue) => {
+  //   this.setState({
+  //     starHover: ratingValue,
+  //   })
+  // }
 
   render() {
     console.log("asudfhusbdhf: ", this.props.movieHeaderData)
-    const { isWantToSee, rateStar, starHover } = this.state;
+    const { isWantToSee } = this.state;
     const { movieHeaderData } = this.props;
     const subImage = movieHeaderData.subImage;
     const genre = movieHeaderData.genre;

@@ -36,10 +36,10 @@ export default function HoverRating() {
       <div className='starRatingWrapper'>
         {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
         <Rating
-        name="hover-feedback"
-        value={value}
-        precision={0.5}
-        onChange={(event, newValue) => {
+          name="hover-feedback"
+          value={value}
+          precision={0.5}
+          onChange={(event, newValue) => {
           setValue(newValue);
         }}
         onChangeActive={(event, newHover) => {

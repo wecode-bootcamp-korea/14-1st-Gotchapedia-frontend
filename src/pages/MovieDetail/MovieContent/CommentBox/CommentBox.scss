@@ -2,9 +2,9 @@
 
 .commentBox {
   display: block;
-  // width: 294px;
+  height: 290px;
   background-color: #eee;
-
+  padding: 20px;
   border-radius: 5px;
 
   .commentTitle {
@@ -56,11 +56,12 @@
   .commentIcons {
     display: flex;
     color: $grey;
-    margin: 5px 0 5px 0;
+    margin: 5px 0 5px 10px;
+    display: inline-block;
 
     .thumbsUpWrapper,
     .commentWrapper {
-      margin: 10px;
+      margin: 20px;
 
       .thumsUpIcon,
       .commentIcon {
@@ -69,14 +70,38 @@
     }
   }
 
-  .like {
-    color: $pink;
-    font-size: 15px;
-    padding: 5px 10px;
-    border-top: 1px solid #ddd;
+  .likeEventContainer {
+    .unpushedLike {
+      margin: 0 0 5px 10px;
+      color: $pink;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .pushedLike {
+      width: 60px;
+      height: 20px;
+      @include flex-center;
+      margin-left: 6px;
+      color: $pink;
+      border-top: 1px solid #ddd;
+      color: #fff;
+      background-color: $pink;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
 }
 
 .slick-list {
-  width: 500px;
+  display: inline-block;
+  width: 550px;
+  height: 300px;
+  line-height: 1.2;
+
+  overflow: hidden;
+  // // 여기서부터 시작을 할거야
+  // white-space: nowrap;
+  // // ... 으로 감춰
+  text-overflow: ellipsis;
 }

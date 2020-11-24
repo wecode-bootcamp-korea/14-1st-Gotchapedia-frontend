@@ -1,136 +1,921 @@
 {
   "data": [
     {
-      "image": "/images/cameronCrow.jpg",
-      "name": "카메론 크로우",
-      "role": "감독",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"
+      "id": 1,
+      "name": "바닐라스카이",
+      "country": "미국",
+      "description": "뉴욕 출판사의 간부이며 부와 카리스마를 가진 바람둥이 데이빗 에임즈는 자신의 가장 절친한 친구의 애인 소피아와 사랑에 빠진다. 소피아는 데이빗이 꿈에 그리던 여자였다. 그러나 다음날... 그는 차 안에 있으며, 자신과 함께 동반자살 하려는 줄리와 다투고 있다. 줄리는 ...",
+      "mainImage": "/images/mainImage.jpeg",
+      "openDate": "2001-12-10",
+      "showTime": 137,
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
+      "staff": 
+      [
+        {
+          "name": "카메론 크로우",
+          "image": "/images/cameronCrow.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "톰 크루즈",
+          "image": "/images/tomcruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "페넬로페 크루즈",
+          "image": "/images/penelopeCruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "카메론 디아즈",
+          "image": "/images/cameronDiaz.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "커트 러셀",
+          "image": "/images/kurtRussel.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        }
+      ],
+      "subImage": 
+      [
+        {
+          "url": "/images/url1.jpg"
+        },
+        {
+          "url": "/images/url2.png"
+        },
+        {
+          "url": "/images/url3.png"
+        }
+      ],
+      "comments": 
+      [
+        {
+          "commentId": "0",
+          "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야 한다. 모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김1",
+          "starPoint": "5.0",
+          "thumbsup": "6",
+          "countComment": "12"
+        },
+        {
+          "commentId": "1",
+          "comment": "내가 그들의 마지막 대화를 들을 수 없는 이유는 내가 타인에게 모든것을 말하지 않는 이유와 같다",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김2",
+          "starPoint": "4.0",
+          "thumbsup": "8",
+          "countComment": "41"
+        },
+        {
+          "commentId": "2",
+          "comment": "제목의 오역에 대해 말이 많은데 개인적으로는 '외로움도 통역이 되나요?' 정도로 해보고 싶다. 물론 여기서 통역은 문자 그대로의 통역이 아니라 누군가의...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김3",
+          "starPoint": "2.5",
+          "thumbsup": "5",
+          "countComment": "4"
+        },
+        {
+          "commentId": "3",
+          "comment": "교회와 목사, 종교라는 의식의 무지에서 오는 거짓을 따라가다보니 다다른 곳은 선한 악마와 악한천사만 있었다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김4",
+          "starPoint":"3.5",
+          "thumbsup": "15",
+          "countComment": "14"
+        },
+        {
+          "commentId": "4",
+          "comment": "인간의 악마성이고 뭐고 그딴거 신경 안쓰고 봤는데 왜냐하면 플롯은 흔해빠진 권선징악이라서 새로울 것은 없었기때문 ...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김5",
+          "starPoint":"4.0",
+          "thumbsup": "22",
+          "countComment": "4"
+        },
+        {
+          "commentId": "5",
+          "comment": "테일러 쉐리던이 2편의 시나리오는 1편의 시나리오에 비하면 장난이 아니라고 했던거 같은데, 개인적인 감상으로는 1편에 비해 많이 모자란 것 같다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김6",
+          "starPoint":"1.5",
+          "thumbsup": "1",
+          "countComment": "3"
+        },
+        {
+          "commentId": "6",
+          "comment": "최근 헐리웃 대작들과 마찬가지로 다음편으로 가는 징검다리의 역할을 하는 작품이다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김7",
+          "starPoint":"4.5",
+          "thumbsup": "28",
+          "countComment": "14"
+        }
+      ]
     },
     {
-      "image": "/images/tomcruise.jpeg",
-      "name": "톰 크루즈",
-      "role": "주연 | 데이빗 에임즈",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"
+      "id" : 2,
+      "name": "블레이드러너",
+      "country": "미국",
+      "description": "뉴욕 출판사의 간부이며 부와 카리스마를 가진 바람둥이 데이빗 에임즈는 자신의 가장 절친한 친구의 애인 소피아와 사랑에 빠진다. 소피아는 데이빗이 꿈에 그리던 여자였다. 그러나 다음날... 그는 차 안에 있으며, 자신과 함께 동반자살 하려는 줄리와 다투고 있다. 줄리는 ...",
+      "mainImage": "/images/vanilaSkyHeaderImage.jpg",
+      "openDate": "2001-12-10",
+      "showTime": 137,
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
+      "staff": 
+      [
+        {
+          "name": "카메론 크로우",
+          "image": "/images/cameronCrow.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "톰 크루즈",
+          "image": "/images/tomcruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "페넬로페 크루즈",
+          "image": "/images/penelopeCruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "카메론 디아즈",
+          "image": "/images/cameronDiaz.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "커트 러셀",
+          "image": "/images/kurtRussel.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        }
+      ],
+      "subImage": 
+      [
+        {
+          "url": "/images/url1.jpg"
+        },
+        {
+          "url": "/images/url2.png"
+        },
+        {
+          "url": "/images/url3.png"
+        }
+      ],
+      "comments": 
+      [
+        {
+          "commentId": "0",
+          "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야 한다. 모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김1",
+          "starPoint": "5.0",
+          "thumbsup": "6",
+          "countComment": "12"
+        },
+        {
+          "commentId": "1",
+          "comment": "내가 그들의 마지막 대화를 들을 수 없는 이유는 내가 타인에게 모든것을 말하지 않는 이유와 같다",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김2",
+          "starPoint": "4.0",
+          "thumbsup": "8",
+          "countComment": "41"
+        },
+        {
+          "commentId": "2",
+          "comment": "제목의 오역에 대해 말이 많은데 개인적으로는 '외로움도 통역이 되나요?' 정도로 해보고 싶다. 물론 여기서 통역은 문자 그대로의 통역이 아니라 누군가의...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김3",
+          "starPoint": "2.5",
+          "thumbsup": "5",
+          "countComment": "4"
+        },
+        {
+          "commentId": "3",
+          "comment": "교회와 목사, 종교라는 의식의 무지에서 오는 거짓을 따라가다보니 다다른 곳은 선한 악마와 악한천사만 있었다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김4",
+          "starPoint":"3.5",
+          "thumbsup": "15",
+          "countComment": "14"
+        },
+        {
+          "commentId": "4",
+          "comment": "인간의 악마성이고 뭐고 그딴거 신경 안쓰고 봤는데 왜냐하면 플롯은 흔해빠진 권선징악이라서 새로울 것은 없었기때문 ...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김5",
+          "starPoint":"4.0",
+          "thumbsup": "22",
+          "countComment": "4"
+        },
+        {
+          "commentId": "5",
+          "comment": "테일러 쉐리던이 2편의 시나리오는 1편의 시나리오에 비하면 장난이 아니라고 했던거 같은데, 개인적인 감상으로는 1편에 비해 많이 모자란 것 같다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김6",
+          "starPoint":"1.5",
+          "thumbsup": "1",
+          "countComment": "3"
+        },
+        {
+          "commentId": "6",
+          "comment": "최근 헐리웃 대작들과 마찬가지로 다음편으로 가는 징검다리의 역할을 하는 작품이다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김7",
+          "starPoint":"4.5",
+          "thumbsup": "28",
+          "countComment": "14"
+        }
+      ]
     },
     {
-      "image": "/images/penelopeCruise.jpeg",
-      "name": "페넬로페 크루즈",
-      "role": "주연 | 소피아 세리노",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "id" : 3,
+      "name": "아키라",
+      "country": "영국",
+      "description": "뉴욕 출판사의 간부이며 부와 카리스마를 가진 바람둥이 데이빗 에임즈는 자신의 가장 절친한 친구의 애인 소피아와 사랑에 빠진다. 소피아는 데이빗이 꿈에 그리던 여자였다. 그러나 다음날... 그는 차 안에 있으며, 자신과 함께 동반자살 하려는 줄리와 다투고 있다. 줄리는 ...",
+      "mainImage": "/images/vanilaSkyHeaderImage.jpg",
+      "openDate": "2001-12-10",
+      "showTime": 137,
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
+      "staff": 
+      [
+        {
+          "name": "카메론 크로우",
+          "image": "/images/cameronCrow.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "톰 크루즈",
+          "image": "/images/tomcruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "페넬로페 크루즈",
+          "image": "/images/penelopeCruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "카메론 디아즈",
+          "image": "/images/cameronDiaz.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "커트 러셀",
+          "image": "/images/kurtRussel.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        }
+      ],
+      "subImage": 
+      [
+        {
+          "url": "/images/url1.jpg"
+        },
+        {
+          "url": "/images/url2.png"
+        },
+        {
+          "url": "/images/url3.png"
+        }
+      ],
+      "comments": 
+      [
+        {
+          "commentId": "0",
+          "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야 한다. 모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김1",
+          "starPoint": "5.0",
+          "thumbsup": "6",
+          "countComment": "12"
+        },
+        {
+          "commentId": "1",
+          "comment": "내가 그들의 마지막 대화를 들을 수 없는 이유는 내가 타인에게 모든것을 말하지 않는 이유와 같다",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김2",
+          "starPoint": "4.0",
+          "thumbsup": "8",
+          "countComment": "41"
+        },
+        {
+          "commentId": "2",
+          "comment": "제목의 오역에 대해 말이 많은데 개인적으로는 '외로움도 통역이 되나요?' 정도로 해보고 싶다. 물론 여기서 통역은 문자 그대로의 통역이 아니라 누군가의...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김3",
+          "starPoint": "2.5",
+          "thumbsup": "5",
+          "countComment": "4"
+        },
+        {
+          "commentId": "3",
+          "comment": "교회와 목사, 종교라는 의식의 무지에서 오는 거짓을 따라가다보니 다다른 곳은 선한 악마와 악한천사만 있었다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김4",
+          "starPoint":"3.5",
+          "thumbsup": "15",
+          "countComment": "14"
+        },
+        {
+          "commentId": "4",
+          "comment": "인간의 악마성이고 뭐고 그딴거 신경 안쓰고 봤는데 왜냐하면 플롯은 흔해빠진 권선징악이라서 새로울 것은 없었기때문 ...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김5",
+          "starPoint":"4.0",
+          "thumbsup": "22",
+          "countComment": "4"
+        },
+        {
+          "commentId": "5",
+          "comment": "테일러 쉐리던이 2편의 시나리오는 1편의 시나리오에 비하면 장난이 아니라고 했던거 같은데, 개인적인 감상으로는 1편에 비해 많이 모자란 것 같다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김6",
+          "starPoint":"1.5",
+          "thumbsup": "1",
+          "countComment": "3"
+        },
+        {
+          "commentId": "6",
+          "comment": "최근 헐리웃 대작들과 마찬가지로 다음편으로 가는 징검다리의 역할을 하는 작품이다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김7",
+          "starPoint":"4.5",
+          "thumbsup": "28",
+          "countComment": "14"
+        }
+      ]
     },
     {
-      "image": "/images/cameronDiaz.jpeg",
-      "name": "카메론 디아즈",
-      "role": "주연 | 줄리아나 줄리 지안니",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "id" : 4,
+      "name": "붉은 돼지",
+      "country": "일본",
+      "description": "뉴욕 출판사의 간부이며 부와 카리스마를 가진 바람둥이 데이빗 에임즈는 자신의 가장 절친한 친구의 애인 소피아와 사랑에 빠진다. 소피아는 데이빗이 꿈에 그리던 여자였다. 그러나 다음날... 그는 차 안에 있으며, 자신과 함께 동반자살 하려는 줄리와 다투고 있다. 줄리는 ...",
+      "mainImage": "/images/vanilaSkyHeaderImage.jpg",
+      "openDate": "2001-12-10",
+      "showTime": 137,
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
+      "staff": 
+      [
+        {
+          "name": "카메론 크로우",
+          "image": "/images/cameronCrow.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "톰 크루즈",
+          "image": "/images/tomcruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "페넬로페 크루즈",
+          "image": "/images/penelopeCruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "카메론 디아즈",
+          "image": "/images/cameronDiaz.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "커트 러셀",
+          "image": "/images/kurtRussel.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        }
+      ],
+      "subImage": 
+      [
+        {
+          "url": "/images/url1.jpg"
+        },
+        {
+          "url": "/images/url2.png"
+        },
+        {
+          "url": "/images/url3.png"
+        }
+      ],
+      "comments": 
+      [
+        {
+          "commentId": "0",
+          "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야 한다. 모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김1",
+          "starPoint": "5.0",
+          "thumbsup": "6",
+          "countComment": "12"
+        },
+        {
+          "commentId": "1",
+          "comment": "내가 그들의 마지막 대화를 들을 수 없는 이유는 내가 타인에게 모든것을 말하지 않는 이유와 같다",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김2",
+          "starPoint": "4.0",
+          "thumbsup": "8",
+          "countComment": "41"
+        },
+        {
+          "commentId": "2",
+          "comment": "제목의 오역에 대해 말이 많은데 개인적으로는 '외로움도 통역이 되나요?' 정도로 해보고 싶다. 물론 여기서 통역은 문자 그대로의 통역이 아니라 누군가의...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김3",
+          "starPoint": "2.5",
+          "thumbsup": "5",
+          "countComment": "4"
+        },
+        {
+          "commentId": "3",
+          "comment": "교회와 목사, 종교라는 의식의 무지에서 오는 거짓을 따라가다보니 다다른 곳은 선한 악마와 악한천사만 있었다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김4",
+          "starPoint":"3.5",
+          "thumbsup": "15",
+          "countComment": "14"
+        },
+        {
+          "commentId": "4",
+          "comment": "인간의 악마성이고 뭐고 그딴거 신경 안쓰고 봤는데 왜냐하면 플롯은 흔해빠진 권선징악이라서 새로울 것은 없었기때문 ...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김5",
+          "starPoint":"4.0",
+          "thumbsup": "22",
+          "countComment": "4"
+        },
+        {
+          "commentId": "5",
+          "comment": "테일러 쉐리던이 2편의 시나리오는 1편의 시나리오에 비하면 장난이 아니라고 했던거 같은데, 개인적인 감상으로는 1편에 비해 많이 모자란 것 같다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김6",
+          "starPoint":"1.5",
+          "thumbsup": "1",
+          "countComment": "3"
+        },
+        {
+          "commentId": "6",
+          "comment": "최근 헐리웃 대작들과 마찬가지로 다음편으로 가는 징검다리의 역할을 하는 작품이다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김7",
+          "starPoint":"4.5",
+          "thumbsup": "28",
+          "countComment": "14"
+        }
+      ]
     },
     {
-      "image": "/images/kurtRussel.jpg",
-      "name": "커트 러셀",
-      "role": "주연 | 커티스 맥케이브 박사",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "id": 5,
+      "name": "4월 이야기",
+      "country": "프랑스",
+      "description": "뉴욕 출판사의 간부이며 부와 카리스마를 가진 바람둥이 데이빗 에임즈는 자신의 가장 절친한 친구의 애인 소피아와 사랑에 빠진다. 소피아는 데이빗이 꿈에 그리던 여자였다. 그러나 다음날... 그는 차 안에 있으며, 자신과 함께 동반자살 하려는 줄리와 다투고 있다. 줄리는 ...",
+      "mainImage": "/images/vanilaSkyHeaderImage.jpg",
+      "openDate": "2001-12-10",
+      "showTime": 137,
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
+      "staff": 
+      [
+        {
+          "name": "카메론 크로우",
+          "image": "/images/cameronCrow.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "톰 크루즈",
+          "image": "/images/tomcruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "페넬로페 크루즈",
+          "image": "/images/penelopeCruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "카메론 디아즈",
+          "image": "/images/cameronDiaz.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "커트 러셀",
+          "image": "/images/kurtRussel.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        }
+      ],
+      "subImage": 
+      [
+        {
+          "url": "/images/url1.jpg"
+        },
+        {
+          "url": "/images/url2.png"
+        },
+        {
+          "url": "/images/url3.png"
+        }
+      ],
+      "comments": 
+      [
+        {
+          "commentId": "0",
+          "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야 한다. 모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김1",
+          "starPoint": "5.0",
+          "thumbsup": "6",
+          "countComment": "12"
+        },
+        {
+          "commentId": "1",
+          "comment": "내가 그들의 마지막 대화를 들을 수 없는 이유는 내가 타인에게 모든것을 말하지 않는 이유와 같다",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김2",
+          "starPoint": "4.0",
+          "thumbsup": "8",
+          "countComment": "41"
+        },
+        {
+          "commentId": "2",
+          "comment": "제목의 오역에 대해 말이 많은데 개인적으로는 '외로움도 통역이 되나요?' 정도로 해보고 싶다. 물론 여기서 통역은 문자 그대로의 통역이 아니라 누군가의...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김3",
+          "starPoint": "2.5",
+          "thumbsup": "5",
+          "countComment": "4"
+        },
+        {
+          "commentId": "3",
+          "comment": "교회와 목사, 종교라는 의식의 무지에서 오는 거짓을 따라가다보니 다다른 곳은 선한 악마와 악한천사만 있었다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김4",
+          "starPoint":"3.5",
+          "thumbsup": "15",
+          "countComment": "14"
+        },
+        {
+          "commentId": "4",
+          "comment": "인간의 악마성이고 뭐고 그딴거 신경 안쓰고 봤는데 왜냐하면 플롯은 흔해빠진 권선징악이라서 새로울 것은 없었기때문 ...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김5",
+          "starPoint":"4.0",
+          "thumbsup": "22",
+          "countComment": "4"
+        },
+        {
+          "commentId": "5",
+          "comment": "테일러 쉐리던이 2편의 시나리오는 1편의 시나리오에 비하면 장난이 아니라고 했던거 같은데, 개인적인 감상으로는 1편에 비해 많이 모자란 것 같다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김6",
+          "starPoint":"1.5",
+          "thumbsup": "1",
+          "countComment": "3"
+        },
+        {
+          "commentId": "6",
+          "comment": "최근 헐리웃 대작들과 마찬가지로 다음편으로 가는 징검다리의 역할을 하는 작품이다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김7",
+          "starPoint":"4.5",
+          "thumbsup": "28",
+          "countComment": "14"
+        }
+      ] 
     },
     {
-      "image": "/images/brianShelby.webp",
-      "name": "제이슨 리",
-      "role": "조연 | 브라이언 쉘비",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "id" : 6,
+      "name": "버팔로66",
+      "country": "홍콩",
+      "description": "뉴욕 출판사의 간부이며 부와 카리스마를 가진 바람둥이 데이빗 에임즈는 자신의 가장 절친한 친구의 애인 소피아와 사랑에 빠진다. 소피아는 데이빗이 꿈에 그리던 여자였다. 그러나 다음날... 그는 차 안에 있으며, 자신과 함께 동반자살 하려는 줄리와 다투고 있다. 줄리는 ...",
+      "mainImage": "/images/vanilaSkyHeaderImage.jpg",
+      "openDate": "2001-12-10",
+      "showTime": 137,
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
+      "staff": 
+      [
+        {
+          "name": "카메론 크로우",
+          "image": "/images/cameronCrow.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "톰 크루즈",
+          "image": "/images/tomcruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "페넬로페 크루즈",
+          "image": "/images/penelopeCruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "카메론 디아즈",
+          "image": "/images/cameronDiaz.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "커트 러셀",
+          "image": "/images/kurtRussel.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        }
+      ],
+      "subImage": 
+      [
+        {
+          "url": "/images/url1.jpg"
+        },
+        {
+          "url": "/images/url2.png"
+        },
+        {
+          "url": "/images/url3.png"
+        }
+      ],
+      "comments": 
+      [
+        {
+          "commentId": "0",
+          "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야 한다. 모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김1",
+          "starPoint": "5.0",
+          "thumbsup": "6",
+          "countComment": "12"
+        },
+        {
+          "commentId": "1",
+          "comment": "내가 그들의 마지막 대화를 들을 수 없는 이유는 내가 타인에게 모든것을 말하지 않는 이유와 같다",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김2",
+          "starPoint": "4.0",
+          "thumbsup": "8",
+          "countComment": "41"
+        },
+        {
+          "commentId": "2",
+          "comment": "제목의 오역에 대해 말이 많은데 개인적으로는 '외로움도 통역이 되나요?' 정도로 해보고 싶다. 물론 여기서 통역은 문자 그대로의 통역이 아니라 누군가의...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김3",
+          "starPoint": "2.5",
+          "thumbsup": "5",
+          "countComment": "4"
+        },
+        {
+          "commentId": "3",
+          "comment": "교회와 목사, 종교라는 의식의 무지에서 오는 거짓을 따라가다보니 다다른 곳은 선한 악마와 악한천사만 있었다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김4",
+          "starPoint":"3.5",
+          "thumbsup": "15",
+          "countComment": "14"
+        },
+        {
+          "commentId": "4",
+          "comment": "인간의 악마성이고 뭐고 그딴거 신경 안쓰고 봤는데 왜냐하면 플롯은 흔해빠진 권선징악이라서 새로울 것은 없었기때문 ...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김5",
+          "starPoint":"4.0",
+          "thumbsup": "22",
+          "countComment": "4"
+        },
+        {
+          "commentId": "5",
+          "comment": "테일러 쉐리던이 2편의 시나리오는 1편의 시나리오에 비하면 장난이 아니라고 했던거 같은데, 개인적인 감상으로는 1편에 비해 많이 모자란 것 같다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김6",
+          "starPoint":"1.5",
+          "thumbsup": "1",
+          "countComment": "3"
+        },
+        {
+          "commentId": "6",
+          "comment": "최근 헐리웃 대작들과 마찬가지로 다음편으로 가는 징검다리의 역할을 하는 작품이다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김7",
+          "starPoint":"4.5",
+          "thumbsup": "28",
+          "countComment": "14"
+        }
+      ]
     },
     {
-      "image": "/images/cameronCrow.jpg",
-      "name": "카메론 크로우",
-      "role": "감독",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"
-    },
-    {
-      "image": "/images/tomcruise.jpeg",
-      "name": "톰 크루즈",
-      "role": "주연 | 데이빗 에임즈",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/penelopeCruise.jpeg",
-      "name": "페넬로페 크루즈",
-      "role": "주연 | 소피아 세리노",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/cameronDiaz.jpeg",
-      "name": "카메론 디아즈",
-      "role": "주연 | 줄리아나 줄리 지안니",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/kurtRussel.jpg",
-      "name": "커트 러셀",
-      "role": "주연 | 커티스 맥케이브 박사",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
-    },
-    {
-      "image": "/images/brianShelby.webp",
-      "name": "제이슨 리",
-      "role": "조연 | 브라이언 쉘비",
-      "profile": "./images/chorong2.png",
-      "writerId": "김태현태김",
-      "rating":"5.0",
-      "desc": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야한다. 모든 것은 선택에서 시작되고, 그 기회는 언제나 나의 몫.",
-      "thumbsup": "14",
-      "comment": "0"    
+      "id" : 6,
+      "name": "더 문",
+      "country": "미국",
+      "description": "뉴욕 출판사의 간부이며 부와 카리스마를 가진 바람둥이 데이빗 에임즈는 자신의 가장 절친한 친구의 애인 소피아와 사랑에 빠진다. 소피아는 데이빗이 꿈에 그리던 여자였다. 그러나 다음날... 그는 차 안에 있으며, 자신과 함께 동반자살 하려는 줄리와 다투고 있다. 줄리는 ...",
+      "mainImage": "/images/vanilaSkyHeaderImage.jpg",
+      "openDate": "2001-12-10",
+      "showTime": 137,
+      "genre": 
+      [
+        {
+          "name": "스릴러"
+        }
+      ],
+      "staff": 
+      [
+        {
+          "name": "카메론 크로우",
+          "image": "/images/cameronCrow.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "톰 크루즈",
+          "image": "/images/tomcruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "페넬로페 크루즈",
+          "image": "/images/penelopeCruise.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "카메론 디아즈",
+          "image": "/images/cameronDiaz.jpeg",
+          "position": "배우"
+        },
+        {
+          "name": "커트 러셀",
+          "image": "/images/kurtRussel.jpg",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        },
+        {
+          "name": "제이슨 리",
+          "image": "/images/brianShelby.webp",
+          "position": "배우"
+        }
+      ],
+      "subImage": 
+      [
+        {
+          "url": "/images/url1.jpg"
+        },
+        {
+          "url": "/images/url2.png"
+        },
+        {
+          "url": "/images/url3.png"
+        }
+      ],
+      "comments": 
+      [
+        {
+          "commentId": "0",
+          "comment": "상처는 잠시 감출 수 있다. 그렇지만 현실도피로는 치유될 수 없고, 그것을 인정하고 받아드려야 한다. 모든 것은 선택에서 '시작'되고, 그 기회는 언제나 나의 몫.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김1",
+          "starPoint": "5.0",
+          "thumbsup": "6",
+          "countComment": "12"
+        },
+        {
+          "commentId": "1",
+          "comment": "내가 그들의 마지막 대화를 들을 수 없는 이유는 내가 타인에게 모든것을 말하지 않는 이유와 같다",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김2",
+          "starPoint": "4.0",
+          "thumbsup": "8",
+          "countComment": "41"
+        },
+        {
+          "commentId": "2",
+          "comment": "제목의 오역에 대해 말이 많은데 개인적으로는 '외로움도 통역이 되나요?' 정도로 해보고 싶다. 물론 여기서 통역은 문자 그대로의 통역이 아니라 누군가의...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김3",
+          "starPoint": "2.5",
+          "thumbsup": "5",
+          "countComment": "4"
+        },
+        {
+          "commentId": "3",
+          "comment": "교회와 목사, 종교라는 의식의 무지에서 오는 거짓을 따라가다보니 다다른 곳은 선한 악마와 악한천사만 있었다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김4",
+          "starPoint":"3.5",
+          "thumbsup": "15",
+          "countComment": "14"
+        },
+        {
+          "commentId": "4",
+          "comment": "인간의 악마성이고 뭐고 그딴거 신경 안쓰고 봤는데 왜냐하면 플롯은 흔해빠진 권선징악이라서 새로울 것은 없었기때문 ...",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김5",
+          "starPoint":"4.0",
+          "thumbsup": "22",
+          "countComment": "4"
+        },
+        {
+          "commentId": "5",
+          "comment": "테일러 쉐리던이 2편의 시나리오는 1편의 시나리오에 비하면 장난이 아니라고 했던거 같은데, 개인적인 감상으로는 1편에 비해 많이 모자란 것 같다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김6",
+          "starPoint":"1.5",
+          "thumbsup": "1",
+          "countComment": "3"
+        },
+        {
+          "commentId": "6",
+          "comment": "최근 헐리웃 대작들과 마찬가지로 다음편으로 가는 징검다리의 역할을 하는 작품이다.",
+          "commentorImage": "/images/chorong2.png",
+          "commentorName": "김태현태김7",
+          "starPoint":"4.5",
+          "thumbsup": "28",
+          "countComment": "14"
+        }
+      ]
     }
   ]
 }

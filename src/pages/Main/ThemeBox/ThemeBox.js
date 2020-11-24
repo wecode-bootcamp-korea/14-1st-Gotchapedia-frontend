@@ -24,7 +24,6 @@ class ThemeBox extends Component {
   }
 
   render() {
-    console.log(this.state.movieList);
     return (
       <>
         <div className='onesPick'>

@@ -4,11 +4,17 @@ import './galleryBox.scss';
 class GalleryBox extends Component {
 
   render() {
-    const { pictureVideoData } = this.props;
-    
+    const { subImage } = this.props;
+
     return (
       <div className='GalleryBox'>
-        <img clasName='galleryPicture' src={pictureVideoData.image} alt='갤러리이미지'></img>
+        {subImage.map((image) => {
+          return (
+            <div className='galleryPictureWrapper'>
+              <img className='galleryPicture' src={image.url} alt='갤러리이미지' ></img>
+            </div>
+          )
+        })}
       </div>
     )
   }

@@ -12,9 +12,7 @@ class MovieBox extends Component {
   }
 
   render() {
-    // console.log(this.state.movieList);
-
-    const { moviedate, movieimg, movierate, movietitle } = this.props;
+    const {moviedate, movieimg, movierate, movietitle} = this.props;
     return (
       <div className='MovieBox'>
         <div className='movieAllWrap'>

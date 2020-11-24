@@ -26,8 +26,6 @@ class CastingList extends Component {
       slidesPerRow: 2,
     };
 
-    // console.log(castingListData);
-
     return (
       <Slider {...settings}>
         {castingListData.map((el,idx) => {

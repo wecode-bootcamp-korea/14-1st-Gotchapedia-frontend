@@ -8,17 +8,22 @@
   right: 0;
   bottom: 0;
   background: #00000080;
+  z-index: 10;
 
   .modalContainer {
+    position: absolute;
     width: 375px;
     height: 620px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
     padding: 32px 20px 48px 20px;
     border-radius: 8px;
     color: $grey;
     font-family: roboto;
     font-size: 15px;
-
+    z-index: 100;
     .close {
       position: absolute;
       font-size: 25px;

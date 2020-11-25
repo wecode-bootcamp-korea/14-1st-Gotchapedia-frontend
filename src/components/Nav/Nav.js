@@ -35,8 +35,8 @@ class Nav extends Component {
 
   onSignupSuccess = () => {
     console.log('singup complete');
-    this.setState({isLoginOrSignupModalOn: false});
-  }
+    this.setState({ isLoginOrSignupModalOn: false });
+  };
 
   //임시 로그아웃
   logout = () => {
@@ -64,19 +64,22 @@ class Nav extends Component {
         </button>
       </>
     );
-  
+
     if (this.state.userIsLoggedIn) {
       console.log('I got profile url : ' + localStorage.getItem('profile_url'));
       loginComponent = (
         <div onClick={this.logout}>
-          <img className='gatchaNavProfile' src={localStorage.getItem('profile_url')} />
+          <img
+            className='gatchaNavProfile'
+            src={localStorage.getItem('profile_url')}
+          />
         </div>
       );
     }
 
     return (
       <>
-      <div className='Nav'>
+        <div className='Nav'>
           <div className='navWrapper'>
             <div className='navLeft'>
               <img

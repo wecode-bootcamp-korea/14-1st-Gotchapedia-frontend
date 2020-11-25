@@ -48,48 +48,61 @@ class Signup extends Component {
     }
   };
 
-  // sign-up
-  fetchSignUp = (name, email, password) => {
-    fetch('http://10.58.5.89:8000/user', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
-      }),
+ // sign-up
+ fetchSignUp = (name, email, password) => {
+  fetch('http://10.58.5.89:8000/user', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      password: password,
+    }),
+  })
+    .then((res) => {
+      console.log(res);
+      res.json();
     })
-      .then((res) => {
-        console.log(res)
-        res.json()
-      })
-      .then((res) => {
-        alert("회원가입 성공");
-      });
-  };
+    .then((res) => {
+      alert('회원가입 성공');
+    })
+    .catch((error) => {
+      console.log('Error fetch but will test');
+      this.props.onSignupSuccess();
+    });
+};
 
-  //log-in
-  fetchLogin = (email, password) => {
-    fetch('http://10.58.5.89:8000/user/log-in', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
+//log-in
+fetchLogin = (email, password) => {
+  fetch('http://10.58.5.89:8000/user/log-in', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.token) {
+        console.log('token', res.token);
+        localStorage.setItem('token', res.token); // 토큰 추가
+        localStorage.setItem('profile_url', '/images/profile.jpg');
+        this.props.onLoginSuccess();
+      }
     })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.token) {
-          console.log('token', res.token);
-          localStorage.setItem('token', res.token); // 토큰 추가
-        }
-      });
-  };
+    //에러체크용
+    .catch((error) => {
+      console.log('Error fetch but will test');
+      localStorage.setItem('token', 'fake_error_token_which_should_work.');
+      localStorage.setItem('profile_url', '/images/profile.jpg');
+      this.props.onLoginSuccess();
+    });
+};
 
   render() {
     const {

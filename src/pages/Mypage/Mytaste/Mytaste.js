@@ -74,7 +74,7 @@ class Mytaste extends Component {
       .catch((error) => console.log('error', error));
   };
 
-  loadMystarData = () => {    
+  loadMystarData = () => {
     fetch(MYSTAR_API, {
       method: 'GET',
       headers: {
@@ -92,24 +92,15 @@ class Mytaste extends Component {
 
   setMyStar = () => {
     const { myStar, chartData } = this.state;
-    const { data, backgroundColor } = {...chartData.datasets[0]};
-    data = [...myStar]
-    this.setState({chartData})
-  };
-
-  changeColorChart = (tempMyStar) => {
-    // const { data } = tempMyStar.datasets[0];
-    // const { backgroundColor } = this.state.copiedData.datasets[0];
-    // let idx = data.indexOf(Math.max(...data));
-    // backgroundColor[idx] = '#f8a236';
-    // copiedData.datasets[0].backgroundColor = backgroundColor;
-    // this.setState({ chartData: copiedData });
+    const { datasets } = this.state.chartData;
+    [...datasets][0].data = [...myStar];
+    const idx = [...myStar].indexOf(Math.max(...myStar));
+    [...datasets][0].backgroundColor[idx] = '#f8a236';
+    this.setState({ chartData });
   };
 
   render() {
-    const { userData, myUrl, chartData, myStar } = this.state;
-    console.log('chartData>>', chartData)
-    console.log('MyStar>>', myStar)
+    const { userData, myUrl, chartData } = this.state;
     return (
       <>
         <Nav />

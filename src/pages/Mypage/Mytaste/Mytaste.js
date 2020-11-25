@@ -131,7 +131,7 @@ class Mytaste extends Component {
             />
             <div className='text'>취향분석</div>
             <img
-              src={myUrl === '' ? '/images/profile.jpg' : myUrl}
+              src={myUrl === '' ? '/images/defaultProfile.png' : myUrl}
               alt='profile'
               className='profile'
             />

@@ -6,6 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './nav.scss';
+import {
+  MYPAGE_API,
+  MYPAGE_TOKEN,
+} from '../../config';
 
 class Nav extends Component {
   constructor() {
@@ -13,21 +17,23 @@ class Nav extends Component {
     this.state = {
       isLoginOrSignupModalOn: false,
       clickedType: '',
+      searchData: {}
     };
     this.input = React.createRef();
   }
-  //함수 2개를 이용한 모달 on/off
-  // openSignup = () => {
-  //   console.log('click');
-  //   this.setState({ isSignup: true });
-  // };
 
-  // closeSignup = () => {
-  //   console.log('click');
-  //   this.setState({ isSignup: false });
-  // };
-
-  //위 함수를 하나로 합침
+  
+  componentDidMount() {
+    fetch(MYPAGE_API, {
+      method: 'GET',
+      headers: {
+        Authorization: MYPAGE_TOKEN,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ searchData: res.data }))
+      .catch((error) => console.log('error', error));
+  }
 
   handleClickedType = (e) => {
     this.setState({ clickedType: e.target.innerText });
@@ -59,8 +65,7 @@ class Nav extends Component {
   // };
 
   render() {
-    const { isSignup, isLogin } = this.state;
-    const { myData } = this.props;
+    const { searchData  } = this.state;
 
     return (
       <>
@@ -82,7 +87,7 @@ class Nav extends Component {
                   <FontAwesomeIcon icon={faSearch} />
                 </div>
                 <div className='searchInput'>
-                  <Search searchData={myData} inputRef={this.input} />
+                <Search searchData={searchData} inputRef={this.input} /> 
                 </div>
               </div>
 

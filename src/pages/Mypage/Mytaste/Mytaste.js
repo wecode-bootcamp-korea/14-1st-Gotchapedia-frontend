@@ -72,20 +72,23 @@ class Mytaste extends Component {
     const copiedData = { ...chartData };
     const tempData = Object.values(myStar);
     copiedData.datasets[0].data = tempData;
-    this.changeColorChart(copiedData);
+    this.changeColorChart(tempData);
   };
 
-  changeColorChart = (copiedData) => {
-    const { data } = copiedData.datasets[0];
-    const { backgroundColor } = this.state.copiedData.datasets[0];
-    let idx = data.indexOf(Math.max(...data));
-    backgroundColor[idx] = '#f8a236';
-    copiedData.datasets[0].backgroundColor = backgroundColor;
-    this.setState({ chartData: copiedData });
+  changeColorChart = (tempData) => {
+    console.log('temp>>',tempData)
+    console.log('data>>',this.state.chartData)
+    // const { data } = tempData.datasets[0];
+    // const { backgroundColor } = this.state.copiedData.datasets[0];
+    // let idx = data.indexOf(Math.max(...data));
+    // backgroundColor[idx] = '#f8a236';
+    // copiedData.datasets[0].backgroundColor = backgroundColor;
+    // this.setState({ chartData: copiedData });
   };
 
   render() {
-    const { userData, chartData } = this.state;
+    const { userData, chartData, myStar } = this.state;
+    console.log(myStar);
     return (
       <>
         <Nav />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './movieBox.scss';
@@ -11,6 +12,10 @@ class MovieBox extends Component {
     };
   }
 
+  goToMovieDetail = () => {
+    this.props.history.push("/movie-detail");
+  }
+
   render() {
     const {moviedate, movieimg, movierate, movietitle, movierank } = this.props;
     return (
@@ -18,7 +23,7 @@ class MovieBox extends Component {
         <div className='movieAllWrap'>
           <div className='moviePosterInside'>
             <div className='moviePosterWrap'>
-              <img className='moviePoster' alt='poster' src={movieimg} />
+              <img className='moviePoster' onClick={this.goToMovieDetail} alt='poster' src={movieimg} />
             </div>
             <div className='movieRank'>{movierank}</div>
             <div className='movieInfo'>
@@ -39,4 +44,4 @@ class MovieBox extends Component {
   }
 }
 
-export default MovieBox;
+export default withRouter(MovieBox);

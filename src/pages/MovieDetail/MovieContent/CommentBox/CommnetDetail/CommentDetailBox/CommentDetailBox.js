@@ -51,7 +51,7 @@ class CommentDetailBox extends Component {
       {commentList && commentList.map((cmt) => {
         return (
         <div key={cmt.commentId} style={{width: "600px"}}>
-          <div  className='commentBox'>
+          <div style={{margin: "20px 0"}} className='commentBox'>
             <div className='commentTitle'>
               <div className='titleLeft'>
                 <img src={cmt?.commentorImage} alt='작성자아이콘'></img>

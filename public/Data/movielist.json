@@ -5,14 +5,14 @@
       "movieimg": "/images/millenniummambo.jpg",
       "movietitle": "밀레니엄 맘보",
       "moviedate": "1998・홍콩",
-      "movierate": "4.3",
+      "movierate": "4.8",
       "rank": "1"
     },
     {
       "movieuser": "고은정",
-      "movieimg": "/images/bladerunner.jpg",
-      "movietitle": "블레이드러너",
-      "moviedate": "1987・미국",
+      "movieimg": "/images/mononokehime.jpg",
+      "movietitle": "모노노케 히메",
+      "moviedate": "1998・일본",
       "movierate": "4.9",
       "rank": "2"
     },
@@ -26,10 +26,10 @@
     },
     {
       "movieuser": "김태현",
-      "movieimg": "/images/mononokehime.jpg",
-      "movietitle": "모노노케 히메",
-      "moviedate": "2003・일본",
-      "movierate": "4.5",
+      "movieimg": "/images/url1.jpg",
+      "movietitle": "바닐라 스카이",
+      "moviedate": "2001・헝가리",
+      "movierate": "5.0",
       "rank": "4"
     },
     {

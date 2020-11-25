@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Signup from './Signup/Signup';
-import Login from './Login/Login';
 import Search from './Search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +16,8 @@ class Nav extends Component {
     this.state = {
       isLoginOrSignupModalOn: false,
       clickedType: '',
-      searchData: {}
+      searchData: {},
+      userIsLoggedIn: localStorage.getItem('token') != null,
     };
     this.input = React.createRef();
   }
@@ -45,31 +45,56 @@ class Nav extends Component {
     });
     this.handleClickedType(e);
   };
-  //로그인 함수 2개
-  // openLogin = () => {
-  //   console.log('click');
-  //   this.setState({ isLogin: true });
-  // };
 
-  // closeLogin = () => {
-  //   this.setState({ isLogin: false });
-  // };
+  onLoginSuccess = () => {
+    console.log('Login was successfully delegated.');
+    this.setState({ userIsLoggedIn: true, isLoginOrSignupModalOn: false });
+  };
 
-  //위 함수 하나로 합침
-  // handleLoginModal = () => {
-  //   console.log('login');
-  //   this.setState({
-  //     isLogin: !this.state.isLogin,
-  //     clickedType: e.target.innerText,
-  //   });
-  // };
+  onSignupSuccess = () => {
+    console.log('singup complete');
+    this.setState({isLoginOrSignupModalOn: false});
+  }
+
+  //임시 로그아웃
+  logout = () => {
+    localStorage.clear();
+    alert('logged out');
+    this.setState({ userIsLoggedIn: false });
+  };
 
   render() {
-    const { searchData  } = this.state;
+    const { isSignup, isLogin, userIsLoggedIn, searchData } = this.state;
+
+    var loginComponent = (
+      <>
+        <button
+          className='loginBtn'
+          onClick={(e) => this.handleLoginOrSignupModal(e)}
+        >
+          로그인
+        </button>
+        <button
+          className='signupBtn'
+          onClick={(e) => this.handleLoginOrSignupModal(e)}
+        >
+          회원가입
+        </button>
+      </>
+    );
+  
+    if (this.state.userIsLoggedIn) {
+      console.log('I got profile url : ' + localStorage.getItem('profile_url'));
+      loginComponent = (
+        <div onClick={this.logout}>
+          <img className='gatchaNavProfile' src={localStorage.getItem('profile_url')} />
+        </div>
+      );
+    }
 
     return (
       <>
-        <div className='Nav'>
+      <div className='Nav'>
           <div className='navWrapper'>
             <div className='navLeft'>
               <img
@@ -90,13 +115,7 @@ class Nav extends Component {
                 <Search searchData={searchData} inputRef={this.input} /> 
                 </div>
               </div>
-
-              <button className='loginBtn' onClick={(e) => this.handleLoginOrSignupModal(e)}>
-                로그인
-              </button>
-              <button className='signupBtn' onClick={(e) => this.handleLoginOrSignupModal(e)}>
-                회원가입
-              </button>
+              {loginComponent}
               <div className='starIcon'>
                 <FontAwesomeIcon icon={faStar} />
               </div>
@@ -114,6 +133,8 @@ class Nav extends Component {
             handleClickedType={this.handleClickedType}
             handleLoginOrSignupModal={this.handleLoginOrSignupModal}
             clickedType={this.state.clickedType}
+            onLoginSuccess={this.onLoginSuccess}
+            onSignupSuccess={this.onSignpSuccess}
           />
         )}
       </>

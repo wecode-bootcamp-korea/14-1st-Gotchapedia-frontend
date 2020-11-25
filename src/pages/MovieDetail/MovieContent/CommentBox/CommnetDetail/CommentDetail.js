@@ -11,8 +11,6 @@ class CommentDetail extends Component {
     super();
     this.state = {
       contentData: [],
-      newCommentStr: '',
-      newCommentArr: [],
     }
   }
 
@@ -31,27 +29,6 @@ class CommentDetail extends Component {
     this.props.history.push("/movie-detail");
   }
 
-  handleComment = (e) => {
-    this.setState({
-      newCommentStr: e.target.value,
-    })
-  } 
-
-  enterAddEvent = (e) => {
-    const { newCommentStr, newCommentArr } = this.state;
-    e.preventDefault();
-
-    if(e.keyCode === 13) {
-      const obj = {
-        id: e.target.id,
-        comment: newCommentStr
-      }
-
-      this.setState({
-        newCommentArr: [...newCommentArr, obj]
-      })
-    }
-  }
 
   render() {
     const { contentData, newCommentArr } = this.state;

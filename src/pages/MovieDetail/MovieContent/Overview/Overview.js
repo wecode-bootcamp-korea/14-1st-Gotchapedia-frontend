@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { MOVIEDETAIL_MOCKUP_API, MOVIEDETAIL_SERVER_API, MOVIEDETAIL_TOKEN } from '../../../../config';   
 import './overview.scss';
 import Nav from '../../../../components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,19 +10,24 @@ class Overview extends Component {
   constructor() {
     super();
     this.state = {
-      overviewData: [],
-    };
+      overviewData: {},
+    }
   }
 
   componentDidMount() {
-    fetch('/Data/contentdata.json')
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        this.setState({
-          overviewData: res.data,
-        });
+    fetch(MOVIEDETAIL_SERVER_API, {
+      method: 'GET',
+      headers: {
+        Authorization: MOVIEDETAIL_TOKEN,
+      },
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({ 
+        overviewData: res.data 
       });
+    })
+    .catch((err) => console.log('err >>>>> ', err));
   }
 
   goToMovieDetail = () => {
@@ -32,7 +38,8 @@ class Overview extends Component {
     const { overviewData } = this.state;
     console.log(overviewData);
 
-    return (
+    console.log('overviewData >>>>>>>>>>> ', overviewData);
+    return(
       <>
         <Nav />
         <div className='overviewHeading'>
@@ -47,27 +54,29 @@ class Overview extends Component {
           <div className='overviewContents'>
             <div className='overviewTitle'>
               <div className='title'>원제</div>
-              <div className='content'>{overviewData[0]?.name}</div>
+              <div className='content'>{overviewData.name}</div>
             </div>
             <div className='overviewYears'>
               <div className='title'>제작 연도</div>
-              <div className='content'>{overviewData[0]?.openDate}</div>
+              <div className='content'>{overviewData.openDate}</div>
             </div>
             <div className='overviewCountry'>
               <div className='title'>국가</div>
-              <div className='content'>{overviewData[0]?.country}</div>
+              <div className='content'>{overviewData.country}</div>
             </div>
             <div className='overviewGenre'>
               <div className='title'>장르</div>
-              <div className='content'>{overviewData[0]?.genre[0].name}</div>
+              <div className='content'>{!!overviewData.id && overviewData.genre[0].name}</div>
             </div>
             <div className='overviewTime'>
               <div className='title'>상영시간</div>
-              <div className='content'>{overviewData[0]?.showTime}</div>
+              <div className='content'>{overviewData.showTime}</div>
             </div>
             <div className='overviewDetail'>
               <div className='title'>내용</div>
-              <div className='content'>{overviewData[0]?.description}</div>
+              <div className='content'>
+                {overviewData.description}
+              </div>
             </div>
           </div>
         </div>

@@ -94,8 +94,8 @@ class Signup extends Component {
   render() {
     const {
       handleClickedType,
-      handleLoginOrSignupModal,
       clickedType,
+      handleLoginOrSignupModal,
     } = this.props;
     console.log(clickedType);
     return (

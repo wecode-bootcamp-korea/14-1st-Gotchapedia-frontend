@@ -13,7 +13,7 @@ class ThemeBox extends Component {
 
   // fetch('http://localhost:3000/data/movielist.json'
   componentDidMount() {
-    fetch('http://localhost:3001/data/movielist.json', {
+    fetch('http://10.58.0.152:8000/movie/movies/user?id=1', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -27,6 +27,7 @@ class ThemeBox extends Component {
   render() {
     const { movieList } = this.state;
     console.log(movieList);
+    
     return (
       <>
         {movieList.map((movie) => {
@@ -50,6 +51,7 @@ class ThemeBox extends Component {
                             movierate={movieboxData.movierate}
                             movietitle={movieboxData.movietitle}
                             movierank={movieboxData.rank}
+                            
                           />
                         );
                       })}
@@ -69,7 +71,8 @@ class ThemeBox extends Component {
             </div>
           </div>
           )
-        })}
+        })
+      } 
       </>
     );
   }

@@ -97,7 +97,10 @@ class Search extends Component {
   };
 
   onSearchInputChange = (event) => {
-    console.log(this.props.inputRef.current.children[1].firstElementChild.firstChild.defaultValue);
+    console.log(
+      this.props.inputRef.current.children[1].firstElementChild.firstChild
+        .defaultValue
+    );
     console.log(this.props.inputRef);
     this.setState({ searchValue: event.target.value });
   };

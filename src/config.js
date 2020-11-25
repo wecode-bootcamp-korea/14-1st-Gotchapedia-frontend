@@ -1,4 +1,4 @@
-export const MOVIEDETAIL_MOCKUP_API = 'http://localhost:3000/data/contentdata.json'
+export const MOVIEDETAIL_MOCKUP_API = 'http://localhost:3001/data/contentdata.json'
 // export const MOVIEDETAIL_SERVER_API = 'http://10.58.2.189:8000/movie/23';
 export const MOVIEDETAIL_SERVER_API = 'http://10.58.6.229:8000/movie/23';
 

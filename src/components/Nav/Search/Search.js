@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { DETAIL_API, DETAIL_TOKEN } from '../../../config';
+import { MYPAGE_API } from '../../../config';
 import './search.scss';
 
 const RECENT_KEYWORDS = 'RECENT_KEYWORDS';
@@ -21,6 +21,7 @@ class Search extends Component {
 
   componentDidMount() {
     window.addEventListener('click', this.handleInputBlur);
+    this.loadSearchData();
   }
 
   componentWillUnmount() {
@@ -34,19 +35,10 @@ class Search extends Component {
     }
   };
 
-  componentDidMount() {
-    this.loadDetailData();
-  }
-
-  loadDetailData = () => {
-    fetch(DETAIL_API, {
-      method: 'GET',
-      headers: {
-        Authorization: DETAIL_TOKEN,
-      },
-    })
+  loadSearchData = () => {
+    fetch(MYPAGE_API)
       .then((res) => res.json())
-      .then((res) => this.setState({ detailData: res.data }))
+      .then((res) => this.setState({ searchData: res.data }))
       .catch((error) => console.log('error', error));
   };
 
@@ -55,9 +47,9 @@ class Search extends Component {
   };
 
   saveKeyword = () => {
-    const { searchValue } = this.state;
-    searchValueList.push(searchValue);
-    searchValueList = Array.from(new Set([...searchValueList]));
+    searchValueList = Array.from(
+      new Set([...searchValueList, this.state.searchValue])
+    );
     localStorage.setItem(RECENT_KEYWORDS, JSON.stringify(searchValueList));
   };
 
@@ -68,20 +60,19 @@ class Search extends Component {
 
   searchMovie = (event) => {
     event.preventDefault();
-    const { searchValue } = this.state;
-    const { searchData } = this.props;
-    const searchPool = [...searchData.data];
+    const { searchValue, searchData } = this.state;
     const searchKeywords = searchValue.split(' ');
-    const tempFilteredMovie =
+    const [...filteredMovie] =
       searchValue &&
-      searchPool.filter((movie) => {
+      [...searchData].filter((movie) => {
         return searchKeywords.every((keyword) => movie.title.includes(keyword));
       });
 
     if (event.key === 'Enter') {
       this.saveKeyword();
     }
-    this.setState({ filteredMovie: tempFilteredMovie });
+    
+    this.setState({ filteredMovie });
   };
 
   onSearchInputChange = (event) => {

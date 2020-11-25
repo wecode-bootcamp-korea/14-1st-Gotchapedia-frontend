@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Signup from './Signup/Signup';
-import Login from './Login/Login';
 import Search from './Search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -46,35 +45,37 @@ class Nav extends Component {
     this.setState({ userIsLoggedIn: false });
   };
 
-  var loginComponent = (
-    <>
-      <button
-        className='loginBtn'
-        onClick={(e) => this.handleLoginOrSignupModal(e)}
-      >
-        로그인
-      </button>
-      <button
-        className='signupBtn'
-        onClick={(e) => this.handleLoginOrSignupModal(e)}
-      >
-        회원가입
-      </button>
-    </>
-  );
-  if (this.state.userIsLoggedIn) {
-    console.log('I got profile url : ' + localStorage.getItem('profile_url'));
-    loginComponent = (
-      <div onClick={this.logout}>
-        <img className='gatchaNavProfile' src={localStorage.getItem('profile_url')} />
-      </div>
-    );
-  }
-
   render() {
     const { isSignup, isLogin, userIsLoggedIn } = this.state;
 
+    var loginComponent = (
+      <>
+        <button
+          className='loginBtn'
+          onClick={(e) => this.handleLoginOrSignupModal(e)}
+        >
+          로그인
+        </button>
+        <button
+          className='signupBtn'
+          onClick={(e) => this.handleLoginOrSignupModal(e)}
+        >
+          회원가입
+        </button>
+      </>
+    );
+  
+    if (this.state.userIsLoggedIn) {
+      console.log('I got profile url : ' + localStorage.getItem('profile_url'));
+      loginComponent = (
+        <div onClick={this.logout}>
+          <img className='gatchaNavProfile' src={localStorage.getItem('profile_url')} />
+        </div>
+      );
+    }
+
     return (
+      <>
       <div className='Nav'>
           <div className='navWrapper'>
             <div className='navLeft'>
@@ -117,9 +118,8 @@ class Nav extends Component {
             onLoginSuccess={this.onLoginSuccess}
             onSignupSuccess={this.onSignpSuccess}
           />
-          />
         )}
-      </div>
+      </>
     );
   }
 }

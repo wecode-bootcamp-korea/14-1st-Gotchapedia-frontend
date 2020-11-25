@@ -3,26 +3,22 @@
 .Footer {
   height: 100%;
   width: 100%;
-  border: solid green;
 
   .footerHead {
-    height: 3.75em;
+    @include flex-center;
+    height: 62px;
     width: 100%;
     background-color: #101113;
-    border: solid blue;
 
     .footerHeadFont {
-      display: flex;
+      text-align: center;
       font-size: 19px;
       letter-spacing: -0.3px;
       font-weight: 500;
       color: #d1d1d2;
-      border: solid red;
-      justify-content: center;
-      align-content: center;
 
-      em {
-        color: #ff0358;
+      span {
+        color: $pink;
       }
     }
   }
@@ -76,22 +72,58 @@
           color: #848485;
         }
       }
+
       .footerRightBody {
-        height: 10em;
-        width: 7.5em;
-        border: dashed 1px grey;
+        height: 168px;
+        width: 89px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
 
         .footerLang {
-          height: 1.75em;
-          width: 7.5em;
-
           .langButton {
             height: 1.75em;
             width: 7.7em;
+            font-size: 15px;
             color: #a5a5a7;
             background-color: #1c1e20;
             border: solid 1px #a5a5a7;
             text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+          }
+
+          .footerSocialLogo {
+            display: flex;
+            flex-direction: row;
+            span {
+              .twitterIconWrapper {
+                display: inline-block;
+                .twitterIcon {
+                  color: #848485;
+                  // color: #fff;
+                }
+              }
+
+              .facebookIconWrapper {
+                display: inline-block;
+                .facebookIcon {
+                  font-size: 24px !important;
+                  color: #848485;
+                }
+              }
+
+              .googleIconWrapper {
+                display: inline-block;
+                .googleIcon {
+                  color: #848485;
+                  // background-color: #fff;
+                }
+              }
+            }
           }
         }
       }

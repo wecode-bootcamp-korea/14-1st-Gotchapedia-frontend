@@ -79,14 +79,18 @@ class MovieContent extends Component {
     this.closeModalComment();
   }
 
+  // 삭제 작업중...
   deleteComment = (e) => {
     const { commentList } = this.state;
-    const deletedComment = commentList.filter((comment) => {
-      return comment.commentId !== Number(e.target.id);
-    });
+    // console.log('prevCommentList >>>>>>>>> ', commentList)
+    const deletedComment = Array.from(commentList);
+    deletedComment.splice(0,1);
+    
     this.setState({
       commentList: deletedComment,
-    }) 
+      isCommentdAdded: false,
+    })
+    // console.log('aftercommentList >>>>>>>>> ', commentList);
   }
 
   goToCommentDetail = () => {
@@ -122,13 +126,14 @@ class MovieContent extends Component {
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData } = this.props;
     const castingListData = movieContentData.staff;
-    // const comments = movieContentData.comments;
+
+    console.log('commentList >>>>>>>>>>> ', commentList);
 
     return (
       <>
         <div className='MovieContent'>
           {/* 얘는 별점줄때 display가 보이도록 설정*/}
-          {isCommentdAdded ? <ShowComment onClick={this.deleteComment} commentList={!!commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
+          {isCommentdAdded ? <ShowComment deleteComment={this.deleteComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
             <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div> 
             <button onClick={this.openModalComment} >코멘트 남기기</button>
           </div>}
@@ -165,6 +170,7 @@ class MovieContent extends Component {
                       return (
                         <CommentBox
                           commentContent={el}
+                          deleteComment={this.deleteComment}
                         />
                       )
                     })}

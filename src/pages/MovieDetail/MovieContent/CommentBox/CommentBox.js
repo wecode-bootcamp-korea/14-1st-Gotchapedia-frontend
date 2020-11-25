@@ -27,9 +27,6 @@ class CommentBox extends Component {
     let cnt = Number(commentContent.thumbsup);
     const { isLike } = this.state;
 
-    // commentArray에 내가 만든 commentObj가 들어가야 한다
-    // console.log('comments >>>>>>>>> ', comments);
-    // console.log('')
     return (
       <>
         <div className='commentBox'>

@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FaGithub } from "react-icons/fa";
+import { FaFacebook } from 'react-icons/fa';
+import { FaGooglePlus } from 'react-icons/fa';
+
 
 class Footer extends Component {
   render() {
@@ -9,11 +13,7 @@ class Footer extends Component {
       <div className='Footer'>
         <div className='footerHead'>
           <span className='footerHeadFont'>
-            지금까지
-            <em>
-              <FontAwesomeIcon icon={faStar} /> 583,583,390개의 평가가
-            </em>
-            쌓였어요.
+            지금까지 <span><FontAwesomeIcon icon={faStar} /> 583,583,390 개의 평가가</span> 쌓였어요.
           </span>
         </div>
         <div className='footerBodyWrap'>
@@ -54,13 +54,23 @@ class Footer extends Component {
             </div>
             <div className='footerRightBody'>
               <div className='footerLang'>
-                <button className='langButton'>한국어</button>
+                <button className='langButton'>
+                  <em>한국어</em>
+                  <span>▾</span>
+                </button>
               </div>
               <div className='footerSocialLogo'>
-                {/* span으로 감싸서 처리하기
-                <img fb/>
-                <img twiter/>
-                <img gotcha/> */}
+                <span style={{display:"flex", justifyContent:"space-evenly", alignItems:"center"}}>
+                  <div style={{display:"inline-block"}} className='twitterIconWrapper'>
+                    <FaGithub style={{fontSize:"24px", margin:"7px", color:"#848485"}} className='twitterIcon' />
+                  </div>
+                  <div style={{display:"inline-block"}} className='facebookIconWrapper'>
+                    <FaFacebook style={{fontSize:"24px", margin:"7px", color:"#848485"}} className='facebookIcon' />
+                  </div>
+                  <div style={{display:"inline-block"}} className='googleIconWrapper'>
+                    <FaGooglePlus style={{fontSize:"24px", margin:"7px", color:"#848485"}} className='googleIcon' />  
+                  </div>
+                </span>
               </div>
             </div>
           </div>

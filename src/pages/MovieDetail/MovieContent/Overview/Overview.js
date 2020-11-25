@@ -14,8 +14,26 @@ class Overview extends Component {
     }
   }
 
+  // 서버용
+  // componentDidMount() {
+  //   fetch(MOVIEDETAIL_SERVER_API, {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //   .then(res => res.json())
+  //   .then(res => {
+  //     this.setState({ 
+  //       overviewData: res.data 
+  //     });
+  //   })
+  //   .catch((err) => console.log('err >>>>> ', err));
+  // }
+
+  // 목업용 
   componentDidMount() {
-    fetch(MOVIEDETAIL_SERVER_API, {
+    fetch(MOVIEDETAIL_MOCKUP_API, {
       method: 'GET',
       headers: {
         Authorization: MOVIEDETAIL_TOKEN,
@@ -28,10 +46,10 @@ class Overview extends Component {
       });
     })
     .catch((err) => console.log('err >>>>> ', err));
-  }
+  }  
 
   goToMovieDetail = () => {
-    this.props.history.push("/movie-detail");
+    this.props.history.push(`/movie-detail/${this.state.movieId}`);
   }
 
   render() {

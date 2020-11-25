@@ -26,7 +26,7 @@ class CommentDetail extends Component {
   }
 
   goToMovieDetail = () => {
-    this.props.history.push("/movie-detail");
+    this.props.history.push(`/movie-detail/${this.props.movieId}`);
   }
 
 

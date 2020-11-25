@@ -9,7 +9,7 @@ import CommentWrite from './CommentWrite/CommentWrite';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
 
-const COMMENT_API = 'http://localhost:3000/data/contentdata.json';
+const COMMENT_API = 'http://localhost:3001/data/contentdata.json';
 
 class MovieContent extends Component {
   constructor() {
@@ -89,8 +89,9 @@ class MovieContent extends Component {
     const currentList = [...commentList]
     this.openModalComment();
 
-    const newList = [{...currentList[0],comment:commentString} ,currentList]
-    currentList.splice(0,2)
+    // const newList = [{...currentList[0],comment:commentString} ,currentList]
+    const newList = Array.from(commentList);
+    currentList.splice(0,1)
 
     this.setState({
       commentList: [newList, ...commentList],
@@ -98,7 +99,6 @@ class MovieContent extends Component {
     })
   }
 
-  // 삭제 작업중...
   deleteComment = (e) => {
     const { commentList } = this.state;
     const deletedComment = Array.from(commentList);
@@ -111,11 +111,12 @@ class MovieContent extends Component {
   }
 
   goToCommentDetail = () => {
-    this.props.history.push("/movie-detail/comments");
+    // this.props.history.push("/movie-detail/comments");
+    this.props.history.push(`/movie-detail/${this.props.movieId}/comments`);
   }
 
   goToOverview = () => {
-    this.props.history.push("/movie-detail/overview");
+    this.props.history.push(`/movie-detail/${this.props.movieId}/overview`);
   }
 
   openModalComment = () => {
@@ -147,7 +148,6 @@ class MovieContent extends Component {
     return (
       <>
         <div className='MovieContent'>
-          {/* 얘는 별점줄때 display가 보이도록 설정*/}
           {isCommentdAdded ? <ShowComment deleteComment={this.deleteComment} updateComment={this.updateComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
             <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div> 
             <button onClick={this.openModalComment} >코멘트 남기기</button>
@@ -184,6 +184,7 @@ class MovieContent extends Component {
                     {commentList.length > 0 && commentList.map((el) => {
                       return (
                         <CommentBox
+                          key={el.commentId}
                           commentContent={el}
                           deleteComment={this.deleteComment}
                           updateComment={this.updateComment}

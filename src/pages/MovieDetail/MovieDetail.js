@@ -38,33 +38,32 @@ class MovieDetail extends Component {
   // }
 
   // 동적 라우팅
-  componentDidMount() {
-    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
-        headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({ movieDetailData: res.data });
-        // console.log('res >>>>>>>>>>>> ',res);
-      })
-  }
-
+  // componentDidMount() {
+  //   fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
+  //       headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       this.setState({ movieDetailData: res.data });
+  //       // console.log('res >>>>>>>>>>>> ',res);
+  //     })
+  // }
 
   // 목업용
-  // componentDidMount() {
-  //   fetch(MOVIEDETAIL_MOCKUP_API, {
-  //     method: 'GET',
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     this.setState({
-  //       movieDetailData: res.data[0],
-  //     })
-  //   })
-  //   .catch((err) => console.log('err >>>>> ', err));
-  // }
+  componentDidMount() {
+    fetch(MOVIEDETAIL_MOCKUP_API, {
+      method: 'GET',
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        movieDetailData: res.data[0],
+      })
+    })
+    .catch((err) => console.log('err >>>>> ', err));
+  }
 
   render() {
     const { movieDetailData } = this.state;

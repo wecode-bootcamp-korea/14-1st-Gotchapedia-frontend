@@ -66,11 +66,6 @@ class CommentDetailBox extends Component {
                 {/* 기존 코멘트 */}
                 {cmt?.comment}
               </p>
-              <AddComment
-                addedNewComments={newCommentArr.filter((comment) => comment.id === cmt.commentId)} 
-                handleComment={this.handleComment} 
-                enterAddEvent={this.enterAddEvent}
-              />
             </div>
             <div className='commentIcons'>
               <div className='thumbsUpWrapper'>
@@ -86,8 +81,14 @@ class CommentDetailBox extends Component {
             <div className='inputCommentWrapper'>
             <input id={cmt?.commentId} onChange={this.handleComment} onKeyUp={this.enterAddEvent} name='inputComment' placeholder='댓글을 입력하세요'></input>
             </div>
-          </div>              
+          </div>
+          <AddComment
+            addedNewComments={newCommentArr.filter((comment) => comment.id === cmt.commentId)} 
+            handleComment={this.handleComment} 
+            enterAddEvent={this.enterAddEvent}
+          />              
         </div>
+        
         )
       })}
     </div>

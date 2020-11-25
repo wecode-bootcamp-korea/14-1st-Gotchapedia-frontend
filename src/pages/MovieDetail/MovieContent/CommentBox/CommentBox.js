@@ -26,6 +26,8 @@ class CommentBox extends Component {
     let cnt = Number(commentContent.thumbsup);
     const { isLike } = this.state;
 
+    console.log('>>>>>>>>>>>>>>>>>>', commentContent);
+
     return (
       <>
         <div className='commentBox'>

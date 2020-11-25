@@ -1,38 +1,38 @@
 @import '../../../styles/common.scss';
-
-.searchInput {
-  background-color: $lightgrey;
-  width: 270px;
-  height: 24px;
-  caret-color: $pink;
-}
-
-.listBox {
-  position: absolute;
-  top: 40px;
-  left: -30px;
-  width: 300px;
-  padding: 10px;
-  border: 1px solid rgb(235, 235, 235);
-  z-index: 100000;
-  background-color: white;
-  .searchList {
-    border-bottom: 1px solid rgb(235, 235, 235);
+.Search {
+  .searchInput {
+    background-color: $lightgrey;
+    width: 270px;
+    height: 24px;
+    caret-color: $pink;
   }
-  .searchHeaderWrapper {
-    @include flex-spaceBetween-center;
-    width: 100%;
-    height: 35px;
 
-    span {
-      color: $pink;
+  .listBox {
+    position: absolute;
+    top: 40px;
+    left: -30px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    z-index: 100000;
+    background-color: white;
+    .searchList {
+      border-bottom: 1px solid rgb(235, 235, 235);
+    }
+    .searchHeaderWrapper {
+      @include flex-spaceBetween-center;
+      width: 100%;
+      height: 35px;
+
+      span {
+        color: $pink;
+      }
+
+      .keywordDeleteBtn {
+        font-size: 12px;
+      }
     }
 
-    .keywordDeleteBtn {
-      font-size: 12px;
-    }
-  }
-  ul {
     li {
       height: 30px;
       width: 100%;

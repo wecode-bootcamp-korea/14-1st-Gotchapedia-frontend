@@ -36,7 +36,6 @@ class Mytaste extends Component {
 
   componentDidMount() {
     this.loadMystarData();
-    // this.changeColorChart();
     this.loadPreferredData();
   }
 
@@ -70,24 +69,19 @@ class Mytaste extends Component {
 
   setMyStar = () => {
     const { myStar, chartData } = this.state;
-    let tempData = [];
-    for (let key in myStar) {
-      tempData.push(myStar[key]);
-    }
-    chartData.datasets[0].data = tempData;
-    this.changeColorChart(chartData);
+    const copiedData = { ...chartData };
+    const tempData = Object.values(myStar);
+    copiedData.datasets[0].data = tempData;
+    this.changeColorChart(copiedData);
   };
 
-  changeColorChart = (chartData) => {
-    // console.log(chartData);
-    const data = chartData.datasets[0].data;
-    const backgroundColor = this.state.chartData.datasets[0].backgroundColor;
-    console.log(backgroundColor);
+  changeColorChart = (copiedData) => {
+    const { data } = copiedData.datasets[0];
+    const { backgroundColor } = this.state.copiedData.datasets[0];
     let idx = data.indexOf(Math.max(...data));
     backgroundColor[idx] = '#f8a236';
-    chartData.datasets[0]['backgroundColor'] = backgroundColor;
-    console.log(chartData);
-    this.setState({ chartData });
+    copiedData.datasets[0].backgroundColor = backgroundColor;
+    this.setState({ chartData: copiedData });
   };
 
   render() {
@@ -165,7 +159,7 @@ class Mytaste extends Component {
                   <img src='/images/belovedActor.png' alt='actor' />
                 </div>
               </div>
-              <PreferredCountryGenre userData={userData} />
+              {!!userData.id && <PreferredCountryGenre userData={userData} />}
               <div className='movieWatchingTime'>
                 <div className='title'>영화 감상 시간</div>
                 <div className='timeWrapper'>

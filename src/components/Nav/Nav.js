@@ -14,6 +14,7 @@ class Nav extends Component {
       isLoginOrSignupModalOn: false,
       clickedType: '',
     };
+    this.input = React.createRef();
   }
   //함수 2개를 이용한 모달 on/off
   // openSignup = () => {
@@ -59,13 +60,50 @@ class Nav extends Component {
 
   render() {
     const { isSignup, isLogin } = this.state;
+    const { myData } = this.props;
 
     return (
-      <div className='Nav'>
-        Nav
-        <Search />
-        <span onClick={(e) => this.handleLoginOrSignupModal(e)}>로그인</span>
-        <span onClick={(e) => this.handleLoginOrSignupModal(e)}>회원가입</span>
+      <>
+        <div className='Nav'>
+          <div className='navWrapper'>
+            <div className='navLeft'>
+              <img
+                src='/images/gotchapediaText.png'
+                alt='gotchapediaLogo'
+                className='gotchapediaLogo'
+              />
+            </div>
+            <div className='navRight'>
+              <div className='magnifierIcon'>
+                <FontAwesomeIcon icon={faSearch} />
+              </div>
+              <div className='inputBox' ref={this.input}>
+                <div className='searchIcon'>
+                  <FontAwesomeIcon icon={faSearch} />
+                </div>
+                <div className='searchInput'>
+                  <Search searchData={myData} inputRef={this.input} />
+                </div>
+              </div>
+
+              <button className='loginBtn' onClick={(e) => this.handleLoginOrSignupModal(e)}>
+                로그인
+              </button>
+              <button className='signupBtn' onClick={(e) => this.handleLoginOrSignupModal(e)}>
+                회원가입
+              </button>
+              <div className='starIcon'>
+                <FontAwesomeIcon icon={faStar} />
+              </div>
+              <div className='rate'>평가하기</div>
+              <img
+                src='/images/profile.jpg'
+                alt='profile'
+                className='profile'
+              />
+            </div>
+          </div>
+        </div>
         {this.state.isLoginOrSignupModalOn && (
           <Signup
             handleClickedType={this.handleClickedType}
@@ -73,7 +111,7 @@ class Nav extends Component {
             clickedType={this.state.clickedType}
           />
         )}
-      </div>
+      </>
     );
   }
 }

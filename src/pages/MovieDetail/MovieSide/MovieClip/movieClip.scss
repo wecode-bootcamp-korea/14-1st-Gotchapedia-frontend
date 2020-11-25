@@ -1,0 +1,55 @@
+@import '../../../../styles/common.scss';
+
+.MovieClip {
+  width: 318px;
+  height: 153px;
+  padding: 10px 0px;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  overflow: hidden;
+  overflow-x: scroll;
+
+  ul {
+    display: flex;
+    height: 100%;
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-family: roboto;
+      font-size: 15px;
+
+      li {
+        @include flex-spaceBetween-column;
+        width: 135px;
+        height: 100%;
+        margin: 0 5px;
+
+        .thumbnail {
+          position: relative;
+          width: 132px;
+          height: 90px;
+
+          .playIcon {
+            width: 30px;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            color: white;
+          }
+          img {
+            width: 132px;
+          }
+        }
+
+        .videoTitle {
+          width: 134px;
+          height: 20px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}

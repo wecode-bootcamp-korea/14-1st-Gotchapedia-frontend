@@ -1,0 +1,51 @@
+@import '../../../styles/common.scss';
+.Search {
+  .searchInput {
+    background-color: $lightgrey;
+    width: 270px;
+    height: 24px;
+    caret-color: $pink;
+  }
+
+  .listBox {
+    position: absolute;
+    top: 40px;
+    left: -30px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid rgb(235, 235, 235);
+    z-index: 100000;
+    background-color: white;
+    .searchList {
+      border-bottom: 1px solid rgb(235, 235, 235);
+    }
+    .searchHeaderWrapper {
+      @include flex-spaceBetween-center;
+      width: 100%;
+      height: 35px;
+
+      span {
+        color: $pink;
+      }
+
+      .keywordDeleteBtn {
+        font-size: 12px;
+      }
+    }
+
+    li {
+      height: 30px;
+      width: 100%;
+      padding: 8px 5px;
+      margin-bottom: 2px;
+      font-size: 15px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      &:hover {
+        background-color: #eeeeee;
+      }
+    }
+  }
+}

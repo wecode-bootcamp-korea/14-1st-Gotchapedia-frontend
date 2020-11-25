@@ -53,8 +53,6 @@ class MovieContent extends Component {
         contentData: res.data,
         commentList:res.data[0].comments,
       })
-
-      console.log('res >>>>>>>>>>> ', res);
     })
     .catch((err) => console.log('err >>>>> ', err));
   }
@@ -127,8 +125,6 @@ class MovieContent extends Component {
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData } = this.props;
     const castingListData = movieContentData.staff;
-
-    console.log('commentList >>>>>>>>>>> ', commentList);
 
     return (
       <>

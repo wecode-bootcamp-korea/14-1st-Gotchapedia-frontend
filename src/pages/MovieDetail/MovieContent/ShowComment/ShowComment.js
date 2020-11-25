@@ -12,8 +12,6 @@ class ShowComment extends Component {
     // console.log(commentList);
     const commentContent = commentList[0];
 
-    console.log('comentContent >>>>>>>>>>>> ', commentContent)
-
     return (
       <div className='commentCrudWrapper'>
         <div className='commentCrudLeft'>

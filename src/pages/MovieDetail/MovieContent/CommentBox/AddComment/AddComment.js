@@ -6,9 +6,7 @@ class AddComment extends Component {
 
   render() {
     const { addedNewComments } = this.props;
-
-    console.log('addedNewComments >>>>>>>>> ', addedNewComments);
-
+    
     return(
       <div className='commentAdd'>
         {addedNewComments.map((newComments) => {

@@ -33,7 +33,7 @@ class Main extends Component {
     return (
       <>
         <Nav />
-        {!!movieListData.length >0 && <ThemeBox movieListData={movieListData} />} 
+        {!!movieListData.length > 0 && <ThemeBox movieListData={movieListData} />} 
         <Footer />
       </>
     );

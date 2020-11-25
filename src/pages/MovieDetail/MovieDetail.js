@@ -37,35 +37,50 @@ class MovieDetail extends Component {
   //   .catch((err) => console.log('err >>>>> ', err));
   // }
 
-  // 목업용
+  // 동적 라우팅
   componentDidMount() {
-    fetch(MOVIEDETAIL_MOCKUP_API, {
-      method: 'GET',
+    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
+        headers: {
+        Authorization: MOVIEDETAIL_TOKEN,
+      },
     })
-    .then(res => res.json())
-    .then(res => {
-      this.setState({
-        movieDetailData: res.data[0],
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ movieDetailData: res.data });
+        // console.log('res >>>>>>>>>>>> ',res);
       })
-    })
-    .catch((err) => console.log('err >>>>> ', err));
   }
+
+
+  // 목업용
+  // componentDidMount() {
+  //   fetch(MOVIEDETAIL_MOCKUP_API, {
+  //     method: 'GET',
+  //   })
+  //   .then(res => res.json())
+  //   .then(res => {
+  //     this.setState({
+  //       movieDetailData: res.data[0],
+  //     })
+  //   })
+  //   .catch((err) => console.log('err >>>>> ', err));
+  // }
 
   render() {
     const { movieDetailData } = this.state;
-    console.log('url 뒤에 숫자 >>>>>>>>> ', this.props.match.params.id);
 
+    console.log('movieDetailData >>>>>>>> ', movieDetailData);
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>
           <Nav />
-          {!!movieDetailData.id && <MovieHeader movieHeaderData={movieDetailData} />}
+          {!!movieDetailData.id && <MovieHeader id={movieDetailData.id} movieHeaderData={movieDetailData} />}
         </div>
         {
           !!movieDetailData.id && 
           <div className='MovieContentWrapper'>
-            <MovieContent movieContentData={movieDetailData} />
-            <MovieSide movieSideData={movieDetailData}/>
+            <MovieContent id={movieDetailData.id} movieContentData={movieDetailData} />
+            <MovieSide id={movieDetailData.id} movieSideData={movieDetailData}/>
           </div>
         }
         <Footer />

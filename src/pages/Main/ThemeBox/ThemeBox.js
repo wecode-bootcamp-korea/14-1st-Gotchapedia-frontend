@@ -23,6 +23,7 @@ class ThemeBox extends Component {
                       {movieListData.map((movieList) => {
                         return (
                         <MovieBox 
+                          movieId={movieList.movieId}
                           date={movieList.date}
                           imageURL={movieList.imageURL}
                           rate={movieList.rate}

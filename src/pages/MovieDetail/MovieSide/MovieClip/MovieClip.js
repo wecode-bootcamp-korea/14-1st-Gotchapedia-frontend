@@ -14,7 +14,6 @@ class MovieClip extends Component {
 
   render() {
     const { videos } = this.props;
-    console.log('videos >>>>>>>>>> ', videos);
 
     return (
       <div className='MovieClip'>

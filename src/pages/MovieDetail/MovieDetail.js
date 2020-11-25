@@ -23,37 +23,38 @@ class MovieDetail extends Component {
   }
 
   // 서버용
-  componentDidMount() {
-    fetch(MOVIEDETAIL_SERVER_API, {
-      method: 'GET',
-      headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-    .then(res => res.json())
-    .then(res => {
-      this.setState({ movieDetailData: res.data });
-    })
-    .catch((err) => console.log('err >>>>> ', err));
-  }
-
-  // 목업용
   // componentDidMount() {
-  //   fetch(MOVIEDETAIL_MOCKUP_API, {
+  //   fetch(MOVIEDETAIL_SERVER_API, {
   //     method: 'GET',
+  //     headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
   //   })
   //   .then(res => res.json())
   //   .then(res => {
-  //     this.setState({
-  //       movieDetailData: res.data[0],
-  //     })
-  //     console.log('res.data >>>>>>>>>>> ', res.data);
+  //     this.setState({ movieDetailData: res.data });
   //   })
   //   .catch((err) => console.log('err >>>>> ', err));
   // }
 
+  // 목업용
+  componentDidMount() {
+    fetch(MOVIEDETAIL_MOCKUP_API, {
+      method: 'GET',
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        movieDetailData: res.data[0],
+      })
+      console.log('res.data >>>>>>>>>>> ', res.data);
+    })
+    .catch((err) => console.log('err >>>>> ', err));
+  }
+
   render() {
     const { movieDetailData } = this.state;
+    console.log('url 뒤에 숫자 >>>>>>>>> ', this.props.match.params.id);
 
     return (
       <div className='MovieDetailPage'>
@@ -65,7 +66,7 @@ class MovieDetail extends Component {
           !!movieDetailData.id && 
           <div className='MovieContentWrapper'>
             <MovieContent movieContentData={movieDetailData} />
-            <MovieSide movieSideData={movieDetailData} />
+            <MovieSide movieSideData={movieDetailData}/>
           </div>
         }
         <Footer />

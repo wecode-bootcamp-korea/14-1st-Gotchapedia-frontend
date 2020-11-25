@@ -3,15 +3,36 @@ import React, { Component } from 'react';
 import GalleryBox from './GalleryBox/GalleryBox';
 import VideoBox from './VideoBox/VideoBox';
 import './movieSide.scss';
+import { YOUTUBE_API } from '../../../config';
+
 import MovieClip from '../MovieSide/MovieClip/MovieClip';
 
 class MovieSide extends Component { 
+  constructor() {
+    super();
+    this.state = {
+      videos: [],
+    };
+  }
+
+  componentDidMount() {
+    const {movieSideData} = this.props
+    console.log('>>>>',movieSideData.name);
+    return fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${movieSideData.name}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`, 
+    {
+      method: 'GET',
+      redirect: 'follow',
+    })
+      .then((response) => response.json())
+      .then((result) => this.setState({ videos: result.items }))
+      .catch((error) => console.log('error', error));
+  }
 
   render() {
-
+    const { videos } = this.state;
     const { movieSideData } = this.props;
     const subImage = movieSideData.subImage;
-
+    
     return (
       <div className='MovieSide'>
         <div className='galleryWrapper'>
@@ -22,7 +43,7 @@ class MovieSide extends Component {
         <div className='videoWrapper'>
           <div className='videoHeading'>동영상</div>
           <div className='videoBoxWrapper'>
-            <MovieClip/>
+            { videos && <MovieClip videos={videos} movieTitle={movieSideData.name}/>}
           </div>
         </div>
       </div>

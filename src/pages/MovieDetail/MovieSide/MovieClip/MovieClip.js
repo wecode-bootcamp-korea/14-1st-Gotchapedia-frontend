@@ -1,35 +1,25 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
-import { YOUTUBE_API } from '../../../../config';
 import './movieClip.scss';
 
 class MovieClip extends Component {
   constructor() {
     super();
     this.state = {
-      videos: [],
     };
   }
 
-  componentDidMount() {
-    return fetch(YOUTUBE_API, {
-      method: 'GET',
-      redirect: 'follow',
-    })
-      .then((response) => response.json())
-      .then((result) => this.setState({ videos: result.items }))
-      .catch((error) => console.log('error', error));
-  }
+
 
   render() {
-    const { videos } = this.state;
+    const { videos } = this.props;
     console.log('videos >>>>>>>>>> ', videos);
 
     return (
       <div className='MovieClip'>
         <ul>
-          {videos &&
+          {!!videos.length > 0 &&
             videos.map((video) => (
               <a
                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}

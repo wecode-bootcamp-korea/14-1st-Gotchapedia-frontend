@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import MovieBox from './MovieBox/MovieBox';
 import MovieBox from './MovieBox/MovieBox';
 import './themeBox.scss';
-
 class ThemeBox extends Component {
   constructor() {
     super();
@@ -11,9 +10,10 @@ class ThemeBox extends Component {
     };
   }
 
-  // fetch('http://localhost:3000/data/movielist.json'
+  // fetch('http://localhost:3001/data/movielist.json' 나중에 3000으로 고치세요
+
   componentDidMount() {
-    fetch('http://10.58.0.152:8000/movie/movies/user?id=1', {
+    fetch('http://localhost:3000/data/movielist.json', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -27,10 +27,9 @@ class ThemeBox extends Component {
   render() {
     const { movieList } = this.state;
     console.log(movieList);
-    
     return (
       <>
-        {movieList.map((movie) => {
+      {movieList.map((movie) => {
           return (
           <div className='onesPick'>
             <div className='onesPickHeadWrap'>
@@ -51,7 +50,6 @@ class ThemeBox extends Component {
                             movierate={movieboxData.movierate}
                             movietitle={movieboxData.movietitle}
                             movierank={movieboxData.rank}
-                            
                           />
                         );
                       })}
@@ -64,18 +62,16 @@ class ThemeBox extends Component {
                     <div className='rightArrow' direction='right'>
                       <div className='rightArrowBody'>
                       </div>
-                    </div>
+                      </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          )
-        })
-      } 
+                    )
+                  })}
       </>
     );
   }
 }
-
 export default ThemeBox;

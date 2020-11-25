@@ -14,24 +14,24 @@ class ThemeBox extends Component {
   constructor() {
     super();
     this.state = {
-      movieList: [],
+      temporarymovielist: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/movielist.json', {
+    fetch('http://localhost:3000/data/temporarymovielist.json', {
       method: 'GET',
     })
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          movieList: res.data,
+          temporarymovielist: res.data,
         });
       });
-  }
+    }
 
   render() {
-    console.log(this.state.movieList);
+    console.log(this.state.temporarymovielist);
 
     // List is supposed to come back from our server. So this is not needed
     var list = [];
@@ -42,7 +42,7 @@ class ThemeBox extends Component {
 
     return (
       <>
-        {this.state.movieList.map((oneHorizontalLayoutDataPayload) => {
+        {this.state.temporarymovielist.map((oneHorizontalLayoutDataPayload) => {
           return (
             <div className='onesPick'>
               <div className='onesPickHeadWrap'>

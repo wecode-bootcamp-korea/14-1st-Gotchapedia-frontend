@@ -1,0 +1,454 @@
+{
+  "data": [
+    {
+      "name": "고수희님의 Pick",
+      "favoritemovies": [
+        {
+          "movieimg": "/images/hangover.jpg",
+          "movietitle": "숙취",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "1"
+        },
+        {
+          "movieimg": "/images/vanilasky.jpg",
+          "movietitle": "바닐라 하늘",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "2"
+        },
+        {
+          "movieimg": "/images/endgame.jpg",
+          "movietitle": "마지막 조각",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "3"
+        },
+        {
+          "movieimg": "/images/lalaland.jpg",
+          "movietitle": "라라땅",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "4"
+        },
+        {
+          "movieimg": "/images/newworld.jpg",
+          "movietitle": "신세계 백화점",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "5"
+        },
+        {
+          "movieimg": "/images/madmax.jpeg",
+          "movietitle": "미친질주",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "6"
+        },
+        {
+          "movieimg": "/images/parasite.jpg",
+          "movietitle": "parasite",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "7"
+        },
+        {
+          "movieimg": "/images/pirates.jpeg",
+          "movietitle": "캐리비안의 해적",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "8"
+        },
+        {
+          "movieimg": "/images/harrypotter.jpg",
+          "movietitle": "harrypotter",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "9"
+        },
+        {
+          "movieimg": "/images/oceans.jpg",
+          "movietitle": "ocean's eleven",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "10"
+        }
+      ]
+    },
+    {
+      "name": "고은정님의 Pick",
+      "favoritemovies": [
+        {
+          "movieimg": "/images/nahunah.jpg",
+          "movietitle": "나훈아 오빠 콘서트",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "1"
+        },
+        {
+          "movieimg": "/images/21jumpstreet.jpg",
+          "movietitle": "21번가 폴짝 거리",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "2"
+        },
+        {
+          "movieimg": "/images/juon.jpeg",
+          "movietitle": "밀가루 뒤짚어씀",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "3"
+        },
+        {
+          "movieimg": "/images/monster.jpg",
+          "movietitle": "몬스터",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "4"
+        },
+        {
+          "movieimg": "/images/newworld.jpg",
+          "movietitle": "new world",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "5"
+        },
+        {
+          "movieimg": "/images/madmax.jpeg",
+          "movietitle": "미친질주",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "6"
+        },
+        {
+          "movieimg": "/images/parasite.jpg",
+          "movietitle": "parasite",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "7"
+        },
+        {
+          "movieimg": "/images/pirates.jpeg",
+          "movietitle": "캐리비안의 해적",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "8"
+        },
+        {
+          "movieimg": "/images/harrypotter.jpg",
+          "movietitle": "harrypotter",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "9"
+        },
+        {
+          "movieimg": "/images/oceans.jpg",
+          "movietitle": "ocean's eleven",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "10"
+        }
+      ]
+    },
+    {
+      "name": "김병준님의 Pick",
+      "favoritemovies": [
+        {
+          "movieimg": "/images/007.jpg",
+          "movietitle": "007 죽을 시간 ㄴㄴ",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "1"
+        },
+        {
+          "movieimg": "/images/spy.jpg",
+          "movietitle": "스파이",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "2"
+        },
+        {
+          "movieimg": "/images/interview.jpg",
+          "movietitle": "더 인터뷰",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "3"
+        },
+        {
+          "movieimg": "/images/aladin.jpg",
+          "movietitle": "알라딘",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "4"
+        },
+        {
+          "movieimg": "/images/newworld.jpg",
+          "movietitle": "new world",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "5"
+        },
+        {
+          "movieimg": "/images/madmax.jpeg",
+          "movietitle": "미친질주",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "6"
+        },
+        {
+          "movieimg": "/images/parasite.jpg",
+          "movietitle": "parasite",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "7"
+        },
+        {
+          "movieimg": "/images/pirates.jpeg",
+          "movietitle": "캐리비안의 해적",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "8"
+        },
+        {
+          "movieimg": "/images/harrypotter.jpg",
+          "movietitle": "harrypotter",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "9"
+        },
+        {
+          "movieimg": "/images/oceans.jpg",
+          "movietitle": "ocean's eleven",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "10"
+        }
+      ]
+    },
+    {
+      "name": "김태현님의 Pick",
+      "favoritemovies": [
+        {
+          "movieimg": "/images/hangover.jpg",
+          "movietitle": "숙취",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "1"
+        },
+        {
+          "movieimg": "/images/vanilasky.jpg",
+          "movietitle": "바닐라 하늘",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "2"
+        },
+        {
+          "movieimg": "/images/endgame.jpg",
+          "movietitle": "마지막 조각",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "3"
+        },
+        {
+          "movieimg": "/images/lalaland.jpg",
+          "movietitle": "라라땅",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "4"
+        },
+        {
+          "movieimg": "/images/newworld.jpg",
+          "movietitle": "new world",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "5"
+        },
+        {
+          "movieimg": "/images/madmax.jpeg",
+          "movietitle": "미친질주",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "6"
+        },
+        {
+          "movieimg": "/images/parasite.jpg",
+          "movietitle": "parasite",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "7"
+        },
+        {
+          "movieimg": "/images/pirates.jpeg",
+          "movietitle": "캐리비안의 해적",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "8"
+        },
+        {
+          "movieimg": "/images/harrypotter.jpg",
+          "movietitle": "harrypotter",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "9"
+        },
+        {
+          "movieimg": "/images/oceans.jpg",
+          "movietitle": "ocean's eleven",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "10"
+        }
+      ]
+    },
+    {
+      "name": "이영주님의 Pick",
+      "favoritemovies": [
+        {
+          "movieimg": "/images/hangover.jpg",
+          "movietitle": "숙취",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "1"
+        },
+        {
+          "movieimg": "/images/vanilasky.jpg",
+          "movietitle": "바닐라 하늘",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "2"
+        },
+        {
+          "movieimg": "/images/endgame.jpg",
+          "movietitle": "마지막 조각",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "3"
+        },
+        {
+          "movieimg": "/images/lalaland.jpg",
+          "movietitle": "라라땅",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "4"
+        },
+        {
+          "movieimg": "/images/newworld.jpg",
+          "movietitle": "new world",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "5"
+        },
+        {
+          "movieimg": "/images/madmax.jpeg",
+          "movietitle": "미친질주",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "6"
+        },
+        {
+          "movieimg": "/images/parasite.jpg",
+          "movietitle": "parasite",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "7"
+        },
+        {
+          "movieimg": "/images/pirates.jpeg",
+          "movietitle": "캐리비안의 해적",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "8"
+        },
+        {
+          "movieimg": "/images/harrypotter.jpg",
+          "movietitle": "harrypotter",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "9"
+        },
+        {
+          "movieimg": "/images/oceans.jpg",
+          "movietitle": "ocean's eleven",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "10"
+        }
+      ]
+    },
+    {
+      "name": "장규석님의 Pick",
+      "favoritemovies": [
+        {
+          "movieimg": "/images/hangover.jpg",
+          "movietitle": "숙취",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "1"
+        },
+        {
+          "movieimg": "/images/vanilasky.jpg",
+          "movietitle": "바닐라 하늘",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "2"
+        },
+        {
+          "movieimg": "/images/endgame.jpg",
+          "movietitle": "마지막 조각",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "3"
+        },
+        {
+          "movieimg": "/images/lalaland.jpg",
+          "movietitle": "라라땅",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "4"
+        },
+        {
+          "movieimg": "/images/newworld.jpg",
+          "movietitle": "new world",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "5"
+        },
+        {
+          "movieimg": "/images/madmax.jpeg",
+          "movietitle": "미친질주",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "6"
+        },
+        {
+          "movieimg": "/images/parasite.jpg",
+          "movietitle": "parasite",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "7"
+        },
+        {
+          "movieimg": "/images/pirates.jpeg",
+          "movietitle": "캐리비안의 해적",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "8"
+        },
+        {
+          "movieimg": "/images/harrypotter.jpg",
+          "movietitle": "harrypotter",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "9"
+        },
+        {
+          "movieimg": "/images/oceans.jpg",
+          "movietitle": "ocean's eleven",
+          "moviedate": "2020 ・ 미국",
+          "movierate": "4.8",
+          "rank": "10"
+        }
+      ]
+    }
+  ]
+}

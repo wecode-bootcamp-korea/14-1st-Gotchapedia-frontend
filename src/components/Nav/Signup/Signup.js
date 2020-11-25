@@ -11,6 +11,10 @@ class Signup extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log(localStorage.getItem('TOKEN'));
+  }
+
   handleInput = (e) => {
     const { value, name } = e.target;
     this.setState({
@@ -21,41 +25,88 @@ class Signup extends Component {
   checkValidation = (e) => {
     e.preventDefault();
     const { name, email, password } = this.state;
-    const checkName = name.length > 0;
-    const checkEmail = email.includes('@');
-    const checkPassword = password.length > 6;
-    if (checkName && checkEmail && checkPassword) {
-      console.log('okay');
-      this.makeRequest(name, email, password);
-    } else if (!checkName) alert('이름을 입력해주세요');
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    if (this.props.clickedType === '로그인') {
+      if (email.length > 0 && password.length > 6 && email.includes('@')) {
+        this.fetchLogin(email, password);
+      } else {
+        alert('로그인 오류.');
+      }
+    } else {
+      if (
+        name.length > 0 &&
+        email.length > 0 &&
+        password.length > 6 &&
+        email.includes('@')
+      ) {
+        this.fetchSignUp(name, email, password);
+      } else {
+        alert('회원가입 오류');
+      }
+    }
+    // const checkName = name.length > 0;
+    // const checkEmail = email.includes('@');
+    // const checkPassword = password.length > 6;
+    // if (checkName && checkEmail && checkPassword) {
+    //   console.log('okay');
+    //   this.makeRequest(name, email, password);
+    // } else if (!checkName) alert('이름을 입력해주세요');
   };
 
-  makeRequest = (name, email, password) => {
-    fetch('http://10.58.7.77:8000/user', {
+  // sign-up
+  fetchSignUp = (name, email, password) => {
+    fetch('http://10.58.5.89:8000/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: '김병준',
-        email: 'qudwns123@gmail.com',
-        password: 'qudwns123',
+        name: name,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => {
+        console.log(res)
+        res.json()
+      })
+      .then((res) => {
+        alert("회원가입 성공");
+      });
+  };
+
+  //log-in
+  fetchLogin = (email, password) => {
+    fetch('http://10.58.5.89:8000/user/log-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
-        alert(res.message);
-        // this.setState({
-        // 'name': '김태현',
-        // 'email':
+        if (res.token) {
+          console.log('token', res.token);
+          localStorage.setItem('token', res.token); // 토큰 추가
+        }
       });
-    // });
   };
 
   render() {
-    const { closeSignup } = this.props;
+    const {
+      handleClickedType,
+      handleLoginOrSignupModal,
+      clickedType,
+    } = this.props;
+    console.log(clickedType);
     return (
-      <div className='Signup' onClick={closeSignup}>
+      <div className='Signup' onClick={handleLoginOrSignupModal}>
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
           <div className='wrapper'>
             <img
@@ -63,11 +114,13 @@ class Signup extends Component {
               alt='gotchapediaLogoCol'
               className='gotchapediaLogoCol'
             />
-            <div className='signupText'>회원가입</div>
-            <form className='signupForm' onSubmit={this.checkValidation}>
+            <div className='signupText'>
+              {clickedType === '로그인' ? '로그인' : '회원가입'}
+            </div>
+            <form className='signupForm'>
               <input
                 type='text'
-                className='name'
+                className={clickedType === '로그인' ? 'displayNone' : 'name'}
                 placeholder='이름'
                 onChange={this.handleInput}
                 name='name'
@@ -86,11 +139,27 @@ class Signup extends Component {
                 onChange={this.handleInput}
                 name='password'
               />
-              <button className='signupBtn'>회원가입</button>
+              <button onClick={this.checkValidation} className='signupBtn'>
+                {clickedType === '회원가입' ? '회원가입' : '로그인'}
+              </button>
             </form>
-            <div className='loginText'>
-              이미 가입하셨나요? <span>로그인</span>
-            </div>
+            {/* <div className='loginText'>
+              이미 가입하셨나요?
+              <span className='loginBtn'> */}
+            {/* onClick 이벤트 핸들링시 왓챠로고 밑 회원가입, 이름라인 삭제, 큰 회원가입버튼 변경 되어야한다. */}
+            {/* </span> */}
+            {/* </div> */}
+            {clickedType === '로그인' ? (
+              <>
+                <span className='signUpText'>계정이 없으신가요? </span>
+                <span onClick={handleClickedType}>회원가입</span>
+              </>
+            ) : (
+              <>
+                <span className='LoginText'>이미 가입하셨나요?</span>
+                <span onClick={handleClickedType}>로그인</span>
+              </>
+            )}
             <div className='or'></div>
             <button className='kakaoBtn'>카카오 로그인</button>
             <button className='googleBtn'>구글 로그인</button>

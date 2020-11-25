@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+=======
+@import '../../../../styles/common.scss';
+
+.GalleryBox {
+  display: flex;
+  overflow: hidden;
+  overflow-x: scroll;
+
+  .galleryPictureWrapper {
+    padding: 10px;
+    .galleryPicture {
+      width: 138px;
+      height: 89px;
+      padding: 10px 0px;
+      border: 1px solid #bebebe;
+      border-radius: 5px;
+    }
+  }
+}
+>>>>>>> main

@@ -1,39 +1,61 @@
-{ 
+{
   "data": [
     {
-      "movieimg": "/images/hangover.jpg",
-      "movietitle": "hangover",
-      "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movieuser": "고수희",
+      "movieimg": "/images/millenniummambo.jpg",
+      "movietitle": "밀레니엄 맘보",
+      "moviedate": "1998・홍콩",
+      "movierate": "4.3",
       "rank": "1"
     },
     {
-      "movieimg": "/images/hangover.jpg",
-      "movietitle": "hangover",
-      "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movieuser": "고은정",
+      "movieimg": "/images/bladerunner.jpg",
+      "movietitle": "블레이드러너",
+      "moviedate": "1987・미국",
+      "movierate": "4.9",
       "rank": "2"
     },
     {
-      "movieimg": "/images/hangover.jpg",
-      "movietitle": "hangover",
-      "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movieuser": "김병준",
+      "movieimg": "/images/harry&sally.jpg",
+      "movietitle": "해리가 샐리를 만났을 때",
+      "moviedate": "2001・미국",
+      "movierate": "4.8",
       "rank": "3"
     },
     {
-      "movieimg": "/images/hangover.jpg",
-      "movietitle": "hangover",
-      "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movieuser": "김태현",
+      "movieimg": "/images/mononokehime.jpg",
+      "movietitle": "모노노케 히메",
+      "moviedate": "2003・일본",
+      "movierate": "4.5",
       "rank": "4"
     },
     {
-      "movieimg": "/images/hangover.jpg",
-      "movietitle": "hangover",
-      "moviedate": "2020 ・ 미국",
-      "movierate": "평점 • 4.8",
+      "movieuser": "장규석",
+      "movieimg": "/images/aprilstory.jpeg",
+      "movietitle": "4월 이야기",
+      "moviedate": "2008・일본",
+      "movierate": "4.6",
       "rank": "5"
+    },
+    {
+      "movieuser": "이영주",
+      "movieimg": "/images/beforeIdisappear.jpg",
+      "movietitle": "떠나기 전 해야할 일",
+      "moviedate": "2014・영국",
+      "movierate": "4.8",
+      "rank": "6"
+    },
+    {
+      "movieuser": "김현지",
+      "movieimg": "/images/vampire.jpeg",
+      "movietitle": "밤을 걷는 뱀파이어 소녀",
+      "moviedate": "2017・미국",
+      "movierate": "4.7",
+      "rank": "7"
     }
   ]
 }
+

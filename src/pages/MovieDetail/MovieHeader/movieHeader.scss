@@ -8,6 +8,8 @@
     background-color: #eee;
     height: 300px;
     overflow: hidden;
+    // 헤더 배경 scss 손 볼것!!
+    // background-image: linear-gradient(-180deg);
   }
 
   .MovieHeaderBottom {
@@ -27,6 +29,7 @@
       img {
         @include mediumSize;
         border: 2px solid #fff;
+        object-fit: cover;
       }
 
       // 여기는 디테일 부분
@@ -46,10 +49,10 @@
         }
 
         .posterTitle {
-          width: 769px;
+          width: 100%;
           font-size: 25px;
           font-weight: bold;
-          padding: 14px 16px 22px;
+          padding: 29px 16px 22px;
         }
 
         .posterTitleDetail {
@@ -95,29 +98,43 @@
                 font-size: 17px;
                 border-width: bold;
                 border-right: 1px solid crimson;
+                cursor: pointer;
 
-                .plusIcon {
-                  font-size: 25px;
-                  margin-right: 10px;
+                .plusIconWrapper {
+                  padding: 0;
+                  .plusIcon {
+                    transition: 0.5s;
+                    font-size: 17px;
+                    margin: 0 20px;
+                    &:hover {
+                      transform: rotate(60deg);
+                      transition: 0.5s;
+                    }
+                  }
                 }
 
                 .wantToSee {
                   // display: inline-block;
                   display: flex;
                 }
-
-                .modal {
-                  // display: inline-block;
-                }
               }
 
               // scss 나중에 수정
-              .modal {
+              .modalBtnWrapper {
                 width: 51px;
                 height: 100%;
                 background-color: $pink;
                 border-radius: 0 5px 5px 0;
                 color: #fff;
+                cursor: pointer;
+
+                .modalBtn {
+                  transition: 0.5s;
+                  &:hover {
+                    transform: translateY(5px);
+                    transition: 0.5s;
+                  }
+                }
               }
             }
 

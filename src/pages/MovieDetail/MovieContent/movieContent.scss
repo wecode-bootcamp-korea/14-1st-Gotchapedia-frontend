@@ -22,6 +22,7 @@
       background-color: #fff;
       font-weight: normal;
       margin: 0 10px;
+      cursor: pointer;
     }
   }
 
@@ -99,6 +100,7 @@
             font-size: 16px;
             font-weight: normal;
             padding-right: 10px;
+            cursor: pointer;
           }
         }
 
@@ -107,6 +109,7 @@
           padding: 10px;
           margin-bottom: 10px;
           border-bottom: 1px solid #ddd;
+
           .contentHeading {
             margin-bottom: 5px;
           }
@@ -121,6 +124,13 @@
 
           .detailContent {
             margin-bottom: 5px;
+            width: 100%;
+            height: 30px;
+            overflow: hidden;
+            // 여기서부터 시작을 할거야
+            white-space: nowrap;
+            // ... 으로 감춰
+            text-overflow: ellipsis;
           }
         }
       }
@@ -154,6 +164,7 @@
             span {
               font-size: 15px;
               color: $grey;
+              cursor: pointer;
             }
           }
 
@@ -162,6 +173,7 @@
             font-size: 16px;
             font-weight: normal;
             padding-right: 10px;
+            cursor: pointer;
           }
         }
       }

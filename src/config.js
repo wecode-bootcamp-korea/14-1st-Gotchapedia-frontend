@@ -22,3 +22,8 @@ export const MYSTAR_TOKEN =
 export const DETAIL_API = 'http://10.58.1.5:8000/movie/23';
 export const DETAIL_TOKEN =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
+export const MOVIEDETAIL_MOCKUP_API = 'http://localhost:3001/data/contentdata.json'
+// export const MOVIEDETAIL_SERVER_API = 'http://10.58.2.189:8000/movie/23';
+export const MOVIEDETAIL_SERVER_API = 'http://10.58.6.229:8000/movie/23';
+
+export const MOVIEDETAIL_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';

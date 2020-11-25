@@ -89,7 +89,6 @@ class Search extends Component {
   };
 
   render() {
-    console.log(this.props.searchData);
     const {
       searchValue,
       isSearchOn,

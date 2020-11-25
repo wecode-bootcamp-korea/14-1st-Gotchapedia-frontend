@@ -33,7 +33,7 @@ class Mytaste extends Component {
           },
         ],
       },
-      myStar: {},
+      myStar: [],
       myUrl: PROFILE_IMG,
     };
   }
@@ -56,6 +56,12 @@ class Mytaste extends Component {
     }
   }
 
+  onChange = async (event) => {
+    const uploadedImg = await imageUploader.upload(event.target.files[0]);
+    localStorage.setItem('profileImg', uploadedImg.url);
+    this.setState({ myUrl: uploadedImg.url });
+  };
+
   loadPreferredData = () => {
     fetch(PREFERRED_API, {
       method: 'GET',
@@ -68,14 +74,7 @@ class Mytaste extends Component {
       .catch((error) => console.log('error', error));
   };
 
-  onChange = async (event) => {
-    const uploadedImg = await imageUploader.upload(event.target.files[0]);
-    console.log(uploadedImg.url);
-    localStorage.setItem('profileImg', uploadedImg.url);
-    this.setState({ myUrl: uploadedImg.url });
-  };
-
-  loadMystarData = () => {
+  loadMystarData = () => {    
     fetch(MYSTAR_API, {
       method: 'GET',
       headers: {
@@ -84,7 +83,7 @@ class Mytaste extends Component {
     })
       .then((res) => res.json())
       .then((res) =>
-        this.setState({ myStar: res.user }, () => {
+        this.setState({ myStar: Object.values(res.user) }, () => {
           this.setMyStar();
         })
       )
@@ -93,16 +92,13 @@ class Mytaste extends Component {
 
   setMyStar = () => {
     const { myStar, chartData } = this.state;
-    const copiedData = { ...chartData };
-    const tempData = Object.values(myStar);
-    copiedData.datasets[0].data = tempData;
-    this.changeColorChart(tempData);
+    const { data, backgroundColor } = {...chartData.datasets[0]};
+    data = [...myStar]
+    this.setState({chartData})
   };
 
-  changeColorChart = (tempData) => {
-    console.log('temp>>', tempData);
-    console.log('data>>', this.state.chartData);
-    // const { data } = tempData.datasets[0];
+  changeColorChart = (tempMyStar) => {
+    // const { data } = tempMyStar.datasets[0];
     // const { backgroundColor } = this.state.copiedData.datasets[0];
     // let idx = data.indexOf(Math.max(...data));
     // backgroundColor[idx] = '#f8a236';
@@ -111,8 +107,9 @@ class Mytaste extends Component {
   };
 
   render() {
-    const { userData, myUrl } = this.state;
-
+    const { userData, myUrl, chartData, myStar } = this.state;
+    console.log('chartData>>', chartData)
+    console.log('MyStar>>', myStar)
     return (
       <>
         <Nav />
@@ -154,7 +151,7 @@ class Mytaste extends Component {
                     평가에 상대적으로 깐깐한 '깐새우파'.
                   </div>
                   <div className='graph'>
-                    <Chart chartData={this.state.chartData} />
+                    <Chart chartData={chartData} />
                   </div>
                   <ul className='row'>
                     <li>

@@ -12,6 +12,7 @@ import {
   MYSTAR_TOKEN,
 } from '../../../config';
 import './mytaste.scss';
+import BelovedPeople from './BelovedPeople/BelovedPeople';
 
 const imageUploader = new ImageUploader();
 let PROFILE_IMG = '';
@@ -184,13 +185,13 @@ class Mytaste extends Component {
               <div className='belovedActor'>
                 <div className='title'>선호배우</div>
                 <div className='listWrapper'>
-                  <img src='/images/belovedActor.png' alt='actor' />
+                  <BelovedPeople />
                 </div>
               </div>
               <div className='belovedDirector'>
                 <div className='title'>선호감독</div>
                 <div className='listWrapper'>
-                  <img src='/images/belovedActor.png' alt='actor' />
+                  <BelovedPeople />
                 </div>
               </div>
               {!!userData.id && <PreferredCountryGenre userData={userData} />}

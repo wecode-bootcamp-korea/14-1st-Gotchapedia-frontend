@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import MovieBox from './MovieBox/MovieBox';
 import MovieBox from './MovieBox/MovieBox';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+// import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './themeBox.scss';
 class ThemeBox extends Component {
 

@@ -71,13 +71,31 @@ class MovieContent extends Component {
       thumbsup: '0',
       countComment: '0',
     }
+    
+    // const currentList = [...commentlist]
+    //  const newList = [{...currentList[0]} ,currentList]
+    // currentList.splice(0,2)
 
-    this.setState({
+     this.setState({
       commentList: [obj, ...commentList],
       isCommentdAdded: true,
     })
     
     this.closeModalComment();
+  }
+
+  updateComment = () => {
+    const { commentList, commentString } = this.state;
+    const currentList = [...commentList]
+    this.openModalComment();
+
+    const newList = [{...currentList[0],comment:commentString} ,currentList]
+    currentList.splice(0,2)
+
+    this.setState({
+      commentList: [newList, ...commentList],
+      isCommentdAdded: true,
+    })
   }
 
   // 삭제 작업중...
@@ -130,7 +148,7 @@ class MovieContent extends Component {
       <>
         <div className='MovieContent'>
           {/* 얘는 별점줄때 display가 보이도록 설정*/}
-          {isCommentdAdded ? <ShowComment deleteComment={this.deleteComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
+          {isCommentdAdded ? <ShowComment deleteComment={this.deleteComment} updateComment={this.updateComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
             <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div> 
             <button onClick={this.openModalComment} >코멘트 남기기</button>
           </div>}
@@ -168,6 +186,7 @@ class MovieContent extends Component {
                         <CommentBox
                           commentContent={el}
                           deleteComment={this.deleteComment}
+                          updateComment={this.updateComment}
                         />
                       )
                     })}

@@ -46,13 +46,6 @@ class Signup extends Component {
         alert('회원가입 오류');
       }
     }
-    // const checkName = name.length > 0;
-    // const checkEmail = email.includes('@');
-    // const checkPassword = password.length > 6;
-    // if (checkName && checkEmail && checkPassword) {
-    //   console.log('okay');
-    //   this.makeRequest(name, email, password);
-    // } else if (!checkName) alert('이름을 입력해주세요');
   };
 
   // sign-up
@@ -143,12 +136,6 @@ class Signup extends Component {
                 {clickedType === '회원가입' ? '회원가입' : '로그인'}
               </button>
             </form>
-            {/* <div className='loginText'>
-              이미 가입하셨나요?
-              <span className='loginBtn'> */}
-            {/* onClick 이벤트 핸들링시 왓챠로고 밑 회원가입, 이름라인 삭제, 큰 회원가입버튼 변경 되어야한다. */}
-            {/* </span> */}
-            {/* </div> */}
             {clickedType === '로그인' ? (
               <>
                 <span className='signUpText'>계정이 없으신가요? </span>

@@ -71,25 +71,12 @@ class Search extends Component {
     event.preventDefault();
     const { searchValue } = this.state;
     const { searchData } = this.props;
-    let searchPool = [];
-    if (searchData) {
-      searchPool = searchData.data;
-    }
+    const searchPool = [...searchData.data];
     const searchKeywords = searchValue.split(' ');
-    let tempSearchPool = [...searchPool];
-    let tempFilteredMovie = [];
-    if (searchValue.trim() === '') {
-      return;
-    }
-    searchKeywords.forEach((key) => {
-      if (key === '') return;
-      tempFilteredMovie = tempSearchPool.filter((movie) => {
-        if (movie.title.includes(key)) {
-          return true;
-        }
-      });
-      tempSearchPool = [...tempFilteredMovie];
+    const tempFilteredMovie = searchValue && searchPool.filter((movie) => {
+      return searchKeywords.every((keyword) => movie.title.includes(keyword));
     });
+
     if (event.key === 'Enter') {
       this.saveKeyword();
     }
@@ -97,8 +84,6 @@ class Search extends Component {
   };
 
   onSearchInputChange = (event) => {
-    console.log(this.props.inputRef.current.children[1].firstElementChild.firstChild.defaultValue);
-    console.log(this.props.inputRef);
     this.setState({ searchValue: event.target.value });
   };
 
@@ -127,13 +112,7 @@ class Search extends Component {
         />
         <div className={isListActive ? 'listBox' : 'displayNone'}>
           <div className='searchList'>
-            <div className='searchHeaderWrapper'>
-              <span>최근 검색어</span>
-              <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
-                모두 삭제
-              </div>
-            </div>
-            <ul className='latestList'>
+          <ul className='filteredList'>
               {filteredMovie?.length > 0 &&
                 filteredMovie.map((movie) => (
                   <li
@@ -143,6 +122,15 @@ class Search extends Component {
                     {movie.title}
                   </li>
                 ))}
+            </ul>
+            <div className={loadedKeywords?.length >0 ?'searchHeaderWrapper' : 'displayNone'}>
+              <span>최근 검색어</span>
+              <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
+                모두 삭제
+              </div>
+            </div>
+            
+            <ul className='latestList'>
               {loadedKeywords?.length > 0 &&
                 loadedKeywords.map((keyword, idx) => (
                   <li key={idx} className='resultMovie'>

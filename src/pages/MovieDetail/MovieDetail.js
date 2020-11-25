@@ -5,7 +5,11 @@ import MovieContent from './MovieContent/MovieContent';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
-import { MOVIEDETAIL_MOCKUP_API, MOVIEDETAIL_SERVER_API, MOVIEDETAIL_TOKEN } from '../../config';   
+import {
+  MOVIEDETAIL_MOCKUP_API,
+  MOVIEDETAIL_SERVER_API,
+  MOVIEDETAIL_TOKEN,
+} from '../../config';
 
 // 서버
 // MOVIEDETAIL_SERVER_API, MOVIEDETAIL_TOKEN
@@ -19,7 +23,7 @@ class MovieDetail extends Component {
     this.state = {
       isWantToSee: false,
       movieDetailData: {},
-    }
+    };
   }
 
   // 서버용
@@ -38,51 +42,60 @@ class MovieDetail extends Component {
   // }
 
   // 동적 라우팅
-  componentDidMount() {
-    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
-        headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({ movieDetailData: res.data });
-        // console.log('res >>>>>>>>>>>> ',res);
-      })
-  }
-
+  // componentDidMount() {
+  //   fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
+  //       headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       this.setState({ movieDetailData: res.data });
+  //       // console.log('res >>>>>>>>>>>> ',res);
+  //     })
+  // }
 
   // 목업용
-  // componentDidMount() {
-  //   fetch(MOVIEDETAIL_MOCKUP_API, {
-  //     method: 'GET',
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     this.setState({
-  //       movieDetailData: res.data[0],
-  //     })
-  //   })
-  //   .catch((err) => console.log('err >>>>> ', err));
-  // }
+  componentDidMount() {
+    const { movieDetailData } = this.state;
+    fetch(MOVIEDETAIL_MOCKUP_API, {
+      method: 'GET',
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          movieDetailData: res.data[0],
+        });
+      })
+      .catch((err) => console.log('err >>>>> ', err));
+  }
 
   render() {
     const { movieDetailData } = this.state;
 
-    console.log('movieDetailData >>>>>>>> ', movieDetailData);
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>
           <Nav />
-          {!!movieDetailData.id && <MovieHeader id={movieDetailData.id} movieHeaderData={movieDetailData} />}
+          {!!movieDetailData.id && (
+            <MovieHeader
+              id={movieDetailData.id}
+              movieHeaderData={movieDetailData}
+            />
+          )}
         </div>
-        {
-          !!movieDetailData.id && 
+        {!!movieDetailData.id && (
           <div className='MovieContentWrapper'>
-            <MovieContent id={movieDetailData.id} movieContentData={movieDetailData} />
-            <MovieSide id={movieDetailData.id} movieSideData={movieDetailData}/>
+            <MovieContent
+              id={movieDetailData.id}
+              movieContentData={movieDetailData}
+            />
+            <MovieSide
+              id={movieDetailData.id}
+              movieSideData={movieDetailData}
+            />
           </div>
-        }
+        )}
         <Footer />
       </div>
     );

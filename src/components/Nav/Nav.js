@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import Signup from './Signup/Signup';
 import Search from './Search/Search';
+import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './nav.scss';
-import {
-  MYPAGE_API,
-  MYPAGE_TOKEN,
-} from '../../config';
+import { MYPAGE_API, MYPAGE_TOKEN } from '../../config';
 
 class Nav extends Component {
   constructor() {
@@ -22,7 +20,6 @@ class Nav extends Component {
     this.input = React.createRef();
   }
 
-  
   componentDidMount() {
     fetch(MYPAGE_API, {
       method: 'GET',
@@ -53,8 +50,8 @@ class Nav extends Component {
 
   onSignupSuccess = () => {
     console.log('singup complete');
-    this.setState({isLoginOrSignupModalOn: false});
-  }
+    this.setState({ isLoginOrSignupModalOn: false });
+  };
 
   //임시 로그아웃
   logout = () => {
@@ -70,33 +67,38 @@ class Nav extends Component {
       <>
         <button
           className='loginBtn'
-          onClick={(e) => this.handleLoginOrSignupModal(e)}
-        >
+          onClick={(e) => this.handleLoginOrSignupModal(e)}>
           로그인
         </button>
         <button
           className='signupBtn'
-          onClick={(e) => this.handleLoginOrSignupModal(e)}
-        >
+          onClick={(e) => this.handleLoginOrSignupModal(e)}>
           회원가입
         </button>
       </>
     );
-  
+
     if (this.state.userIsLoggedIn) {
       console.log('I got profile url : ' + localStorage.getItem('profile_url'));
       loginComponent = (
         <div onClick={this.logout}>
-          <img className='gatchaNavProfile' src={localStorage.getItem('profile_url')} />
+          <img
+            className='gatchaNavProfile'
+            src={localStorage.getItem('profile_url')}
+          />
         </div>
       );
     }
 
     return (
       <>
-      <div className='Nav'>
+        <div className='Nav'>
           <div className='navWrapper'>
-            <div className='navLeft'>
+            <div
+              className='navLeft'
+              onClick={() => {
+                this.props.history.push('/');
+              }}>
               <img
                 src='/images/gotchapediaText.png'
                 alt='gotchapediaLogo'
@@ -112,7 +114,7 @@ class Nav extends Component {
                   <FontAwesomeIcon icon={faSearch} />
                 </div>
                 <div className='searchInput'>
-                <Search searchData={searchData} inputRef={this.input} /> 
+                  <Search searchData={searchData} inputRef={this.input} />
                 </div>
               </div>
               {loginComponent}
@@ -142,4 +144,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

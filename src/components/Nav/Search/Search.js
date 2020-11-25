@@ -51,8 +51,7 @@ class Search extends Component {
   };
 
   goToDetail = (e) => {
-    const isExist = e.nativeEvent.path.includes(this.props.inputRef.current);
-    console.log(isExist); // 태현님 머지 후 수정 예정
+    this.props.history.push(`/movie-detail/${this.props.movieId}`);
   };
 
   saveKeyword = () => {
@@ -73,9 +72,11 @@ class Search extends Component {
     const { searchData } = this.props;
     const searchPool = [...searchData.data];
     const searchKeywords = searchValue.split(' ');
-    const tempFilteredMovie = searchValue && searchPool.filter((movie) => {
-      return searchKeywords.every((keyword) => movie.title.includes(keyword));
-    });
+    const tempFilteredMovie =
+      searchValue &&
+      searchPool.filter((movie) => {
+        return searchKeywords.every((keyword) => movie.title.includes(keyword));
+      });
 
     if (event.key === 'Enter') {
       this.saveKeyword();
@@ -88,7 +89,7 @@ class Search extends Component {
   };
 
   render() {
-    console.log(this.props.searchData)
+    console.log(this.props.searchData);
     const {
       searchValue,
       isSearchOn,
@@ -113,7 +114,7 @@ class Search extends Component {
         />
         <div className={isListActive ? 'listBox' : 'displayNone'}>
           <div className='searchList'>
-          <ul className='filteredList'>
+            <ul className='filteredList'>
               {filteredMovie?.length > 0 &&
                 filteredMovie.map((movie) => (
                   <li
@@ -124,13 +125,18 @@ class Search extends Component {
                   </li>
                 ))}
             </ul>
-            <div className={loadedKeywords?.length >0 ?'searchHeaderWrapper' : 'displayNone'}>
+            <div
+              className={
+                loadedKeywords?.length > 0
+                  ? 'searchHeaderWrapper'
+                  : 'displayNone'
+              }>
               <span>최근 검색어</span>
               <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
                 모두 삭제
               </div>
             </div>
-            
+
             <ul className='latestList'>
               {loadedKeywords?.length > 0 &&
                 loadedKeywords.map((keyword, idx) => (
@@ -151,11 +157,25 @@ class Search extends Component {
               <li
                 className='resultMovie'
                 key='23'
-                onClickCapture={this.goToDetail}>
+                onClick={() => {
+                  this.props.history.push('/movie-detail/23');
+                }}>
                 바닐라 스카이
               </li>
-              <li className='resultMovie'>라라랜드</li>
-              <li className='resultMovie'>붉은 돼지</li>
+              <li
+                className='resultMovie'
+                onClick={() => {
+                  this.props.history.push('/movie-detail/6');
+                }}>
+                버팔로66
+              </li>
+              <li
+                className='resultMovie'
+                onClick={() => {
+                  this.props.history.push('/movie-detail/4');
+                }}>
+                붉은 돼지
+              </li>
             </ul>
           </div>
         </div>

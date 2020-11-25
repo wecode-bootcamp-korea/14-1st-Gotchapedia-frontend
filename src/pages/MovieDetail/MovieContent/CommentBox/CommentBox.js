@@ -21,7 +21,6 @@ class CommentBox extends Component {
     })
   }
 
-
   render() {
     const { commentContent } = this.props;
     let cnt = Number(commentContent.thumbsup);

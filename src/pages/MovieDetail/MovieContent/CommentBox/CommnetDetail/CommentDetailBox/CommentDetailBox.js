@@ -8,10 +8,43 @@ import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { FaCheck } from 'react-icons/fa';
 
 class CommentDetailBox extends Component {
+  constructor() {
+    super();
+    this.state = {
+      newCommentStr: '',
+      newCommentArr: [],
+    }
+  }
+
+  handleComment = (e) => {
+    this.setState({
+      newCommentStr: e.target.value,
+    })
+  } 
+
+  enterAddEvent = (e) => {
+    const { newCommentStr, newCommentArr } = this.state;
+    e.preventDefault();
+
+    if(e.keyCode === 13) {
+      const obj = {
+        id: e.target.id,
+        comment: newCommentStr
+      }
+
+      this.setState({
+        newCommentArr: [...newCommentArr, obj]
+      })
+    }
+  }
 
   render() {
-    const { commentDetailBoxData, newCommentArr, handleComment, enterAddEvent } = this.props;
+    const { commentDetailBoxData } = this.props;
+    const { newCommentArr } = this.state;
     const commentList = commentDetailBoxData[0]?.comments;
+
+    console.log(newCommentArr);
+    // console.log('commentList >>>>>>>>>>>> ', commentList);
 
     return (
     <div>
@@ -54,7 +87,7 @@ class CommentDetailBox extends Component {
             </div>
             <div className='like'>좋아요</div>
             <div className='inputCommentWrapper'>
-            <input id={cmt?.commentId} onChange={handleComment} onKeyUp={enterAddEvent} name='inputComment' placeholder='댓글을 입력하세요'></input>
+            <input id={cmt?.commentId} onChange={this.handleComment} onKeyUp={this.enterAddEvent} name='inputComment' placeholder='댓글을 입력하세요'></input>
             </div>
           </div>              
         </div>

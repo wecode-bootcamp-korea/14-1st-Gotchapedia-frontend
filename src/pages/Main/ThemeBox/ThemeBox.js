@@ -11,9 +11,9 @@ class ThemeBox extends Component {
     };
   }
 
-  // fetch('http://localhost:3001/data/movielist.json' 나중에 3000으로 고치세요 
+  // fetch('http://localhost:3000/data/movielist.json'
   componentDidMount() {
-    fetch('http://localhost:3001/data/movielist.json', {
+    fetch('http://localhost:3000/data/movielist.json', {
       method: 'GET',
     })
       .then((res) => res.json())

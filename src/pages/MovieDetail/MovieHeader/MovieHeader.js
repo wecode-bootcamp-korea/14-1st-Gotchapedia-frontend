@@ -69,13 +69,10 @@ class MovieHeader extends Component {
   // }
 
   render() {
-    console.log("asudfhusbdhf: ", this.props.movieHeaderData)
     const { isWantToSee } = this.state;
     const { movieHeaderData } = this.props;
     const subImage = movieHeaderData.subImage;
     const genre = movieHeaderData.genre;
-
-    // console.log(movieHeaderData);
 
     return (
       <div>

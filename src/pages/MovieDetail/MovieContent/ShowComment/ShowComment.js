@@ -15,8 +15,8 @@ class ShowComment extends Component {
     return (
       <div className='commentCrudWrapper'>
         <div className='commentCrudLeft'>
-          {/* <img className='crudProfileImage' src={commentContent.commentorImage} alt='댓글수정삭제프로필' ></img> */}
-          {/* {commentContent.commentorId} */}
+          <img className='crudProfileImage' src={commentContent.commentorImage} alt='댓글수정삭제프로필' ></img>
+          {commentContent.commentorId}
           <div className='commentBox'>
             {commentContent.comment } 
           </div>

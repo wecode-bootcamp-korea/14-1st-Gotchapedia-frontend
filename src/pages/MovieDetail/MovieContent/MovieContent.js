@@ -9,7 +9,7 @@ import CommentWrite from './CommentWrite/CommentWrite';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
 
-const COMMENT_API = 'http://localhost:3000/data/contentdata.json';
+const COMMENT_API = 'http://localhost:3001/data/contentdata.json';
 
 class MovieContent extends Component {
   constructor() {
@@ -53,6 +53,8 @@ class MovieContent extends Component {
         contentData: res.data,
         commentList:res.data[0].comments,
       })
+
+      console.log('res >>>>>>>>>>> ', res);
     })
     .catch((err) => console.log('err >>>>> ', err));
   }
@@ -64,6 +66,7 @@ class MovieContent extends Component {
     const obj = {
       commentId: writtenTime,
       comment: commentString,
+      commentorName: '김태현태김0',
       // 별점 반영부분 수정필요
       starPoint: '5.0',
       commentorImage: '/images/chorong2.png',
@@ -82,7 +85,6 @@ class MovieContent extends Component {
   // 삭제 작업중...
   deleteComment = (e) => {
     const { commentList } = this.state;
-    // console.log('prevCommentList >>>>>>>>> ', commentList)
     const deletedComment = Array.from(commentList);
     deletedComment.splice(0,1);
     
@@ -90,7 +92,6 @@ class MovieContent extends Component {
       commentList: deletedComment,
       isCommentdAdded: false,
     })
-    // console.log('aftercommentList >>>>>>>>> ', commentList);
   }
 
   goToCommentDetail = () => {

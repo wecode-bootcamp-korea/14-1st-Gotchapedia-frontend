@@ -9,7 +9,7 @@ import CommentWrite from './CommentWrite/CommentWrite';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
 
-const COMMENT_API = 'http://localhost:3001/data/contentdata.json';
+const COMMENT_API = 'http://localhost:3000/data/contentdata.json';
 
 class MovieContent extends Component {
   constructor() {

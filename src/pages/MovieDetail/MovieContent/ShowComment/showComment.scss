@@ -42,6 +42,9 @@
       @include mediumProfile;
       margin-right: 20px;
     }
+    .crudProfileName {
+      margin-right: 20px;
+    }
   }
   .commentBox {
     display: inline-block;
@@ -50,11 +53,19 @@
   .commentCrudRight {
     display: flex;
     .commentDeleteIcon {
-      button {
-        background-color: #fff;
+      margin-right: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
       }
     }
     .commentUpdateIcon {
+      font-size: 18px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

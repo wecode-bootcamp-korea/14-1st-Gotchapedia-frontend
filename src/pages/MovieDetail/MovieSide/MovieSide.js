@@ -3,15 +3,13 @@ import React, { Component } from 'react';
 import GalleryBox from './GalleryBox/GalleryBox';
 import VideoBox from './VideoBox/VideoBox';
 import './movieSide.scss';
+import MovieClip from '../MovieSide/MovieClip/MovieClip';
 
 class MovieSide extends Component { 
 
   render() {
 
     const { movieSideData } = this.props;
-
-
-    
     const subImage = movieSideData.subImage;
 
     return (
@@ -24,7 +22,7 @@ class MovieSide extends Component {
         <div className='videoWrapper'>
           <div className='videoHeading'>동영상</div>
           <div className='videoBoxWrapper'>
-            <VideoBox subImage={subImage}/>
+            <MovieClip/>
           </div>
         </div>
       </div>

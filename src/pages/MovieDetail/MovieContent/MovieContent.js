@@ -64,6 +64,7 @@ class MovieContent extends Component {
     const obj = {
       commentId: writtenTime,
       comment: commentString,
+      commentorName: '김태현태김0',
       // 별점 반영부분 수정필요
       starPoint: '5.0',
       commentorImage: '/images/chorong2.png',
@@ -82,7 +83,6 @@ class MovieContent extends Component {
   // 삭제 작업중...
   deleteComment = (e) => {
     const { commentList } = this.state;
-    // console.log('prevCommentList >>>>>>>>> ', commentList)
     const deletedComment = Array.from(commentList);
     deletedComment.splice(0,1);
     
@@ -90,7 +90,6 @@ class MovieContent extends Component {
       commentList: deletedComment,
       isCommentdAdded: false,
     })
-    // console.log('aftercommentList >>>>>>>>> ', commentList);
   }
 
   goToCommentDetail = () => {
@@ -126,8 +125,6 @@ class MovieContent extends Component {
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData } = this.props;
     const castingListData = movieContentData.staff;
-
-    console.log('commentList >>>>>>>>>>> ', commentList);
 
     return (
       <>

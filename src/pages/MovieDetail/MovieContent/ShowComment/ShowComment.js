@@ -15,8 +15,10 @@ class ShowComment extends Component {
     return (
       <div className='commentCrudWrapper'>
         <div className='commentCrudLeft'>
-          {/* <img className='crudProfileImage' src={commentContent.commentorImage} alt='댓글수정삭제프로필' ></img> */}
-          {/* {commentContent.commentorId} */}
+          <img className='crudProfileImage' src={commentContent.commentorImage} alt='댓글수정삭제프로필' ></img>
+          <div className='crudProfileName'>
+            {commentContent.commentorName}
+          </div>
           <div className='commentBox'>
             {commentContent.comment } 
           </div>
@@ -24,11 +26,9 @@ class ShowComment extends Component {
         <div className='commentCrudRight'>
           <div className='commentCrudDelete'>
             <FontAwesomeIcon className='commentDeleteIcon' onClick={deleteComment} icon={faTrashAlt} />
-            <button className='deleteBtn' >삭제</button>
           </div>
           <div className='commentCrudUpdate'>
-          <FontAwesomeIcon className='commentUpdateIcon' icon={faPencilAlt} />
-            <button className='updateBtn'>수정</button>
+            <FontAwesomeIcon className='commentUpdateIcon' icon={faPencilAlt} />
           </div>
         </div>
       </div>

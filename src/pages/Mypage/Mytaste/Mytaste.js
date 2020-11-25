@@ -3,9 +3,8 @@ import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import WordCloud from './wordCloud/wordCloud';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCog } from '@fortawesome/free-solid-svg-icons';
-
+import ImageUploader from '../../../service/image_uploader';
+import ImgInput from './ImgInput/ImgInput';
 import {
   PREFERRED_API,
   PREFERRED_TOKEN,
@@ -13,6 +12,9 @@ import {
   MYSTAR_TOKEN,
 } from '../../../config';
 import './mytaste.scss';
+
+const imageUploader = new ImageUploader();
+let PROFILE_IMG = '';
 
 class Mytaste extends Component {
   constructor() {
@@ -31,12 +33,26 @@ class Mytaste extends Component {
         ],
       },
       myStar: {},
+      myUrl: PROFILE_IMG,
     };
   }
 
   componentDidMount() {
     this.loadMystarData();
     this.loadPreferredData();
+    this.loadProfileImg();
+  }
+
+  loadProfileImg = () => {
+    PROFILE_IMG = localStorage.getItem('profileImg');
+    if (PROFILE_IMG) this.setState({ myUrl: PROFILE_IMG });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { myUrl } = this.state;
+    if (myUrl !== prevState.myUrl) {
+      this.setState({ myUrl });
+    }
   }
 
   loadPreferredData = () => {
@@ -49,6 +65,13 @@ class Mytaste extends Component {
       .then((res) => res.json())
       .then((res) => this.setState({ userData: res }))
       .catch((error) => console.log('error', error));
+  };
+
+  onChange = async (event) => {
+    const uploadedImg = await imageUploader.upload(event.target.files[0]);
+    console.log(uploadedImg.url);
+    localStorage.setItem('profileImg', uploadedImg.url);
+    this.setState({ myUrl: uploadedImg.url });
   };
 
   loadMystarData = () => {
@@ -76,8 +99,8 @@ class Mytaste extends Component {
   };
 
   changeColorChart = (tempData) => {
-    console.log('temp>>',tempData)
-    console.log('data>>',this.state.chartData)
+    console.log('temp>>', tempData);
+    console.log('data>>', this.state.chartData);
     // const { data } = tempData.datasets[0];
     // const { backgroundColor } = this.state.copiedData.datasets[0];
     // let idx = data.indexOf(Math.max(...data));
@@ -87,15 +110,19 @@ class Mytaste extends Component {
   };
 
   render() {
-    const { userData, chartData, myStar } = this.state;
-    console.log(myStar);
+    const { userData, myUrl } = this.state;
+
     return (
       <>
         <Nav />
         <div className='Mytaste'>
           <div className='header'>
-            <div className='userCog'>
-              <FontAwesomeIcon className='headerArrow' icon={faUserCog} />
+            <div className='imgInputBox'>
+              <ImgInput
+                imageUploader={imageUploader}
+                onChange={this.onChange}
+                myUrl={myUrl}
+              />
             </div>
             <img
               src='/images/gotchapediawhite.png'
@@ -103,7 +130,11 @@ class Mytaste extends Component {
               className='logo'
             />
             <div className='text'>취향분석</div>
-            <img src='/images/profile.jpg' alt='profile' className='profile' />
+            <img
+              src={myUrl === '' ? '/images/profile.jpg' : myUrl}
+              alt='profile'
+              className='profile'
+            />
             <div className='userName'>고은정</div>
           </div>
           <div className='main'>

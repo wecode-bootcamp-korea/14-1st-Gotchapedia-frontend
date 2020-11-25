@@ -4,9 +4,6 @@ import Nav from '../../components/Nav/Nav';
 import './main.scss';
 import ThemeBox from './ThemeBox/ThemeBox';
 
-  // fetch('http://localhost:3000/data/movielist.json'
-  // 10.58.0.152
-
 class Main extends Component {
   constructor() {
     super();
@@ -32,11 +29,11 @@ class Main extends Component {
 
   render() {
     const { movieListData } = this.state;
-    // console.log('>>>>>>>>>>>>>>>>>>>>>', movieListData)
+
     return (
       <>
         <Nav />
-        <ThemeBox movieListData={movieListData} />
+        {!!movieListData.length >0 && <ThemeBox movieListData={movieListData} />} 
         <Footer />
       </>
     );

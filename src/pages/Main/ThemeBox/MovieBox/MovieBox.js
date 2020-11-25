@@ -10,26 +10,29 @@ class MovieBox extends Component {
     };
   }
 
+  goToMovieDetail = () => {
+    this.props.history.push("/movie-detail/")
+  }
+
   render() {
-    const {moviedate, movieimg, movierate, movietitle, movierank } = this.props;
+    const {moviedate, imageURL, movierate, title, rate } = this.props;
     return (
       <div className='MovieBox'>
         <div className='movieAllWrap'>
           <div className='moviePosterInside'>
             <div className='moviePosterWrap'>
-              <img className='moviePoster' alt='poster' src={movieimg} />
+              <img className='moviePoster' onClick={this.goToMovieDetail} alt='poster' src={imageURL} />
             </div>
-            <div className='movieRank'></div>
-            <div className='movieRank'>{movierank}</div>
+            {/* <div className='movieRank'>{movierank}</div> */}
             <div className='movieInfo'>
-              <div className='movieTitle'>{movietitle}</div>
-              <div className='movieDate'>{moviedate}</div>
+              <div className='movieTitle'>{title}</div>
+              <div className='movieDate'>{rate}</div>
               <div className='movieRate'>
                 <span>평점</span>
                 <span className='iconStar'>
                   <FontAwesomeIcon icon={faStar} />
                 </span>
-                <span>{movierate}</span>
+                <span>{rate}</span>
               </div>
             </div>
           </div>

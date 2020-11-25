@@ -3,55 +3,32 @@ import React, { Component } from 'react';
 import MovieBox from './MovieBox/MovieBox';
 import './themeBox.scss';
 class ThemeBox extends Component {
-  constructor() {
-    super();
-    this.state = {
-      movieList: [],
-    };
-  }
-
-  // fetch('http://localhost:3001/data/movielist.json' 나중에 3000으로 고치세요
-
-  componentDidMount() {
-    fetch('http://localhost:3000/data/movielist.json', {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          movieList: res.data,
-        });
-      });
-  }
 
   render() {
-    const { movieList } = this.state;
-    console.log(movieList);
+    const { movieListData } = this.props;
+
     return (
       <>
-      {movieList.map((movie) => {
-          return (
           <div className='onesPick'>
             <div className='onesPickHeadWrap'>
               <div className='fakeCover'>
                 <div className='onesPickHeadCover'>
-                  <p className='onesPickHead'>{movie.movieuser}<span>'s Pick !</span></p>
+                  <p className='onesPickHead'>{movieListData.movieId}<span>'s Pick !</span></p>
                   <div className='boxRankingCover'>
                     <div
                       className='boxRankingWrap'
                       style={{ display: 'flex', alignItems: 'center' }}
                     >
                       <div className='blankLeft' direction='left'></div>
-                      {this.state.movieList.map((movieboxData) => {
+                      {movieListData.map((movieList) => {
                         return (
-                          <MovieBox
-                            moviedate={movieboxData.moviedate}
-                            movieimg={movieboxData.movieimg}
-                            movierate={movieboxData.movierate}
-                            movietitle={movieboxData.movietitle}
-                            movierank={movieboxData.rank}
-                          />
-                        );
+                        <MovieBox 
+                          date={movieList.date}
+                          imageURL={movieList.imageURL}
+                          rate={movieList.rate}
+                          title={movieList.title}
+                        />
+                        )
                       })}
                       <div className='blankRight' direction='right'></div>
                     </div>
@@ -67,9 +44,7 @@ class ThemeBox extends Component {
                 </div>
               </div>
             </div>
-          </div>
-                    )
-                  })}
+          </div>        
       </>
     );
   }

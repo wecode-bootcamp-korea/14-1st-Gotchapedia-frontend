@@ -47,7 +47,6 @@ class MovieDetail extends Component {
       this.setState({
         movieDetailData: res.data[0],
       })
-      console.log('res.data >>>>>>>>>>> ', res.data);
     })
     .catch((err) => console.log('err >>>>> ', err));
   }

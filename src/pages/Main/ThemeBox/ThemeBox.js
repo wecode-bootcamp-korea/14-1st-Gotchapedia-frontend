@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import MovieBox from './MovieBox/MovieBox';
 import MovieBox from './MovieBox/MovieBox';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './themeBox.scss';
 class ThemeBox extends Component {
 
@@ -36,9 +37,8 @@ class ThemeBox extends Component {
                     <div className='leftArrow' direction='left'>
                       <div className='leftArrowBody'>
                       </div>
-                    </div>
-                    <div className='rightArrow' direction='right'>
-                      <div className='rightArrowBody'>
+                      <div className='rightArrow' direction='right'>
+                        <div className='rightArrowBody'></div>
                       </div>
                       </div>
                   </div>

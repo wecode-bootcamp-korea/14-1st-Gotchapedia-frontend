@@ -46,13 +46,6 @@ class Signup extends Component {
         alert('회원가입 오류');
       }
     }
-    // const checkName = name.length > 0;
-    // const checkEmail = email.includes('@');
-    // const checkPassword = password.length > 6;
-    // if (checkName && checkEmail && checkPassword) {
-    //   console.log('okay');
-    //   this.makeRequest(name, email, password);
-    // } else if (!checkName) alert('이름을 입력해주세요');
   };
 
   // sign-up
@@ -101,8 +94,8 @@ class Signup extends Component {
   render() {
     const {
       handleClickedType,
-      handleLoginOrSignupModal,
       clickedType,
+      handleLoginOrSignupModal,
     } = this.props;
     console.log(clickedType);
     return (

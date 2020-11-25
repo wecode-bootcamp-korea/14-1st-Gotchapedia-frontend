@@ -13,20 +13,10 @@ class Nav extends Component {
     this.state = {
       isLoginOrSignupModalOn: false,
       clickedType: '',
+      userIsLoggedIn: localStorage.getItem('token') != null,
     };
+    this.input = React.createRef();
   }
-  //함수 2개를 이용한 모달 on/off
-  // openSignup = () => {
-  //   console.log('click');
-  //   this.setState({ isSignup: true });
-  // };
-
-  // closeSignup = () => {
-  //   console.log('click');
-  //   this.setState({ isSignup: false });
-  // };
-
-  //위 함수를 하나로 합침
 
   handleClickedType = (e) => {
     this.setState({ clickedType: e.target.innerText });
@@ -38,39 +28,95 @@ class Nav extends Component {
     });
     this.handleClickedType(e);
   };
-  //로그인 함수 2개
-  // openLogin = () => {
-  //   console.log('click');
-  //   this.setState({ isLogin: true });
-  // };
 
-  // closeLogin = () => {
-  //   this.setState({ isLogin: false });
-  // };
+  onLoginSuccess = () => {
+    console.log('Login was successfully delegated.');
+    this.setState({ userIsLoggedIn: true, isLoginOrSignupModalOn: false });
+  };
 
-  //위 함수 하나로 합침
-  // handleLoginModal = () => {
-  //   console.log('login');
-  //   this.setState({
-  //     isLogin: !this.state.isLogin,
-  //     clickedType: e.target.innerText,
-  //   });
-  // };
+  onSignupSuccess = () => {
+    console.log('singup complete');
+    this.setState({isLoginOrSignupModalOn: false});
+  }
+
+  //임시 로그아웃
+  logout = () => {
+    localStorage.clear();
+    alert('logged out');
+    this.setState({ userIsLoggedIn: false });
+  };
+
+  var loginComponent = (
+    <>
+      <button
+        className='loginBtn'
+        onClick={(e) => this.handleLoginOrSignupModal(e)}
+      >
+        로그인
+      </button>
+      <button
+        className='signupBtn'
+        onClick={(e) => this.handleLoginOrSignupModal(e)}
+      >
+        회원가입
+      </button>
+    </>
+  );
+  if (this.state.userIsLoggedIn) {
+    console.log('I got profile url : ' + localStorage.getItem('profile_url'));
+    loginComponent = (
+      <div onClick={this.logout}>
+        <img className='gatchaNavProfile' src={localStorage.getItem('profile_url')} />
+      </div>
+    );
+  }
 
   render() {
-    const { isSignup, isLogin } = this.state;
+    const { isSignup, isLogin, userIsLoggedIn } = this.state;
 
     return (
       <div className='Nav'>
-        Nav
-        <Search />
-        <span onClick={(e) => this.handleLoginOrSignupModal(e)}>로그인</span>
-        <span onClick={(e) => this.handleLoginOrSignupModal(e)}>회원가입</span>
+          <div className='navWrapper'>
+            <div className='navLeft'>
+              <img
+                src='/images/gotchapediaText.png'
+                alt='gotchapediaLogo'
+                className='gotchapediaLogo'
+              />
+            </div>
+            <div className='navRight'>
+              <div className='magnifierIcon'>
+                <FontAwesomeIcon icon={faSearch} />
+              </div>
+              <div className='inputBox' ref={this.input}>
+                <div className='searchIcon'>
+                  <FontAwesomeIcon icon={faSearch} />
+                </div>
+                <div className='searchInput'>
+                  <Search inputRef={this.input} />
+                </div>
+              </div>
+              {loginComponent}
+              <div className='starIcon'>
+                <FontAwesomeIcon icon={faStar} />
+              </div>
+              <div className='rate'>평가하기</div>
+              <img
+                src='/images/profile.jpg'
+                alt='profile'
+                className='profile'
+              />
+            </div>
+          </div>
+        </div>
         {this.state.isLoginOrSignupModalOn && (
           <Signup
             handleClickedType={this.handleClickedType}
             handleLoginOrSignupModal={this.handleLoginOrSignupModal}
             clickedType={this.state.clickedType}
+            onLoginSuccess={this.onLoginSuccess}
+            onSignupSuccess={this.onSignpSuccess}
+          />
           />
         )}
       </div>

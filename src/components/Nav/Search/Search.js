@@ -121,7 +121,7 @@ class Search extends Component {
             </ul>
             <div
               className={
-                loadedKeywords.length > 0
+                loadedKeywords?.length > 0
                   ? 'searchHeaderWrapper'
                   : 'displayNone'
               }>
@@ -152,7 +152,7 @@ class Search extends Component {
                 className='resultMovie'
                 key='23'
                 onClick={() => {
-                  this.props.history.push('/movie-detail/23');
+                  this.props.history.push('/movie-detail/22');
                 }}>
                 바닐라 스카이
               </li>

@@ -1,4 +1,4 @@
-@import '../../../styles/common.scss';
+@import '../../styles/common.scss';
 
 .onesPick {
   display: flex;
@@ -131,4 +131,8 @@ a:hover,
 a:hover .rightNavArrow:after {
   border-top: 0.5em solid #e74c3c;
   border-right: 0.5em solid #e74c3c;
+}
+
+.rankIcon {
+  @include rankIcon;
 }

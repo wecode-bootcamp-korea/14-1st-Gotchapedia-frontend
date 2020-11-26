@@ -30,7 +30,6 @@ class Mypage extends Component {
 
   loadMyData = () => {
     fetch(MYPAGE_API, {
-      method: 'GET',
       headers: {
         Authorization: MYPAGE_TOKEN,
       },
@@ -41,8 +40,7 @@ class Mypage extends Component {
   };
 
   loadWannaWatchData = () => {
-    fetch(MYPAGE_API, {
-      method: 'GET',
+    fetch(WANNAWATCH_API, {
       headers: {
         Authorization: MYPAGE_TOKEN,
       },
@@ -53,8 +51,7 @@ class Mypage extends Component {
   };
 
   loadWatchingData = () => {
-    fetch(MYPAGE_API, {
-      method: 'GET',
+    fetch(WATCHING_API, {
       headers: {
         Authorization: MYPAGE_TOKEN,
       },
@@ -71,7 +68,7 @@ class Mypage extends Component {
       <>
         {myData.data && wannaWatchData.data && watchingData.data && (
           <>
-            <Nav myData={myData} />
+            <Nav />
             <div className='MyPage'>
               <div className='header'>
                 <FontAwesomeIcon className='headerArrow' icon={faArrowLeft} />

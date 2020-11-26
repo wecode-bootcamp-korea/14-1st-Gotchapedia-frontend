@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-
 import GalleryBox from './GalleryBox/GalleryBox';
-import VideoBox from './VideoBox/VideoBox';
 import './movieSide.scss';
-import { YOUTUBE_API } from '../../../config';
-
 import MovieClip from '../MovieSide/MovieClip/MovieClip';
 
 class MovieSide extends Component { 

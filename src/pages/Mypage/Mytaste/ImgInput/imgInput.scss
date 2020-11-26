@@ -1,0 +1,17 @@
+@import '../../../../styles/common.scss';
+
+.ImgInput {
+  .userCog {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    opacity: 0.8;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  input {
+    display: none;
+  }
+}

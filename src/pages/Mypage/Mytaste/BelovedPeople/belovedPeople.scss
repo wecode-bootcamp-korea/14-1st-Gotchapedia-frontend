@@ -1,0 +1,31 @@
+@import '../../../../styles/common.scss';
+
+.castingContentList {
+  display: flex;
+  margin: 10px;
+  border-bottom: 1px solid #ddd;
+
+  .castingImage {
+    @include mediumProfile;
+    margin: 10px;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+  .profileDetail {
+    margin: auto 0;
+
+    .castingName {
+      margin-bottom: 5px;
+    }
+
+    .castingRole {
+      color: $grey;
+    }
+  }
+}
+

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { MOVIEDETAIL_MOCKUP_API, MOVIEDETAIL_SERVER_API, MOVIEDETAIL_TOKEN } from '../../../../config';   
+import {
+  MOVIEDETAIL_MOCKUP_API,
+  MOVIEDETAIL_SERVER_API,
+  MOVIEDETAIL_TOKEN,
+} from '../../../../config';
 import './overview.scss';
 import Nav from '../../../../components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +15,7 @@ class Overview extends Component {
     super();
     this.state = {
       overviewData: {},
-    }
+    };
   }
 
   // 서버용
@@ -22,32 +26,15 @@ class Overview extends Component {
         Authorization: MOVIEDETAIL_TOKEN,
       },
     })
-    .then(res => res.json())
-    .then(res => {
-      // this.setState({ 
-      //   overviewData: res.data 
-      // });
-      console.log('res >>>>>>>>>>> ', res);
-    })
-    .catch((err) => console.log('err >>>>> ', err));
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          overviewData: res.data,
+        });
+      })
+      .catch((err) => console.log('err >>>>> ', err));
   }
 
-  // 목업용 
-  // componentDidMount() {
-  //   fetch(MOVIEDETAIL_MOCKUP_API, {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: MOVIEDETAIL_TOKEN,
-  //     },
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     this.setState({ 
-  //       overviewData: res.data 
-  //     });
-  //   })
-  //   .catch((err) => console.log('err >>>>> ', err));
-  // }  
 
   goToMovieDetail = () => {
     this.props.history.push(`/movie-detail/${this.state.movieId}`);
@@ -56,12 +43,15 @@ class Overview extends Component {
   render() {
     const { overviewData } = this.state;
 
-    console.log('overviewData >>>>>>>>>>> ', overviewData);
-    return(
+    return (
       <>
         <Nav />
         <div className='overviewHeading'>
-          <FontAwesomeIcon className='headingArrow' onClick={this.goToMovieDetail} icon={faArrowLeft} />
+          <FontAwesomeIcon
+            className='headingArrow'
+            onClick={this.goToMovieDetail}
+            icon={faArrowLeft}
+          />
           <div className='headingTitle'>기본 정보</div>
         </div>
         <div className='overviewContentsWrapper'>
@@ -80,7 +70,9 @@ class Overview extends Component {
             </div>
             <div className='overviewGenre'>
               <div className='title'>장르</div>
-              <div className='content'>{!!overviewData.id && overviewData.genre[0].name}</div>
+              <div className='content'>
+                {!!overviewData.id && overviewData.genre[0].name}
+              </div>
             </div>
             <div className='overviewTime'>
               <div className='title'>상영시간</div>
@@ -88,14 +80,12 @@ class Overview extends Component {
             </div>
             <div className='overviewDetail'>
               <div className='title'>내용</div>
-              <div className='content'>
-                {overviewData.description}
-              </div>
+              <div className='content'>{overviewData.description}</div>
             </div>
           </div>
         </div>
       </>
-    )
+    );
   }
 }
 

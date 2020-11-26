@@ -41,18 +41,19 @@ class CommentDetailBox extends Component {
   render() {
     const { commentDetailBoxData } = this.props;
     const { newCommentArr } = this.state;
-    const commentList = commentDetailBoxData[0]?.comments;
+
+    console.log('commentDetailBoxData >>>>>>>>>>> ', commentDetailBoxData)
 
     return (
     <div>
-      {commentList && commentList.map((cmt) => {
+      {commentDetailBoxData && commentDetailBoxData.map((cmt) => {
         return (
         <div key={cmt.commentId} style={{width: "600px"}}>
           <div style={{margin: "20px 0"}} className='commentBox'>
             <div className='commentTitle'>
               <div className='titleLeft'>
-                <img src={cmt?.commentorImage} alt='작성자아이콘'></img>
-                <div className='writerId'>{cmt?.commentorName}
+                <img src={cmt?.userImage} alt='작성자아이콘'></img>
+                <div className='writerId'>{cmt?.userName}
                   <div className='writerIcon'></div>
                 </div>
               </div>
@@ -64,26 +65,27 @@ class CommentDetailBox extends Component {
             <div className='commentContent'>
               <p>
                 {/* 기존 코멘트 */}
-                {cmt?.comment}
+                {cmt?.content}
               </p>
             </div>
             <div className='commentIcons'>
               <div className='thumbsUpWrapper'>
                 <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-                {cmt?.thumbsup}
+                {cmt?.likeCount}
               </div>
               <div className='commentWrapper'>
                 <FontAwesomeIcon className='commentIcon' icon={faComment} />
-                {cmt?.countComment}
+                {cmt?.replyCount}
               </div>
             </div>
             <div className='like'>좋아요</div>
             <div className='inputCommentWrapper'>
-            <input id={cmt?.commentId} onChange={this.handleComment} onKeyUp={this.enterAddEvent} name='inputComment' placeholder='댓글을 입력하세요'></input>
+              {/* commentId를 id로 수정 */}
+            <input id={cmt?.id} onChange={this.handleComment} onKeyUp={this.enterAddEvent} name='inputComment' placeholder='댓글을 입력하세요'></input>
             </div>
           </div>
           <AddComment
-            addedNewComments={newCommentArr.filter((comment) => comment.id === cmt.commentId)} 
+            addedNewComments={newCommentArr.filter((comment) => comment.id === cmt.id)} 
             handleComment={this.handleComment} 
             enterAddEvent={this.enterAddEvent}
           />              

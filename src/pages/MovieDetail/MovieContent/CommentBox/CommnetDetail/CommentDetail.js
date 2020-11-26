@@ -5,23 +5,30 @@ import CommentDetailBox from './CommentDetailBox/CommentDetailBox';
 import './CommentDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { COMMENT_API, COMMENT_TOKEN } from '../../../../../config';
 
 class CommentDetail extends Component {
   constructor() {
     super();
     this.state = {
-      contentData: [],
+      commentList: [],
     }
   }
 
   componentDidMount() {
-    fetch("/Data/contentdata.json", {
+    fetch('http://10.58.0.152:8000/comment/list/23', {
+      headers: {
+        Authorization: COMMENT_TOKEN,
+      }
     })
     .then(res => res.json())
     .then(res => {
       this.setState({
-        contentData: res.data,
+        // commentList: res.data,
+        commentList: res.data
       })
+
+      // console.log('res.data >>>>>>>>>>> ', res.data);
     })
   }
 
@@ -31,7 +38,9 @@ class CommentDetail extends Component {
 
 
   render() {
-    const { contentData, newCommentArr } = this.state;
+    const { commentList, newCommentArr } = this.state;
+
+    console.log('commentList >>>>>>>>>> ', commentList);
 
     return (
       <>
@@ -41,7 +50,7 @@ class CommentDetail extends Component {
           <div className='headingTitle'>코멘트</div>
         </div>      
         <div className='commentBoxWrapper'>
-          <CommentDetailBox handleComment={this.handleComment} enterAddEvent={this.enterAddEvent} commentDetailBoxData={contentData} newCommentArr={newCommentArr}/>
+          <CommentDetailBox handleComment={this.handleComment} enterAddEvent={this.enterAddEvent} commentDetailBoxData={commentList} newCommentArr={newCommentArr}/>
         </div>
       </>
     )

@@ -8,8 +8,7 @@ import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
-
-const COMMENT_API = 'http://localhost:3001/data/contentdata.json';
+import { COMMENT_API, COMMENT_TOKEN } from '../../../config';
 
 class MovieContent extends Component {
   constructor() {
@@ -44,19 +43,34 @@ class MovieContent extends Component {
     }
   }
 
-   componentDidMount() {
-    fetch(COMMENT_API, {
+  //  componentDidMount() {
+  //   fetch(COMMENT_API, {
+  //   })
+  //   .then(res => res.json())
+  //   .then(res => {
+  //     this.setState({
+  //       contentData: res.data,
+  //       commentList:res.data[0].comments,
+  //     })
+  //   })
+  //   .catch((err) => console.log('err >>>>> ', err));
+  // }
+  
+  componentDidMount() {
+    fetch('http://10.58.0.152:8000/comment/list/23', {
+      headers: {
+        Authorization: COMMENT_TOKEN,
+      }
     })
     .then(res => res.json())
     .then(res => {
       this.setState({
-        contentData: res.data,
-        commentList:res.data[0].comments,
+        // contentData: res.data,
+        commentList: res.data
       })
     })
-    .catch((err) => console.log('err >>>>> ', err));
   }
-  
+
   addComment = (e) => {
     const { commentString, commentObj, commentArray, commentList, isCommentdAdded } = this.state;
     const writtenTime = Date.now();
@@ -145,11 +159,15 @@ class MovieContent extends Component {
     const { movieContentData } = this.props;
     const castingListData = movieContentData.staff;
 
+    // console.log('contentData >>>>>>>>>>>>>> ', contentData);
+
+    console.log('commentList >>>>>>>>>>>>>> ', commentList[0]);
+
     return (
       <>
         <div className='MovieContent'>
           {isCommentdAdded ? <ShowComment deleteComment={this.deleteComment} updateComment={this.updateComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
-            <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div> 
+            <div className='commentSuggestion'>대단한 작품이군요! {commentList[0]?.userName} 님의 감동을 글로 남겨보세요</div> 
             <button onClick={this.openModalComment} >코멘트 남기기</button>
           </div>}
           <div className='movieContentBox'>

@@ -23,10 +23,10 @@ class CommentBox extends Component {
 
   render() {
     const { commentContent } = this.props;
-    let cnt = Number(commentContent.thumbsup);
+    let cnt = Number(commentContent.likeCount);
     const { isLike } = this.state;
 
-    console.log('>>>>>>>>>>>>>>>>>>', commentContent);
+    console.log('commentContent >>>>>>>>>>>>>>>>>>', commentContent);
 
     return (
       <>
@@ -34,8 +34,8 @@ class CommentBox extends Component {
           <div className='commentTitle'>
             <div className='titleLeft'>
               {/* src를 못 읽어서 하드코딩 해둠 */}
-              <img src={commentContent.commentorImage} alt='작성자아이콘' />
-              <div className='commentorId'>{commentContent.commentorName} </div>
+              <img src={commentContent.userImage} alt='작성자아이콘' />
+              <div className='commentorId'>{commentContent.userName} </div>
             </div>
             <div className='titleRight'>
               <FontAwesomeIcon className='writerStar' icon={faStar} />
@@ -44,7 +44,7 @@ class CommentBox extends Component {
           </div>
           <div className='commentContent'>
             <p>
-              {commentContent.comment}
+              {commentContent.content}
             </p>
           </div>
           <div className='commentIcons'>
@@ -54,7 +54,7 @@ class CommentBox extends Component {
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {commentContent.countComment}
+              {commentContent.replyCount}
             </div>
           </div>
           <div className='likeEventContainer'>

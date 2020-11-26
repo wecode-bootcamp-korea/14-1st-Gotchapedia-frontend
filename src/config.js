@@ -13,6 +13,8 @@ export const MYPAGE_TOKEN =
 // '/data/preferredCountryGenre.json';
 export const PREFERRED_API =
   'http://10.58.0.152:8000/analysis/favorite?category=country';
+export const PREFERRED_GENRE_API =
+  'http://10.58.0.152:8000/analysis/favorite?category=genre';
 export const PREFERRED_TOKEN =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
 
@@ -32,3 +34,4 @@ export const MOVIEDETAIL_TOKEN =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
 
 export const BELOVEDPEOPLE_API = '/data/belovedPeople.json';
+export const BELOVEDDIRECTOR_API = '/data/belovedDirector.json';

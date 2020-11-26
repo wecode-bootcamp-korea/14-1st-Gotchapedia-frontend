@@ -53,6 +53,7 @@ $fa-font-path: '~font-awesome/fonts';
         }
         .searchInput {
           position: relative;
+          width: 100%;
         }
       }
       .loginBtn {
@@ -104,23 +105,13 @@ $fa-font-path: '~font-awesome/fonts';
 }
 
 @media screen and (max-width: 860px) {
-  .Nav .navWrapper .navRight {
-    .magnifierIcon {
-      display: block;
-    }
+  .Nav {
+    // min-width: 680px;
     .inputBox {
-      display: none;
+      min-width: 40px;
     }
   }
 }
 
 @media screen and (max-width: 700px) {
-  .Nav {
-    border: none;
-    .navWrapper {
-      .navRight {
-        display: none;
-      }
-    }
-  }
 }

@@ -61,7 +61,7 @@ class Nav extends Component {
   };
 
   render() {
-    const { isSignup, isLogin, userIsLoggedIn, searchData } = this.state;
+    const { isSignup, isLogin, searchData } = this.state;
 
     var loginComponent = (
       <>

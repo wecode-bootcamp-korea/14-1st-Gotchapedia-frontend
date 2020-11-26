@@ -47,6 +47,7 @@ class Search extends Component {
   };
 
   saveKeyword = () => {
+    if (this.state.searchValue.trim() == '') return;
     searchValueList = Array.from(
       new Set([...searchValueList, this.state.searchValue])
     );
@@ -70,8 +71,9 @@ class Search extends Component {
 
     if (event.key === 'Enter') {
       this.saveKeyword();
+      this.setState({ searchValue: '' });
     }
-    
+
     this.setState({ filteredMovie });
   };
 

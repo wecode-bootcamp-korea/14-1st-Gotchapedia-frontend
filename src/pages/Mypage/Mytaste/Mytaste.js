@@ -59,6 +59,19 @@ class Mytaste extends Component {
   onChange = async (event) => {
     const uploadedImg = await imageUploader.upload(event.target.files[0]);
     localStorage.setItem('profileImg', uploadedImg.url);
+
+    fetch('http://10.58.0.152:8000/user', {
+      method: 'PATCH',
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+      body: JSON.stringify({
+        imageURL: uploadedImg.url,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((error) => console.log('error', error));
     this.setState({ myUrl: uploadedImg.url });
   };
 

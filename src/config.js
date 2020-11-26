@@ -23,12 +23,13 @@ export const MYSTAR_TOKEN =
 
 export const DETAIL_API = 'http://10.58.1.5:8000/movie/23';
 export const DETAIL_TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
-// export const MOVIEDETAIL_MOCKUP_API = '/data/contentdata.json';
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
+export const MOVIEDETAIL_MOCKUP_API = 'http://localhost:3001/data/contentdata.json'
 // export const MOVIEDETAIL_SERVER_API = 'http://10.58.2.189:8000/movie/23';
-export const MOVIEDETAIL_SERVER_API = 'http://10.58.6.229:8000/movie/23';
+export const MOVIEDETAIL_SERVER_API = 'http://10.58.2.172:8000/movie/23';
+export const MOVIEDETAIL_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
 
-export const MOVIEDETAIL_TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
-
+export const COMMNET_API = 'http://10.58.0.152:8000/comment/23';
+export const COMMENT_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
+ 
 export const BELOVEDPEOPLE_API = '/data/belovedPeople.json';

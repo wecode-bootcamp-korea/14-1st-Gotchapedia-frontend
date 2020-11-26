@@ -1,4 +1,4 @@
-.starRatingBox {
+.hoverRatingBox {
   display: flex;
   flex-direction: column;
 
@@ -9,9 +9,14 @@
 
 .MuiBox-root {
   color: #bbb;
+  font-size: 12px;
+  margin: 5px;
 }
 
 .MuiRating-decimal {
   font-size: 40px;
-  max-width: 30px;
+
+  .MuiRating-icon {
+    margin: 0px;
+  }
 }

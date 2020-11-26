@@ -23,10 +23,8 @@ class WantToSee extends Component {
         </div>
         <div className='seeChoice'>
           <div className='leftChoice'>
-            <div className='wantToSeeUnchanged'>
-              <FontAwesomeIcon className='wantToSeeIcon' icon={faBookmark} />
-              보고싶어요
-            </div>
+            <FontAwesomeIcon className='wantToSeeIcon' icon={faBookmark} />
+            보고싶어요
           </div>
           <div className='choiceBorder'></div>
           <div className='rightChoice'>

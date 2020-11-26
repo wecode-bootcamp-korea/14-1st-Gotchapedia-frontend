@@ -7,13 +7,10 @@ class GalleryBox extends Component {
 
     return (
       <div className='GalleryBox'>
-        {subImage.map((image) => {
+        {subImage.map((image, idx) => {
           return (
-            <div className='galleryPictureWrapper' key={image.id}>
-              <img
-                className='galleryPicture'
-                src={image.url}
-                alt='갤러리이미지'></img>
+            <div key={idx} className='galleryPictureWrapper'>
+              <img className='galleryPicture' src={image.url} alt='갤러리이미지' ></img>
             </div>
           );
         })}

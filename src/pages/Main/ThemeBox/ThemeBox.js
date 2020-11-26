@@ -1,18 +1,8 @@
 import React, { Component } from 'react';
-// import MovieBox from './MovieBox/MovieBox';
 import MovieBox from './MovieBox/MovieBox';
+// import Arrow from './sliderArrow';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './themeBox.scss';
-
-class Arrow extends Component {
-  render() {
-    if (this.props.isLeft) {
-      return <div className='leftNavArrow'> </div>;
-    } else {
-      return <div className='rightNavArrow'> </div>;
-    }
-  }
-}
 
 class ThemeBox extends Component {
   constructor(props) {
@@ -21,7 +11,7 @@ class ThemeBox extends Component {
   }
   componentDidMount() {
     console.log('Alpha alpha');
-    var users = [
+    let users = [
       '고수희님의 Pick',
       '고은정님의 Pick',
       '김병준님 Pick',
@@ -29,7 +19,7 @@ class ThemeBox extends Component {
       '이영주님의 Pick',
       '장규석의 Pick',
     ];
-    for (var i = 0; i < 6; i++) {
+    for (let i = 0; i < 6; i++) {
       console.log('Fetch called');
       this.fetcharow(users[i]);
     }
@@ -41,15 +31,16 @@ class ThemeBox extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        var newIdMovieList = this.state.idMovieList;
+        const { idMovieList } = this.state;
+        let newIdMovieList = { ...idMovieList };
         console.log('registering row id', rowId);
         newIdMovieList[rowId] = {
           name: rowId,
           favoritemovies: res.data,
         };
         this.setState({ idMovieList: newIdMovieList });
-        var list = [];
-        for (var key in newIdMovieList) {
+        let list = [];
+        for (let key in newIdMovieList) {
           console.log('pushing', newIdMovieList[key]);
           list.push(newIdMovieList[key]);
         }
@@ -62,7 +53,7 @@ class ThemeBox extends Component {
 
   render() {
     const { movieListData } = this.props;
-
+    console.log(movieListData);
     return (
       <>
         {this.state.movieList.map((oneHorizontalLayoutDataPayload) => {
@@ -90,8 +81,8 @@ class ThemeBox extends Component {
                             );
                           }
                         )}
-                        arrowLeft={<Arrow isLeft={true} />}
-                        arrowRight={<Arrow isLeft={false} />}
+                        arrowLeft={<div className='leftNavArrow' />}
+                        arrowRight={<div className='rightNavArrow' />}
                         scrollBy={5}
                         wheel={false}
                       />

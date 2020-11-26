@@ -40,6 +40,10 @@
         height: 30.517em;
         width: 100em;
         margin-top: 20px;
+
+        .menu-wrapper {
+          margin-left: -100px;
+        }
         // border: dashed rgb(255, 0, 149);
 
         // menu-wrapper {
@@ -97,6 +101,7 @@
   -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
+
 .rightNavArrow {
   display: inline-block;
   width: 4em;

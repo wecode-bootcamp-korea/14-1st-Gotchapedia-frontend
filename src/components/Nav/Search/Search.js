@@ -114,17 +114,19 @@ class Search extends Component {
                   <li
                     className='resultMovie'
                     key={movie.movieId}
-                    className={movie.movieId}>
+                    className={movie.movieId}
+                  >
                     {movie.title}
                   </li>
                 ))}
             </ul>
             <div
               className={
-                loadedKeywords.length > 0
+                loadedKeywords?.length > 0
                   ? 'searchHeaderWrapper'
                   : 'displayNone'
-              }>
+              }
+            >
               <span>최근 검색어</span>
               <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
                 모두 삭제
@@ -153,21 +155,24 @@ class Search extends Component {
                 key='23'
                 onClick={() => {
                   this.props.history.push('/movie-detail/23');
-                }}>
+                }}
+              >
                 바닐라 스카이
               </li>
               <li
                 className='resultMovie'
                 onClick={() => {
                   this.props.history.push('/movie-detail/6');
-                }}>
+                }}
+              >
                 버팔로66
               </li>
               <li
                 className='resultMovie'
                 onClick={() => {
                   this.props.history.push('/movie-detail/4');
-                }}>
+                }}
+              >
                 붉은 돼지
               </li>
             </ul>

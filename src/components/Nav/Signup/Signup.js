@@ -151,18 +151,45 @@ class Signup extends Component {
             </form>
             {clickedType === '로그인' ? (
               <>
-                <span className='signUpText'>계정이 없으신가요? </span>
-                <span onClick={handleClickedType}>회원가입</span>
+                <div className='lostPw'>비밀번호를 잊어버리셨나요?</div>
+                <div className='signUpText'>
+                  계정이 없으신가요?
+                  <span className='switchSignup' onClick={handleClickedType}>
+                    회원가입
+                  </span>
+                </div>
               </>
             ) : (
               <>
-                <span className='LoginText'>이미 가입하셨나요?</span>
-                <span onClick={handleClickedType}>로그인</span>
+                <div className='loginText'>
+                  이미 가입하셨나요?
+                  <span className='switchLogin' onClick={handleClickedType}>
+                    로그인
+                  </span>
+                </div>
               </>
             )}
             <div className='or'></div>
-            <button className='kakaoBtn'>카카오 로그인</button>
-            <button className='googleBtn'>구글 로그인</button>
+            <button className='kakaoBtn'>
+              <div className='forBalanceKakao'>
+                <img
+                  className='kakaoLogo'
+                  alt='kakaologo'
+                  src='/images/kakaologo.png'
+                ></img>
+                <span className='kakaoText'>카카오 로그인</span>
+              </div>
+            </button>
+            <button className='googleBtn'>
+              <div className='forBalanceGoogle'>
+                <img
+                  className='googleLogo'
+                  alt='googlelogo'
+                  src='/images/googlelogo.png'
+                />
+                <span className='googleText'>구글 로그인</span>
+              </div>
+            </button>
           </div>
         </div>
       </div>

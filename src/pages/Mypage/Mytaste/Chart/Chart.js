@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 class Chart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chartData: props.chartData,
-    };
-  }
 
   render() {
+    const {chartData} = this.props;
     const options = {
       tooltips: {
         enabled: false,
@@ -39,7 +34,7 @@ class Chart extends Component {
     return (
       <div className='chart'>
         <Bar
-          data={this.state.chartData}
+          data={chartData}
           width={500}
           height={150}
           options={options}

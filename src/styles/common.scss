@@ -107,3 +107,8 @@ input {
   flex-direction: column;
   align-items: center;
 }
+
+.slick-prev:before,
+.slick-next:before {
+  color: #ddd !important;
+}

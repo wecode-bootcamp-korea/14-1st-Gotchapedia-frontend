@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Signup from './Signup/Signup';
 import Search from './Search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { MYPAGE_API, MYPAGE_TOKEN } from '../../config';
 import './nav.scss';
 
 class Nav extends Component {
@@ -12,9 +14,22 @@ class Nav extends Component {
     this.state = {
       isLoginOrSignupModalOn: false,
       clickedType: '',
+      searchData: {},
       userIsLoggedIn: localStorage.getItem('token') != null,
     };
     this.input = React.createRef();
+  }
+
+  componentDidMount() {
+    fetch(MYPAGE_API, {
+      method: 'GET',
+      headers: {
+        Authorization: MYPAGE_TOKEN,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ searchData: res.data }))
+      .catch((error) => console.log('error', error));
   }
 
   handleClickedType = (e) => {
@@ -34,7 +49,7 @@ class Nav extends Component {
   };
 
   onSignupSuccess = () => {
-    console.log('singup complete');
+    alert('singup complete');
     this.setState({ isLoginOrSignupModalOn: false });
   };
 
@@ -46,20 +61,18 @@ class Nav extends Component {
   };
 
   render() {
-    const { isSignup, isLogin, userIsLoggedIn } = this.state;
+    const { isSignup, isLogin } = this.state;
 
     var loginComponent = (
       <>
         <button
           className='loginBtn'
-          onClick={(e) => this.handleLoginOrSignupModal(e)}
-        >
+          onClick={this.handleLoginOrSignupModal}>
           로그인
         </button>
         <button
           className='signupBtn'
-          onClick={(e) => this.handleLoginOrSignupModal(e)}
-        >
+          onClick={this.handleLoginOrSignupModal}>
           회원가입
         </button>
       </>
@@ -81,7 +94,11 @@ class Nav extends Component {
       <>
         <div className='Nav'>
           <div className='navWrapper'>
-            <div className='navLeft'>
+            <div
+              className='navLeft'
+              onClick={() => {
+                this.props.history.push('/');
+              }}>
               <img
                 src='/images/gotchapediaText.png'
                 alt='gotchapediaLogo'
@@ -127,4 +144,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(Nav);

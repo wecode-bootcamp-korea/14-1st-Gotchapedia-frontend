@@ -31,7 +31,7 @@ class Main extends Component {
 
   render() {
     const { movieListData } = this.state;
-
+    console.log(movieListData)
     return (
       <>
         <Nav />

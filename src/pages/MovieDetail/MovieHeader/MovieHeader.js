@@ -4,7 +4,6 @@ import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { MOVIEDETAIL_TOKEN } from '../../../config';
 import Rating from './HoverRating/HoverRating';
-import './movieHeader.scss';
 
 class MovieHeader extends Component {
   constructor() {
@@ -29,7 +28,6 @@ class MovieHeader extends Component {
       isWantToSee: false,
     });
   };
-
 
   render() {
     const { isWantToSee } = this.state;

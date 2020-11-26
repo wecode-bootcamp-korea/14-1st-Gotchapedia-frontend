@@ -8,7 +8,8 @@
     border: 1px solid #ddd;
     margin-bottom: 20px;
     background-color: #fff;
-    height: 64px;
+    height: 74px;
+    padding: 20px;
 
     .commentSuggestion {
       margin: 0 10px;
@@ -93,6 +94,7 @@
           justify-content: space-between;
           font-size: 19px;
           font-weight: bold;
+          margin: 10px 0 0 0;
           padding: 10px 0 10px 10px;
 
           span {
@@ -107,23 +109,22 @@
         .infoContent {
           font-size: 15px;
           padding: 10px;
-          margin-bottom: 10px;
           border-bottom: 1px solid #ddd;
 
           .contentHeading {
-            margin-bottom: 5px;
+            margin: 10px 0;
           }
 
           .contentInfo {
-            margin-bottom: 5px;
+            margin: 10px 0;
           }
 
           .contentTime {
-            margin-bottom: 5px;
+            margin: 10px 0;
           }
 
           .detailContent {
-            margin-bottom: 5px;
+            margin: 10px 0 0 0;
             width: 100%;
             height: 30px;
             overflow: hidden;
@@ -140,6 +141,7 @@
           font-size: 19px;
           font-weight: bold;
           padding: 10px 0 10px 10px;
+          margin-top: 10px;
         }
 
         .castingContent {

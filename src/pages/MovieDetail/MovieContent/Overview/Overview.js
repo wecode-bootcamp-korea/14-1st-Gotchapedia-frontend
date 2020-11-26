@@ -18,8 +18,9 @@ class Overview extends Component {
     };
   }
 
+  // 서버용
   componentDidMount() {
-    fetch(MOVIEDETAIL_SERVER_API, {
+    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
       method: 'GET',
       headers: {
         Authorization: MOVIEDETAIL_TOKEN,
@@ -34,9 +35,10 @@ class Overview extends Component {
       .catch((err) => console.log('err >>>>> ', err));
   }
 
+
   goToMovieDetail = () => {
-    this.props.history.push('/movie-detail');
-  };
+    this.props.history.push(`/movie-detail/${this.state.movieId}`);
+  }
 
   render() {
     const { overviewData } = this.state;

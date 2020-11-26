@@ -8,8 +8,7 @@ import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
-
-const COMMENT_API = 'http://localhost:3000/data/contentdata.json';
+import { COMMENT_API, COMMENT_TOKEN } from '../../../config';
 
 class MovieContent extends Component {
   constructor() {
@@ -22,7 +21,7 @@ class MovieContent extends Component {
       isColor: false,
       commentorId: "",
       castingImage: "",
-      starRating: "",
+      hoverRating: "",
       thumbsUp: "",
       countComment: "",
       commentList:[],
@@ -44,19 +43,34 @@ class MovieContent extends Component {
     }
   }
 
-   componentDidMount() {
-    fetch(COMMENT_API, {
+  //  componentDidMount() {
+  //   fetch(COMMENT_API, {
+  //   })
+  //   .then(res => res.json())
+  //   .then(res => {
+  //     this.setState({
+  //       contentData: res.data,
+  //       commentList:res.data[0].comments,
+  //     })
+  //   })
+  //   .catch((err) => console.log('err >>>>> ', err));
+  // }
+  
+  componentDidMount() {
+    fetch('http://10.58.0.152:8000/comment/list/23', {
+      headers: {
+        Authorization: COMMENT_TOKEN,
+      }
     })
     .then(res => res.json())
     .then(res => {
       this.setState({
-        contentData: res.data,
-        commentList:res.data[0].comments,
+        // contentData: res.data,
+        commentList: res.data
       })
     })
-    .catch((err) => console.log('err >>>>> ', err));
   }
-  
+
   addComment = (e) => {
     const { commentString, commentObj, commentArray, commentList, isCommentdAdded } = this.state;
     const writtenTime = Date.now();
@@ -71,8 +85,12 @@ class MovieContent extends Component {
       thumbsup: '0',
       countComment: '0',
     }
+    
+    // const currentList = [...commentlist]
+    //  const newList = [{...currentList[0]} ,currentList]
+    // currentList.splice(0,2)
 
-    this.setState({
+     this.setState({
       commentList: [obj, ...commentList],
       isCommentdAdded: true,
     })
@@ -80,7 +98,21 @@ class MovieContent extends Component {
     this.closeModalComment();
   }
 
-  // 삭제 작업중...
+  updateComment = () => {
+    const { commentList, commentString } = this.state;
+    const currentList = [...commentList]
+    this.openModalComment();
+
+    // const newList = [{...currentList[0],comment:commentString} ,currentList]
+    const newList = Array.from(commentList);
+    currentList.splice(0,1)
+
+    this.setState({
+      commentList: [newList, ...commentList],
+      isCommentdAdded: true,
+    })
+  }
+
   deleteComment = (e) => {
     const { commentList } = this.state;
     const deletedComment = Array.from(commentList);
@@ -93,11 +125,12 @@ class MovieContent extends Component {
   }
 
   goToCommentDetail = () => {
-    this.props.history.push("/movie-detail/comments");
+    // this.props.history.push("/movie-detail/comments");
+    this.props.history.push(`/movie-detail/${this.props.id}/comments`);
   }
 
   goToOverview = () => {
-    this.props.history.push("/movie-detail/overview");
+    this.props.history.push(`/movie-detail/${this.props.id}/overview`);
   }
 
   openModalComment = () => {
@@ -123,15 +156,14 @@ class MovieContent extends Component {
     };
 
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
-    const { movieContentData } = this.props;
+    const { movieContentData, id } = this.props;
     const castingListData = movieContentData.staff;
 
     return (
       <>
         <div className='MovieContent'>
-          {/* 얘는 별점줄때 display가 보이도록 설정*/}
-          {isCommentdAdded ? <ShowComment deleteComment={this.deleteComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
-            <div className='commentSuggestion'>대단한 작품이군요! 김태현태김 님의 감동을 글로 남겨보세요</div> 
+          {isCommentdAdded ? <ShowComment deleteComment={this.deleteComment} updateComment={this.updateComment} commentList={commentList.length > 0 && commentList} /> : <div className='hiddenComment'>
+            <div className='commentSuggestion'>대단한 작품이군요! {commentList[0]?.userName} 님의 감동을 글로 남겨보세요</div> 
             <button onClick={this.openModalComment} >코멘트 남기기</button>
           </div>}
           <div className='movieContentBox'>
@@ -166,8 +198,10 @@ class MovieContent extends Component {
                     {commentList.length > 0 && commentList.map((el) => {
                       return (
                         <CommentBox
+                          key={el.commentId}
                           commentContent={el}
                           deleteComment={this.deleteComment}
+                          updateComment={this.updateComment}
                         />
                       )
                     })}

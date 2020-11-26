@@ -40,18 +40,17 @@ class MovieHeader extends Component {
     })
   }
 
-  componentDidMount() {
-    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
-        headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({ movieDetailData: res.data });
-        // console.log('res >>>>>>>>>>>> ',res);
-      })
-  }
+  // componentDidMount() {
+  //   fetch(`http://3.35.216.109:8000/movies/${this.props.id}`, {
+  //       headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       this.setState({ movieDetailData: res.data });
+  //     })
+  // }
 
   render() {
     const { isWantToSee } = this.state;
@@ -67,7 +66,6 @@ class MovieHeader extends Component {
             alt='무비서브이미지'>
           </img>
         </div>
-        {/* <div className='MovieHeaderTop'><img src='/images/url1.jpg' alt='무비서브이미지'></img></div> */}
         <div className='MovieHeaderBottom'>
           <div className='posterWrapper'>
             <img src={movieHeaderData.mainImage} alt='바닐라스카이꼭보세요'></img>

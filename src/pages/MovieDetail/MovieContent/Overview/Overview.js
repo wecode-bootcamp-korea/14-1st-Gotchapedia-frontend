@@ -20,7 +20,7 @@ class Overview extends Component {
 
   // 서버용
   componentDidMount() {
-    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
+    fetch(`http://3.35.216.109:8000/movies/${this.props.id}/detail`, {
       method: 'GET',
       headers: {
         Authorization: MOVIEDETAIL_TOKEN,
@@ -28,21 +28,59 @@ class Overview extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        this.setState({
-          overviewData: res.data,
-        });
+        // this.setState({
+        //   overviewData: res.data,
+        // });
+        console.log(res);
       })
       .catch((err) => console.log('err >>>>> ', err));
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if(prevProps.id !== this.props.id) {
+  //     fetch(`http://3.35.216.109:8000/movies/${this.props.id}/detail`, {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       // this.setState({
+  //       //   overviewData: res.data,
+  //       // });
+  //       console.log(res);
+  //     })
+  //     .catch((err) => console.log('err >>>>> ', err));
+  //   }
+  // }
 
+  // componentDidMount() {
+  //   fetch(, {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       // this.setState({
+  //       //   overviewData: res.data,
+  //       // });
+  //       console.log(res);
+  //     })
+  //     .catch((err) => console.log('err >>>>> ', err));
+  // }
+
+  // 라우터 숫자처리 ??
   goToMovieDetail = () => {
-    this.props.history.push(`/movie-detail/${this.state.movieId}`);
+    this.props.history.push(`/movies/${this.props.match.params.id}`);
   }
 
   render() {
     const { overviewData } = this.state;
 
+    console.log('>>>>>>>>>>>>>>>>>>', )
     return (
       <>
         <Nav />

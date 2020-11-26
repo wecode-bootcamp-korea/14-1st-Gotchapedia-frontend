@@ -3,6 +3,8 @@ import Footer from '../../components/Footer/Footer';
 import Nav from '../../components/Nav/Nav';
 import './main.scss';
 import ThemeBox from './ThemeBox/ThemeBox';
+import { MOVIEDETAIL_TOKEN, MOVIEDETAIL_MOCKUP_API } from '../../config';
+
 
 class Main extends Component {
   constructor() {
@@ -13,12 +15,11 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    // fetch('http://10.58.0.152:8000/movie/movies/user', {
-    fetch('/data/response.json', {
+    fetch('http://3.35.216.109:8000/movies/user', {
       method: 'GET',
       headers: {
         Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E',
+        MOVIEDETAIL_TOKEN,
       },
     })
       .then((res) => res.json())
@@ -31,7 +32,7 @@ class Main extends Component {
 
   render() {
     const { movieListData } = this.state;
-    console.log(movieListData)
+    // console.log('movieListData >>>>>>>>>>>>>> ', movieListData)
     return (
       <>
         <Nav />

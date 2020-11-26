@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Signup from './Signup/Signup';
 import Search from './Search/Search';
-import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -49,7 +49,7 @@ class Nav extends Component {
   };
 
   onSignupSuccess = () => {
-    console.log('singup complete');
+    alert('singup complete');
     this.setState({ isLoginOrSignupModalOn: false });
   };
 
@@ -61,18 +61,18 @@ class Nav extends Component {
   };
 
   render() {
-    const { isSignup, isLogin, searchData } = this.state;
+    const { isSignup, isLogin } = this.state;
 
     var loginComponent = (
       <>
         <button
           className='loginBtn'
-          onClick={(e) => this.handleLoginOrSignupModal(e)}>
+          onClick={this.handleLoginOrSignupModal}>
           로그인
         </button>
         <button
           className='signupBtn'
-          onClick={(e) => this.handleLoginOrSignupModal(e)}>
+          onClick={this.handleLoginOrSignupModal}>
           회원가입
         </button>
       </>
@@ -114,7 +114,7 @@ class Nav extends Component {
                   <FontAwesomeIcon icon={faSearch} />
                 </div>
                 <div className='searchInput'>
-                  <Search searchData={searchData} inputRef={this.input} />
+                  <Search inputRef={this.input} />
                 </div>
               </div>
               {loginComponent}

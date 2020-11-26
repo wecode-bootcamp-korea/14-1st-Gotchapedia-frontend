@@ -36,9 +36,7 @@ class Overview extends Component {
 
   render() {
     const { overviewData } = this.state;
-    console.log(overviewData);
 
-    console.log('overviewData >>>>>>>>>>> ', overviewData);
     return(
       <>
         <Nav />

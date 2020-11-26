@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
+import BelovedPeople from './BelovedPeople/BelovedPeople';
 import WordCloud from './wordCloud/wordCloud';
 import ImageUploader from '../../../service/image_uploader';
 import ImgInput from './ImgInput/ImgInput';
@@ -12,7 +13,6 @@ import {
   MYSTAR_TOKEN,
 } from '../../../config';
 import './mytaste.scss';
-import BelovedPeople from './BelovedPeople/BelovedPeople';
 
 const imageUploader = new ImageUploader();
 let PROFILE_IMG = '';
@@ -106,9 +106,10 @@ class Mytaste extends Component {
   setMyStar = () => {
     const { myStar, chartData } = this.state;
     const { datasets } = this.state.chartData;
-    [...datasets][0].data = [...myStar];
+    const tempDatasets = [...datasets];
+    [...tempDatasets][0].data = [...myStar];
     const idx = [...myStar].indexOf(Math.max(...myStar));
-    [...datasets][0].backgroundColor[idx] = '#f8a236';
+    [...tempDatasets][0].backgroundColor[idx] = '#f8a236';
     this.setState({ chartData });
   };
 

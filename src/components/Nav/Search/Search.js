@@ -61,9 +61,10 @@ class Search extends Component {
 
   searchMovie = (event) => {
     event.preventDefault();
-    const { searchValue, searchData } = this.state;
+    const { searchValue, searchData, filteredMovie } = this.state;
     const searchKeywords = searchValue.split(' ');
-    const [...filteredMovie] =
+    let tempFilteredMovie = [...filteredMovie];
+    tempFilteredMovie =
       searchValue &&
       [...searchData].filter((movie) => {
         return searchKeywords.every((keyword) => movie.title.includes(keyword));
@@ -74,7 +75,7 @@ class Search extends Component {
       this.setState({ searchValue: '' });
     }
 
-    this.setState({ filteredMovie });
+    this.setState({ filteredMovie: tempFilteredMovie });
   };
 
   onSearchInputChange = (event) => {
@@ -107,7 +108,7 @@ class Search extends Component {
         <div className={isListActive ? 'listBox' : 'displayNone'}>
           <div className='searchList'>
             <ul className='filteredList'>
-              {filteredMovie?.length > 0 &&
+              {filteredMovie.length > 0 &&
                 filteredMovie.map((movie) => (
                   <li
                     className='resultMovie'
@@ -119,7 +120,7 @@ class Search extends Component {
             </ul>
             <div
               className={
-                loadedKeywords?.length > 0
+                loadedKeywords.length > 0
                   ? 'searchHeaderWrapper'
                   : 'displayNone'
               }>

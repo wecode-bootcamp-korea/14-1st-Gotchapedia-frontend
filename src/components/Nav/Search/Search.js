@@ -10,6 +10,7 @@ class Search extends Component {
   constructor() {
     super();
     this.state = {
+      searchData: [],
       searchValue: '',
       isSearchOn: false,
       isListActive: false,

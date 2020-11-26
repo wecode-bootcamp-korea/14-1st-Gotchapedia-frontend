@@ -11,7 +11,7 @@ import Rating from './HoverRating/HoverRating';
 // 
 // 이건 스타 API
 // const STAR_API = `http://10.58.1.5:8000/analysis/star/${this.props.match.params.id}`
-// const MOVIEDETAIL_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
+const MOVIEDETAIL_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
 
 class MovieHeader extends Component {
   constructor() {

@@ -33,11 +33,11 @@ class MovieBox extends Component {
               <div className='movieTitle'>{title}</div>
               <div className='movieDate'>{date}</div>
               <div className='movieRate'>
-                <span>평점</span>
+                <span className='movieScore'>평점</span>
                 <span className='iconStar'>
                   <FontAwesomeIcon icon={faStar} />
                 </span>
-                <span>{rate}</span>
+                <span className='movieScore'>{rate}</span>
               </div>
             </div>
           </div>

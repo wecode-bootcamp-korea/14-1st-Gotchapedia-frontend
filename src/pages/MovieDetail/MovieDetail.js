@@ -5,7 +5,7 @@ import MovieContent from './MovieContent/MovieContent';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
-import { MOVIEDETAIL_TOKEN, MOVIEDETAIL_MOCKUP_API } from '../../config';
+import { MOVIEDETAIL_TOKEN } from '../../config';
 class MovieDetail extends Component {
   constructor() {
     super();
@@ -42,7 +42,7 @@ class MovieDetail extends Component {
   // }
   render() {
     const { movieDetailData } = this.state;
-    console.log(' props >>>>>>>>>>> ', this.props);
+    console.log(movieDetailData);
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>

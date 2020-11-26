@@ -38,6 +38,7 @@
 
       .pinkText {
         color: $pink;
+        margin: 0;
       }
 
       .sectionCount {
@@ -58,6 +59,7 @@
       padding: 10px 15px;
       margin-bottom: 20px;
       overflow-x: scroll;
+      overflow-y: hidden;
 
       .movieBox {
         margin: 5px;

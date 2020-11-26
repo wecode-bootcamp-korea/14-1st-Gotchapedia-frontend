@@ -65,28 +65,28 @@ class Nav extends Component {
 
     var loginComponent = (
       <>
-        <button
-          className='loginBtn'
-          onClick={this.handleLoginOrSignupModal}>
+        <button className='loginBtn' onClick={this.handleLoginOrSignupModal}>
           로그인
         </button>
-        <button
-          className='signupBtn'
-          onClick={this.handleLoginOrSignupModal}>
+        <button className='signupBtn' onClick={this.handleLoginOrSignupModal}>
           회원가입
         </button>
       </>
     );
 
     if (this.state.userIsLoggedIn) {
-      console.log('I got profile url : ' + localStorage.getItem('profile_url'));
       loginComponent = (
-        <div onClick={this.logout}>
-          <img
-            className='gatchaNavProfile'
-            src={localStorage.getItem('profile_url')}
-          />
-        </div>
+        <>
+          <div onClick={this.logout} className='logoutBtn'>
+            로그아웃
+          </div>
+          <div>
+            <img
+              className='gatchaNavProfile'
+              src={localStorage.getItem('profileImg')}
+            />
+          </div>
+        </>
       );
     }
 

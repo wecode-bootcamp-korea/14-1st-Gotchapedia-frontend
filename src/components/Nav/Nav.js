@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import './nav.scss';
 import { MYPAGE_API, MYPAGE_TOKEN } from '../../config';
+import './nav.scss';
 
 class Nav extends Component {
   constructor() {

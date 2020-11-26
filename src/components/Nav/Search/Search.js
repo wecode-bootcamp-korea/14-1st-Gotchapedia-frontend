@@ -43,7 +43,7 @@ class Search extends Component {
   };
 
   goToDetail = (e) => {
-    this.props.history.push(`/movie-detail/${this.props.movieId}`);
+    this.state.history.push(`/movie-detail/${this.state.searchData.movieId}`);
   };
 
   saveKeyword = () => {

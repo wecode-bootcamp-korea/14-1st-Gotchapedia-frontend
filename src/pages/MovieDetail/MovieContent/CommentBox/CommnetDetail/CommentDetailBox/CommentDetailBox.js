@@ -42,8 +42,6 @@ class CommentDetailBox extends Component {
     const { commentDetailBoxData } = this.props;
     const { newCommentArr } = this.state;
 
-    console.log('commentDetailBoxData >>>>>>>>>>> ', commentDetailBoxData)
-
     return (
     <div>
       {commentDetailBoxData && commentDetailBoxData.map((cmt) => {

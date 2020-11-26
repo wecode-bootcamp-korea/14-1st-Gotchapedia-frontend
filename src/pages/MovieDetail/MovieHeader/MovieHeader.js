@@ -6,7 +6,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import Rating from './StarRating/StarRating';
+import Rating from './HoverRating/HoverRating';
 
 // 이건 스타 API
 const STAR_API = "http://10.58.1.5:8000/analysis/star/23"
@@ -39,35 +39,18 @@ class MovieHeader extends Component {
     })
   }
 
-  // sendRateStarData = () => {
-  //   const { rateStar } = this.state;
-  //   fetch(STAR_API, {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       starPoint: rateStar
-  //     }),
-  //   })
-  //     .then((res) => { return res.json()})
-  // }
-  
-  // ratingStars = (ratingValue) => {
-  //   this.setState({
-  //     rateStar: ratingValue, 
-  //   })
-  //   this.sendRateStarData();
-  // }
-
-  // mouseLeaveEvent = () => {
-  //   this.setState({
-  //     starHover: null,
-  //   })
-  // }
-
-  // mouseEnterEvent = (ratingValue) => {
-  //   this.setState({
-  //     starHover: ratingValue,
-  //   })
-  // }
+  componentDidMount() {
+    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
+        headers: {
+        Authorization: MOVIEDETAIL_TOKEN,
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ movieDetailData: res.data });
+        // console.log('res >>>>>>>>>>>> ',res);
+      })
+  }
 
   render() {
     const { isWantToSee } = this.state;

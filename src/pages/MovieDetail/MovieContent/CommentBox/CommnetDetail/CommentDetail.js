@@ -40,8 +40,6 @@ class CommentDetail extends Component {
   render() {
     const { commentList, newCommentArr } = this.state;
 
-    console.log('commentList >>>>>>>>>> ', commentList);
-
     return (
       <>
         <Nav />

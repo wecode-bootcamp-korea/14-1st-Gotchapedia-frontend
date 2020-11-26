@@ -21,7 +21,7 @@ class MovieContent extends Component {
       isColor: false,
       commentorId: "",
       castingImage: "",
-      starRating: "",
+      hoverRating: "",
       thumbsUp: "",
       countComment: "",
       commentList:[],
@@ -126,11 +126,11 @@ class MovieContent extends Component {
 
   goToCommentDetail = () => {
     // this.props.history.push("/movie-detail/comments");
-    this.props.history.push(`/movie-detail/${this.props.movieId}/comments`);
+    this.props.history.push(`/movie-detail/${this.props.id}/comments`);
   }
 
   goToOverview = () => {
-    this.props.history.push(`/movie-detail/${this.props.movieId}/overview`);
+    this.props.history.push(`/movie-detail/${this.props.id}/overview`);
   }
 
   openModalComment = () => {
@@ -156,12 +156,8 @@ class MovieContent extends Component {
     };
 
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
-    const { movieContentData } = this.props;
+    const { movieContentData, id } = this.props;
     const castingListData = movieContentData.staff;
-
-    // console.log('contentData >>>>>>>>>>>>>> ', contentData);
-
-    console.log('commentList >>>>>>>>>>>>>> ', commentList[0]);
 
     return (
       <>

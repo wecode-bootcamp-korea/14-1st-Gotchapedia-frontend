@@ -16,6 +16,7 @@ class Nav extends Component {
       clickedType: '',
       searchData: {},
       userIsLoggedIn: localStorage.getItem('token') != null,
+      myUrl: '',
     };
     this.input = React.createRef();
   }
@@ -44,12 +45,11 @@ class Nav extends Component {
   };
 
   onLoginSuccess = () => {
-    console.log('Login was successfully delegated.');
     this.setState({ userIsLoggedIn: true, isLoginOrSignupModalOn: false });
   };
 
   onSignupSuccess = () => {
-    alert('singup complete');
+    alert('회원가입이 완료되었습니다.');
     this.setState({ isLoginOrSignupModalOn: false });
   };
 
@@ -62,8 +62,8 @@ class Nav extends Component {
 
   render() {
     const { isSignup, isLogin } = this.state;
-
-    var loginComponent = (
+    const profileImg_LS = localStorage.getItem('profileImg');
+    let loginComponent = (
       <>
         <button className='loginBtn' onClick={this.handleLoginOrSignupModal}>
           로그인
@@ -82,8 +82,13 @@ class Nav extends Component {
           </div>
           <div>
             <img
-              className='gatchaNavProfile'
-              src={localStorage.getItem('profileImg')}
+              className='profileLS'
+              onClick={() => {
+                this.props.history.push('/mypage');
+              }}
+              src={
+                !profileImg_LS ? '/images/defaultProfile.png' : profileImg_LS
+              }
             />
           </div>
         </>
@@ -121,8 +126,10 @@ class Nav extends Component {
               <div className='starIcon'>
                 <FontAwesomeIcon icon={faStar} />
               </div>
-              <div className='rate'>평가하기</div>
               <img
+                onClick={() => {
+                  this.props.history.push('/mypage');
+                }}
                 src='/images/profile.jpg'
                 alt='profile'
                 className='profile'

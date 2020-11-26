@@ -30,17 +30,6 @@ class MovieHeader extends Component {
     });
   };
 
-  componentDidMount() {
-    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
-      headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({ movieDetailData: res.data });
-      });
-  }
 
   render() {
     const { isWantToSee } = this.state;
@@ -51,7 +40,7 @@ class MovieHeader extends Component {
     return (
       <div>
         <div className='MovieHeaderTop'>
-          <img src={subImage[0].url} alt='무비서브이미지'></img>
+          <img src={subImage[0]?.url} alt='무비서브이미지'></img>
         </div>
         <div className='MovieHeaderBottom'>
           <div className='posterWrapper'>

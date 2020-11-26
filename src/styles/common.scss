@@ -56,9 +56,9 @@ $lightyellow: #ffdd64;
 /* movie img size */
 
 @mixin bigSize {
-  width: 210px;
-  height: 310px;
-  border: 1px solid #74747b;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #e6e6e6;
   border-radius: 5px;
 }
 
@@ -72,7 +72,7 @@ $lightyellow: #ffdd64;
 @mixin smallSize {
   width: 7.4em;
   height: 10.8em;
-  border: 1px solid #74747b;
+  border: 1px solid #e6e6e6;
   border-radius: 5px;
 }
 

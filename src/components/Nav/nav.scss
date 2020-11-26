@@ -32,6 +32,7 @@ $fa-font-path: '~font-awesome/fonts';
     }
     .navRight {
       @include flex-spaceBetween-center;
+      align-items: center;
 
       .magnifierIcon {
         display: none;
@@ -71,7 +72,22 @@ $fa-font-path: '~font-awesome/fonts';
         border-radius: 5px;
         cursor: pointer;
       }
-
+      .profileLS {
+        @include mediumProfile;
+        margin-left: 10px;
+        border: 1px solid #c5c5c5;
+      }
+      .logoutBtn {
+        text-align: center;
+        background-color: white;
+        width: 80px;
+        height: 32px;
+        border: 1px solid #cbccd0;
+        border-radius: 5px;
+        line-height: 32px;
+        margin: 0 5px 0 15px;
+        cursor: pointer;
+      }
       .rate {
         display: none;
       }
@@ -106,12 +122,9 @@ $fa-font-path: '~font-awesome/fonts';
 
 @media screen and (max-width: 860px) {
   .Nav {
-    // min-width: 680px;
+    min-width: 680px;
     .inputBox {
       min-width: 40px;
     }
   }
-}
-
-@media screen and (max-width: 700px) {
 }

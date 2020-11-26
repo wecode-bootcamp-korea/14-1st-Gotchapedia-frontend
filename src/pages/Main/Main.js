@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import MovieBox from './ThemeBox/MovieBox/MovieBox';
 import Nav from '../../components/Nav/Nav';
 import {
   MAINPAGE_API1,
@@ -9,9 +10,10 @@ import {
   MAINPAGE_API5,
   MAINPAGE_API6,
   MYPAGE_TOKEN,
+  MOVIEDETAIL_TOKEN,
+  MOVIEDETAIL_MOCKUP_API,
 } from '../../config';
 import './main.scss';
-import MovieBox from './ThemeBox/MovieBox/MovieBox';
 
 class Main extends Component {
   constructor() {
@@ -113,7 +115,9 @@ class Main extends Component {
           <section className='evaluationSection'>
             <div className='sectionHeader'>
               <div className='headerLeft'>
-                <span>수희님의 인생 박스오피스</span>
+                <span>
+                  <span className='pinkText'>은정님</span>의 인생작 컬렉션
+                </span>
               </div>
             </div>
             <div className='movieList'>
@@ -124,7 +128,7 @@ class Main extends Component {
                   imageURL={movie.imageURL}
                   rate={movie.rate}
                   title={movie.title}
-                  movieId={movie.rank}
+                  movieId={movie.movieId}
                 />
               ))}
             </div>
@@ -133,7 +137,9 @@ class Main extends Component {
           <section className='evaluationSection'>
             <div className='sectionHeader'>
               <div className='headerLeft'>
-                <span>은정님의 인생작 컬렉션</span>
+                <span>
+                  <span className='pinkText'>수희님</span>의 인생 박스오피스
+                </span>
               </div>
             </div>
             <div className='movieList'>
@@ -144,7 +150,7 @@ class Main extends Component {
                   imageURL={movie.imageURL}
                   rate={movie.rate}
                   title={movie.title}
-                  movieId={movie.rank}
+                  movieId={movie.movieId}
                 />
               ))}
             </div>
@@ -153,7 +159,9 @@ class Main extends Component {
           <section className='evaluationSection'>
             <div className='sectionHeader'>
               <div className='headerLeft'>
-                <span>선호하는 감독 김병준의 작품</span>
+                <span>
+                  선호하는 감독 <span className='pinkText'>김병준</span>의 작품
+                </span>
               </div>
             </div>
             <div className='movieList'>
@@ -164,7 +172,7 @@ class Main extends Component {
                   imageURL={movie.imageURL}
                   rate={movie.rate}
                   title={movie.title}
-                  movieId={movie.rank}
+                  movieId={movie.movieId}
                 />
               ))}
             </div>
@@ -173,7 +181,9 @@ class Main extends Component {
           <section className='evaluationSection'>
             <div className='sectionHeader'>
               <div className='headerLeft'>
-                <span>선호하는 배우 김태현의 작품</span>
+                <span>
+                  선호하는 배우 <span className='pinkText'>김태현</span>의 작품
+                </span>
               </div>
             </div>
             <div className='movieList'>
@@ -184,7 +194,7 @@ class Main extends Component {
                   imageURL={movie.imageURL}
                   rate={movie.rate}
                   title={movie.title}
-                  movieId={movie.rank}
+                  movieId={movie.movieId}
                 />
               ))}
             </div>
@@ -193,7 +203,10 @@ class Main extends Component {
           <section className='evaluationSection'>
             <div className='sectionHeader'>
               <div className='headerLeft'>
-                <span>선호하는 배우 이영주의 인생 작품</span>
+                <span>
+                  선호하는 배우 <span className='pinkText'>이영주</span>의 인생
+                  작품
+                </span>
               </div>
             </div>
             <div className='movieList'>
@@ -204,7 +217,7 @@ class Main extends Component {
                   imageURL={movie.imageURL}
                   rate={movie.rate}
                   title={movie.title}
-                  movieId={movie.rank}
+                  movieId={movie.movieId}
                 />
               ))}
             </div>
@@ -213,7 +226,9 @@ class Main extends Component {
           <section className='evaluationSection'>
             <div className='sectionHeader'>
               <div className='headerLeft'>
-                <span>규석님의 영화 순위</span>
+                <span>
+                  <span className='pinkText'>규석님</span>의 영화 순위
+                </span>
               </div>
             </div>
             <div className='movieList'>
@@ -224,7 +239,7 @@ class Main extends Component {
                   imageURL={movie.imageURL}
                   rate={movie.rate}
                   title={movie.title}
-                  movieId={movie.rank}
+                  movieId={movie.movieId}
                 />
               ))}
             </div>

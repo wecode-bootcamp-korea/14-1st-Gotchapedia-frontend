@@ -12,13 +12,13 @@ class MovieBox extends Component {
   }
 
   goToMovieDetail = () => {
-    this.props.history.push(`/movie-detail/${this.props.movieId}`);
+    this.props.history.push(`/movies/${this.props.movieId}`);
   };
 
   render() {
-    const { imageURL, title, date, rate } = this.props;
+    const { imageURL, title, date, rate, movieId } = this.props;
     return (
-      <div className='MovieBox'>
+      <div className='MovieBox' key={movieId}>
         <div className='movieAllWrap'>
           <div className='moviePosterInside'>
             <div className='moviePosterWrap'>

@@ -12,7 +12,9 @@ export const MYPAGE_TOKEN =
 // export const PREFERRED_API =
 // '/data/preferredCountryGenre.json';
 export const PREFERRED_API =
-  'http://10.58.0.152:8000/analysis/favorite?category=country';
+'http://10.58.0.152:8000/analysis/favorite?category=country';
+export const PREFERRED_GENRE_API =
+  'http://10.58.0.152:8000/analysis/favorite?category=genre';
 export const PREFERRED_TOKEN =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
 

@@ -12,20 +12,20 @@ class Main extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch('http://10.58.0.152:8000/movie/movies/user', {
-      method: 'GET',
-      headers: {
-        Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E',
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          movieListData: res.data,
-        });
-      });
-  }
+  // componentDidMount() {
+  //   fetch('http://10.58.0.152:8000/movie/movies/user', {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E',
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       this.setState({
+  //         movieListData: res.data,
+  //       });
+  //     });
+  // }
 
   render() {
     const { movieListData } = this.state;
@@ -33,7 +33,7 @@ class Main extends Component {
     return (
       <>
         <Nav />
-        {!!movieListData.length > 0 && <ThemeBox movieListData={movieListData} />} 
+        <ThemeBox/>
         <Footer />
       </>
     );

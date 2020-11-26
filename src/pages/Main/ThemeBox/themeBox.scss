@@ -5,6 +5,7 @@
   height: 35em;
   width: 90em;
   margin-top: 30px;
+  justify-content: center;
   // margin-bottom: 30px;
   // border: solid Red;
 
@@ -37,9 +38,14 @@
 
       .boxRankingCover {
         height: 30.517em;
-        width: 84.438em;
-        margin: 1px;
+        width: 100em;
+        margin-top: 20px;
         // border: dashed rgb(255, 0, 149);
+
+        // menu-wrapper {
+        //   height: 400px;
+        //   width: 1000px;
+        // }
 
         .boxRankingWrap {
           z-index: 1;
@@ -63,15 +69,61 @@
             // border: solid black;
           }
         }
-
-        .leftArrow {
-        }
-
-        .rightArrow {
-        }
       }
     }
   }
 }
 
-//2nd li
+.leftNavArrow {
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  border: 0.5em solid #333;
+  border-radius: 50%;
+  text-align: center;
+  margin-right: 1.5em;
+}
+
+.leftNavArrow:after {
+  content: '';
+  display: inline-block;
+  margin-top: 8px;
+  margin-left: 0.6em;
+  width: 1.4em;
+  height: 1.4em;
+  border-top: 0.5em solid #333;
+  border-right: 0.5em solid #333;
+  -moz-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.rightNavArrow {
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  border: 0.5em solid #333;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 1.5em;
+}
+
+.rightNavArrow:after {
+  content: '';
+  display: inline-block;
+  margin-top: 8px;
+  margin-left: -0.6em;
+  width: 1.4em;
+  height: 1.4em;
+  border-top: 0.5em solid #333;
+  border-right: 0.5em solid #333;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+a:hover .leftNavArrow:after,
+a:hover .top:after,
+a:hover,
+a:hover .rightNavArrow:after {
+  border-top: 0.5em solid #e74c3c;
+  border-right: 0.5em solid #e74c3c;
+}

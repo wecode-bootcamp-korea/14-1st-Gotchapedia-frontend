@@ -1,0 +1,39 @@
+{
+  "staff": [
+    {
+      "name": "카메론 크로우",
+      "image": "/images/cameronCrow.jpg",
+      "position": "배우"
+    },
+    {
+      "name": "톰 크루즈",
+      "image": "/images/tomcruise.jpeg",
+      "position": "배우"
+    },
+    {
+      "name": "페넬로페 크루즈",
+      "image": "/images/penelopeCruise.jpeg",
+      "position": "배우"
+    },
+    {
+      "name": "카메론 디아즈",
+      "image": "/images/cameronDiaz.jpeg",
+      "position": "배우"
+    },
+    {
+      "name": "커트 러셀",
+      "image": "/images/kurtRussel.jpg",
+      "position": "배우"
+    },
+    {
+      "name": "제이슨 리",
+      "image": "/images/brianShelby.webp",
+      "position": "배우"
+    },
+    {
+      "name": "제이슨 리",
+      "image": "/images/brianShelby.webp",
+      "position": "배우"
+    }
+  ]
+}

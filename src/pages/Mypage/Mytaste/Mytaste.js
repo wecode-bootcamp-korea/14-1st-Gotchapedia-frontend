@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
+import BelovedPeople from './BelovedPeople/BelovedPeople';
 import WordCloud from './wordCloud/wordCloud';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCog } from '@fortawesome/free-solid-svg-icons';
-
+import ImageUploader from '../../../service/image_uploader';
+import ImgInput from './ImgInput/ImgInput';
 import {
   PREFERRED_API,
   PREFERRED_TOKEN,
@@ -13,6 +13,9 @@ import {
   MYSTAR_TOKEN,
 } from '../../../config';
 import './mytaste.scss';
+
+const imageUploader = new ImageUploader();
+let PROFILE_IMG = '';
 
 class Mytaste extends Component {
   constructor() {
@@ -30,14 +33,47 @@ class Mytaste extends Component {
           },
         ],
       },
-      myStar: {},
+      myStar: [],
+      myUrl: PROFILE_IMG,
     };
   }
 
   componentDidMount() {
     this.loadMystarData();
     this.loadPreferredData();
+    this.loadProfileImg();
   }
+
+  loadProfileImg = () => {
+    PROFILE_IMG = localStorage.getItem('profileImg');
+    if (PROFILE_IMG) this.setState({ myUrl: PROFILE_IMG });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { myUrl } = this.state;
+    if (myUrl !== prevState.myUrl) {
+      this.setState({ myUrl });
+    }
+  }
+
+  onChange = async (event) => {
+    const uploadedImg = await imageUploader.upload(event.target.files[0]);
+    localStorage.setItem('profileImg', uploadedImg.url);
+
+    fetch('http://10.58.0.152:8000/user', {
+      method: 'PATCH',
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+      body: JSON.stringify({
+        imageURL: uploadedImg.url,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((error) => console.log('error', error));
+    this.setState({ myUrl: uploadedImg.url });
+  };
 
   loadPreferredData = () => {
     fetch(PREFERRED_API, {
@@ -60,7 +96,7 @@ class Mytaste extends Component {
     })
       .then((res) => res.json())
       .then((res) =>
-        this.setState({ myStar: res.user }, () => {
+        this.setState({ myStar: Object.values(res.user) }, () => {
           this.setMyStar();
         })
       )
@@ -69,30 +105,27 @@ class Mytaste extends Component {
 
   setMyStar = () => {
     const { myStar, chartData } = this.state;
-    const copiedData = { ...chartData };
-    const tempData = Object.values(myStar);
-    copiedData.datasets[0].data = tempData;
-    this.changeColorChart(copiedData);
-  };
-
-  changeColorChart = (copiedData) => {
-    const { data } = copiedData.datasets[0];
-    const { backgroundColor } = this.state.copiedData.datasets[0];
-    let idx = data.indexOf(Math.max(...data));
-    backgroundColor[idx] = '#f8a236';
-    copiedData.datasets[0].backgroundColor = backgroundColor;
-    this.setState({ chartData: copiedData });
+    const { datasets } = this.state.chartData;
+    const tempDatasets = [...datasets];
+    [...tempDatasets][0].data = [...myStar];
+    const idx = [...myStar].indexOf(Math.max(...myStar));
+    [...tempDatasets][0].backgroundColor[idx] = '#f8a236';
+    this.setState({ chartData });
   };
 
   render() {
-    const { userData, chartData } = this.state;
+    const { userData, myUrl, chartData } = this.state;
     return (
       <>
         <Nav />
         <div className='Mytaste'>
           <div className='header'>
-            <div className='userCog'>
-              <FontAwesomeIcon className='headerArrow' icon={faUserCog} />
+            <div className='imgInputBox'>
+              <ImgInput
+                imageUploader={imageUploader}
+                onChange={this.onChange}
+                myUrl={myUrl}
+              />
             </div>
             <img
               src='/images/gotchapediawhite.png'
@@ -100,7 +133,11 @@ class Mytaste extends Component {
               className='logo'
             />
             <div className='text'>취향분석</div>
-            <img src='/images/profile.jpg' alt='profile' className='profile' />
+            <img
+              src={myUrl === '' ? '/images/defaultProfile.png' : myUrl}
+              alt='profile'
+              className='profile'
+            />
             <div className='userName'>고은정</div>
           </div>
           <div className='main'>
@@ -119,7 +156,7 @@ class Mytaste extends Component {
                     평가에 상대적으로 깐깐한 '깐새우파'.
                   </div>
                   <div className='graph'>
-                    <Chart chartData={this.state.chartData} />
+                    <Chart chartData={chartData} />
                   </div>
                   <ul className='row'>
                     <li>
@@ -150,13 +187,13 @@ class Mytaste extends Component {
               <div className='belovedActor'>
                 <div className='title'>선호배우</div>
                 <div className='listWrapper'>
-                  <img src='/images/belovedActor.png' alt='actor' />
+                  <BelovedPeople />
                 </div>
               </div>
               <div className='belovedDirector'>
                 <div className='title'>선호감독</div>
                 <div className='listWrapper'>
-                  <img src='/images/belovedActor.png' alt='actor' />
+                  <BelovedPeople />
                 </div>
               </div>
               {!!userData.id && <PreferredCountryGenre userData={userData} />}

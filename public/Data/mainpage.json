@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "movieId": 1,
+      "imageURL": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1588/158885_P29_102733.jpg",
+      "title": "콜 미 바이 유어 네임",
+      "rate": "5.0",
+      "date": "2017 . 한국"
+    },
+    {
+      "movieId": 1,
+      "imageURL": "https://ssl.pstatic.net/imgmovie/mdi/mit110/1588/158885_P29_102733.jpg",
+      "title": "콜 미 바이 유어 네임",
+      "rate": "5.0",
+      "date": "2017 . 한국"
+    },
+    {
+      "movieId": 2,
+      "imageURL": "https://ssl.pstatic.net/imgmovie/mdi/mit110/0720/72054_P102_101939.jpg",
+      "title": "다크 나이트 : 라이즈",
+      "rate": "5.0",
+      "date": "2012 . 헝가리"
+    },
+    {
+      "movieId": 2,
+      "imageURL": "https://ssl.pstatic.net/imgmovie/mdi/mit110/0720/72054_P102_101939.jpg",
+      "title": "다크 나이트 : 라이즈",
+      "rate": "5.0",
+      "date": "2012 . 헝가리"
+    },
+    {
+      "movieId": 3,
+      "imageURL": "https://ssl.pstatic.net/imgmovie/mdi/mit110/0486/48690_P03_181555.jpg",
+      "title": "맨 프럼 어스",
+      "rate": "5.0",
+      "date": "2007 . 헝가리"
+    }
+  ]
+}

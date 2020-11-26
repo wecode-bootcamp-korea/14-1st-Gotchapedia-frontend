@@ -136,12 +136,6 @@ class Signup extends Component {
                 {clickedType === '회원가입' ? '회원가입' : '로그인'}
               </button>
             </form>
-            {/* <div className='loginText'>
-              이미 가입하셨나요?
-              <span className='loginBtn'> */}
-            {/* onClick 이벤트 핸들링시 왓챠로고 밑 회원가입, 이름라인 삭제, 큰 회원가입버튼 변경 되어야한다. */}
-            {/* </span> */}
-            {/* </div> */}
             {clickedType === '로그인' ? (
               <>
                 <span className='signUpText'>계정이 없으신가요? </span>

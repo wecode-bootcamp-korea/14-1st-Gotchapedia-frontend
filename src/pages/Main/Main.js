@@ -13,10 +13,12 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.0.152:8000/movie/movies/user', {
+    // fetch('http://10.58.0.152:8000/movie/movies/user', {
+    fetch('/data/response.json', {
       method: 'GET',
       headers: {
-        Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E',
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E',
       },
     })
       .then((res) => res.json())
@@ -33,7 +35,9 @@ class Main extends Component {
     return (
       <>
         <Nav />
-        {!!movieListData.length > 0 && <ThemeBox movieListData={movieListData} />} 
+        {!!movieListData.length > 0 && (
+          <ThemeBox movieListData={movieListData} />
+        )}
         <Footer />
       </>
     );

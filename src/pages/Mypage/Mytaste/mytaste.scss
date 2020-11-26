@@ -50,16 +50,22 @@
     border-radius: 5px;
     color: white;
     background-color: $pink;
+    overflow: hidden;
 
-    .userCog {
+    .headerBackgroundImg {
+      position: absolute;
+      height: 245px;
+      width: 640px;
+      top: 0;
+      object-fit: cover;
+      z-index: -1000;
+    }
+
+    .imgInputBox {
       position: absolute;
       top: 20px;
-      right: 20px;
-      opacity: 0.8;
-      cursor: pointer;
-      &:hover {
-        opacity: 1;
-      }
+      width: 70px;
+      right: 0px;
     }
 
     .logo {
@@ -222,5 +228,3 @@
   }
 }
 
-@media screen and (max-width: 700px) {
-}

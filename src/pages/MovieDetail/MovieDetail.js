@@ -5,7 +5,7 @@ import MovieContent from './MovieContent/MovieContent';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
-import { MOVIEDETAIL_TOKEN, MOVIEDETAIL_SERVER_API } from '../../config';
+import { MOVIEDETAIL_TOKEN } from '../../config';
 
 class MovieDetail extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class MovieDetail extends Component {
 
   // 동적 라우팅
   componentDidMount() {
-    fetch(MOVIEDETAIL_SERVER_API, {
+    fetch(`http://3.35.216.109:8000/movies/${this.props.match.params.id}`, {
         headers: {
         Authorization: MOVIEDETAIL_TOKEN,
       },

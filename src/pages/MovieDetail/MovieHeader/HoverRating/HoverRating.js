@@ -29,7 +29,6 @@ class HoverRating extends Component {
     }
   }
 
-
   // componentDidMount() {
   //   fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
   //       method: 'POST',
@@ -45,6 +44,7 @@ class HoverRating extends Component {
 
   sendStar = () => {
     const { value, hover } = this.state;
+
     fetch('http://3.35.216.109:8000/analysis/star', {
       method: "POST",
       headers: {
@@ -56,13 +56,14 @@ class HoverRating extends Component {
       }),
     })
       .then((res) => { return res.json()})
-      .then((res) => { console.log(res) })
+      .then((res) => { console.log('res >>>>>>>>>>>>>>> ', res) })
   }
 
   render() {
     const { value, hover } = this.state;
+    const { starPoint } = this.props;
 
-    console.log('value >>>>>>>>>>>>>>> ',value);
+    console.log('starPoint >>>>>>>>>>>>>>>>>>>>> ', this.state.value);
 
     return (
       <div className='hoverRatingWrapper'>
@@ -81,7 +82,8 @@ class HoverRating extends Component {
               onClick={this.sendStar}
             />
           </div>
-          {this.state.value}
+          {/* {this.state.value} */}
+          {starPoint}
         </div>
     )
   }

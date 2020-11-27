@@ -8,7 +8,7 @@ import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
-import { COMMENT_TOKEN, COMMENT_API } from '../../../config';
+import { COMMENT_TOKEN } from '../../../config';
 
 class MovieContent extends Component {
   constructor() {
@@ -44,7 +44,7 @@ class MovieContent extends Component {
   }
   
   componentDidMount() {
-    fetch(COMMENT_API, {
+    fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
       headers: {
         Authorization: COMMENT_TOKEN,
       }
@@ -57,6 +57,7 @@ class MovieContent extends Component {
     })
   }
 
+  // 여기가 댓글 추가니까 post 보내야함
   addComment = (e) => {
     const { commentString, id, commentObj, commentArray, commentList, isCommentdAdded } = this.state;
     const writtenTime = Date.now();

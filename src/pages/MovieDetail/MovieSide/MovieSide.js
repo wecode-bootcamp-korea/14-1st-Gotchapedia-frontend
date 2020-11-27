@@ -12,7 +12,7 @@ class MovieSide extends Component {
   }
 
   componentDidMount() {
-    const {movieSideData} = this.props
+    const {movieSideData} = this.props;
 
     return fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${movieSideData.name}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`, 
     {
@@ -28,7 +28,7 @@ class MovieSide extends Component {
     const { videos } = this.state;
     const { movieSideData } = this.props;
     const subImage = movieSideData.subImage;
-    
+    console.log(this.props.movieSideData);
     return (
       <div className='MovieSide'>
         <div className='galleryWrapper'>

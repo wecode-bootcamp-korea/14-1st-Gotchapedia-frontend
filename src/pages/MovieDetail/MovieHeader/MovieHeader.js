@@ -25,6 +25,7 @@ class MovieHeader extends Component {
       starHover: null,
       starScore: null,
       // scoreText: '평가하기'
+      starPoint: null,
     }
   }
 
@@ -40,20 +41,48 @@ class MovieHeader extends Component {
     })
   }
 
-  // componentDidMount() {
-  //   fetch(`http://3.35.216.109:8000/movies/${this.props.id}`, {
+  // 이게 왜 평균별점으로 계속 주지??
+  componentDidMount() {
+    fetch(`http://3.35.216.109:8000/analysis/star/${this.props.id}`, {
+        headers: {
+        Authorization: MOVIEDETAIL_TOKEN,
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ 
+          starPoint: res.starPoint
+        });
+        console.log('찍은별점을 받음 >>>>>>>>>>>>>> ', res.starPoint)  
+      })
+      // this.loadStarRating()
+    }
+  
+  // loadStarRating = () => {
+  // fetch('http://3.35.216.109:8000/analysis/my_star', {
   //       headers: {
   //       Authorization: MOVIEDETAIL_TOKEN,
   //     },
   //   })
   //     .then(res => res.json())
   //     .then(res => {
-  //       this.setState({ movieDetailData: res.data });
+  //       this.setState({ 
+  //         starRating: res.starPoint,
+  //       });  
+  //       console.log('찍은별점 starRating >>>>>>>>>>>>>>> ', this.state.starPoint)
   //     })
-  // }
+  //   }
+
+  // 별점 반영
+  componentDidUpdate(prevProps, prevState) {
+    const { starPoint } = this.state;
+    if (starPoint !== prevState.starPoint) {
+      this.setState({ starPoint });
+    }
+  }
 
   render() {
-    const { isWantToSee } = this.state;
+    const { isWantToSee, starPoint, starScore } = this.state;
     const { movieHeaderData } = this.props;
     const subImage = movieHeaderData.subImage;
     const genre = movieHeaderData.genre;
@@ -66,6 +95,7 @@ class MovieHeader extends Component {
             alt='무비서브이미지'>
           </img>
         </div>
+        
         <div className='MovieHeaderBottom'>
           <div className='posterWrapper'>
             <img src={movieHeaderData.mainImage} alt='바닐라스카이꼭보세요'></img>
@@ -75,7 +105,7 @@ class MovieHeader extends Component {
               <div className='posterTitle'>{movieHeaderData.name}</div>
               <div className='posterTitleDetail'>{genre[0].name}</div>
               <div className='posterRating'>
-                {/* <div className='averageRating'>평균 <FontAwesomeIcon icon={faStar} />{movieHeaderData.comments[0].starPoint}(3292명)</div> */}
+                <div className='averageRating'>평균 <FontAwesomeIcon icon={faStar} />{starScore ? starScore : ''}(3292명)</div>
                 <div className='ratingContent'>
                   <div className='buttonContainer'>
                     <button className='wantToSeeWrapper'>
@@ -87,7 +117,7 @@ class MovieHeader extends Component {
                     </button>
                   </div>
                   <div className='starRatingBox'>
-                    <Rating />
+                    <Rating starPoint={starPoint}/>
                   </div> 
                 </div>
               </div>

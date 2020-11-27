@@ -3,11 +3,13 @@ import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import BelovedPeople from './BelovedPeople/BelovedPeople';
+import BelovedDirector from './BelovedPeople/BelovedPeople';
 import WordCloud from './wordCloud/wordCloud';
 import ImageUploader from '../../../service/image_uploader';
 import ImgInput from './ImgInput/ImgInput';
 import {
   PREFERRED_API,
+  PREFERRED_GENRE_API,
   PREFERRED_TOKEN,
   MYSTAR_API,
   MYSTAR_TOKEN,
@@ -22,6 +24,7 @@ class Mytaste extends Component {
     super();
     this.state = {
       userData: {},
+      userGenreData: {},
       chartData: {
         labels: ['', '1', '', '2', '', '3', '', '4', '', '5'],
         datasets: [
@@ -41,6 +44,7 @@ class Mytaste extends Component {
   componentDidMount() {
     this.loadMystarData();
     this.loadPreferredData();
+    this.loadPreferredGenreData();
     this.loadProfileImg();
   }
 
@@ -77,7 +81,6 @@ class Mytaste extends Component {
 
   loadPreferredData = () => {
     fetch(PREFERRED_API, {
-      method: 'GET',
       headers: {
         Authorization: PREFERRED_TOKEN,
       },
@@ -87,9 +90,19 @@ class Mytaste extends Component {
       .catch((error) => console.log('error', error));
   };
 
+  loadPreferredGenreData = () => {
+    fetch(PREFERRED_GENRE_API, {
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => this.setState({ userGenreData: res }))
+      .catch((error) => console.log('error', error));
+  };
+
   loadMystarData = () => {
     fetch(MYSTAR_API, {
-      method: 'GET',
       headers: {
         Authorization: MYSTAR_TOKEN,
       },
@@ -114,7 +127,7 @@ class Mytaste extends Component {
   };
 
   render() {
-    const { userData, myUrl, chartData } = this.state;
+    const { userData, userGenreData, myUrl, chartData } = this.state;
     return (
       <>
         <Nav />
@@ -193,10 +206,15 @@ class Mytaste extends Component {
               <div className='belovedDirector'>
                 <div className='title'>선호감독</div>
                 <div className='listWrapper'>
-                  <BelovedPeople />
+                  <BelovedDirector />
                 </div>
               </div>
-              {!!userData.id && <PreferredCountryGenre userData={userData} />}
+              {userData.wholeCount && userGenreData.wholeCount && (
+                <PreferredCountryGenre
+                  userData={userData}
+                  userGenreData={userGenreData}
+                />
+              )}
               <div className='movieWatchingTime'>
                 <div className='title'>영화 감상 시간</div>
                 <div className='timeWrapper'>

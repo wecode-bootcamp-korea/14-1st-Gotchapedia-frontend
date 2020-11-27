@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import '../../../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
-import './belovedPeople.scss';
-import { BELOVEDPEOPLE_API } from '../../../../config';
+import './belovedDirector.scss';
+import { BELOVEDDIRECTOR_API } from '../../../../config';
 
-class BelovedPeople extends Component {
+class BelovedDirector extends Component {
   constructor() {
     super();
     this.state = {
-      belovedPeople: [],
+      belovedDirector: [],
     };
   }
 
   componentDidMount() {
-    this.loadBelovedPeople();
+    this.loadBelovedDirector();
   }
 
-  loadBelovedPeople = () => {
-    fetch(BELOVEDPEOPLE_API)
+  loadBelovedDirector = () => {
+    fetch(BELOVEDDIRECTOR_API)
       .then((res) => res.json())
-      .then((res) => this.setState({ belovedPeople: res.staff }))
+      .then((res) => this.setState({ belovedDirector: res.staff }))
       .catch((error) => console.log('error', error));
   };
 
@@ -36,12 +36,12 @@ class BelovedPeople extends Component {
       rows: 3,
       slidesPerRow: 2,
     };
-    const { belovedPeople } = this.state;
+    const { belovedDirector } = this.state;
 
     return (
       <Slider {...settings}>
-        {!!belovedPeople.length > 0 &&
-          belovedPeople.map((staff, idx) => {
+        {!!belovedDirector.length > 0 &&
+          belovedDirector.map((staff, idx) => {
             return (
               <div key={idx}>
                 <div className='castingContentList'>
@@ -61,4 +61,4 @@ class BelovedPeople extends Component {
   }
 }
 
-export default BelovedPeople;
+export default BelovedDirector;

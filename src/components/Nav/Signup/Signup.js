@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './signup.scss';
+import { SIGNUP_API, LOGIN_API } from '../../../config';
 
 class Signup extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class Signup extends Component {
 
   // sign-up!
   fetchSignUp = (name, email, password) => {
-    fetch('http://3.35.216.109:8000/users', {
+    fetch(SIGNUP_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +71,7 @@ class Signup extends Component {
 
   //log-in!
   fetchLogin = (email, password) => {
-    fetch('http://3.35.216.109:8000/users/log-in', {
+    fetch(LOGIN_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

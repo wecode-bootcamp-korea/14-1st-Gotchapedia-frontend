@@ -44,7 +44,7 @@ class Search extends Component {
   };
 
   goToDetail = (e) => {
-    this.state.history.push(`/movie-detail/${this.state.searchData.movieId}`);
+    this.state.history.push(`/movies/${this.state.searchData.movieId}`);
   };
 
   saveKeyword = () => {
@@ -115,7 +115,9 @@ class Search extends Component {
                     className='resultMovie'
                     key={movie.movieId}
                     className={movie.movieId}
-                  >
+                    onClick={() => {
+                      this.props.history.push(`/movies/${movie.movieId}`);
+                    }}>
                     {movie.title}
                   </li>
                 ))}
@@ -125,13 +127,12 @@ class Search extends Component {
                 loadedKeywords?.length > 0
                   ? 'searchHeaderWrapper'
                   : 'displayNone'
-              }
-            >
+              }>
               <span>최근 검색어</span>
               <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
                 모두 삭제
               </div>
-            </div> 
+            </div>
             <ul className='latestList'>
               {loadedKeywords?.length > 0 &&
                 loadedKeywords.map((keyword, idx) => (
@@ -153,25 +154,22 @@ class Search extends Component {
                 className='resultMovie'
                 key='23'
                 onClick={() => {
-                  this.props.history.push('/movie-detail/23');
-                }}
-              >
+                  this.props.history.push('/movies/22');
+                }}>
                 바닐라 스카이
               </li>
               <li
                 className='resultMovie'
                 onClick={() => {
-                  this.props.history.push('/movie-detail/6');
-                }}
-              >
+                  this.props.history.push('/movies/6');
+                }}>
                 버팔로66
               </li>
               <li
                 className='resultMovie'
                 onClick={() => {
-                  this.props.history.push('/movie-detail/4');
-                }}
-              >
+                  this.props.history.push('/movies/4');
+                }}>
                 붉은 돼지
               </li>
             </ul>

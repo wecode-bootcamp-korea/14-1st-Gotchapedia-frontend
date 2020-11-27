@@ -1,5 +1,8 @@
 export const YOUTUBE_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=bts&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
 
+export const SIGNUP_API = 'http://3.35.216.109:8000/users'
+export const LOGIN_API = 'http://3.35.216.109:8000/users/log-in'
+
 export const MAINPAGE_API1 = 'http://3.35.216.109:8000/movies/user?id=1';
 export const MAINPAGE_API2 = 'http://3.35.216.109:8000/movies/user?id=2';
 export const MAINPAGE_API3 = 'http://3.35.216.109:8000/movies/user?id=3';

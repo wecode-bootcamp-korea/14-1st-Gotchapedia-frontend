@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import MovieBox from './ThemeBox/MovieBox/MovieBox';
 import Nav from '../../components/Nav/Nav';
+import Slider from 'react-slick';
+// import '../../../../../node_modules/slick-carousel/slick/slick.css';
+// import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
 import {
   MAINPAGE_API1,
   MAINPAGE_API2,
@@ -99,6 +102,17 @@ class Main extends Component {
   };
 
   render() {
+    const settings = {
+      className: 'center',
+      centerMode: false,
+      infinite: true,
+      centerPadding: '60px',
+      slidesToShow: 1,
+      arrows: true,
+      speed: 500,
+      rows: 1,
+      slidesPerRow: 2,
+    };
     const {
       movieData1,
       movieData2,

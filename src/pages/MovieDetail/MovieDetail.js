@@ -10,17 +10,14 @@ import { MOVIEDETAIL_TOKEN } from '../../config';
 class MovieDetail extends Component {
   constructor() {
     super();
-
     this.state = {
       isWantToSee: false,
       movieDetailData: {},
     };
   }
-
   goToOverview = () => {
     this.props.history.push(`/movies/${this.props.id}/detail`);
-  }
-
+  };
   // 동적 라우팅
   componentDidMount() {
     fetch(`http://3.35.216.109:8000/movies/${this.props.match.params.id}`, {
@@ -28,16 +25,14 @@ class MovieDetail extends Component {
         Authorization: MOVIEDETAIL_TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({ movieDetailData: res.data });
-      })
+      });
   }
 
   render() {
     const { movieDetailData } = this.state;
-    console.log(' props >>>>>>>>>>> ', this.props);
-
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>
@@ -67,5 +62,4 @@ class MovieDetail extends Component {
     );
   }
 }
-
 export default MovieDetail;

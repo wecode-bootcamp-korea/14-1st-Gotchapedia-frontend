@@ -93,6 +93,9 @@ class Mypage extends Component {
                           src={movie.imageURL}
                           alt='poster'
                           className='poster'
+                          onClick={() => {
+                            this.props.history.push(`/movies/${movie.movieId}`);
+                          }}
                         />
                       </div>
                       <div className='movieTitle'>{movie.title}</div>
@@ -120,6 +123,9 @@ class Mypage extends Component {
                           src={movie.imageURL}
                           alt='poster'
                           className='poster'
+                          onClick={() => {
+                            this.props.history.push(`/movies/${movie.movieId}`);
+                          }}
                         />
                       </div>
                       <div className='movieTitle'>{movie.title}</div>
@@ -147,6 +153,9 @@ class Mypage extends Component {
                           src={movie.imageURL}
                           alt='poster'
                           className='poster'
+                          onClick={() => {
+                            this.props.history.push(`/movies/${movie.movieId}`);
+                          }}
                         />
                       </div>
                       <div className='movieTitle'>{movie.title}</div>

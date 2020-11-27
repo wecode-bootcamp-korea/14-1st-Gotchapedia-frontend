@@ -55,10 +55,17 @@ $lightyellow: #ffdd64;
 
 /* movie img size */
 
+@mixin mainSize {
+  max-width: 12.5rem;
+  max-height: 18.75rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+}
+
 @mixin bigSize {
-  width: 15.574em;
-  height: 22.696em;
-  border: 1px solid #74747b;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #e6e6e6;
   border-radius: 5px;
 }
 
@@ -72,7 +79,7 @@ $lightyellow: #ffdd64;
 @mixin smallSize {
   width: 7.4em;
   height: 10.8em;
-  border: 1px solid #74747b;
+  border: 1px solid #e6e6e6;
   border-radius: 5px;
 }
 

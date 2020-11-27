@@ -46,7 +46,7 @@ class Signup extends Component {
     }
   };
 
-  // sign-up
+  // sign-up!
   fetchSignUp = (name, email, password) => {
     fetch('http://3.35.216.109:8000/users', {
       method: 'POST',
@@ -68,7 +68,7 @@ class Signup extends Component {
       });
   };
 
-  //log-in
+  //log-in!
   fetchLogin = (email, password) => {
     fetch('http://3.35.216.109:8000/users/log-in', {
       method: 'POST',

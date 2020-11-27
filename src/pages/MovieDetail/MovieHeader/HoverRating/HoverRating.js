@@ -56,7 +56,7 @@ class HoverRating extends Component {
       }),
     })
       .then((res) => { return res.json()})
-      .then((res) => { console.log('res >>>>>>>>>>>>>>> ', res) })
+      // .then((res) => { console.log('res >>>>>>>>>>>>>>> ', res) })
   }
 
   render() {

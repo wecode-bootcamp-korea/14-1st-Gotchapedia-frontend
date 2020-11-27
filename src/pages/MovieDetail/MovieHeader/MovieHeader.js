@@ -51,7 +51,7 @@ class MovieHeader extends Component {
       .then(res => res.json())
       .then(res => {
         this.setState({ 
-          starPoint: res.starPoint
+          starScore: res.starPoint
         });
         console.log('찍은별점을 받음 >>>>>>>>>>>>>> ', res.starPoint)  
       })
@@ -105,7 +105,7 @@ class MovieHeader extends Component {
               <div className='posterTitle'>{movieHeaderData.name}</div>
               <div className='posterTitleDetail'>{genre[0].name}</div>
               <div className='posterRating'>
-                <div className='averageRating'>평균 <FontAwesomeIcon icon={faStar} />{starScore ? starScore : ''}(3292명)</div>
+                <div className='averageRating'>평균 <FontAwesomeIcon icon={faStar} />{starPoint}(3292명)</div>
                 <div className='ratingContent'>
                   <div className='buttonContainer'>
                     <button className='wantToSeeWrapper'>
@@ -117,7 +117,7 @@ class MovieHeader extends Component {
                     </button>
                   </div>
                   <div className='starRatingBox'>
-                    <Rating starPoint={starPoint}/>
+                    <Rating starPoint={starScore}/>
                   </div> 
                 </div>
               </div>

@@ -3,33 +3,24 @@ import Slider from 'react-slick';
 import '../../../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
 import './belovedPeople.scss';
-import { BELOVEDPEOPLE_API, BELOVEDDIRECTOR_API } from '../../../../config';
+import { BELOVEDPEOPLE_API } from '../../../../config';
 
 class BelovedPeople extends Component {
   constructor() {
     super();
     this.state = {
       belovedPeople: [],
-      belovedDirector: [],
     };
   }
 
   componentDidMount() {
     this.loadBelovedPeople();
-    this.loadBelovedDirector();
   }
 
   loadBelovedPeople = () => {
     fetch(BELOVEDPEOPLE_API)
       .then((res) => res.json())
       .then((res) => this.setState({ belovedPeople: res.staff }))
-      .catch((error) => console.log('error', error));
-  };
-
-  loadBelovedDirector = () => {
-    fetch(BELOVEDDIRECTOR_API)
-      .then((res) => res.json())
-      .then((res) => this.setState({ belovedDirector: res.staff }))
       .catch((error) => console.log('error', error));
   };
 

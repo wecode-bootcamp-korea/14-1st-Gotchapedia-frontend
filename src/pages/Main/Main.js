@@ -105,15 +105,38 @@ class Main extends Component {
     const settings = {
       className: 'slick',
       centerMode: true,
-      autoplay: true,
       infinite: true,
       centerPadding: '10px',
-      slidesToShow: 5,
       arrows: true,
+      slidesToShow: 6,
       speed: 500,
-      pauseOnHover:true,
+      pauseOnHover: true,
       rows: 1,
-      slidesPerRow: 2,
+      slidesPerRow: 1,
+      useCSS: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+      ],
     };
     const {
       movieData1,
@@ -137,20 +160,16 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              <Slider {...settings}>
-                {movieData1.map((movie) => {
-                  return (
-                    <MovieBox
-                      key={movie.movieId}
-                      date={movie.date}
-                      imageURL={movie.imageURL}
-                      rate={movie.rate}
-                      title={movie.title}
-                      movieId={movie.movieId}
-                    />
-                  );
-                })}
-              </Slider>
+              {movieData2.map((movie) => (
+                <MovieBox
+                  key={movie.movieId}
+                  date={movie.date}
+                  imageURL={movie.imageURL}
+                  rate={movie.rate}
+                  title={movie.title}
+                  movieId={movie.movieId}
+                />
+              ))}
             </div>
           </section>
 
@@ -163,7 +182,7 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData2.map((movie) => (
+              {movieData1.map((movie) => (
                 <MovieBox
                   key={movie.movieId}
                   date={movie.date}

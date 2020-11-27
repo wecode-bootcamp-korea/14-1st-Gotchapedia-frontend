@@ -1,39 +1,199 @@
 {
   "staff": [
     {
-      "name": "카메론 크로우",
-      "image": "/images/cameronCrow.jpg",
-      "position": "배우"
+      "name": "루카 구아다니노",
+      "image": "https://images.unsplash.com/photo-1582733979150-f7c863d2fd9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzA4fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
     },
     {
-      "name": "톰 크루즈",
-      "image": "/images/tomcruise.jpeg",
-      "position": "배우"
+      "name": "라나 워쇼스키",
+      "image": "https://images.unsplash.com/photo-1584361853901-dd1904bb7987?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzE5fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
     },
     {
-      "name": "페넬로페 크루즈",
-      "image": "/images/penelopeCruise.jpeg",
-      "position": "배우"
+      "name": "로드니 에스쳐",
+      "image": "https://images.unsplash.com/photo-1548535537-3cfaf1fc327c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
     },
     {
-      "name": "카메론 디아즈",
-      "image": "/images/cameronDiaz.jpeg",
-      "position": "배우"
+      "name": "신준형",
+      "image": "https://images.unsplash.com/photo-1582733979150-f7c863d2fd9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzA4fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
     },
     {
-      "name": "커트 러셀",
-      "image": "/images/kurtRussel.jpg",
-      "position": "배우"
+      "name": "윤혜렴",
+      "image": "https://images.unsplash.com/photo-1584361853901-dd1904bb7987?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzE5fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
     },
     {
-      "name": "제이슨 리",
-      "image": "/images/brianShelby.webp",
-      "position": "배우"
+      "name": "릴리 워쇼스키",
+      "image": "https://images.unsplash.com/photo-1600364768707-1385e68a48f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzE2fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
     },
     {
-      "name": "제이슨 리",
-      "image": "/images/brianShelby.webp",
-      "position": "배우"
+      "name": "라나 워쇼스키",
+      "image": "https://images.unsplash.com/photo-1584361853901-dd1904bb7987?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzE5fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "릴리 워쇼스키",
+      "image": "https://images.unsplash.com/photo-1600364768707-1385e68a48f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzE2fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "라나 워쇼스키",
+      "image": "https://images.unsplash.com/photo-1584361853901-dd1904bb7987?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzE5fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "피터 정",
+      "image": "https://images.unsplash.com/photo-1548535537-3cfaf1fc327c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "앤드류 R. 존스",
+      "image": "https://images.unsplash.com/photo-1600364768707-1385e68a48f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzE2fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "가와지리 요시아키",
+      "image": "https://images.unsplash.com/photo-1569210954449-4e8dc4e022a3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTAzMXx8aHVtYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "고이케 다케시",
+      "image": "https://images.unsplash.com/photo-1582733979150-f7c863d2fd9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzA4fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "마에다 마히로",
+      "image": "https://images.unsplash.com/photo-1548535537-3cfaf1fc327c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "와타나베 신이치로",
+      "image": "https://images.unsplash.com/photo-1584984647248-acb1ec5de2a0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTE0NXx8aHVtYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "모리모토 코지",
+      "image": "https://images.unsplash.com/photo-1584984647248-acb1ec5de2a0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTE0NXx8aHVtYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "앤드류 R. 존스",
+      "image": "https://images.unsplash.com/photo-1600364768707-1385e68a48f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzE2fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "커트 위머",
+      "image": "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fGh1bWFufGVufDB8fDB8&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "아키야마 카츠히토",
+      "image": "https://images.unsplash.com/photo-1584984647248-acb1ec5de2a0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTE0NXx8aHVtYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "보리스 란코즈",
+      "image": "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fGh1bWFufGVufDB8fDB8&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "파라 화이트",
+      "image": "https://images.unsplash.com/photo-1599842057874-37393e9342df?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzMwfHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "아돌포 알릭스 주니어",
+      "image": "https://dimg.donga.com/ugc/CDB/WOMAN/Article/5b/ac/6a/fb/5bac6afb0630d2738de6.jpg",
+      "position": "감독"
+    },
+    {
+      "name": "로빈 라이트",
+      "image": "https://images.unsplash.com/photo-1548535537-3cfaf1fc327c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "팀 서튼",
+      "image": "https://images.unsplash.com/photo-1599842057874-37393e9342df?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzMwfHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "잭 헬러",
+      "image": "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fGh1bWFufGVufDB8fDB8&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "제이 올리바",
+      "image": "https://images.unsplash.com/photo-1584361853901-dd1904bb7987?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzE5fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "크리스토퍼 놀란",
+      "image": "https://images.unsplash.com/photo-1548535537-3cfaf1fc327c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "제이 올리바",
+      "image": "https://images.unsplash.com/photo-1584361853901-dd1904bb7987?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzE5fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "토니 야센다",
+      "image": "https://unsplash.com/photos/QXevDflbl8A",
+      "position": "감독"
+    },
+    {
+      "name": "리처드 쉔크만",
+      "image": "https://images.unsplash.com/photo-1600364768707-1385e68a48f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzE2fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "리처드 쉔크만",
+      "image": "https://images.unsplash.com/photo-1600364768707-1385e68a48f6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzE2fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "로만 사파로브",
+      "image": "https://images.unsplash.com/photo-1546820389-44d77e1f3b31?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fGh1bWFufGVufDB8fDB8&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "이슈안 로우",
+      "image": "https://images.unsplash.com/photo-1582733979150-f7c863d2fd9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzA4fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "이싱 리",
+      "image": "https://images.unsplash.com/photo-1548535537-3cfaf1fc327c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "타니엘 킬라지안",
+      "image": "https://images.unsplash.com/photo-1569210954449-4e8dc4e022a3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTAzMXx8aHVtYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "매튜 포돌스키",
+      "image": "https://unsplash.com/photos/QXevDflbl8A",
+      "position": "감독"
+    },
+    {
+      "name": "존 프랑켄하이머",
+      "image": "https://images.unsplash.com/photo-1584361853901-dd1904bb7987?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzE5fHxodW1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "장 마크 발레",
+      "image": "https://images.unsplash.com/photo-1562166773-0f17a284ee8b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTE5OXx8aHVtYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+      "position": "감독"
+    },
+    {
+      "name": "메간 맥휴",
+      "image": "https://dimg.donga.com/ugc/CDB/WOMAN/Article/5b/ac/6a/fb/5bac6afb0630d2738de6.jpg",
+      "position": "감독"
     }
   ]
 }

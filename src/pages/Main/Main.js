@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import MovieBox from './ThemeBox/MovieBox/MovieBox';
 import Nav from '../../components/Nav/Nav';
 import Slider from 'react-slick';
-// import '../../../../../node_modules/slick-carousel/slick/slick.css';
-// import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
+import '../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 import {
   MAINPAGE_API1,
   MAINPAGE_API2,
@@ -103,13 +103,15 @@ class Main extends Component {
 
   render() {
     const settings = {
-      className: 'center',
-      centerMode: false,
+      className: 'slick',
+      centerMode: true,
+      autoplay: true,
       infinite: true,
-      centerPadding: '60px',
-      slidesToShow: 1,
+      centerPadding: '10px',
+      slidesToShow: 5,
       arrows: true,
       speed: 500,
+      pauseOnHover:true,
       rows: 1,
       slidesPerRow: 2,
     };
@@ -135,16 +137,20 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData1.map((movie) => (
-                <MovieBox
-                  key={movie.movieId}
-                  date={movie.date}
-                  imageURL={movie.imageURL}
-                  rate={movie.rate}
-                  title={movie.title}
-                  movieId={movie.movieId}
-                />
-              ))}
+              <Slider {...settings}>
+                {movieData1.map((movie) => {
+                  return (
+                    <MovieBox
+                      key={movie.movieId}
+                      date={movie.date}
+                      imageURL={movie.imageURL}
+                      rate={movie.rate}
+                      title={movie.title}
+                      movieId={movie.movieId}
+                    />
+                  );
+                })}
+              </Slider>
             </div>
           </section>
 

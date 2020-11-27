@@ -55,11 +55,13 @@
     }
     .movieList {
       display: flex;
+      width: 100%;
       height: 400px;
       padding: 10px 15px;
       margin-bottom: 20px;
       overflow-x: scroll;
       overflow-y: hidden;
+
 
       .movieBox {
         margin: 5px;

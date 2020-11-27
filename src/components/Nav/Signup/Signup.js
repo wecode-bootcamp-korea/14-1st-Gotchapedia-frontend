@@ -3,8 +3,8 @@ import './signup.scss';
 import { SIGNUP_API, LOGIN_API } from '../../../config';
 
 class Signup extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       email: '',
@@ -26,9 +26,7 @@ class Signup extends Component {
   checkValidation = (e) => {
     e.preventDefault();
     const { name, email, password } = this.state;
-    console.log(name);
-    console.log(email);
-    console.log(password);
+
     if (this.props.clickedType === '로그인') {
       if (email.length > 0 && password.length > 6 && email.includes('@')) {
         this.fetchLogin(email, password);
@@ -49,7 +47,7 @@ class Signup extends Component {
     }
   };
 
-  // sign-up
+  // sign-up!
   fetchSignUp = (name, email, password) => {
     fetch(SIGNUP_API, {
       method: 'POST',
@@ -63,19 +61,15 @@ class Signup extends Component {
       }),
     })
       .then((res) => {
-        console.log(res);
-        res.json();
-      })
-      .then((res) => {
-        alert('회원가입 성공');
+        console.log('before json', res);
+        this.props.onSignupSuccess();
       })
       .catch((error) => {
         console.log('Error fetch but will test');
-        this.props.onSignupSuccess();
       });
   };
 
-  //log-in
+  //log-in!
   fetchLogin = (email, password) => {
     fetch(LOGIN_API, {
       method: 'POST',
@@ -107,11 +101,12 @@ class Signup extends Component {
 
   render() {
     const {
+      onSignupSuccess,
       handleClickedType,
       clickedType,
       handleLoginOrSignupModal,
     } = this.props;
-    console.log(clickedType);
+
     return (
       <div className='Signup' onClick={handleLoginOrSignupModal}>
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
@@ -152,18 +147,45 @@ class Signup extends Component {
             </form>
             {clickedType === '로그인' ? (
               <>
-                <span className='signUpText'>계정이 없으신가요? </span>
-                <span onClick={handleClickedType}>회원가입</span>
+                <div className='lostPw'>비밀번호를 잊어버리셨나요?</div>
+                <div className='signUpText'>
+                  계정이 없으신가요?
+                  <span className='switchSignup' onClick={handleClickedType}>
+                    회원가입
+                  </span>
+                </div>
               </>
             ) : (
               <>
-                <span className='LoginText'>이미 가입하셨나요?</span>
-                <span onClick={handleClickedType}>로그인</span>
+                <div className='loginText'>
+                  이미 가입하셨나요?
+                  <span className='switchLogin' onClick={handleClickedType}>
+                    로그인
+                  </span>
+                </div>
               </>
             )}
             <div className='or'></div>
-            <button className='kakaoBtn'>카카오 로그인</button>
-            <button className='googleBtn'>구글 로그인</button>
+            <button className='kakaoBtn'>
+              <div className='forBalanceKakao'>
+                <img
+                  className='kakaoLogo'
+                  alt='kakaologo'
+                  src='/images/kakaologo.png'
+                />
+                <span className='kakaoText'>카카오 로그인</span>
+              </div>
+            </button>
+            <button className='googleBtn'>
+              <div className='forBalanceGoogle'>
+                <img
+                  className='googleLogo'
+                  alt='googlelogo'
+                  src='/images/googlelogo.png'
+                />
+                <span className='googleText'>구글 로그인</span>
+              </div>
+            </button>
           </div>
         </div>
       </div>

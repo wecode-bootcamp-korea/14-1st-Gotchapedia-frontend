@@ -29,20 +29,9 @@ class MovieDetail extends Component {
         this.setState({ movieDetailData: res.data });
       });
   }
-  // componentDidMount() {
-  //   fetch('http://3.35.216.109:8000/movies/22/detail', {
-  //       headers: {
-  //       Authorization: MOVIEDETAIL_TOKEN,
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       this.setState({ movieDetailData: res.data });
-  //     })
-  // }
+
   render() {
     const { movieDetailData } = this.state;
-    console.log(movieDetailData);
     return (
       <div className='MovieDetailPage'>
         <div className='MovieHeaderWrapper'>

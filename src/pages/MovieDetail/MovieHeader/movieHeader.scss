@@ -102,6 +102,7 @@
 
                 .plusIconWrapper {
                   padding: 0;
+
                   .plusIcon {
                     transition: 0.5s;
                     font-size: 17px;
@@ -130,6 +131,7 @@
 
                 .modalBtn {
                   transition: 0.5s;
+
                   &:hover {
                     transform: translateY(5px);
                     transition: 0.5s;

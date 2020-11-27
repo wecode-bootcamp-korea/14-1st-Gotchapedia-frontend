@@ -133,7 +133,6 @@ class Search extends Component {
                 모두 삭제
               </div>
             </div>
-
             <ul className='latestList'>
               {loadedKeywords?.length > 0 &&
                 loadedKeywords.map((keyword, idx) => (

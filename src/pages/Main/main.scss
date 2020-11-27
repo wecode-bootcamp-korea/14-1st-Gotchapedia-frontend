@@ -72,7 +72,7 @@
         margin: 5px;
 
         .posterWrapper {
-          @include mainSize;
+          @include bigSize;
           img {
             object-fit: cover;
             width: 100%;

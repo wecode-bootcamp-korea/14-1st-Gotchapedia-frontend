@@ -16,7 +16,7 @@ class CommentDetail extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.0.152:8000/comment/list/23', {
+    fetch('http://3.35.216.109:8000/comment/list/23', {
       headers: {
         Authorization: COMMENT_TOKEN,
       }
@@ -24,18 +24,14 @@ class CommentDetail extends Component {
     .then(res => res.json())
     .then(res => {
       this.setState({
-        // commentList: res.data,
         commentList: res.data
       })
-
-      // console.log('res.data >>>>>>>>>>> ', res.data);
     })
   }
 
   goToMovieDetail = () => {
-    this.props.history.push(`/movie-detail/${this.props.movieId}`);
+    this.props.history.push(`/movies/${this.props.id}`);
   }
-
 
   render() {
     const { commentList, newCommentArr } = this.state;

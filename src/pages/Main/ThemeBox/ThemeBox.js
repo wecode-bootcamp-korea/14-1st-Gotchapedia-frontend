@@ -77,7 +77,7 @@ class ThemeBox extends Component {
                                 imageURL={movieboxData.movieimg}
                                 rate={movieboxData.movierate}
                                 title={movieboxData.movietitle}
-                                movieId={movieboxData.rank}
+                                movieId={movieboxData.movieId}
                               />
                             );
                           }

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './signup.scss';
 
 class Signup extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       email: '',
@@ -25,9 +25,7 @@ class Signup extends Component {
   checkValidation = (e) => {
     e.preventDefault();
     const { name, email, password } = this.state;
-    console.log(name);
-    console.log(email);
-    console.log(password);
+
     if (this.props.clickedType === '로그인') {
       if (email.length > 0 && password.length > 6 && email.includes('@')) {
         this.fetchLogin(email, password);
@@ -50,7 +48,7 @@ class Signup extends Component {
 
   // sign-up
   fetchSignUp = (name, email, password) => {
-    fetch('http://10.58.0.152:8000/user', {
+    fetch('http://3.35.216.109:8000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,21 +60,17 @@ class Signup extends Component {
       }),
     })
       .then((res) => {
-        console.log(res);
-        res.json();
-      })
-      .then((res) => {
-        alert('회원가입 성공');
+        console.log('before json', res);
+        this.props.onSignupSuccess();
       })
       .catch((error) => {
         console.log('Error fetch but will test');
-        this.props.onSignupSuccess();
       });
   };
 
   //log-in
   fetchLogin = (email, password) => {
-    fetch('http://10.58.0.152:8000/user/log-in', {
+    fetch('http://3.35.216.109:8000/users/log-in', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -106,11 +100,12 @@ class Signup extends Component {
 
   render() {
     const {
+      onSignupSuccess,
       handleClickedType,
       clickedType,
       handleLoginOrSignupModal,
     } = this.props;
-    console.log(clickedType);
+
     return (
       <div className='Signup' onClick={handleLoginOrSignupModal}>
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
@@ -176,7 +171,7 @@ class Signup extends Component {
                   className='kakaoLogo'
                   alt='kakaologo'
                   src='/images/kakaologo.png'
-                ></img>
+                />
                 <span className='kakaoText'>카카오 로그인</span>
               </div>
             </button>

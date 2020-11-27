@@ -51,6 +51,7 @@ class Nav extends Component {
   onSignupSuccess = () => {
     alert('singup complete');
     this.setState({ isLoginOrSignupModalOn: false });
+    console.log('실행', this.state.isLoginOrSignupModalOn);
   };
 
   //임시 로그아웃
@@ -65,14 +66,10 @@ class Nav extends Component {
 
     var loginComponent = (
       <>
-        <button
-          className='loginBtn'
-          onClick={this.handleLoginOrSignupModal}>
+        <button className='loginBtn' onClick={this.handleLoginOrSignupModal}>
           로그인
         </button>
-        <button
-          className='signupBtn'
-          onClick={this.handleLoginOrSignupModal}>
+        <button className='signupBtn' onClick={this.handleLoginOrSignupModal}>
           회원가입
         </button>
       </>
@@ -89,6 +86,7 @@ class Nav extends Component {
         </div>
       );
     }
+    console.log('render', this.state.isLoginOrSignupModalOn);
 
     return (
       <>
@@ -98,7 +96,8 @@ class Nav extends Component {
               className='navLeft'
               onClick={() => {
                 this.props.history.push('/');
-              }}>
+              }}
+            >
               <img
                 src='/images/gotchapediaText.png'
                 alt='gotchapediaLogo'
@@ -136,7 +135,7 @@ class Nav extends Component {
             handleLoginOrSignupModal={this.handleLoginOrSignupModal}
             clickedType={this.state.clickedType}
             onLoginSuccess={this.onLoginSuccess}
-            onSignupSuccess={this.onSignpSuccess}
+            onSignupSuccess={this.onSignupSuccess}
           />
         )}
       </>

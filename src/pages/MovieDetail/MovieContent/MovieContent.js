@@ -8,7 +8,7 @@ import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
-import { COMMENT_API, COMMENT_TOKEN } from '../../../config';
+import { COMMENT_TOKEN, COMMENT_API } from '../../../config';
 
 class MovieContent extends Component {
   constructor() {
@@ -42,22 +42,9 @@ class MovieContent extends Component {
       })
     }
   }
-
-  //  componentDidMount() {
-  //   fetch(COMMENT_API, {
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => {
-  //     this.setState({
-  //       contentData: res.data,
-  //       commentList:res.data[0].comments,
-  //     })
-  //   })
-  //   .catch((err) => console.log('err >>>>> ', err));
-  // }
   
   componentDidMount() {
-    fetch('http://10.58.0.152:8000/comment/list/23', {
+    fetch(COMMENT_API, {
       headers: {
         Authorization: COMMENT_TOKEN,
       }
@@ -65,21 +52,19 @@ class MovieContent extends Component {
     .then(res => res.json())
     .then(res => {
       this.setState({
-        // contentData: res.data,
         commentList: res.data
       })
     })
   }
 
   addComment = (e) => {
-    const { commentString, commentObj, commentArray, commentList, isCommentdAdded } = this.state;
+    const { commentString, id, commentObj, commentArray, commentList, isCommentdAdded } = this.state;
     const writtenTime = Date.now();
     e.preventDefault();
     const obj = {
       commentId: writtenTime,
       comment: commentString,
       commentorName: '김태현태김0',
-      // 별점 반영부분 수정필요
       starPoint: '5.0',
       commentorImage: '/images/chorong2.png',
       thumbsup: '0',
@@ -100,12 +85,14 @@ class MovieContent extends Component {
 
   updateComment = () => {
     const { commentList, commentString } = this.state;
-    const currentList = [...commentList]
+    // const currentList = [...commentList]
     this.openModalComment();
 
     // const newList = [{...currentList[0],comment:commentString} ,currentList]
     const newList = Array.from(commentList);
-    currentList.splice(0,1)
+    // currentList.splice(0,1)
+    newList.splice(0,1);
+    newList.unshift(commentString);
 
     this.setState({
       commentList: [newList, ...commentList],
@@ -125,13 +112,8 @@ class MovieContent extends Component {
   }
 
   goToCommentDetail = () => {
-    // this.props.history.push("/movie-detail/comments");
-    this.props.history.push(`/movie-detail/${this.props.id}/comments`);
-  }
-
-  goToOverview = () => {
-    this.props.history.push(`/movie-detail/${this.props.id}/overview`);
-  }
+    this.props.history.push(`/movies/${this.props.id}/comments`);
+  } 
 
   openModalComment = () => {
     this.setState({
@@ -156,7 +138,7 @@ class MovieContent extends Component {
     };
 
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
-    const { movieContentData, id } = this.props;
+    const { movieContentData, id, goToOverview } = this.props;
     const castingListData = movieContentData.staff;
 
     return (
@@ -172,7 +154,7 @@ class MovieContent extends Component {
               <div className='predictContent'><p>재밌게 본 비슷한 작품</p><div>아키라<img src='/images/akiraHeaderImage.jpg' alt='연관영화'></img></div></div>
             </div>
             <div className='normalInfo'>
-              <div className='infoHeading' onClick={this.goToOverview} >기본 정보<span>더보기</span></div>
+              <div className='infoHeading' onClick={goToOverview} >기본 정보<span>더보기</span></div>
               <div className='infoContent'>
                 <div className='contentHeading'>{movieContentData.name}</div>
                 <div className='contentInfo'>{movieContentData.genre[0].name}</div>

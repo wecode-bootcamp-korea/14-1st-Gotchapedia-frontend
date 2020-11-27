@@ -12,7 +12,7 @@ class MovieBox extends Component {
   }
 
   goToMovieDetail = () => {
-    this.props.history.push(`/movie-detail/${this.props.movieId}`)
+    this.props.history.push(`/movies/${this.props.movieId}`)
   }
 
   render() {

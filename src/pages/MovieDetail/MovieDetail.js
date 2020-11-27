@@ -5,9 +5,7 @@ import MovieContent from './MovieContent/MovieContent';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
-import {
-  MOVIEDETAIL_TOKEN,
-} from '../../config';
+import { MOVIEDETAIL_TOKEN, MOVIEDETAIL_SERVER_API } from '../../config';
 
 class MovieDetail extends Component {
   constructor() {
@@ -19,9 +17,13 @@ class MovieDetail extends Component {
     };
   }
 
+  goToOverview = () => {
+    this.props.history.push(`/movies/${this.props.id}/detail`);
+  }
+
   // 동적 라우팅
   componentDidMount() {
-    fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
+    fetch(MOVIEDETAIL_SERVER_API, {
         headers: {
         Authorization: MOVIEDETAIL_TOKEN,
       },
@@ -34,6 +36,7 @@ class MovieDetail extends Component {
 
   render() {
     const { movieDetailData } = this.state;
+    console.log(' props >>>>>>>>>>> ', this.props);
 
     return (
       <div className='MovieDetailPage'>
@@ -51,6 +54,7 @@ class MovieDetail extends Component {
             <MovieContent
               id={movieDetailData.id}
               movieContentData={movieDetailData}
+              goToOverview={this.goToOverview}
             />
             <MovieSide
               id={movieDetailData.id}

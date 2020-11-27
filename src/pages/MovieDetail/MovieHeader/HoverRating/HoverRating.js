@@ -45,13 +45,13 @@ class HoverRating extends Component {
 
   sendStar = () => {
     const { value, hover } = this.state;
-    fetch('http://10.58.0.152:8000/analysis/star', {
+    fetch('http://3.35.216.109:8000/analysis/star', {
       method: "POST",
       headers: {
         Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA"
       },
       body: JSON.stringify({
-        movieId: "23",
+        movieId: "22",
         starPoint: this.state.value
       }),
     })

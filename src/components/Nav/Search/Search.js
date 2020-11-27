@@ -131,8 +131,7 @@ class Search extends Component {
               <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
                 모두 삭제
               </div>
-            </div>
-
+            </div> 
             <ul className='latestList'>
               {loadedKeywords?.length > 0 &&
                 loadedKeywords.map((keyword, idx) => (

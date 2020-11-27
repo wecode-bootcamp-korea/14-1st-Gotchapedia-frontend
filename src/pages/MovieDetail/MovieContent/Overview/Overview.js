@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import {
-  MOVIEDETAIL_MOCKUP_API,
-  MOVIEDETAIL_SERVER_API,
   MOVIEDETAIL_TOKEN,
 } from '../../../../config';
 import './overview.scss';
@@ -20,7 +18,7 @@ class Overview extends Component {
 
   // 서버용
   componentDidMount() {
-    fetch(`http://3.35.216.109:8000/movies/${this.props.id}/detail`, {
+    fetch(`http://3.35.216.109:8000/movies/${this.props.match.params.id}/detail`, {
       method: 'GET',
       headers: {
         Authorization: MOVIEDETAIL_TOKEN,

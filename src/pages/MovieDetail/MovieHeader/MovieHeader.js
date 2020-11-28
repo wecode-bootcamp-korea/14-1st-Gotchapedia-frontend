@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
+import './movieHeader.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+// import StarRating from './StarRating/StarRating';
 import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { MOVIEDETAIL_TOKEN } from '../../../config';
+
 import Rating from './HoverRating/HoverRating';
+
+//
+// 이건 스타 API
+// const STAR_API = `http://10.58.1.5:8000/analysis/star/${this.props.match.params.id}`
+const MOVIEDETAIL_TOKEN =
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
 
 class MovieHeader extends Component {
   constructor() {
     super();
+    // 필요한 것
+    // userId, movieId, rateStar
     this.state = {
       headerData: [],
       isWantToSee: false,
       rateStar: null,
       starHover: null,
       starScore: null,
-<<<<<<< HEAD
       // scoreText: '평가하기'
       starPoint: null,
-    }
-=======
     };
->>>>>>> main
   }
 
   openWantToSee = () => {
@@ -32,27 +39,40 @@ class MovieHeader extends Component {
   closeWantToSee = () => {
     this.setState({
       isWantToSee: false,
-    })
-  }
+    });
+  };
 
   // 이게 왜 평균별점으로 계속 주지??
   componentDidMount() {
     fetch(`http://3.35.216.109:8000/analysis/star/${this.props.id}`, {
-        headers: {
+      headers: {
         Authorization: MOVIEDETAIL_TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res => {
-        this.setState({ 
-          starScore: res.starPoint
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          starPoint: res.starPoint,
         });
-        console.log('찍은별점을 받음 >>>>>>>>>>>>>> ', res.starPoint)  
-      })
-      // this.loadStarRating()
-    }
-  
+        console.log('찍은별점을 받음 >>>>>>>>>>>>>> ', res.starPoint);
+      });
+    // this.loadStarRating()
+  }
 
+  // loadStarRating = () => {
+  // fetch('http://3.35.216.109:8000/analysis/my_star', {
+  //       headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       this.setState({
+  //         starRating: res.starPoint,
+  //       });
+  //       console.log('찍은별점 starRating >>>>>>>>>>>>>>> ', this.state.starPoint)
+  //     })
+  //   }
 
   // 별점 반영
   componentDidUpdate(prevProps, prevState) {
@@ -73,17 +93,22 @@ class MovieHeader extends Component {
         <div className='MovieHeaderTop'>
           <img src={subImage[0]?.url} alt='무비서브이미지'></img>
         </div>
-        
+
         <div className='MovieHeaderBottom'>
           <div className='posterWrapper'>
             <img
               src={movieHeaderData.mainImage}
               alt='바닐라스카이꼭보세요'></img>
             <div className='posterDetailWrapper'>
+              {/* 필요없는 data */}
+              {/* <div className='posterRanking'>예매순위 · <span>1위(100%)</span> 개봉 · <span>1일전</span> 누적 관객 · <span>1억명</span></div> */}
               <div className='posterTitle'>{movieHeaderData.name}</div>
               <div className='posterTitleDetail'>{genre[0].name}</div>
               <div className='posterRating'>
-                <div className='averageRating'>평균 <FontAwesomeIcon icon={faStar} />{starPoint}(3292명)</div>
+                <div className='averageRating'>
+                  평균 <FontAwesomeIcon icon={faStar} />
+                  {starScore ? starScore : ''}(3292명)
+                </div>
                 <div className='ratingContent'>
                   <div className='buttonContainer'>
                     <button className='wantToSeeWrapper'>
@@ -101,8 +126,8 @@ class MovieHeader extends Component {
                     </button>
                   </div>
                   <div className='starRatingBox'>
-                    <Rating starPoint={starScore}/>
-                  </div> 
+                    <Rating starPoint={starPoint} />
+                  </div>
                 </div>
               </div>
             </div>

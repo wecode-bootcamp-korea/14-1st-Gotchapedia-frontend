@@ -20,7 +20,7 @@ class BelovedDirector extends Component {
   loadBelovedDirector = () => {
     fetch(BELOVEDDIRECTOR_API)
       .then((res) => res.json())
-      .then((res) => this.setState({ belovedDirector: res.staff }))
+      .then((res) => this.setState({ belovedDirector: res.director }))
       .catch((error) => console.log('error', error));
   };
 
@@ -37,20 +37,24 @@ class BelovedDirector extends Component {
       slidesPerRow: 2,
     };
     const { belovedDirector } = this.state;
-
+    console.log()
     return (
       <Slider {...settings}>
         {!!belovedDirector.length > 0 &&
-          belovedDirector.map((staff, idx) => {
+          belovedDirector.map((director, idx) => {
             return (
               <div key={idx}>
                 <div className='castingContentList'>
                   <div className='castingImage'>
-                    <img className='castingImg' src={staff.image} alt='배우' />
+                    <img
+                      className='castingImg'
+                      src={director.image}
+                      alt='배우'
+                    />
                   </div>
                   <div className='profileDetail'>
-                    <div className='castingName'>{staff.name}</div>
-                    <div className='castingRole'>{staff.position}</div>
+                    <div className='castingName'>{director.name}</div>
+                    <div className='castingRole'>{director.position}</div>
                   </div>
                 </div>
               </div>

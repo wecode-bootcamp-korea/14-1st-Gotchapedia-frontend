@@ -3,7 +3,7 @@ import Nav from '../../../components/Nav/Nav';
 import Chart from './Chart/Chart';
 import PreferredCountryGenre from './PreferredCountreNation/PreferredCountryGenre';
 import BelovedPeople from './BelovedPeople/BelovedPeople';
-import BelovedDirector from './BelovedPeople/BelovedPeople';
+import BelovedDirector from './BelovedPeople/BelovedDirector';
 import WordCloud from './wordCloud/wordCloud';
 import ImageUploader from '../../../service/image_uploader';
 import ImgInput from './ImgInput/ImgInput';

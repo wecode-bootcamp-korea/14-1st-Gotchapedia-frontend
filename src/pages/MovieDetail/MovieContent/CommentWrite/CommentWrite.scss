@@ -10,12 +10,12 @@
   background: rgba(0, 0, 0, 0.5);
   font-size: 17px;
   font-weight: bold;
+  z-index: 1000000000;
 
   .modalContainer {
     width: 640px;
     height: 540px;
     background-color: #fff;
-    z-index: 10000;
 
     .commentHeading {
       display: flex;
@@ -28,8 +28,7 @@
         color: $pink;
         cursor: pointer;
       }
-      .headingTitle {
-      }
+
       .headingComment {
         color: #ddd;
         cursor: pointer;
@@ -43,7 +42,7 @@
     .commentContent {
       border-top: 1px solid #eee;
       .writeComment {
-        width: 100%;
+        width: 80%;
         height: 100%;
         padding: 30px 0px 0 20px;
         // margin: 20px;

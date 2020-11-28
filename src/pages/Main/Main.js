@@ -13,8 +13,6 @@ import {
   MAINPAGE_API5,
   MAINPAGE_API6,
   MYPAGE_TOKEN,
-  MOVIEDETAIL_TOKEN,
-  MOVIEDETAIL_MOCKUP_API,
 } from '../../config';
 import './main.scss';
 
@@ -162,7 +160,7 @@ class Main extends Component {
             <div className='movieList'>
               {movieData2.map((movie) => (
                 <MovieBox
-                  key={movie.movieId}
+                  key={movie.id}
                   date={movie.date}
                   imageURL={movie.imageURL}
                   rate={movie.rate}

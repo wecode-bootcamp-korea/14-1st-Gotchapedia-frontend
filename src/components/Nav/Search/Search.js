@@ -92,7 +92,7 @@ class Search extends Component {
       detailData,
     } = this.state;
     let loadedKeywords = JSON.parse(localStorage.getItem(RECENT_KEYWORDS));
-
+    console.log(this.state.searchData);
     return (
       <div className='Search'>
         <input
@@ -137,7 +137,7 @@ class Search extends Component {
               {loadedKeywords?.length > 0 &&
                 loadedKeywords.map((keyword, idx) => (
                   <li key={idx} className='resultMovie'>
-                    {keyword}
+                    {keyword} 
                   </li>
                 ))}
             </ul>

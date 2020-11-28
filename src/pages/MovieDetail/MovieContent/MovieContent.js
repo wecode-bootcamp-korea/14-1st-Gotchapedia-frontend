@@ -19,7 +19,7 @@ class MovieContent extends Component {
       commentString: '',
       commentArray: [],
       isColor: false,
-      commentorId: '',
+      commentId: '',
       castingImage: '',
       hoverRating: '',
       thumbsUp: '',
@@ -27,6 +27,8 @@ class MovieContent extends Component {
       commentList: [],
       commentObj: {},
       isCommentdAdded: false,
+      comment_Id:'',
+      newCommentId: ''
     };
   }
 
@@ -43,19 +45,10 @@ class MovieContent extends Component {
     }
   };
 
-  loadComment = () => {
-    fetch('/Data/contentdata.json', {})
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          contentData: res.data,
-        });
-      });
-  };
-
   // 얘는 기존의 댓글들
+
   componentDidMount() {
-    this.loadComment();
+    console.log("after delete")
     fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
       headers: {
         Authorization: PREFERRED_TOKEN,
@@ -65,9 +58,29 @@ class MovieContent extends Component {
       .then((res) => {
         this.setState({
           commentList: res.data,
+
         });
       });
   }
+
+  // componentDidUpdate(_,prevState) {
+  //   if(prevState.commentList.length !== this.state.commentList.length){
+  //     console.log("after delete", this.state.commentList)
+  //     fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
+  //       headers: {
+  //         Authorization: PREFERRED_TOKEN,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((res) => {
+  //         this.setState({
+  //           commentList: res.data,
+  //         });
+  //       });
+  //   }
+
+    
+  // }
 
   // 여기가 댓글 추가니까 post 보내야함
   addComment = (e) => {
@@ -83,6 +96,7 @@ class MovieContent extends Component {
       commentArray,
       commentList,
       isCommentdAdded,
+      commentId
     } = this.state;
 
     // 얘는 댓글 쓸때 추가되는 댓글
@@ -99,20 +113,24 @@ class MovieContent extends Component {
     })
       .then((response) => response.json())
       .then((result) => {
-        const writtenTime = Date.now();
+      console.log(result)
         const obj = {
-          id: writtenTime,
+          // 이 id 처리가 어떻게 되는거지??
+          id:result.message.id,
           content: commentString,
           userName: '고은정',
           starPoint: '5.0',
           userImage: '/images/chorong2.png',
           likeCount: '0',
           replyCount: '0',
-        };
+        };  
+        // console.log('obj.id >>>>>>>>>>>>>>>>>>>>>>>>>>',obj.id);
+
         if (result.message !== 'ALREADY_EXIST') {
           this.setState({
             commentList: [obj, ...commentList],
             isCommentdAdded: true,
+            newCommentId: obj.id
           });
           this.closeModalComment();
         } else {
@@ -122,33 +140,96 @@ class MovieContent extends Component {
       .catch((error) => console.log('error', error));
   };
 
-  updateComment = () => {
-    const { commentList, commentString } = this.state;
-    // const currentList = [...commentList]
-    this.openModalComment();
+  // updateComment = () => {
+  //   const {
+  //     commentString,
+  //     id,
+  //     commentObj,
+  //     commentArray,
+  //     commentList,
+  //     isCommentdAdded,
+  //   } = this.state;
 
-    // const newList = [{...currentList[0],comment:commentString} ,currentList]
-    const newList = Array.from(commentList);
-    // currentList.splice(0,1)
-    newList.splice(0, 1);
-    newList.unshift(commentString);
+  //   // 얘는 댓글 쓸때 추가되는 댓글
+  //   fetch(`${SERVER}/movies/${this.props.id}/comment/`, {
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: PREFERRED_TOKEN,
+  //     },
+  //     body: JSON.stringify({
+  //       // movieId가 있어야함 !!
+  //       movieId: this.props.id,
+  //       content: this.state.commentString,
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => {
+       
+  //       const obj = {
+  //         content: commentString,
+  //         userName: '고은정',
+  //         starPoint: '5.0',
+  //         userImage: '/images/chorong2.png',
+  //         likeCount: '0',
+  //         replyCount: '0',
+  //       };
+  //       if (result.message !== 'ALREADY_EXIST') {
+  //         this.setState({
+  //           commentList: [obj, ...commentList],
+  //           isCommentdAdded: true,
+  //         });
+  //         this.closeModalComment();
+  //       } else {
+  //         alert('이미 쓰셨습니다');
+  //       }
+  //     })
+  //     .catch((error) => console.log('error', error));
+  // };
 
-    this.setState({
-      commentList: [newList, ...commentList],
-      isCommentdAdded: true,
-    });
-  };
+  // updateComment = () => {
+  //   this.openModalComment();
+  //   const { commentList, commentString } = this.state;
+  //   const updateComment = [...commentList]
 
-  deleteComment = (e) => {
-    const { commentList } = this.state;
+  //   // 착한선배 코드
+  //   // const newList = [{...currentList[0],comment:commentString} ,currentList]
+  //   updateComment.splice(0,1)
+  //   updateComment.unshift(commentString);
+  //   // currentList.splice(0,1)
+  //   // newList.splice(0, 1);
+  //   // newList.unshift(commentString);
+
+  //   // 왜 수정을 하는데 도중에 빈값이 들어가는지 모르겠음
+  //   this.setState({
+  //     commentList: [updateComment, ...commentList],
+  //     isCommentdAdded: true,
+  //   });
+  // };
+
+  deleteComment = (id) => {
+
+    const { commentList,comment_id } = this.state;
+    console.log(comment_id)
     const deletedComment = Array.from(commentList);
     deletedComment.splice(0, 1);
+   
 
     this.setState({
       commentList: deletedComment,
       isCommentdAdded: false,
-    });
-  };
+    })
+
+    fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
+      method:"DELETE",
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+       console.log(res)
+      });
+  }
 
   goToCommentDetail = () => {
     this.props.history.push(`/movies/${this.props.id}/comments`);
@@ -166,7 +247,12 @@ class MovieContent extends Component {
     });
   };
 
+  get_id=()=>{
+  const id_list = this.state.commentList.map(list => {return list.id})
+  return id_list
+  }
   render() {
+    console.log(this.get_id()[0]-1)
     const settings = {
       dots: false,
       infinite: true,
@@ -175,9 +261,13 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment, commentList, isCommentdAdded } = this.state;
+    const { contentData, isComment, commentList, isCommentdAdded, commentId } = this.state;
     const { movieContentData, id, goToOverview } = this.props;
     const castingListData = movieContentData.staff;
+
+
+    // console.log('commentId >>>>>>>>>>>>>>>>>>>>>>>> ', commentId);
+    console.log('commentList >>>>>>>>>>>>>>>>>>>>>>>>>', commentList);
 
     return (
       <>
@@ -246,8 +336,8 @@ class MovieContent extends Component {
                       return (
                         <CommentBox
                           key={el.id}
-                          id={movieContentData.id}
-                          commentId={el.id}
+                          movieId={movieContentData.id}
+                          // commentId={el.id}
                           // commentContent={el}
                           commentList={el}
                           deleteComment={this.deleteComment}

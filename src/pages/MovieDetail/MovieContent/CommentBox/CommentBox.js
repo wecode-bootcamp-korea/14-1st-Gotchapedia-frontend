@@ -12,6 +12,7 @@ class CommentBox extends Component {
     this.state = {
       isLike: false,
       thumbsUpCount: '',
+      commentBoxData: [],
     };
   }
 
@@ -33,46 +34,28 @@ class CommentBox extends Component {
   //       this.setState({ movieDetailData: res.data });
   //     });
   // }
+  
+  // componentDidMount() {
+  //   fetch(`${SERVER}/movies/${this.props.movieId}/comments`, {
+  //     headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       // this.setState({
+  //       //   commentBoxData: res
+  //       // })
+  //     })
+  // }
 
   render() {
-    const { commentContent, commentList, contentData } = this.props;
+    const { commentBoxData, commentList, movieId } = this.props;
     let cnt = Number(commentList.likeCount);
     const { isLike } = this.state;
 
-    console.log('commentBox의 commentList >>>>>>>>>>>>>>>>>>>>', commentList);
     return (
       <>
-        {/* <div className='commentBox'>
-          <div className='commentTitle'>
-            <div className='titleLeft'>
-              <img src={commentList.userImage} alt='작성자아이콘' />
-              <div className='writerId'>
-                {commentList.id}
-                <div className='writerIcon'></div>
-              </div>
-            </div>
-            <div className='titleRight'>
-              <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {commentList.starPoint}
-            </div>
-          </div>
-          <div className='commentContent'>
-            <p>{commentList.content}</p>
-          </div>
-          <div className='commentIcons'>
-            <div className='thumbsUpWrapper'>
-              <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-              {commentList.likeCount}
-            </div>
-            <div className='commentWrapper'>
-              <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {commentList.replyCount}
-            </div>
-          </div>
-          <div className='like'>좋아요</div>
-        </div>
-         */}
-
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>

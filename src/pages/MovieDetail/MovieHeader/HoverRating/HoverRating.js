@@ -56,14 +56,11 @@ class HoverRating extends Component {
       }),
     })
       .then((res) => { return res.json()})
-      .then((res) => { console.log('res >>>>>>>>>>>>>>> ', res) })
   }
 
   render() {
     const { value, hover } = this.state;
     const { starPoint } = this.props;
-
-    console.log('starPoint >>>>>>>>>>>>>>>>>>>>> ', this.state.value);
 
     return (
       <div className='hoverRatingWrapper'>

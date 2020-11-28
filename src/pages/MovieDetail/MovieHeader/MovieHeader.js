@@ -54,7 +54,6 @@ class MovieHeader extends Component {
         this.setState({
           starPoint: res.starPoint,
         });
-        console.log('찍은별점을 받음 >>>>>>>>>>>>>> ', res.starPoint);
       });
     // this.loadStarRating()
   }

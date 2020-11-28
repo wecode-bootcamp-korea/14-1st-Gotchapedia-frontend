@@ -8,8 +8,6 @@ class ShowComment extends Component {
 
   render() {
     const { commentList, deleteComment, updateComment } = this.props;
-    
-    console.log('showComment의 commentList >>>>>>>>>>>>>>> ',commentList);
     const showComment = commentList[0];
 
     return (

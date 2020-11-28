@@ -26,10 +26,10 @@ class Overview extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        // this.setState({
-        //   overviewData: res.data,
-        // });
-        console.log(res);
+        this.setState({
+          overviewData: res.data,
+        });
+        console.log('overvie res >>>>>>>>>>>>>> ', res);
       })
       .catch((err) => console.log('err >>>>> ', err));
   }
@@ -72,13 +72,14 @@ class Overview extends Component {
 
   // 라우터 숫자처리 ??
   goToMovieDetail = () => {
+    // this.props.history.push(`/movies/${this.props.match.params.id}`);
     this.props.history.push(`/movies/${this.props.match.params.id}`);
   }
 
   render() {
     const { overviewData } = this.state;
 
-    console.log('>>>>>>>>>>>>>>>>>>', )
+    console.log('overviewData >>>>>>>>>>>>>>>>>>', overviewData);
     return (
       <>
         <Nav />

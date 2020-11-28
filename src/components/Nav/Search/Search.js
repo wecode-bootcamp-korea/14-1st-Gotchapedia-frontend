@@ -92,7 +92,7 @@ class Search extends Component {
       detailData,
     } = this.state;
     let loadedKeywords = JSON.parse(localStorage.getItem(RECENT_KEYWORDS));
-    console.log(this.state.searchData);
+    // console.log(this.state.searchData);
     return (
       <div className='Search'>
         <input

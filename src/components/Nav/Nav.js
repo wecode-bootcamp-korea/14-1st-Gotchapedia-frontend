@@ -95,7 +95,7 @@ class Nav extends Component {
         </>
       );
     }
-    console.log('render', this.state.isLoginOrSignupModalOn);
+    // console.log('render', this.state.isLoginOrSignupModalOn);
 
     return (
       <>

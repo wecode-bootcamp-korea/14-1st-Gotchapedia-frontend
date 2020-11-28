@@ -18,7 +18,7 @@ class MovieDetail extends Component {
   }
 
   goToOverview = () => {
-    this.props.history.push(`/movies/${this.props.id}/detail`);
+    this.props.history.push(`/movies/${this.props.match.params.id}/detail`);
   }
 
   // 동적 라우팅

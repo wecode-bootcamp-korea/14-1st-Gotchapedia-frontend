@@ -22,68 +22,71 @@ class CommentBox extends Component {
     });
   };
 
-  componentDidMount() {
-    fetch(`${SERVER}/movies/${this.props.id}/comment/${this.props.commentId}`, {
-      headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({ movieDetailData: res.data });
-      });
-  }
+  // componentDidMount() {
+  //   fetch(`${SERVER}/movies/${this.props.id}/comment/${this.props.commentId}`, {
+  //     headers: {
+  //       Authorization: MOVIEDETAIL_TOKEN,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       this.setState({ movieDetailData: res.data });
+  //     });
+  // }
 
   render() {
     const { commentContent, commentList, contentData } = this.props;
-    let cnt = Number(commentContent.likeCount);
+    let cnt = Number(commentList.likeCount);
     const { isLike } = this.state;
 
+    console.log('commentBox의 commentList >>>>>>>>>>>>>>>>>>>>', commentList);
     return (
       <>
-        <div className='commentBox'>
+        {/* <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img src='/images/defaultProfile.png' alt='작성자아이콘' />
+              <img src={commentList.userImage} alt='작성자아이콘' />
               <div className='writerId'>
-                {contentData.writerId}
+                {commentList.id}
                 <div className='writerIcon'></div>
               </div>
             </div>
             <div className='titleRight'>
               <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {contentData.rating}
+              {commentList.starPoint}
             </div>
           </div>
           <div className='commentContent'>
-            <p>{contentData.desc}</p>
+            <p>{commentList.content}</p>
           </div>
           <div className='commentIcons'>
             <div className='thumbsUpWrapper'>
               <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-              {contentData.thumbsup}
+              {commentList.likeCount}
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {contentData.comment}
+              {commentList.replyCount}
             </div>
           </div>
           <div className='like'>좋아요</div>
         </div>
+         */}
+
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              {/* src를 못 읽어서 하드코딩 해둠 */}
-              <img src='/images/defaultProfile.png' alt='작성자아이콘' />
-              <div className='commentorId'>{commentContent.userName} </div>
+               {/* 이거 왜 이미지가 안 나오지??  */}
+              <img className='commentorImage' src='/images/chorong2.png' alt='작성자아이콘' />
+              <div className='commentorId'>{commentList.userName} </div>
             </div>
             <div className='titleRight'>
-              <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {commentContent.starPoint}
+              <FontAwesomeIcon className='commentorStar' icon={faStar} />
+              {commentList.starPoint}
             </div>
           </div>
           <div className='commentContent'>
-            <p>{commentContent.content}</p>
+            <p>{commentList.content}</p>
           </div>
           <div className='commentIcons'>
             <div className='thumbsUpWrapper'>
@@ -92,7 +95,7 @@ class CommentBox extends Component {
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {commentContent.replyCount}
+              {commentList.replyCount}
             </div>
           </div>
           <div className='likeEventContainer'>

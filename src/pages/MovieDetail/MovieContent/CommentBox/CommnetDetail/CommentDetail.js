@@ -30,7 +30,7 @@ class CommentDetail extends Component {
   }
 
   goToMovieDetail = () => {
-    this.props.history.push(`/movies/${this.props.id}`);
+    this.props.history.push(`/movies/${this.props.match.params.id}`);
   };
 
   render() {

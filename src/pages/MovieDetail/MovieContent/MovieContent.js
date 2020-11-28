@@ -53,6 +53,7 @@ class MovieContent extends Component {
       });
   };
 
+  // 얘는 기존의 댓글들
   componentDidMount() {
     this.loadComment();
     fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
@@ -83,12 +84,15 @@ class MovieContent extends Component {
       commentList,
       isCommentdAdded,
     } = this.state;
+
+    // 얘는 댓글 쓸때 추가되는 댓글
     fetch(`${SERVER}/movies/${this.props.id}/comment`, {
       method: 'POST',
       headers: {
         Authorization: PREFERRED_TOKEN,
       },
       body: JSON.stringify({
+        // movieId가 있어야함 !!
         movieId: this.props.id,
         content: this.state.commentString,
       }),
@@ -97,13 +101,13 @@ class MovieContent extends Component {
       .then((result) => {
         const writtenTime = Date.now();
         const obj = {
-          commentId: writtenTime,
-          comment: commentString,
-          commentorName: '고은정',
+          id: writtenTime,
+          content: commentString,
+          userName: '고은정',
           starPoint: '5.0',
-          commentorImage: '/images/chorong2.png',
-          thumbsup: '0',
-          countComment: '0',
+          userImage: '/images/chorong2.png',
+          likeCount: '0',
+          replyCount: '0',
         };
         if (result.message !== 'ALREADY_EXIST') {
           this.setState({
@@ -170,9 +174,11 @@ class MovieContent extends Component {
       slidesToShow: 2,
       slidesToScroll: 2,
     };
+
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData, id, goToOverview } = this.props;
     const castingListData = movieContentData.staff;
+
     return (
       <>
         <div className='MovieContent'>
@@ -193,6 +199,7 @@ class MovieContent extends Component {
           )}
           <div className='movieContentBox'>
             <div className='predictStar'>
+              {/* 내가 좋아할 이유 이 부분 수정 필요!! */}
               <div className='predictHeading'>내가 좋아할 이유</div>
               <div className='predictContent'>
                 <p>재밌게 본 비슷한 작품</p>
@@ -241,8 +248,8 @@ class MovieContent extends Component {
                           key={el.id}
                           id={movieContentData.id}
                           commentId={el.id}
-                          commentContent={el}
-                          commentList={commentList}
+                          // commentContent={el}
+                          commentList={el}
                           deleteComment={this.deleteComment}
                           updateComment={this.updateComment}
                           contentData={this.state.contentData}

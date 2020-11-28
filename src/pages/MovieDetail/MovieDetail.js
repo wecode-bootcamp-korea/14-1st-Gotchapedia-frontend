@@ -36,7 +36,6 @@ class MovieDetail extends Component {
 
   render() {
     const { movieDetailData } = this.state;
-    console.log(' props >>>>>>>>>>> ', this.props);
 
     return (
       <div className='MovieDetailPage'>

@@ -25,8 +25,8 @@ class MovieContent extends Component {
       countComment: '',
       commentList: [],
       commentObj: {},
-      isCommentdAdded: false,
-      newCommentId: ''
+      isCommentdAdded: false, 
+      newCommentId: '',
     };
   }
 
@@ -57,23 +57,6 @@ class MovieContent extends Component {
       });
   }
 
-  // componentDidUpdate(_,prevState) {
-  //   if(prevState.commentList.length !== this.state.commentList.length){
-  //     console.log("after delete", this.state.commentList)
-  //     fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
-  //       headers: {
-  //         Authorization: PREFERRED_TOKEN,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then((res) => {
-  //         this.setState({
-  //           commentList: res.data,
-  //         });
-  //       });
-  //   }
-  // }
-
   addComment = (e) => {
     e.preventDefault();
     this.sendComment();
@@ -87,7 +70,7 @@ class MovieContent extends Component {
       commentArray,
       commentList,
       isCommentdAdded,
-      commentId
+  
     } = this.state;
 
     fetch(`${SERVER}/movies/${this.props.id}/comment`, {
@@ -126,75 +109,29 @@ class MovieContent extends Component {
       .catch((error) => console.log('error', error));
   };
 
-  // updateComment = () => {
-  //   const {
-  //     commentString,
-  //     id,
-  //     commentObj,
-  //     commentArray,
-  //     commentList,
-  //     isCommentdAdded,
-  //   } = this.state;
+  updateComment = () => {
+    this.openModalComment();
+    const { commentList, commentString } = this.state;
+    const updatedCommentList = [...commentList];
+    const updatedComment = {...commentList[0], content:commentString}
+    updatedCommentList.splice(0, 1, updatedComment)
+    console.log(updatedCommentList)
 
-  //   // 얘는 댓글 쓸때 추가되는 댓글
-  //   fetch(`${SERVER}/movies/${this.props.id}/comment/`, {
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: PREFERRED_TOKEN,
-  //     },
-  //     body: JSON.stringify({
-  //       // movieId가 있어야함 !!
-  //       movieId: this.props.id,
-  //       content: this.state.commentString,
-  //     }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((result) => {
-       
-  //       const obj = {
-  //         content: commentString,
-  //         userName: '고은정',
-  //         starPoint: '5.0',
-  //         userImage: '/images/chorong2.png',
-  //         likeCount: '0',
-  //         replyCount: '0',
-  //       };
-  //       if (result.message !== 'ALREADY_EXIST') {
-  //         this.setState({
-  //           commentList: [obj, ...commentList],
-  //           isCommentdAdded: true,
-  //         });
-  //         this.closeModalComment();
-  //       } else {
-  //         alert('이미 쓰셨습니다');
-  //       }
-  //     })
-  //     .catch((error) => console.log('error', error));
-  // };
+    fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
+      method:"PATCH",
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+    })
+      .then((res) => { console.log(res)});
+  };
 
-  // updateComment = () => {
-  //   this.openModalComment();
-  //   const { commentList, commentString } = this.state;
-  //   const updateComment = [...commentList]
-
-  //   // 착한선배 코드
-  //   // const newList = [{...currentList[0],comment:commentString} ,currentList]
-  //   updateComment.splice(0,1)
-  //   updateComment.unshift(commentString);
-  //   // currentList.splice(0,1)
-  //   // newList.splice(0, 1);
-  //   // newList.unshift(commentString);
-
-  //   // 왜 수정을 하는데 도중에 빈값이 들어가는지 모르겠음
-  //   this.setState({
-  //     commentList: [updateComment, ...commentList],
-  //     isCommentdAdded: true,
-  //   });
-  // };
+  // 커멘트가 남아있어야 함
 
   deleteComment = () => {
 
-    const { commentList, comment_id } = this.state;
+    const { commentList, n } = this.state;
+    const { id } = this.props;
     const deletedComment = Array.from(commentList);
     deletedComment.splice(0, 1);
 
@@ -205,17 +142,12 @@ class MovieContent extends Component {
 
     console.log('댓글 쓴 사람의 아이디 >>>>>>>>>>>>>>>>>>>> ', this.state.newCommentId);
 
-    // this.state.newCommentId 이 부분이 왜 자꾸 undefined가 뜰까??? 여기에 값만 제대로 들어가면 되는데
-    // this.props.id는 무비아이디, this.state.newCommentId는 댓글러 아이디
-
-    // http://3.35.216.109:8000/movies/{movieId}/comment/{commentId}
-    fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
+    fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
       method:"DELETE",
       headers: {
         Authorization: PREFERRED_TOKEN,
       },
     })
-      .then((res) => res.json())
       .then((res) => { console.log(res)});
   }
 
@@ -235,12 +167,8 @@ class MovieContent extends Component {
     });
   };
 
-  get_id=()=>{
-  const id_list = this.state.commentList.map(list => {return list.id})
-  return id_list
-  }
+
   render() {
-    // console.log(this.get_id()[0]-1)
     const settings = {
       dots: false,
       infinite: true,
@@ -249,17 +177,15 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment, commentList, isCommentdAdded, commentId } = this.state;
+    const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData, id, goToOverview } = this.props;
     const castingListData = movieContentData.staff;
 
 
-    // console.log('commentId >>>>>>>>>>>>>>>>>>>>>>>> ', commentId);
-    console.log('commentList >>>>>>>>>>>>>>>>>>>>>>>>>', commentList);
-
     return (
       <>
         <div className='MovieContent'>
+          {/* 남아있다는게 무슨말이야 돌아와도 남아있어야함 */}
           {isCommentdAdded ? (
             <ShowComment
               deleteComment={this.deleteComment}
@@ -277,7 +203,6 @@ class MovieContent extends Component {
           )}
           <div className='movieContentBox'>
             <div className='predictStar'>
-              {/* 내가 좋아할 이유 이 부분 수정 필요!! */}
               <div className='predictHeading'>내가 좋아할 이유</div>
               <div className='predictContent'>
                 <p>재밌게 본 비슷한 작품</p>
@@ -322,14 +247,14 @@ class MovieContent extends Component {
                   {commentList.length > 0 &&
                     commentList.map((el) => {
                       return (
+                        // 얘는 그냥 뿌려주는 애임
                         <CommentBox
                           key={el.id}
                           movieId={movieContentData.id}
-                          // commentId={el.id}
-                          // commentContent={el}
                           commentList={el}
-                          deleteComment={this.deleteComment}
-                          updateComment={this.updateComment}
+                          // 이거 줄 필요가 없지 함수 동작시키는 버튼같은게 없으니까
+                          // deleteComment={this.deleteComment}
+                          // updateComment={this.updateComment}
                           contentData={this.state.contentData}
                         />
                       );

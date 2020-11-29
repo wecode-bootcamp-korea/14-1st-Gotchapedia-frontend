@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GalleryBox from './GalleryBox/GalleryBox';
-import './movieSide.scss';
 import MovieClip from '../MovieSide/MovieClip/MovieClip';
+import './movieSide.scss';
 
 class MovieSide extends Component {
   constructor() {

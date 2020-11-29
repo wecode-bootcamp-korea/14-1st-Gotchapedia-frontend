@@ -28,6 +28,8 @@ class CommentBox extends Component {
     let likeCount = Number(commentList.likeCount);
     const { isLike } = this.state;
 
+    // 얘는 바뀐거 댓글리스트 뿌려주기만 하는앤데 함수를 줄 필요가 없지
+    
     return (
       <>
         <div className='commentBox'>

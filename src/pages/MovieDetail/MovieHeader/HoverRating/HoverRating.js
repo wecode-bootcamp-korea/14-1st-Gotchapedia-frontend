@@ -29,6 +29,7 @@ class HoverRating extends Component {
     }
   }
 
+  // 별점은 잘 간다
   sendStar = () => {
     const { value, hover } = this.state;
 
@@ -49,8 +50,6 @@ class HoverRating extends Component {
     const { value, hover } = this.state;
     const { movieId, starPoint } = this.props;
 
-    console.log(movieId);
-
     return (
       <div className='hoverRatingWrapper'>
           <div className='hoverRating'>
@@ -68,8 +67,9 @@ class HoverRating extends Component {
               onClick={this.sendStar}
             />
           </div>
-          {/* {this.state.value} */}
-          {starPoint}
+          내가 찍은 별점 {this.state.value}
+          <br></br>
+          내가 받은 별점 {starPoint}
         </div>
     )
   }

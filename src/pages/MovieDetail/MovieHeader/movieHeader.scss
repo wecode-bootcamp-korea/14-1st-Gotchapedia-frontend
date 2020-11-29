@@ -1,6 +1,5 @@
 @import '../../../styles/common.scss';
 
-// max, min width 확인해서 적용
 
 .MovieHeaderWrapper {
   .MovieHeaderTop {
@@ -8,9 +7,6 @@
     background-color: #eee;
     height: 300px;
     overflow: hidden;
-    img {
-      margin-top: 200px;
-    }
   }
 
   .MovieHeaderBottom {
@@ -19,7 +15,6 @@
     border-bottom: 1px solid #eee;
     height: 250px;
     padding: 0 8px;
-    // margin-bottom: 50px;
 
     .posterWrapper {
       display: flex;
@@ -33,9 +28,7 @@
         object-fit: cover;
       }
 
-      // 여기는 디테일 부분
       .posterDetailWrapper {
-        // padding-left: 10px;
 
         .posterRanking {
           width: 769px;
@@ -88,11 +81,8 @@
               margin-right: 40px;
 
               .wantToSeeWrapper {
-                // display: flex;
-                // display: inline-block;
                 @include flex-center;
                 width: 162px;
-                // height: 100%;
                 background-color: $pink;
                 border-radius: 5px 0 0 5px;
                 color: #fff;
@@ -116,12 +106,10 @@
                 }
 
                 .wantToSee {
-                  // display: inline-block;
                   display: flex;
                 }
               }
 
-              // scss 나중에 수정
               .modalBtnWrapper {
                 width: 51px;
                 height: 100%;

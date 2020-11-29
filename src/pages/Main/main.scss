@@ -56,15 +56,18 @@
     }
     .movieList {
       display: flex;
-      width: 100%;
+      width: 100vw;
       height: 400px;
-      padding: 10px 15px;
+      padding: 10px 25px;
       margin-bottom: 20px;
-      overflow-x: scroll;
+      // overflow-x: scroll;
       overflow-y: hidden;
 
+      .slick-slider .slick .slick-initialized {
+        width: 100vw;
+      }
       .slick-list {
-        width: 90vw;
+        width: 92vw;
         height: 70vh;
       }
 

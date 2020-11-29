@@ -13,6 +13,7 @@ import {
   PREFERRED_TOKEN,
   MYSTAR_API,
   MYSTAR_TOKEN,
+  IMG_UPLOAD_API,
 } from '../../../config';
 import './mytaste.scss';
 
@@ -64,7 +65,7 @@ class Mytaste extends Component {
     const uploadedImg = await imageUploader.upload(event.target.files[0]);
     localStorage.setItem('profileImg', uploadedImg.url);
 
-    fetch('http://10.58.0.152:8000/user', {
+    fetch(IMG_UPLOAD_API, {
       method: 'PATCH',
       headers: {
         Authorization: PREFERRED_TOKEN,

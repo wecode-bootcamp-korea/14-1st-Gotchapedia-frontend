@@ -26,7 +26,7 @@ class MovieContent extends Component {
       countComment: '',
       commentList: [],
       commentObj: {},
-      isCommentdAdded: false, 
+      isCommentdAdded: false,
       newCommentId: '',
       isEditted: false,
       commentUpdateString: '',
@@ -146,16 +146,17 @@ class MovieContent extends Component {
     this.setState({
       commentList: deletedComment,
       isCommentdAdded: false,
-    })
+    });
 
     fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
-      method:"DELETE",
+      method: 'DELETE',
       headers: {
         Authorization: PREFERRED_TOKEN,
       },
-    })
-      .then((res) => { console.log(res)});
-  }
+    }).then((res) => {
+      console.log(res);
+    });
+  };
 
   goToCommentDetail = () => {
     this.props.history.push(`/movies/${this.props.id}/comments`);
@@ -182,7 +183,13 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment, commentList, isCommentdAdded, isEditted } = this.state;
+    const {
+      contentData,
+      isComment,
+      commentList,
+      isCommentdAdded,
+      isEditted,
+    } = this.state;
     const { movieContentData, goToOverview } = this.props;
     const castingListData = movieContentData.staff;
 
@@ -241,7 +248,7 @@ class MovieContent extends Component {
             <div className='commentWrapper'>
               <div className='commentHeading'>
                 <div className='headgitingLeft'>
-                  코멘트 <span>10+</span>
+                  코멘트 <span>{commentList.length}</span>
                 </div>
                 <span onClick={this.goToCommentDetail}>더보기</span>
               </div>

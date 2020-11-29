@@ -6,6 +6,7 @@ import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
 import CastingList from './CastingList/CastingList';
 import CommentBox from './CommentBox/CommentBox';
 import CommentWrite from './CommentWrite/CommentWrite';
+import CommentUpdate from './CommentUpdate/CommentUpdate';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
 import { SERVER, PREFERRED_TOKEN } from '../../../config';
@@ -27,6 +28,8 @@ class MovieContent extends Component {
       commentObj: {},
       isCommentdAdded: false,
       newCommentId: '',
+      isEditted: false,
+      commentUpdateString: '',
     };
   }
 
@@ -46,7 +49,7 @@ class MovieContent extends Component {
   handleUpdateChange = (e) => {
     if (e.target.value) {
       this.setState({
-        commentString: e.target.value,
+        commentUpdateString: e.target.value,
         isColor: true,
       });
     } else {
@@ -62,27 +65,19 @@ class MovieContent extends Component {
         Authorization: PREFERRED_TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          commentList: res.data,
-        });
+    .then((res) => res.json())
+    .then((res) => {
+      this.setState({
+        commentList: res.data,
       });
+    });
   }
 
   addComment = (e) => {
     e.preventDefault();
-    this.sendComment();
-  };
-
-  sendComment = () => {
     const {
       commentString,
-      id,
-      commentObj,
-      commentArray,
       commentList,
-      isCommentdAdded,
     } = this.state;
 
     fetch(`${SERVER}/movies/${this.props.id}/comment`, {
@@ -95,51 +90,52 @@ class MovieContent extends Component {
         content: this.state.commentString,
       }),
     })
-      .then((response) => response.json())
-      .then((result) => {
-        const obj = {
-          id: result.message.id,
-          content: commentString,
-          userName: '고은정',
-          starPoint: '5.0',
-          userImage: '/images/chorong2.png',
-          likeCount: '0',
-          replyCount: '0',
-        };
+    .then((response) => response.json())
+    .then((result) => {
+      const obj = {
+        id:result.message.id,
+        content: commentString,
+        userName: '고은정',
+        starPoint: '5.0',
+        userImage: '/images/defaultProfile.png',
+        likeCount: '0',
+        replyCount: '0',
+      };
 
-        if (result.message !== 'ALREADY_EXIST') {
-          this.setState({
-            commentList: [obj, ...commentList],
-            isCommentdAdded: true,
-            newCommentId: obj.id,
-          });
-          this.closeModalComment();
-        } else {
-          alert('이미 쓰셨습니다');
-        }
-      })
-      .catch((error) => console.log('error', error));
+      this.setState({
+        commentList: [obj, ...commentList],
+        isCommentdAdded: true,
+        newCommentId: obj.id,
+        isEditted: true,
+      });
+      this.closeModalComment();
+    })
+    .catch((error) => console.log('error', error));
   };
 
-  updateComment = () => {
-    this.openModalComment();
-    const { commentList, commentString } = this.state;
+  updateComment = (e) => {
+    console.log('클릭');  
+    e.preventDefault();
+    const { id } = this.props;
+    fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
+      method:"PATCH",
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+      body: JSON.stringify({
+      content: this.state.commentUpdateString,
+      }),
+    })
+    .catch((error) => console.log('error', error));
+    
+    const { commentList, commentUpdateString } = this.state;
     const updatedCommentList = [...commentList];
-    const updatedComment = { ...commentList[0], content: commentString };
-    updatedCommentList.splice(0, 1, updatedComment);
-
-    fetch(
-      `${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`,
-      {
-        method: 'PATCH',
-        headers: {
-          Authorization: PREFERRED_TOKEN,
-        },
-      }
-    ).then((res) => {
-      console.log(res);
-    });
-  };
+    updatedCommentList[0].content = commentUpdateString;
+    this.setState({
+      commentList: updatedCommentList
+    })
+    this.closeModalComment();   
+  }
 
   deleteComment = () => {
     const { commentList } = this.state;
@@ -203,7 +199,7 @@ class MovieContent extends Component {
           {isCommentdAdded ? (
             <ShowComment
               deleteComment={this.deleteComment}
-              updateComment={this.updateComment}
+              openModalComment={this.openModalComment}
               commentList={commentList.length > 0 && commentList}
             />
           ) : (
@@ -275,17 +271,22 @@ class MovieContent extends Component {
           </div>
         </div>
         <div className={isComment ? '' : 'displayNone'}>
+          {isEditted ? 
+          <CommentUpdate 
+            commentUpdateData={contentData.length > 0 && contentData}
+            handleUpdateChange={this.handleUpdateChange}
+            updateComment={this.updateComment}
+            isColor={this.state.isColor}
+            closeModalComment={this.closeModalComment}
+            commentString={this.state.commentString}
+          /> : 
           <CommentWrite
             commentWriteData={contentData.length > 0 && contentData}
             handleWriteChange={this.handleWriteChange}
-            handleUpdateChange={this.handleUpdateChange}
             addComment={this.addComment}
-            updateComment={this.updateComment}
             isColor={this.state.isColor}
-            isComment={isComment}
-            isEditted={isEditted}
             closeModalComment={this.closeModalComment}
-          />
+          />}
         </div>
       </>
     );

@@ -15,6 +15,7 @@ import {
   MYPAGE_TOKEN,
 } from '../../config';
 import './main.scss';
+import Footer from '../../components/Footer/Footer';
 
 class Main extends Component {
   constructor() {
@@ -289,7 +290,9 @@ class Main extends Component {
               </Slider>
             </div>
           </section>
+          
         </div>
+        <Footer />
       </>
     );
   }

@@ -109,6 +109,7 @@ class Search extends Component {
                     key={movie.movieId}
                     onClick={() => {
                       this.props.history.push(`/movies/${movie.movieId}`);
+                      window.location.reload();
                     }}>
                     {movie.title}
                   </li>

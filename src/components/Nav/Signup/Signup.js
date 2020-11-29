@@ -99,7 +99,7 @@ class Signup extends Component {
         <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
           <div className='wrapper'>
             <img
-              src='/images/watchapediaTextCol.png'
+              src='/images/gotchapediaTextCol.png'
               alt='gotchapediaLogoCol'
               className='gotchapediaLogoCol'
             />

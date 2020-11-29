@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { MYPAGE_API } from '../../../config';
+import { SEARCH_API } from '../../../config';
 import './search.scss';
 
 const RECENT_KEYWORDS = 'RECENT_KEYWORDS';
@@ -37,7 +37,7 @@ class Search extends Component {
   };
 
   loadSearchData = () => {
-    fetch(MYPAGE_API)
+    fetch(SEARCH_API)
       .then((res) => res.json())
       .then((res) => this.setState({ searchData: res.data }))
       .catch((error) => console.log('error', error));

@@ -11,7 +11,9 @@ export const MAINPAGE_API4 = `${SERVER}/movies/user?id=4`;
 export const MAINPAGE_API5 = `${SERVER}/movies/user?id=5`;
 export const MAINPAGE_API6 = `${SERVER}/movies/user?id=6`;
 
-export const MYPAGE_API = `${SERVER}/movies/user?id=2`;
+export const SEARCH_API = `${SERVER}/movies/user?id=1`;
+
+export const MYPAGE_API = `${SERVER}/movies/user?id=1`;
 export const WANNAWATCH_API = `${SERVER}/movies/interests?status=0`;
 export const WATCHING_API = `${SERVER}/movies/interests?status=1`;
 export const MYPAGE_TOKEN =

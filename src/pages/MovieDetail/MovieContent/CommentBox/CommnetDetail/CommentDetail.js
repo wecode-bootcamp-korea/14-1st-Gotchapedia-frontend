@@ -5,7 +5,7 @@ import CommentDetailBox from './CommentDetailBox/CommentDetailBox';
 import './CommentDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { COMMENT_API, PREFERRED_TOKEN, SERVER } from '../../../../../config';
+import { PREFERRED_TOKEN, SERVER } from '../../../../../config';
 
 class CommentDetail extends Component {
   constructor() {
@@ -30,7 +30,7 @@ class CommentDetail extends Component {
   }
 
   goToMovieDetail = () => {
-    this.props.history.push(`/movies/${this.props.id}`);
+    this.props.history.push(`/movies/${this.props.match.params.id}`);
   };
 
   render() {

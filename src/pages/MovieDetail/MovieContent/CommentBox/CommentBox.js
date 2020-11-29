@@ -12,6 +12,7 @@ class CommentBox extends Component {
     this.state = {
       isLike: false,
       thumbsUpCount: '',
+      commentBoxData: [],
     };
   }
 
@@ -22,77 +23,37 @@ class CommentBox extends Component {
     });
   };
 
-  componentDidMount() {
-    fetch(`${SERVER}/movies/${this.props.id}/comment/${this.props.commentId}`, {
-      headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({ movieDetailData: res.data });
-      });
-  }
-
   render() {
-    const { commentContent, commentList, contentData } = this.props;
-    let cnt = Number(commentContent.likeCount);
+    const { commentBoxData, commentList, movieId } = this.props;
+    let likeCount = Number(commentList.likeCount);
     const { isLike } = this.state;
 
+    // 얘는 바뀐거 댓글리스트 뿌려주기만 하는앤데 함수를 줄 필요가 없지
+    
     return (
       <>
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img src='/images/defaultProfile.png' alt='작성자아이콘' />
-              <div className='writerId'>
-                {contentData.writerId}
-                <div className='writerIcon'></div>
-              </div>
+              <img className='commentorImage' src={commentList.userImage} alt='작성자아이콘' />
+              <div className='commentorId'>{commentList.userName} </div>
             </div>
             <div className='titleRight'>
-              <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {contentData.rating}
+              <FontAwesomeIcon className='commentorStar' icon={faStar} />
+              {commentList.starPoint}
             </div>
           </div>
           <div className='commentContent'>
-            <p>{contentData.desc}</p>
+            <p>{commentList.content}</p>
           </div>
           <div className='commentIcons'>
             <div className='thumbsUpWrapper'>
               <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-              {contentData.thumbsup}
+              {isLike ? (likeCount += 1) : likeCount}
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {contentData.comment}
-            </div>
-          </div>
-          <div className='like'>좋아요</div>
-        </div>
-        <div className='commentBox'>
-          <div className='commentTitle'>
-            <div className='titleLeft'>
-              {/* src를 못 읽어서 하드코딩 해둠 */}
-              <img src='/images/defaultProfile.png' alt='작성자아이콘' />
-              <div className='commentorId'>{commentContent.userName} </div>
-            </div>
-            <div className='titleRight'>
-              <FontAwesomeIcon className='writerStar' icon={faStar} />
-              {commentContent.starPoint}
-            </div>
-          </div>
-          <div className='commentContent'>
-            <p>{commentContent.content}</p>
-          </div>
-          <div className='commentIcons'>
-            <div className='thumbsUpWrapper'>
-              <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-              {isLike ? (cnt += 1) : cnt}
-            </div>
-            <div className='commentWrapper'>
-              <FontAwesomeIcon className='commentIcon' icon={faComment} />
-              {commentContent.replyCount}
+              {commentList.replyCount}
             </div>
           </div>
           <div className='likeEventContainer'>

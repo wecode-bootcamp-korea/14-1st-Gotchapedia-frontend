@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import './hoverRating.scss';
-import { MOVIEDETAIL_MOCKUP_API, MOVIEDETAIL_SERVER_API, MOVIEDETAIL_TOKEN } from '../../../../config';   
+import { SERVER, PREFERRED_TOKEN } from '../../../../config';
 
 const labels = {
   0: '평가하기',
@@ -29,41 +29,26 @@ class HoverRating extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   fetch(`http://10.58.0.152:8000/movie/${this.props.match.params.id}`, {
-  //       method: 'POST',
-  //       headers: {
-  //       Authorization: MOVIEDETAIL_TOKEN,
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       this.setState({ movieDetailData: res.data });
-  //     })
-  // };
-
+  // 별점은 잘 간다
   sendStar = () => {
     const { value, hover } = this.state;
 
-    fetch('http://3.35.216.109:8000/analysis/star', {
+    fetch(`${SERVER}/analysis/star`, {
       method: "POST",
-      headers: {
-        Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA"
+      headers: {  
+        Authorization: PREFERRED_TOKEN,
       },
       body: JSON.stringify({
-        movieId: "22",
+        movieId: this.props.movieId,
         starPoint: this.state.value
       }),
     })
-      .then((res) => { return res.json()})
-      .then((res) => { console.log('res >>>>>>>>>>>>>>> ', res) })
+      .then((res) => { console.log(res.ok)})
   }
 
   render() {
     const { value, hover } = this.state;
-    const { starPoint } = this.props;
-
-    console.log('starPoint >>>>>>>>>>>>>>>>>>>>> ', this.state.value);
+    const { movieId, starPoint } = this.props;
 
     return (
       <div className='hoverRatingWrapper'>
@@ -82,8 +67,9 @@ class HoverRating extends Component {
               onClick={this.sendStar}
             />
           </div>
-          {/* {this.state.value} */}
-          {starPoint}
+          내가 찍은 별점 {this.state.value}
+          <br></br>
+          내가 받은 별점 {starPoint}
         </div>
     )
   }

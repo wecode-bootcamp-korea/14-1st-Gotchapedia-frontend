@@ -19,14 +19,14 @@ class MovieContent extends Component {
       commentString: '',
       commentArray: [],
       isColor: false,
-      commentorId: '',
       castingImage: '',
       hoverRating: '',
       thumbsUp: '',
       countComment: '',
       commentList: [],
       commentObj: {},
-      isCommentdAdded: false,
+      isCommentdAdded: false, 
+      newCommentId: '',
     };
   }
 
@@ -43,18 +43,7 @@ class MovieContent extends Component {
     }
   };
 
-  loadComment = () => {
-    fetch('/Data/contentdata.json', {})
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          contentData: res.data,
-        });
-      });
-  };
-
   componentDidMount() {
-    this.loadComment();
     fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
       headers: {
         Authorization: PREFERRED_TOKEN,
@@ -68,7 +57,6 @@ class MovieContent extends Component {
       });
   }
 
-  // 여기가 댓글 추가니까 post 보내야함
   addComment = (e) => {
     e.preventDefault();
     this.sendComment();
@@ -82,7 +70,9 @@ class MovieContent extends Component {
       commentArray,
       commentList,
       isCommentdAdded,
+  
     } = this.state;
+
     fetch(`${SERVER}/movies/${this.props.id}/comment`, {
       method: 'POST',
       headers: {
@@ -95,20 +85,21 @@ class MovieContent extends Component {
     })
       .then((response) => response.json())
       .then((result) => {
-        const writtenTime = Date.now();
         const obj = {
-          commentId: writtenTime,
-          comment: commentString,
-          commentorName: '고은정',
+          id:result.message.id,
+          content: commentString,
+          userName: '고은정',
           starPoint: '5.0',
-          commentorImage: '/images/chorong2.png',
-          thumbsup: '0',
-          countComment: '0',
-        };
+          userImage: '/images/chorong2.png',
+          likeCount: '0',
+          replyCount: '0',
+        };  
+
         if (result.message !== 'ALREADY_EXIST') {
           this.setState({
             commentList: [obj, ...commentList],
             isCommentdAdded: true,
+            newCommentId: obj.id
           });
           this.closeModalComment();
         } else {
@@ -119,32 +110,46 @@ class MovieContent extends Component {
   };
 
   updateComment = () => {
-    const { commentList, commentString } = this.state;
-    // const currentList = [...commentList]
     this.openModalComment();
+    const { commentList, commentString } = this.state;
+    const updatedCommentList = [...commentList];
+    const updatedComment = {...commentList[0], content:commentString}
+    updatedCommentList.splice(0, 1, updatedComment)
+    console.log(updatedCommentList)
 
-    // const newList = [{...currentList[0],comment:commentString} ,currentList]
-    const newList = Array.from(commentList);
-    // currentList.splice(0,1)
-    newList.splice(0, 1);
-    newList.unshift(commentString);
-
-    this.setState({
-      commentList: [newList, ...commentList],
-      isCommentdAdded: true,
-    });
+    fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
+      method:"PATCH",
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+    })
+      .then((res) => { console.log(res)});
   };
 
-  deleteComment = (e) => {
-    const { commentList } = this.state;
+  // 커멘트가 남아있어야 함
+
+  deleteComment = () => {
+
+    const { commentList, n } = this.state;
+    const { id } = this.props;
     const deletedComment = Array.from(commentList);
     deletedComment.splice(0, 1);
 
     this.setState({
       commentList: deletedComment,
       isCommentdAdded: false,
-    });
-  };
+    })
+
+    console.log('댓글 쓴 사람의 아이디 >>>>>>>>>>>>>>>>>>>> ', this.state.newCommentId);
+
+    fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
+      method:"DELETE",
+      headers: {
+        Authorization: PREFERRED_TOKEN,
+      },
+    })
+      .then((res) => { console.log(res)});
+  }
 
   goToCommentDetail = () => {
     this.props.history.push(`/movies/${this.props.id}/comments`);
@@ -162,6 +167,7 @@ class MovieContent extends Component {
     });
   };
 
+
   render() {
     const settings = {
       dots: false,
@@ -170,12 +176,16 @@ class MovieContent extends Component {
       slidesToShow: 2,
       slidesToScroll: 2,
     };
+
     const { contentData, isComment, commentList, isCommentdAdded } = this.state;
     const { movieContentData, id, goToOverview } = this.props;
     const castingListData = movieContentData.staff;
+
+
     return (
       <>
         <div className='MovieContent'>
+          {/* 남아있다는게 무슨말이야 돌아와도 남아있어야함 */}
           {isCommentdAdded ? (
             <ShowComment
               deleteComment={this.deleteComment}
@@ -237,14 +247,14 @@ class MovieContent extends Component {
                   {commentList.length > 0 &&
                     commentList.map((el) => {
                       return (
+                        // 얘는 그냥 뿌려주는 애임
                         <CommentBox
                           key={el.id}
-                          id={movieContentData.id}
-                          commentId={el.id}
-                          commentContent={el}
-                          commentList={commentList}
-                          deleteComment={this.deleteComment}
-                          updateComment={this.updateComment}
+                          movieId={movieContentData.id}
+                          commentList={el}
+                          // 이거 줄 필요가 없지 함수 동작시키는 버튼같은게 없으니까
+                          // deleteComment={this.deleteComment}
+                          // updateComment={this.updateComment}
                           contentData={this.state.contentData}
                         />
                       );

@@ -8,19 +8,17 @@ class ShowComment extends Component {
 
   render() {
     const { commentList, deleteComment, updateComment } = this.props;
-    
-    // console.log(commentList);
-    const commentContent = commentList[0];
+    const showComment = commentList[0];
 
     return (
       <div className='commentCrudWrapper'>
         <div className='commentCrudLeft'>
-          <img className='crudProfileImage' src={commentContent.commentorImage} alt='댓글수정삭제프로필' ></img>
+          <img className='crudProfileImage' src={showComment.userImage} alt='댓글수정삭제프로필' ></img>
           <div className='crudProfileName'>
-            {commentContent.commentorName}
+            {showComment.userName}
           </div>
           <div className='commentBox'>
-            {commentContent.comment } 
+            {showComment.content } 
           </div>
         </div>
         <div className='commentCrudRight'>

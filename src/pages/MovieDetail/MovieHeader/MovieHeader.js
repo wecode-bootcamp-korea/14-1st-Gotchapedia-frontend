@@ -6,9 +6,9 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import Rating from './HoverRating/HoverRating';
+import HoverRating from './HoverRating/HoverRating';
 
-//
+
 // 이건 스타 API
 // const STAR_API = `http://10.58.1.5:8000/analysis/star/${this.props.match.params.id}`
 const MOVIEDETAIL_TOKEN =
@@ -42,7 +42,8 @@ class MovieHeader extends Component {
     });
   };
 
-  // 이게 왜 평균별점으로 계속 주지??
+  // 이거 왜 3점으로 고정이지??
+  // 별점을 못 받는다
   componentDidMount() {
     fetch(`http://3.35.216.109:8000/analysis/star/${this.props.id}`, {
       headers: {
@@ -54,27 +55,11 @@ class MovieHeader extends Component {
         this.setState({
           starPoint: res.starPoint,
         });
-        console.log('찍은별점을 받음 >>>>>>>>>>>>>> ', res.starPoint);
+        console.log('내가 찍어서 받은 별점 >>>>>>>>> ', this.state.starPoint);
       });
-    // this.loadStarRating()
   }
 
-  // loadStarRating = () => {
-  // fetch('http://3.35.216.109:8000/analysis/my_star', {
-  //       headers: {
-  //       Authorization: MOVIEDETAIL_TOKEN,
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       this.setState({
-  //         starRating: res.starPoint,
-  //       });
-  //       console.log('찍은별점 starRating >>>>>>>>>>>>>>> ', this.state.starPoint)
-  //     })
-  //   }
-
-  // 별점 반영
+  // 별점 반영 부분, 컨디업 잘 모르겠다 ~~
   componentDidUpdate(prevProps, prevState) {
     const { starPoint } = this.state;
     if (starPoint !== prevState.starPoint) {
@@ -87,7 +72,7 @@ class MovieHeader extends Component {
     const { movieHeaderData } = this.props;
     const subImage = movieHeaderData.subImage;
     const genre = movieHeaderData.genre;
-
+    console.log('movieHeaderData >>>>>>>>>>>>>>>>> ', movieHeaderData)
     return (
       <div>
         <div className='MovieHeaderTop'>
@@ -126,7 +111,7 @@ class MovieHeader extends Component {
                     </button>
                   </div>
                   <div className='starRatingBox'>
-                    <Rating starPoint={starPoint} />
+                    <HoverRating starPoint={starPoint} movieId={movieHeaderData.id}/>
                   </div>
                 </div>
               </div>

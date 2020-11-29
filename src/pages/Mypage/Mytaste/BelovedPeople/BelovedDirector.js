@@ -37,7 +37,6 @@ class BelovedDirector extends Component {
       slidesPerRow: 2,
     };
     const { belovedDirector } = this.state;
-
     return (
       <Slider {...settings}>
         {!!belovedDirector.length > 0 &&

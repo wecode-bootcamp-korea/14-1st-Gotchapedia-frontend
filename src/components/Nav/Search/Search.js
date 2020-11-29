@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { MYPAGE_API } from '../../../config';
+import { SEARCH_API } from '../../../config';
 import './search.scss';
 
 const RECENT_KEYWORDS = 'RECENT_KEYWORDS';
@@ -37,7 +37,7 @@ class Search extends Component {
   };
 
   loadSearchData = () => {
-    fetch(MYPAGE_API)
+    fetch(SEARCH_API)
       .then((res) => res.json())
       .then((res) => this.setState({ searchData: res.data }))
       .catch((error) => console.log('error', error));
@@ -48,7 +48,7 @@ class Search extends Component {
   };
 
   saveKeyword = () => {
-    if (this.state.searchValue.trim() == '') return;
+    if (this.state.searchValue.trim() === '') return;
     searchValueList = Array.from(
       new Set([...searchValueList, this.state.searchValue])
     );
@@ -84,13 +84,7 @@ class Search extends Component {
   };
 
   render() {
-    const {
-      searchValue,
-      isSearchOn,
-      isListActive,
-      filteredMovie,
-      detailData,
-    } = this.state;
+    const { searchValue, isListActive, filteredMovie } = this.state;
     let loadedKeywords = JSON.parse(localStorage.getItem(RECENT_KEYWORDS));
     return (
       <div className='Search'>
@@ -113,9 +107,9 @@ class Search extends Component {
                   <li
                     className='resultMovie'
                     key={movie.movieId}
-                    className={movie.movieId}
                     onClick={() => {
                       this.props.history.push(`/movies/${movie.movieId}`);
+                      window.location.reload();
                     }}>
                     {movie.title}
                   </li>
@@ -136,7 +130,7 @@ class Search extends Component {
               {loadedKeywords?.length > 0 &&
                 loadedKeywords.map((keyword, idx) => (
                   <li key={idx} className='resultMovie'>
-                    {keyword} 
+                    {keyword}
                   </li>
                 ))}
             </ul>
@@ -162,14 +156,14 @@ class Search extends Component {
                 onClick={() => {
                   this.props.history.push('/movies/6');
                 }}>
-                버팔로66
+                테넷
               </li>
               <li
                 className='resultMovie'
                 onClick={() => {
                   this.props.history.push('/movies/4');
                 }}>
-                붉은 돼지
+                버드맨
               </li>
             </ul>
           </div>

@@ -14,7 +14,7 @@ class MovieSide extends Component {
   componentDidMount() {
     const { movieSideData } = this.props;
     return fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${movieSideData.name}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${movieSideData.name}&type=video&key=AIzaSyBaSwnfcejxYUkiRooPTmjIeMBqBuWpCds`,
       {
         method: 'GET',
         redirect: 'follow',

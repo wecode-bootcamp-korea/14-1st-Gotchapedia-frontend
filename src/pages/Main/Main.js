@@ -15,6 +15,7 @@ import {
   MYPAGE_TOKEN,
 } from '../../config';
 import './main.scss';
+import Footer from '../../components/Footer/Footer';
 
 class Main extends Component {
   constructor() {
@@ -102,36 +103,32 @@ class Main extends Component {
   render() {
     const settings = {
       className: 'slick',
-      centerMode: true,
-      infinite: true,
-      centerPadding: '10px',
+      infinite: false,
+      centerPadding: '20px',
       arrows: true,
+      slidesToScroll: 6,
       slidesToShow: 6,
-      speed: 500,
-      pauseOnHover: true,
       rows: 1,
-      slidesPerRow: 1,
-      useCSS: true,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
             slidesToShow: 5,
-            slidesToScroll: 1,
+            slidesToScroll: 5,
           },
         },
         {
           breakpoint: 800,
           settings: {
             slidesToShow: 4,
-            slidesToScroll: 2,
+            slidesToScroll: 4,
           },
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
           },
         },
       ],
@@ -158,16 +155,18 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData2.map((movie) => (
-                <MovieBox
-                  key={movie.movieId}
-                  date={movie.date}
-                  imageURL={movie.imageURL}
-                  rate={movie.rate}
-                  title={movie.title}
-                  movieId={movie.movieId}
-                />
-              ))}
+              <Slider {...settings}>
+                {movieData2.map((movie) => (
+                  <MovieBox
+                    key={movie.movieId}
+                    date={movie.date}
+                    imageURL={movie.imageURL}
+                    rate={movie.rate}
+                    title={movie.title}
+                    movieId={movie.movieId}
+                  />
+                ))}
+              </Slider>
             </div>
           </section>
 
@@ -180,16 +179,18 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData1.map((movie) => (
-                <MovieBox
-                  key={movie.movieId}
-                  date={movie.date}
-                  imageURL={movie.imageURL}
-                  rate={movie.rate}
-                  title={movie.title}
-                  movieId={movie.movieId}
-                />
-              ))}
+              <Slider {...settings}>
+                {movieData1.map((movie) => (
+                  <MovieBox
+                    key={movie.movieId}
+                    date={movie.date}
+                    imageURL={movie.imageURL}
+                    rate={movie.rate}
+                    title={movie.title}
+                    movieId={movie.movieId}
+                  />
+                ))}
+              </Slider>
             </div>
           </section>
 
@@ -202,16 +203,18 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData3.map((movie) => (
-                <MovieBox
-                  key={movie.movieId}
-                  date={movie.date}
-                  imageURL={movie.imageURL}
-                  rate={movie.rate}
-                  title={movie.title}
-                  movieId={movie.movieId}
-                />
-              ))}
+              <Slider {...settings}>
+                {movieData3.map((movie) => (
+                  <MovieBox
+                    key={movie.movieId}
+                    date={movie.date}
+                    imageURL={movie.imageURL}
+                    rate={movie.rate}
+                    title={movie.title}
+                    movieId={movie.movieId}
+                  />
+                ))}
+              </Slider>
             </div>
           </section>
 
@@ -224,16 +227,18 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData4.map((movie) => (
-                <MovieBox
-                  key={movie.movieId}
-                  date={movie.date}
-                  imageURL={movie.imageURL}
-                  rate={movie.rate}
-                  title={movie.title}
-                  movieId={movie.movieId}
-                />
-              ))}
+              <Slider {...settings}>
+                {movieData4.map((movie) => (
+                  <MovieBox
+                    key={movie.movieId}
+                    date={movie.date}
+                    imageURL={movie.imageURL}
+                    rate={movie.rate}
+                    title={movie.title}
+                    movieId={movie.movieId}
+                  />
+                ))}
+              </Slider>
             </div>
           </section>
 
@@ -247,16 +252,18 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData5.map((movie) => (
-                <MovieBox
-                  key={movie.movieId}
-                  date={movie.date}
-                  imageURL={movie.imageURL}
-                  rate={movie.rate}
-                  title={movie.title}
-                  movieId={movie.movieId}
-                />
-              ))}
+              <Slider {...settings}>
+                {movieData5.map((movie) => (
+                  <MovieBox
+                    key={movie.movieId}
+                    date={movie.date}
+                    imageURL={movie.imageURL}
+                    rate={movie.rate}
+                    title={movie.title}
+                    movieId={movie.movieId}
+                  />
+                ))}
+              </Slider>
             </div>
           </section>
 
@@ -269,19 +276,23 @@ class Main extends Component {
               </div>
             </div>
             <div className='movieList'>
-              {movieData6.map((movie) => (
-                <MovieBox
-                  key={movie.movieId}
-                  date={movie.date}
-                  imageURL={movie.imageURL}
-                  rate={movie.rate}
-                  title={movie.title}
-                  movieId={movie.movieId}
-                />
-              ))}
+              <Slider {...settings}>
+                {movieData6.map((movie) => (
+                  <MovieBox
+                    key={movie.movieId}
+                    date={movie.date}
+                    imageURL={movie.imageURL}
+                    rate={movie.rate}
+                    title={movie.title}
+                    movieId={movie.movieId}
+                  />
+                ))}
+              </Slider>
             </div>
           </section>
+          
         </div>
+        <Footer />
       </>
     );
   }

@@ -12,10 +12,6 @@ class Signup extends Component {
     };
   }
 
-  componentDidMount() {
-    console.log(localStorage.getItem('TOKEN'));
-  }
-
   handleInput = (e) => {
     const { value, name } = e.target;
     this.setState({
@@ -47,7 +43,6 @@ class Signup extends Component {
     }
   };
 
-  // sign-up!
   fetchSignUp = (name, email, password) => {
     fetch(SIGNUP_API, {
       method: 'POST',
@@ -61,7 +56,6 @@ class Signup extends Component {
       }),
     })
       .then((res) => {
-        console.log('before json', res);
         this.props.onSignupSuccess();
       })
       .catch((error) => {
@@ -69,7 +63,6 @@ class Signup extends Component {
       });
   };
 
-  //log-in!
   fetchLogin = (email, password) => {
     fetch(LOGIN_API, {
       method: 'POST',
@@ -84,24 +77,18 @@ class Signup extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.token) {
-          console.log('token', res.token);
-          localStorage.setItem('token', res.token); // 토큰 추가
-          localStorage.setItem('profile_url', '/images/profile.jpg');
+          localStorage.setItem('token', res.token);
           this.props.onLoginSuccess();
         }
       })
-      //에러체크용
       .catch((error) => {
-        console.log('Error fetch but will test');
         localStorage.setItem('token', 'fake_error_token_which_should_work.');
-        localStorage.setItem('profile_url', '/images/profile.jpg');
         this.props.onLoginSuccess();
       });
   };
 
   render() {
     const {
-      onSignupSuccess,
       handleClickedType,
       clickedType,
       handleLoginOrSignupModal,

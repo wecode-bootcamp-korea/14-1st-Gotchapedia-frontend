@@ -21,7 +21,6 @@ class MovieDetail extends Component {
     this.props.history.push(`/movies/${this.props.match.params.id}/detail`);
   }
 
-  // 동적 라우팅
   componentDidMount() {
     fetch(`http://3.35.216.109:8000/movies/${this.props.match.params.id}`, {
         headers: {

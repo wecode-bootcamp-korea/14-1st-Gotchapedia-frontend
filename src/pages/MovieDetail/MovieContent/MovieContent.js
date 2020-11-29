@@ -30,7 +30,20 @@ class MovieContent extends Component {
     };
   }
 
-  handleChange = (e) => {
+  handleWriteChange = (e) => {
+    if (e.target.value) {
+      this.setState({
+        commentString: e.target.value,
+        isColor: true,
+      });
+    } else {
+      this.setState({
+        isColor: false,
+      });
+    }
+  };
+
+  handleUpdateChange = (e) => {
     if (e.target.value) {
       this.setState({
         commentString: e.target.value,
@@ -93,13 +106,13 @@ class MovieContent extends Component {
           userImage: '/images/chorong2.png',
           likeCount: '0',
           replyCount: '0',
-        };  
+        };
 
         if (result.message !== 'ALREADY_EXIST') {
           this.setState({
             commentList: [obj, ...commentList],
             isCommentdAdded: true,
-            newCommentId: obj.id
+            newCommentId: obj.id,
           });
           this.closeModalComment();
         } else {
@@ -114,23 +127,20 @@ class MovieContent extends Component {
     const { commentList, commentString } = this.state;
     const updatedCommentList = [...commentList];
     const updatedComment = {...commentList[0], content:commentString}
-    updatedCommentList.splice(0, 1, updatedComment)
-    console.log(updatedCommentList)
+    updatedCommentList.splice(0, 1, updatedComment);
 
     fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
       method:"PATCH",
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: PREFERRED_TOKEN, 
       },
     })
       .then((res) => { console.log(res)});
   };
 
-  // 커멘트가 남아있어야 함
-
   deleteComment = () => {
 
-    const { commentList, n } = this.state;
+    const { commentList } = this.state;
     const { id } = this.props;
     const deletedComment = Array.from(commentList);
     deletedComment.splice(0, 1);
@@ -139,8 +149,6 @@ class MovieContent extends Component {
       commentList: deletedComment,
       isCommentdAdded: false,
     })
-
-    console.log('댓글 쓴 사람의 아이디 >>>>>>>>>>>>>>>>>>>> ', this.state.newCommentId);
 
     fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
       method:"DELETE",
@@ -167,7 +175,6 @@ class MovieContent extends Component {
     });
   };
 
-
   render() {
     const settings = {
       dots: false,
@@ -177,15 +184,13 @@ class MovieContent extends Component {
       slidesToScroll: 2,
     };
 
-    const { contentData, isComment, commentList, isCommentdAdded } = this.state;
-    const { movieContentData, id, goToOverview } = this.props;
+    const { contentData, isComment, commentList, isCommentdAdded, isEditted } = this.state;
+    const { movieContentData, goToOverview } = this.props;
     const castingListData = movieContentData.staff;
-
 
     return (
       <>
         <div className='MovieContent'>
-          {/* 남아있다는게 무슨말이야 돌아와도 남아있어야함 */}
           {isCommentdAdded ? (
             <ShowComment
               deleteComment={this.deleteComment}
@@ -247,14 +252,10 @@ class MovieContent extends Component {
                   {commentList.length > 0 &&
                     commentList.map((el) => {
                       return (
-                        // 얘는 그냥 뿌려주는 애임
                         <CommentBox
                           key={el.id}
                           movieId={movieContentData.id}
                           commentList={el}
-                          // 이거 줄 필요가 없지 함수 동작시키는 버튼같은게 없으니까
-                          // deleteComment={this.deleteComment}
-                          // updateComment={this.updateComment}
                           contentData={this.state.contentData}
                         />
                       );
@@ -267,10 +268,13 @@ class MovieContent extends Component {
         <div className={isComment ? '' : 'displayNone'}>
           <CommentWrite
             commentWriteData={contentData.length > 0 && contentData}
-            handleChange={this.handleChange}
+            handleWriteChange={this.handleWriteChange}
+            handleUpdateChange={this.handleUpdateChange}
             addComment={this.addComment}
+            updateComment={this.updateComment}
             isColor={this.state.isColor}
             isComment={isComment}
+            isEditted={isEditted}
             closeModalComment={this.closeModalComment}
           />
         </div>

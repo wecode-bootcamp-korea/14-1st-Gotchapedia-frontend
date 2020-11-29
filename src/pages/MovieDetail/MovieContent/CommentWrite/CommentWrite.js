@@ -5,12 +5,12 @@ class CommentWrite extends Component {
   constructor() {
     super();
     this.state = ({
-
+      
     })
   }
 
   render() {
-    const { commentWriteData, closeModalComment, addComment, handleChange, isColor } = this.props;
+    const { commentWriteData, closeModalComment, addComment, updateComment, handleWriteChange, handleUpdateChange, isColor, isEditted } = this.props;
 
     return(
       <div className='CommentWrite' onClick={closeModalComment}>
@@ -21,8 +21,8 @@ class CommentWrite extends Component {
             <div className={isColor ? 'coloredHeadingComment' : 'headingComment'} onClick={addComment}>코멘트 작성</div>
           </div>
           <div className='commentContent'>
-            <input className='writeComment' placeholder='이 작품에 대한 생각을 자유롭게 표현해주세요.' onChange={handleChange} ></input>
-          </div>
+            <input className='writeComment' placeholder='이 작품에 대한 생각을 자유롭게 표현해주세요.' onChange={handleWriteChange} ></input>
+          </div>  
         </div>
       </div>
     )

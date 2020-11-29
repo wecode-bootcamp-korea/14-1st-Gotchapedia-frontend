@@ -13,7 +13,7 @@ class ShowComment extends Component {
     return (
       <div className='commentCrudWrapper'>
         <div className='commentCrudLeft'>
-          <img className='crudProfileImage' src={showComment.userImage} alt='댓글수정삭제프로필' ></img>
+          <img className='crudProfileImage' src='/images/defaultProfile.png' alt='댓글수정삭제프로필' ></img>
           <div className='crudProfileName'>
             {showComment.userName}
           </div>
@@ -35,6 +35,3 @@ class ShowComment extends Component {
 }
 
 export default ShowComment;
-
-
-// {commentList[0].comment}

@@ -160,7 +160,7 @@ class Main extends Component {
             <div className='movieList'>
               {movieData2.map((movie) => (
                 <MovieBox
-                  key={movie.id}
+                  key={movie.movieId}
                   date={movie.date}
                   imageURL={movie.imageURL}
                   rate={movie.rate}

@@ -49,15 +49,13 @@ class Nav extends Component {
   };
 
   onSignupSuccess = () => {
-    alert('회원가입이 완료되었습니다.');
+    alert('회원가입 완료');
     this.setState({ isLoginOrSignupModalOn: false });
-    console.log('실행', this.state.isLoginOrSignupModalOn);
   };
 
-  //임시 로그아웃
   logout = () => {
     localStorage.clear();
-    alert('logged out');
+    alert('로그아웃 완료');
     this.setState({ userIsLoggedIn: false });
   };
 
@@ -95,7 +93,6 @@ class Nav extends Component {
         </>
       );
     }
-    // console.log('render', this.state.isLoginOrSignupModalOn);
 
     return (
       <>

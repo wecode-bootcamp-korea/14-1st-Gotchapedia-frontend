@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MovieBox from './MovieBox/MovieBox';
-// import Arrow from './sliderArrow';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './themeBox.scss';
 
@@ -10,11 +9,8 @@ class ThemeBox extends Component {
     this.state = { movieList: [], idMovieList: {} };
   }
   componentDidMount() {
-    console.log('Alpha alpha');
     this.fetcharow();
   }
-  // http://localhost:3000/data//movielist.json
-  // 3.35.216.109:8000/movies/user?id=1
 
   fetcharow = () => {
     fetch('http://localhost:3000/data//movielist.json', {
@@ -70,7 +66,6 @@ class ThemeBox extends Component {
                       <ScrollMenu
                         data={oneHorizontalLayoutDataPayload.favoritemovies.map(
                           (movieboxData) => {
-                            console.log('moviewbox', movieboxData);
                             return (
                               <MovieBox
                                 date={movieboxData.moviedate}

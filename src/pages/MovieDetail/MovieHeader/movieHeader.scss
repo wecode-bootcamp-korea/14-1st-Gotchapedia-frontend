@@ -8,8 +8,9 @@
     background-color: #eee;
     height: 300px;
     overflow: hidden;
-    // 헤더 배경 scss 손 볼것!!
-    // background-image: linear-gradient(-180deg);
+    img {
+      margin-top: 200px;
+    }
   }
 
   .MovieHeaderBottom {

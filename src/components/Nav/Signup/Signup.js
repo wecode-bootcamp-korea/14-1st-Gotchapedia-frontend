@@ -113,6 +113,7 @@ class Signup extends Component {
                 placeholder='이름'
                 onChange={this.handleInput}
                 name='name'
+                autoComplete="off"
               />
               <input
                 type='text'
@@ -120,6 +121,7 @@ class Signup extends Component {
                 placeholder='이메일'
                 onChange={this.handleInput}
                 name='email'
+                autoComplete="off"
               />
               <input
                 type='password'
@@ -127,6 +129,7 @@ class Signup extends Component {
                 placeholder='비밀번호'
                 onChange={this.handleInput}
                 name='password'
+                autoComplete="off"
               />
               <button onClick={this.checkValidation} className='signupBtn'>
                 {clickedType === '회원가입' ? '회원가입' : '로그인'}

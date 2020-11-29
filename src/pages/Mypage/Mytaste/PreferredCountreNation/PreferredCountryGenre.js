@@ -4,14 +4,14 @@ class PreferredCountryGenre extends Component {
   constructor() {
     super();
     this.state = {
-      isMore: false
-    }
+      isMore: false,
+    };
   }
 
   render() {
     const preferredCountryData = this.props.userData.data;
     const preferredGenreData = this.props.userGenreData.data;
-    const {isMore} = this.state;
+    const { isMore } = this.state;
     return (
       <>
         <div className='preferredCountry'>
@@ -113,30 +113,36 @@ class PreferredCountryGenre extends Component {
                 </div>
               </li>
               <div className={isMore ? '' : 'displayNone'}>
-              <li>
-                <div>{preferredGenreData[3].label}</div>
-                <div className='small'>
-                  {preferredGenreData[3].score}점 ・{' '}
-                  {preferredGenreData[3].count}편
-                </div>
-              </li>
-              <li>
-                <div>{preferredGenreData[4].label}</div>
-                <div className='small'>
-                  {preferredGenreData[4].score}점 ・{' '}
-                  {preferredGenreData[4].count}편
-                </div>
-              </li>
-              <li>
-                <div>{preferredGenreData[5].label}</div>
-                <div className='small'>
-                  {preferredGenreData[5].score}점 ・{' '}
-                  {preferredGenreData[5].count}편
-                </div>
-              </li>
+                <li>
+                  <div>{preferredGenreData[6].label}</div>
+                  <div className='small'>
+                    {preferredGenreData[6].score}점 ・{' '}
+                    {preferredGenreData[6].count}편
+                  </div>
+                </li>
+                <li>
+                  <div>{preferredGenreData[7].label}</div>
+                  <div className='small'>
+                    {preferredGenreData[7].score}점 ・{' '}
+                    {preferredGenreData[7].count}편
+                  </div>
+                </li>
+                <li>
+                  <div>{preferredGenreData[8].label}</div>
+                  <div className='small'>
+                    {preferredGenreData[8].score}점 ・{' '}
+                    {preferredGenreData[8].count}편
+                  </div>
+                </li>
               </div>
             </ul>
-            <button className='moreBtn bold' onClick={() => {this.setState({isMore: !isMore})}}>더보기</button>
+            <button
+              className='moreBtn bold'
+              onClick={() => {
+                this.setState({ isMore: !isMore });
+              }}>
+              더보기
+            </button>
           </div>
         </div>
       </>

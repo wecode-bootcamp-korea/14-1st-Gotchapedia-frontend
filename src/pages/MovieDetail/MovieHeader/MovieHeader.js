@@ -6,9 +6,9 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import Rating from './HoverRating/HoverRating';
+import HoverRating from './HoverRating/HoverRating';
 
-//
+
 // 이건 스타 API
 // const STAR_API = `http://10.58.1.5:8000/analysis/star/${this.props.match.params.id}`
 const MOVIEDETAIL_TOKEN =
@@ -86,7 +86,7 @@ class MovieHeader extends Component {
     const { movieHeaderData } = this.props;
     const subImage = movieHeaderData.subImage;
     const genre = movieHeaderData.genre;
-
+    console.log('movieHeaderData >>>>>>>>>>>>>>>>> ', movieHeaderData)
     return (
       <div>
         <div className='MovieHeaderTop'>
@@ -125,7 +125,7 @@ class MovieHeader extends Component {
                     </button>
                   </div>
                   <div className='starRatingBox'>
-                    <Rating starPoint={starPoint} />
+                    <HoverRating starPoint={starPoint} movieId={movieHeaderData.id}/>
                   </div>
                 </div>
               </div>

@@ -23,35 +23,9 @@ class CommentBox extends Component {
     });
   };
 
-  // componentDidMount() {
-  //   fetch(`${SERVER}/movies/${this.props.id}/comment/${this.props.commentId}`, {
-  //     headers: {
-  //       Authorization: MOVIEDETAIL_TOKEN,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       this.setState({ movieDetailData: res.data });
-  //     });
-  // }
-  
-  // componentDidMount() {
-  //   fetch(`${SERVER}/movies/${this.props.movieId}/comments`, {
-  //     headers: {
-  //       Authorization: MOVIEDETAIL_TOKEN,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       // this.setState({
-  //       //   commentBoxData: res
-  //       // })
-  //     })
-  // }
-
   render() {
     const { commentBoxData, commentList, movieId } = this.props;
-    let cnt = Number(commentList.likeCount);
+    let likeCount = Number(commentList.likeCount);
     const { isLike } = this.state;
 
     return (
@@ -59,8 +33,7 @@ class CommentBox extends Component {
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-               {/* 이거 왜 이미지가 안 나오지??  */}
-              <img className='commentorImage' src='/images/chorong2.png' alt='작성자아이콘' />
+              <img className='commentorImage' src={commentList.userImage} alt='작성자아이콘' />
               <div className='commentorId'>{commentList.userName} </div>
             </div>
             <div className='titleRight'>
@@ -74,7 +47,7 @@ class CommentBox extends Component {
           <div className='commentIcons'>
             <div className='thumbsUpWrapper'>
               <FontAwesomeIcon className='thumsUpIcon' icon={faThumbsUp} />
-              {isLike ? (cnt += 1) : cnt}
+              {isLike ? (likeCount += 1) : likeCount}
             </div>
             <div className='commentWrapper'>
               <FontAwesomeIcon className='commentIcon' icon={faComment} />

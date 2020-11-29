@@ -19,7 +19,6 @@ class MovieContent extends Component {
       commentString: '',
       commentArray: [],
       isColor: false,
-      commentId: '',
       castingImage: '',
       hoverRating: '',
       thumbsUp: '',
@@ -27,7 +26,6 @@ class MovieContent extends Component {
       commentList: [],
       commentObj: {},
       isCommentdAdded: false,
-      comment_Id:'',
       newCommentId: ''
     };
   }
@@ -45,10 +43,7 @@ class MovieContent extends Component {
     }
   };
 
-  // 얘는 기존의 댓글들
-
   componentDidMount() {
-    console.log("after delete")
     fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
       headers: {
         Authorization: PREFERRED_TOKEN,
@@ -58,7 +53,6 @@ class MovieContent extends Component {
       .then((res) => {
         this.setState({
           commentList: res.data,
-
         });
       });
   }
@@ -78,11 +72,8 @@ class MovieContent extends Component {
   //         });
   //       });
   //   }
-
-    
   // }
 
-  // 여기가 댓글 추가니까 post 보내야함
   addComment = (e) => {
     e.preventDefault();
     this.sendComment();
@@ -99,23 +90,19 @@ class MovieContent extends Component {
       commentId
     } = this.state;
 
-    // 얘는 댓글 쓸때 추가되는 댓글
     fetch(`${SERVER}/movies/${this.props.id}/comment`, {
       method: 'POST',
       headers: {
         Authorization: PREFERRED_TOKEN,
       },
       body: JSON.stringify({
-        // movieId가 있어야함 !!
         movieId: this.props.id,
         content: this.state.commentString,
       }),
     })
       .then((response) => response.json())
       .then((result) => {
-      console.log(result)
         const obj = {
-          // 이 id 처리가 어떻게 되는거지??
           id:result.message.id,
           content: commentString,
           userName: '고은정',
@@ -124,7 +111,6 @@ class MovieContent extends Component {
           likeCount: '0',
           replyCount: '0',
         };  
-        // console.log('obj.id >>>>>>>>>>>>>>>>>>>>>>>>>>',obj.id);
 
         if (result.message !== 'ALREADY_EXIST') {
           this.setState({
@@ -206,29 +192,31 @@ class MovieContent extends Component {
   //   });
   // };
 
-  deleteComment = (id) => {
+  deleteComment = () => {
 
-    const { commentList,comment_id } = this.state;
-    console.log(comment_id)
+    const { commentList, comment_id } = this.state;
     const deletedComment = Array.from(commentList);
     deletedComment.splice(0, 1);
-   
 
     this.setState({
       commentList: deletedComment,
       isCommentdAdded: false,
     })
 
-    fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
+    console.log('댓글 쓴 사람의 아이디 >>>>>>>>>>>>>>>>>>>> ', this.state.newCommentId);
+
+    // this.state.newCommentId 이 부분이 왜 자꾸 undefined가 뜰까??? 여기에 값만 제대로 들어가면 되는데
+    // this.props.id는 무비아이디, this.state.newCommentId는 댓글러 아이디
+
+    // http://3.35.216.109:8000/movies/{movieId}/comment/{commentId}
+    fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
       method:"DELETE",
       headers: {
         Authorization: PREFERRED_TOKEN,
       },
     })
       .then((res) => res.json())
-      .then((res) => {
-       console.log(res)
-      });
+      .then((res) => { console.log(res)});
   }
 
   goToCommentDetail = () => {
@@ -252,7 +240,7 @@ class MovieContent extends Component {
   return id_list
   }
   render() {
-    console.log(this.get_id()[0]-1)
+    // console.log(this.get_id()[0]-1)
     const settings = {
       dots: false,
       infinite: true,

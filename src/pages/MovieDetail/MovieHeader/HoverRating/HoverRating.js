@@ -19,7 +19,6 @@ const labels = {
   5: '최고에요! 와!',
 };
 
-// 이름 바꿔도 되나??
 class HoverRating extends Component {
   constructor() {
     super();
@@ -29,7 +28,6 @@ class HoverRating extends Component {
     }
   }
 
-  // 별점은 잘 간다
   sendStar = () => {
     const { value, hover } = this.state;
 
@@ -43,7 +41,6 @@ class HoverRating extends Component {
         starPoint: this.state.value
       }),
     })
-      .then((res) => { console.log(res.ok)})
   }
 
   render() {
@@ -52,25 +49,22 @@ class HoverRating extends Component {
 
     return (
       <div className='hoverRatingWrapper'>
-          <div className='hoverRating'>
-            {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
-            <Rating
-              name="hover-feedback"
-              value={value}
-              precision={0.5}
-              onChange={(event, newValue) => {
-              this.setState({value : newValue});
-              }}
-              onChangeActive={(event, newHover) => {
-              this.setState({hover: newHover});
-              }}
-              onClick={this.sendStar}
-            />
-          </div>
-          내가 찍은 별점 {this.state.value}
-          <br></br>
-          내가 받은 별점 {starPoint}
+        <div className='hoverRating'>
+          {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
+          <Rating
+            name="hover-feedback"
+            value={value}
+            precision={0.5}
+            onChange={(event, newValue) => {
+            this.setState({value : newValue});
+            }}
+            onChangeActive={(event, newHover) => {
+            this.setState({hover: newHover});
+            }}
+            onClick={this.sendStar}
+          />
         </div>
+      </div>
     )
   }
 }

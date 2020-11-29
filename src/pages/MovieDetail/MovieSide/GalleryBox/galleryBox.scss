@@ -4,15 +4,16 @@
   display: flex;
   overflow: hidden;
   overflow-x: scroll;
+  padding: 10px 0;
 
   .galleryPictureWrapper {
-    padding: 10px;
+    padding: 0px 5px 10px 7px;
+    display: flex;
+    align-items: flex-end;
     .galleryPicture {
       width: 138px;
       height: 89px;
-      padding: 10px 0px;
-      border: 1px solid #bebebe;
-      border-radius: 5px;
+      border: 1px solid #000000;
     }
   }
 }

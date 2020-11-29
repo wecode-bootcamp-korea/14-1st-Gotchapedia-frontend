@@ -113,32 +113,6 @@ class MovieContent extends Component {
     .catch((error) => console.log('error', error));
   };
 
-  // updateComment = (e) => {
-  //   e.preventDefault();
-  //   this.openModalComment();
-  //   const { commentList, commentString } = this.state;
-  //   const updatedCommentList = [...commentList];
-  //   const updatedComment = {...commentList[0], content:commentString}
-  //   updatedCommentList.splice(0, 1, updatedComment);
-
-  //   this.setState({
-  //     commentList: updatedCommentList
-  //   })
-  //   this.closeModalComment();
-
-  //   fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
-  //     method:"PATCH",
-  //     headers: {
-  //       Authorization: PREFERRED_TOKEN, 
-  //     },
-  //     body: JSON.stringify({
-  //       content: this.state.commentList,
-  //     }),
-  //   })
-  //     .then((res) => { console.log(res)});
-  // };
-  
-  // 수정할 내용을 보내자
   updateComment = (e) => {
     console.log('클릭');  
     e.preventDefault();
@@ -153,11 +127,14 @@ class MovieContent extends Component {
       }),
     })
     .catch((error) => console.log('error', error));
-    // .then((res) => {console.log(res)});
-
-    this.closeModalComment();
-   
-    console.log('수정할 내용 >>>>>>>>>>>>>>>>> ', this.state.commentUpdateString);
+    
+    const { commentList, commentUpdateString } = this.state;
+    const updatedCommentList = [...commentList];
+    updatedCommentList[0].content = commentUpdateString;
+    this.setState({
+      commentList: updatedCommentList
+    })
+    this.closeModalComment();   
   }
 
   deleteComment = () => {
@@ -294,6 +271,7 @@ class MovieContent extends Component {
             updateComment={this.updateComment}
             isColor={this.state.isColor}
             closeModalComment={this.closeModalComment}
+            commentString={this.state.commentString}
           /> : 
           <CommentWrite
             commentWriteData={contentData.length > 0 && contentData}
@@ -302,14 +280,6 @@ class MovieContent extends Component {
             isColor={this.state.isColor}
             closeModalComment={this.closeModalComment}
           />}
-          {/* <CommentWrite
-            commentWriteData={contentData.length > 0 && contentData}
-            handleWriteChange={this.handleWriteChange}
-            addComment={this.addComment}
-            isColor={this.state.isColor}
-            isEditted={this.state.isEditted}
-            closeModalComment={this.closeModalComment}
-          /> */}
         </div>
       </>
     );

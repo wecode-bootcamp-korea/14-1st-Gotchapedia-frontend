@@ -10,7 +10,7 @@ class CommentUpdate extends Component {
   }
 
   render() {
-    const { commentUpdateData, closeModalComment, updateComment, handleUpdateChange, isColor } = this.props;
+    const { commentUpdateData, closeModalComment, updateComment, handleUpdateChange, isColor, commentString } = this.props;
 
     return(
       <div className='CommentUpdate' onClick={closeModalComment}>
@@ -21,7 +21,7 @@ class CommentUpdate extends Component {
             <div className={isColor ? 'coloredHeadingComment' : 'headingComment'} onClick={updateComment}>코멘트 수정</div>
           </div>
           <div className='commentContent'>
-            <input className='UpdateComment' placeholder='이 작품에 대한 생각을 자유롭게 수정해주세요.' onChange={handleUpdateChange} ></input>
+            <input className='UpdateComment' placeholder={commentString} onChange={handleUpdateChange} ></input>
           </div>  
         </div>
       </div>

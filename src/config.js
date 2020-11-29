@@ -5,9 +5,9 @@ export const SERVER = 'http://3.35.216.109:8000';
 export const SIGNUP_API = `${SERVER}/users`;
 export const LOGIN_API = `${SERVER}/users/log-in`;
 
-export const MAINPAGE_API2 = '/Data/mainpage.json';
+// export const MAINPAGE_API2 = '/Data/mainpage.json';
 export const MAINPAGE_API1 = `${SERVER}/movies/user?id=1`;
-// export const MAINPAGE_API2 = `${SERVER}/movies/user?id=2`;
+export const MAINPAGE_API2 = `${SERVER}/movies/user?id=2`;
 export const MAINPAGE_API3 = `${SERVER}/movies/user?id=3`;
 export const MAINPAGE_API4 = `${SERVER}/movies/user?id=4`;
 export const MAINPAGE_API5 = `${SERVER}/movies/user?id=5`;

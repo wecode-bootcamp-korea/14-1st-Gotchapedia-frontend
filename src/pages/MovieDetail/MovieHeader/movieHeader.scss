@@ -1,6 +1,5 @@
 @import '../../../styles/common.scss';
 
-
 .MovieHeaderWrapper {
   .MovieHeaderTop {
     @include flex-center;
@@ -29,7 +28,6 @@
       }
 
       .posterDetailWrapper {
-
         .posterRanking {
           width: 769px;
           font-size: 13px;

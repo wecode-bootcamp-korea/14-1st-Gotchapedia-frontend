@@ -38,7 +38,6 @@ class ThemeBox extends Component {
         this.setState({ idMovieList: newIdMovieList });
         let list = [];
         for (let key in newIdMovieList) {
-          console.log('pushing', newIdMovieList[key]);
           list.push(newIdMovieList[key]);
         }
 
@@ -50,7 +49,6 @@ class ThemeBox extends Component {
 
   render() {
     const { movieListData } = this.props;
-    console.log(movieListData);
     return (
       <>
         {this.state.movieList.map((oneHorizontalLayoutDataPayload) => {

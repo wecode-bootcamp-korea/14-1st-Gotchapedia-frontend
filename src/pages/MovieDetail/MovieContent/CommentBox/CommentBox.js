@@ -4,7 +4,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import './CommentBox.scss';
-import { MOVIEDETAIL_TOKEN, SERVER } from '../../../../config';
 
 class CommentBox extends Component {
   constructor() {
@@ -24,18 +23,16 @@ class CommentBox extends Component {
   };
 
   render() {
-    const { commentBoxData, commentList, movieId } = this.props;
+    const { commentList } = this.props;
     let likeCount = Number(commentList.likeCount);
     const { isLike } = this.state;
-
-    // 얘는 바뀐거 댓글리스트 뿌려주기만 하는앤데 함수를 줄 필요가 없지
     
     return (
       <>
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img className='commentorImage' src={commentList.userImage} alt='작성자아이콘' />
+              <img className='commentorImage' src='/images/defaultProfile.png' alt='작성자아이콘' />
               <div className='commentorId'>{commentList.userName} </div>
             </div>
             <div className='titleRight'>

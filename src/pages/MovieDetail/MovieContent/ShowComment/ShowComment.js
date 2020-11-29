@@ -7,7 +7,7 @@ import './showComment.scss';
 class ShowComment extends Component {
 
   render() {
-    const { commentList, deleteComment, updateComment } = this.props;
+    const { commentList, deleteComment, openModalComment } = this.props;
     const showComment = commentList[0];
 
     return (
@@ -26,7 +26,7 @@ class ShowComment extends Component {
             <FontAwesomeIcon className='commentDeleteIcon' onClick={deleteComment} icon={faTrashAlt} />
           </div>
           <div className='commentCrudUpdate'>
-            <FontAwesomeIcon className='commentUpdateIcon' onClick={updateComment} icon={faPencilAlt} />
+            <FontAwesomeIcon className='commentUpdateIcon' onClick={openModalComment} icon={faPencilAlt} />
           </div>
         </div>
       </div>

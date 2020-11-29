@@ -29,6 +29,7 @@ class MovieContent extends Component {
       isCommentdAdded: false, 
       newCommentId: '',
       isEditted: false,
+      commentUpdateString: '',
     };
   }
 
@@ -48,7 +49,7 @@ class MovieContent extends Component {
   handleUpdateChange = (e) => {
     if (e.target.value) {
       this.setState({
-        commentString: e.target.value,
+        commentUpdateString: e.target.value,
         isColor: true,
       });
     } else {
@@ -64,24 +65,19 @@ class MovieContent extends Component {
         Authorization: PREFERRED_TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          commentList: res.data,
-        });
+    .then((res) => res.json())
+    .then((res) => {
+      this.setState({
+        commentList: res.data,
       });
+    });
   }
 
   addComment = (e) => {
     e.preventDefault();
     const {
       commentString,
-      id,
-      commentObj,
-      commentArray,
       commentList,
-      isCommentdAdded,
-  
     } = this.state;
 
     fetch(`${SERVER}/movies/${this.props.id}/comment`, {
@@ -117,31 +113,54 @@ class MovieContent extends Component {
     .catch((error) => console.log('error', error));
   };
 
-  // sendComment = () => {
+  // updateComment = (e) => {
+  //   e.preventDefault();
+  //   this.openModalComment();
+  //   const { commentList, commentString } = this.state;
+  //   const updatedCommentList = [...commentList];
+  //   const updatedComment = {...commentList[0], content:commentString}
+  //   updatedCommentList.splice(0, 1, updatedComment);
 
+  //   this.setState({
+  //     commentList: updatedCommentList
+  //   })
+  //   this.closeModalComment();
+
+  //   fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
+  //     method:"PATCH",
+  //     headers: {
+  //       Authorization: PREFERRED_TOKEN, 
+  //     },
+  //     body: JSON.stringify({
+  //       content: this.state.commentList,
+  //     }),
+  //   })
+  //     .then((res) => { console.log(res)});
   // };
-
-  updateComment = () => {
-    this.openModalComment();
-    const { commentList, commentString } = this.state;
-    const updatedCommentList = [...commentList];
-    const updatedComment = {...commentList[0], content:commentString}
-    updatedCommentList.splice(0, 1, updatedComment);
-    this.setState({
-      commentList: updatedCommentList
-    })
-
-    fetch(`${SERVER}/movies/${this.props.id}/comment/${this.state.newCommentId}`, {
+  
+  // 수정할 내용을 보내자
+  updateComment = (e) => {
+    console.log('클릭');  
+    e.preventDefault();
+    const { id } = this.props;
+    fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
       method:"PATCH",
       headers: {
-        Authorization: PREFERRED_TOKEN, 
+        Authorization: PREFERRED_TOKEN,
       },
+      body: JSON.stringify({
+      content: this.state.commentUpdateString,
+      }),
     })
-      .then((res) => { console.log(res)});
-  };
+    .catch((error) => console.log('error', error));
+    // .then((res) => {console.log(res)});
+
+    this.closeModalComment();
+   
+    console.log('수정할 내용 >>>>>>>>>>>>>>>>> ', this.state.commentUpdateString);
+  }
 
   deleteComment = () => {
-
     const { commentList } = this.state;
     const { id } = this.props;
     const deletedComment = Array.from(commentList);
@@ -196,7 +215,7 @@ class MovieContent extends Component {
           {isCommentdAdded ? (
             <ShowComment
               deleteComment={this.deleteComment}
-              updateComment={this.updateComment}
+              openModalComment={this.openModalComment}
               commentList={commentList.length > 0 && commentList}
             />
           ) : (
@@ -283,6 +302,14 @@ class MovieContent extends Component {
             isColor={this.state.isColor}
             closeModalComment={this.closeModalComment}
           />}
+          {/* <CommentWrite
+            commentWriteData={contentData.length > 0 && contentData}
+            handleWriteChange={this.handleWriteChange}
+            addComment={this.addComment}
+            isColor={this.state.isColor}
+            isEditted={this.state.isEditted}
+            closeModalComment={this.closeModalComment}
+          /> */}
         </div>
       </>
     );

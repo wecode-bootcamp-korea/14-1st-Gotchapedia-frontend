@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import MovieBox from './ThemeBox/MovieBox/MovieBox';
 import Nav from '../../components/Nav/Nav';
 import Slider from 'react-slick';
+import Footer from '../../components/Footer/Footer';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 import {
@@ -15,7 +16,6 @@ import {
   MYPAGE_TOKEN,
 } from '../../config';
 import './main.scss';
-import Footer from '../../components/Footer/Footer';
 
 class Main extends Component {
   constructor() {

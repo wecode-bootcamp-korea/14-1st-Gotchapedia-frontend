@@ -37,7 +37,10 @@
 - Database Modeling, 별점 CRUD, 댓글 CRUD, 댓글-좋아요 CRUD, 영화 상세 정보 endpoint 
 
 `고은정`
-- 적어주세요
+- 메인페이지, 유저 마이페이지: Slick slider 이용 이미지 carousel 구현
+- 디테일페이지: Postman 및 Youtube API 활용 쿼리 검색 결과 리스팅 기능 구현
+- Navbar: and 검색 기능 구현, 반응형 구현
+- User my taste page: Word Cloud 및 Chart.js 활용하여 유저의 취향 분석 데이터 시각화, cloudinary 서비스 활용하여 유저의 프로필 사진 업데이트 기능 구현 
 
 `김병준`
 - 적어주세요

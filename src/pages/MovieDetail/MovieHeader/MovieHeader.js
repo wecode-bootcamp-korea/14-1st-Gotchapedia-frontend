@@ -47,8 +47,6 @@ class MovieHeader extends Component {
       });
   }
 
-
-
   componentDidUpdate(prevProps, prevState) {
     const { starPoint } = this.state;
     if (starPoint !== prevState.starPoint) {

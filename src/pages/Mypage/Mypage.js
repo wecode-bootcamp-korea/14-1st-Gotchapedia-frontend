@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-import Nav from '../../components/Nav/Nav';
+import Nav from 'components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { MYPAGE_API, TOKEN, WANNAWATCH_API, WATCHING_API } from 'config';

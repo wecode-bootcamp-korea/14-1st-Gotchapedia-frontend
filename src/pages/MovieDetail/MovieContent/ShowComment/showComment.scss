@@ -1,8 +1,9 @@
 @import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .commentCrudWrapper {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: $white;
+  border: 1px solid $lightgrey;
   margin-bottom: 20px;
   border-radius: 5px;
   display: flex;

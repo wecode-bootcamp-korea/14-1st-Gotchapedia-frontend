@@ -1,11 +1,11 @@
 @import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .Main {
   .header {
     @include flex-spaceBetween-center;
     height: 50px;
-    border-bottom: 1px solid #eeeeee;
-
+    border-bottom: 1px solid $lightgrey;
     .headerArrow {
       margin: 15px 20px 5px 20px;
       font-size: 20px;
@@ -17,14 +17,14 @@
       margin: 20px 20px;
       font-size: 22px;
       font-weight: bold;
-      color: black;
+      color: $grey;
       cursor: pointer;
     }
   }
   section {
     width: 1320px;
     margin: 30px 20px;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid $lightgrey;
 
     .sectionHeader {
       @include flex-spaceBetween-center;
@@ -46,7 +46,7 @@
         margin-left: 5px;
         font-size: 16px;
         font-weight: 400;
-        color: #999898;
+        color: $lightgrey;
       }
 
       .headerRight {
@@ -86,7 +86,7 @@
           width: 141px;
           height: 16px;
           margin-top: 5px;
-          color: #292a32;
+          color: $navy;
           font-size: 15px;
           font-weight: 800;
           overflow: hidden;
@@ -133,7 +133,7 @@
         bottom: 6px;
         right: 183.797px;
         left: 6px;
-        color: #fff;
+        color: $white;
       }
 
       .movieInfo {
@@ -156,7 +156,7 @@
         }
         .movieRate {
           display: flex;
-          color: #555765;
+          color: $navy;
           margin-top: 2px;
           height: 12px;
           .iconStar {
@@ -164,7 +164,7 @@
           }
         }
         .movieRatio {
-          color: #74747b;
+          color: $grey;
           font-size: 13px;
           letter-spacing: -0.3px;
           margin: 5px 0 0 0;

@@ -33,8 +33,6 @@ class MovieHeader extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props.id);
-    console.log(TOKEN);
     fetch(`${process.env.REACT_APP_SERVER}analysis/star/${this.props.id}`, {
       headers: {
         Authorization: TOKEN,

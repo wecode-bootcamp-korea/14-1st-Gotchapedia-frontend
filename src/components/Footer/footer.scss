@@ -1,4 +1,5 @@
 @import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .Footer {
   height: 100%;
@@ -8,14 +9,14 @@
     @include flex-center;
     height: 62px;
     width: 100%;
-    background-color: #101113;
+    background-color: $black;
 
     .footerHeadFont {
       text-align: center;
       font-size: 19px;
       letter-spacing: -0.3px;
       font-weight: 500;
-      color: #d1d1d2;
+      color: $lightgrey;
 
       span {
         color: $pink;
@@ -27,7 +28,7 @@
     height: 100%;
     width: 100%;
     padding: 20px 0 38px 0;
-    background-color: #1c1e20;
+    background-color: $navy;
 
     .footerBody {
       display: flex;
@@ -39,37 +40,37 @@
 
         .footerBodyService {
           height: 22px;
-          color: #a5a5a7;
+          color: $lightgrey;
         }
 
         .footerBodyContact {
           height: 22px;
           display: flex;
           margin-top: 12px;
-          color: #a5a5a7;
+          color: $lightgrey;
         }
 
         .footerBodyPartner {
           height: 22px;
-          color: #a5a5a7;
+          color: $lightgrey;
         }
 
         .footerBodyOwner {
           height: 22px;
           display: flex;
           margin-top: 13px;
-          color: #848485;
+          color: $lightgrey;
         }
 
         .footerBodyCorNumber {
           height: 22px;
-          color: #848485;
+          color: $lightgrey;
         }
 
         .footerBodyGotcha {
           height: 22px;
           margin-top: 2px;
-          color: #848485;
+          color: $lightgrey;
         }
       }
 
@@ -86,9 +87,9 @@
             height: 1.75em;
             width: 7.7em;
             font-size: 15px;
-            color: #a5a5a7;
-            background-color: #1c1e20;
-            border: solid 1px #a5a5a7;
+            color: $lightgrey;
+            background-color: $black;
+            border: solid 1px $lightgrey;
             text-align: left;
             display: flex;
             justify-content: space-between;
@@ -103,8 +104,7 @@
               .twitterIconWrapper {
                 display: inline-block;
                 .twitterIcon {
-                  color: #848485;
-                  // color: #fff;
+                  color: $grey;
                 }
               }
 
@@ -112,15 +112,14 @@
                 display: inline-block;
                 .facebookIcon {
                   font-size: 24px !important;
-                  color: #848485;
+                  color: $grey;
                 }
               }
 
               .googleIconWrapper {
                 display: inline-block;
                 .googleIcon {
-                  color: #848485;
-                  // background-color: #fff;
+                  color: $grey;
                 }
               }
             }

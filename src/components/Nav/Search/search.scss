@@ -1,4 +1,6 @@
 @import 'styles/common.scss';
+@import 'styles/theme.scss';
+
 .Search {
   .searchInput {
     background-color: $lightgrey;
@@ -12,11 +14,11 @@
     left: -30px;
     width: 300px;
     padding: 10px;
-    border: 1px solid rgb(235, 235, 235);
+    border: 1px solid $white;
     z-index: 100000;
     background-color: white;
     .searchList {
-      border-bottom: 1px solid rgb(235, 235, 235);
+      border-bottom: 1px solid $white;
     }
     .searchHeaderWrapper {
       @include flex-spaceBetween-center;
@@ -43,7 +45,7 @@
       text-overflow: ellipsis;
       cursor: pointer;
       &:hover {
-        background-color: #eeeeee;
+        background-color: $white;
       }
     }
   }

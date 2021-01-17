@@ -89,7 +89,6 @@ input {
   border: none;
 }
 
-/* flex 적용하고 싶은  */
 @mixin flex-center {
   display: flex;
   justify-content: center;

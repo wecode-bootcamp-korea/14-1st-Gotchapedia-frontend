@@ -16,7 +16,7 @@ class CommentDetail extends Component {
   }
 
   componentDidMount() {
-    fetch(`${SERVER}/movies/22/comments`, {
+    fetch(`${SERVER}movies/22/comments`, {
       headers: {
         Authorization: TOKEN,
       },

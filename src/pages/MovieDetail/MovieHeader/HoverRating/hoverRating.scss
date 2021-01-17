@@ -1,3 +1,6 @@
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
+
 .hoverRatingBox {
   display: flex;
   flex-direction: column;
@@ -8,7 +11,7 @@
 }
 
 .MuiBox-root {
-  color: #bbb;
+  color: $black;
   font-size: 12px;
   margin: 5px;
 }

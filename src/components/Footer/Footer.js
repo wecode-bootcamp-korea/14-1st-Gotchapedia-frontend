@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CountUp from 'react-countup';
 import 'components/Footer/footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +15,15 @@ class Footer extends Component {
           <span className='footerHeadFont'>
             지금까지{' '}
             <span>
-              <FontAwesomeIcon icon={faStar} /> 583,583,390 개의 평가가
+              <FontAwesomeIcon icon={faStar} />
+              <CountUp
+                duration={4}
+                delay={2}
+                redraw={true}
+                start={0}
+                end={583583390}
+              />
+              {'  '} 개의 평가가
             </span>{' '}
             쌓였어요.
           </span>

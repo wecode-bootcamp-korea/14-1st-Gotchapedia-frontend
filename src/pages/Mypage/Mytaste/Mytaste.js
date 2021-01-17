@@ -10,9 +10,8 @@ import ImgInput from './ImgInput/ImgInput';
 import {
   PREFERRED_API,
   PREFERRED_GENRE_API,
-  PREFERRED_TOKEN,
+  TOKEN,
   MYSTAR_API,
-  MYSTAR_TOKEN,
   IMG_UPLOAD_API,
 } from '../../../config';
 import './mytaste.scss';
@@ -68,7 +67,7 @@ class Mytaste extends Component {
     fetch(IMG_UPLOAD_API, {
       method: 'PATCH',
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
       body: JSON.stringify({
         imageURL: uploadedImg.url,
@@ -83,7 +82,7 @@ class Mytaste extends Component {
   loadPreferredData = () => {
     fetch(PREFERRED_API, {
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -94,7 +93,7 @@ class Mytaste extends Component {
   loadPreferredGenreData = () => {
     fetch(PREFERRED_GENRE_API, {
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -105,7 +104,7 @@ class Mytaste extends Component {
   loadMystarData = () => {
     fetch(MYSTAR_API, {
       headers: {
-        Authorization: MYSTAR_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())

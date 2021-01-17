@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import {
   MYPAGE_API,
-  MYPAGE_TOKEN,
+  TOKEN,
   WANNAWATCH_API,
   WATCHING_API,
 } from '../../config';
@@ -31,7 +31,7 @@ class Mypage extends Component {
   loadMyData = () => {
     fetch(MYPAGE_API, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -42,7 +42,7 @@ class Mypage extends Component {
   loadWannaWatchData = () => {
     fetch(WANNAWATCH_API, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -53,7 +53,7 @@ class Mypage extends Component {
   loadWatchingData = () => {
     fetch(WATCHING_API, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())

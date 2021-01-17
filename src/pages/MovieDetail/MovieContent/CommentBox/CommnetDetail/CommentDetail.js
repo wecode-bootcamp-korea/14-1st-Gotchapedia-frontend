@@ -5,7 +5,7 @@ import CommentDetailBox from './CommentDetailBox/CommentDetailBox';
 import './CommentDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { PREFERRED_TOKEN, SERVER } from '../../../../../config';
+import { TOKEN, SERVER } from '../../../../../config';
 
 class CommentDetail extends Component {
   constructor() {
@@ -18,7 +18,7 @@ class CommentDetail extends Component {
   componentDidMount() {
     fetch(`${SERVER}/movies/22/comments`, {
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())

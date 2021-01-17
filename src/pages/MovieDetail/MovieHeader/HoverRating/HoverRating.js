@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import './hoverRating.scss';
-import { SERVER, PREFERRED_TOKEN } from '../../../../config';
+import { SERVER, TOKEN } from '../../../../config';
 
 const labels = {
   0: '평가하기',
@@ -29,12 +28,10 @@ class HoverRating extends Component {
   }
 
   sendStar = () => {
-    const { value, hover } = this.state;
-
-    fetch(`${SERVER}/analysis/star`, {
+    fetch(`${SERVER}analysis/star`, {
       method: "POST",
       headers: {  
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
       body: JSON.stringify({
         movieId: this.props.movieId,
@@ -45,7 +42,6 @@ class HoverRating extends Component {
 
   render() {
     const { value, hover } = this.state;
-    const { movieId, starPoint } = this.props;
 
     return (
       <div className='hoverRatingWrapper'>

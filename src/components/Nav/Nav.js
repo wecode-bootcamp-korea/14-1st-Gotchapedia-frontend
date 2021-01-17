@@ -5,7 +5,7 @@ import Search from './Search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { MYPAGE_API, MYPAGE_TOKEN } from '../../config';
+import { MYPAGE_API, TOKEN } from '../../config';
 import './nav.scss';
 
 class Nav extends Component {
@@ -25,7 +25,7 @@ class Nav extends Component {
     fetch(MYPAGE_API, {
       method: 'GET',
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -60,7 +60,6 @@ class Nav extends Component {
   };
 
   render() {
-    const { isSignup, isLogin } = this.state;
     const profileImg_LS = localStorage.getItem('profileImg');
     let loginComponent = (
       <>
@@ -88,6 +87,7 @@ class Nav extends Component {
               src={
                 !profileImg_LS ? '/images/defaultProfile.png' : profileImg_LS
               }
+              alt='profileImg'
             />
           </div>
         </>

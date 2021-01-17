@@ -12,7 +12,7 @@ import {
   MAINPAGE_API4,
   MAINPAGE_API5,
   MAINPAGE_API6,
-  MYPAGE_TOKEN,
+  TOKEN,
 } from '../../config';
 import './main.scss';
 import Footer from '../../components/Footer/Footer';
@@ -42,7 +42,7 @@ class Main extends Component {
   loadMainData1 = () => {
     fetch(MAINPAGE_API1, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -52,7 +52,7 @@ class Main extends Component {
   loadMainData2 = () => {
     fetch(MAINPAGE_API2, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -62,7 +62,7 @@ class Main extends Component {
   loadMainData3 = () => {
     fetch(MAINPAGE_API3, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -72,7 +72,7 @@ class Main extends Component {
   loadMainData4 = () => {
     fetch(MAINPAGE_API4, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -82,7 +82,7 @@ class Main extends Component {
   loadMainData5 = () => {
     fetch(MAINPAGE_API5, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -92,7 +92,7 @@ class Main extends Component {
   loadMainData6 = () => {
     fetch(MAINPAGE_API6, {
       headers: {
-        Authorization: MYPAGE_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())

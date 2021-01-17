@@ -9,7 +9,7 @@ import CommentWrite from './CommentWrite/CommentWrite';
 import CommentUpdate from './CommentUpdate/CommentUpdate';
 import ShowComment from '../MovieContent/ShowComment/ShowComment';
 import './movieContent.scss';
-import { SERVER, PREFERRED_TOKEN } from '../../../config';
+import { SERVER, TOKEN } from '../../../config';
 
 class MovieContent extends Component {
   constructor() {
@@ -60,9 +60,9 @@ class MovieContent extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://3.35.216.109:8000/movies/${this.props.id}/comments`, {
+    fetch(`${process.env.REACT_APP_SERVER}movies/${this.props.id}/comments`, {
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
     })
     .then((res) => res.json())
@@ -83,7 +83,7 @@ class MovieContent extends Component {
     fetch(`${SERVER}/movies/${this.props.id}/comment`, {
       method: 'POST',
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
       body: JSON.stringify({
         movieId: this.props.id,
@@ -120,7 +120,7 @@ class MovieContent extends Component {
     fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
       method:"PATCH",
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
       body: JSON.stringify({
       content: this.state.commentUpdateString,
@@ -151,7 +151,7 @@ class MovieContent extends Component {
     fetch(`${SERVER}/movies/${id}/comment/${this.state.newCommentId}`, {
       method: 'DELETE',
       headers: {
-        Authorization: PREFERRED_TOKEN,
+        Authorization: TOKEN,
       },
     }).then((res) => {
       console.log(res);

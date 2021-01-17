@@ -10,8 +10,6 @@ class MovieClip extends Component {
     };
   }
 
-
-
   render() {
     const { videos } = this.props;
 

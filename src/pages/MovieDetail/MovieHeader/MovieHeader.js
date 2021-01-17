@@ -5,8 +5,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import HoverRating from './HoverRating/HoverRating';
+import { TOKEN } from 'config';
 
-const MOVIEDETAIL_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.GOPhcT6nmt8M7Apx1rI-fvvQfSDIMTtWMe371hZ3t8E';
 
 class MovieHeader extends Component {
   constructor() {
@@ -34,9 +34,9 @@ class MovieHeader extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://3.35.216.109:8000/analysis/star/${this.props.id}`, {
+    fetch(`${process.env.REACT_APP_SERVER}analysis/star/${this.props.id}`, {
       headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())
@@ -47,6 +47,8 @@ class MovieHeader extends Component {
       });
   }
 
+
+
   componentDidUpdate(prevProps, prevState) {
     const { starPoint } = this.state;
     if (starPoint !== prevState.starPoint) {
@@ -55,7 +57,7 @@ class MovieHeader extends Component {
   }
 
   render() {
-    const { isWantToSee, starPoint, starScore } = this.state;
+    const { isWantToSee, starPoint } = this.state;
     const { movieHeaderData } = this.props;
     const subImage = movieHeaderData.subImage;
     const genre = movieHeaderData.genre;
@@ -95,7 +97,10 @@ class MovieHeader extends Component {
                     </button>
                   </div>
                   <div className='starRatingBox'>
-                    <HoverRating starPoint={starPoint} movieId={movieHeaderData.id}/>
+                    <HoverRating
+                      starPoint={starPoint}
+                      movieId={movieHeaderData.id}
+                    />
                   </div>
                 </div>
               </div>

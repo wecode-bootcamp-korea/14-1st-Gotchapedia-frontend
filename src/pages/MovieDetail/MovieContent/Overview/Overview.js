@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import {
-  MOVIEDETAIL_TOKEN,
+  TOKEN,
 } from '../../../../config';
 import './overview.scss';
 import Nav from '../../../../components/Nav/Nav';
@@ -17,10 +17,10 @@ class Overview extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://3.35.216.109:8000/movies/${this.props.match.params.id}/detail`, {
+    fetch(`${process.env.REACT_APP_SERVER}movies/${this.props.match.params.id}/detail`, {
       method: 'GET',
       headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
+        Authorization: TOKEN,
       },
     })
       .then((res) => res.json())

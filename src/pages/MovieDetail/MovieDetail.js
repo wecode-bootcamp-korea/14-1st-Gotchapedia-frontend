@@ -5,7 +5,7 @@ import MovieContent from './MovieContent/MovieContent';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieSide from './MovieSide/MovieSide';
 import './movieDetail.scss';
-import { MOVIEDETAIL_TOKEN } from '../../config';
+import { TOKEN } from '../../config';
 
 class MovieDetail extends Component {
   constructor() {
@@ -19,18 +19,18 @@ class MovieDetail extends Component {
 
   goToOverview = () => {
     this.props.history.push(`/movies/${this.props.match.params.id}/detail`);
-  }
+  };
 
   componentDidMount() {
-    fetch(`http://3.35.216.109:8000/movies/${this.props.match.params.id}`, {
-        headers: {
-        Authorization: MOVIEDETAIL_TOKEN,
+    fetch(`${process.env.REACT_APP_SERVER}movies/${this.props.match.params.id}`, {
+      headers: {
+        Authorization: TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({ movieDetailData: res.data });
-      })
+      });
   }
 
   render() {

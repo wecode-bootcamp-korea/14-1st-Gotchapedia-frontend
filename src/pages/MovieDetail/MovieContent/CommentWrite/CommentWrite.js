@@ -1,31 +1,49 @@
 import React, { Component } from 'react';
-import './CommentWrite.scss';
+import 'pages/MovieDetail/MovieContent/CommentWrite/commentWrite.scss';
 
 class CommentWrite extends Component {
   constructor() {
     super();
-    this.state = ({
-      
-    })
+    this.state = {};
   }
 
   render() {
-    const { commentWriteData, closeModalComment, addComment, updateComment, handleWriteChange, handleUpdateChange, isColor, isEditted } = this.props;
+    const {
+      commentWriteData,
+      closeModalComment,
+      addComment,
+      updateComment,
+      handleWriteChange,
+      handleUpdateChange,
+      isColor,
+      isEditted,
+    } = this.props;
 
-    return(
+    return (
       <div className='CommentWrite' onClick={closeModalComment}>
-        <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
+        <div className='modalContainer' onClick={e => e.stopPropagation()}>
           <div className='commentHeading'>
-            <div className='headingX' onClick={closeModalComment}>X</div>
+            <div className='headingX' onClick={closeModalComment}>
+              X
+            </div>
             <div className='headingTitle'>{commentWriteData[0]?.name}</div>
-            <div className={isColor ? 'coloredHeadingComment' : 'headingComment'} onClick={addComment}>코멘트 작성</div>
+            <div
+              className={isColor ? 'coloredHeadingComment' : 'headingComment'}
+              onClick={addComment}
+            >
+              코멘트 작성
+            </div>
           </div>
           <div className='commentContent'>
-            <input className='writeComment' placeholder='이 작품에 대한 생각을 자유롭게 표현해주세요.' onChange={handleWriteChange} ></input>
-          </div>  
+            <input
+              className='writeComment'
+              placeholder='이 작품에 대한 생각을 자유롭게 표현해주세요.'
+              onChange={handleWriteChange}
+            ></input>
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

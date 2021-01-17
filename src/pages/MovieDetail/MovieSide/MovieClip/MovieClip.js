@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
-import './movieClip.scss';
+import 'pages/MovieDetail/MovieSide/MovieClip/movieClip.scss';
 
 class MovieClip extends Component {
   constructor() {
     super();
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
@@ -17,11 +16,12 @@ class MovieClip extends Component {
       <div className='MovieClip'>
         <ul>
           {!!videos.length > 0 &&
-            videos.map((video) => (
+            videos.map(video => (
               <a
                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                 target='_blank'
-                key={video.id.videoId}>
+                key={video.id.videoId}
+              >
                 <li>
                   <div className='thumbnail'>
                     <div className='playIcon'>

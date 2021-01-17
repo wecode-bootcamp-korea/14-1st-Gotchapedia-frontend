@@ -3,7 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
-import './CommentBox.scss';
+import 'pages/MovieDetail/MovieContent/CommentBox/commentBox.scss';
+
+// 여기까지 했음 절대경로
 
 class CommentBox extends Component {
   constructor() {
@@ -15,7 +17,7 @@ class CommentBox extends Component {
     };
   }
 
-  likeEvent = (cnt) => {
+  likeEvent = cnt => {
     const { isLike } = this.state;
     this.setState({
       isLike: !isLike,
@@ -26,13 +28,17 @@ class CommentBox extends Component {
     const { commentList } = this.props;
     let likeCount = Number(commentList.likeCount);
     const { isLike } = this.state;
-    
+
     return (
       <>
         <div className='commentBox'>
           <div className='commentTitle'>
             <div className='titleLeft'>
-              <img className='commentorImage' src='/images/defaultProfile.png' alt='작성자아이콘' />
+              <img
+                className='commentorImage'
+                src='/images/defaultProfile.png'
+                alt='작성자아이콘'
+              />
               <div className='commentorId'>{commentList.userName} </div>
             </div>
             <div className='titleRight'>
@@ -56,7 +62,8 @@ class CommentBox extends Component {
           <div className='likeEventContainer'>
             <div
               className={isLike ? 'pushedLike' : 'unpushedLike'}
-              onClick={this.likeEvent}>
+              onClick={this.likeEvent}
+            >
               좋아요
             </div>
           </div>

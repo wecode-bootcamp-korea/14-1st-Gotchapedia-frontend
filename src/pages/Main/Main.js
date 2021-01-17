@@ -45,9 +45,9 @@ class Main extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ movieData1: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ movieData1: res.data }))
+      .catch(error => console.log('error', error));
   };
   loadMainData2 = () => {
     fetch(MAINPAGE_API2, {
@@ -55,9 +55,9 @@ class Main extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ movieData2: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ movieData2: res.data }))
+      .catch(error => console.log('error', error));
   };
   loadMainData3 = () => {
     fetch(MAINPAGE_API3, {
@@ -65,9 +65,9 @@ class Main extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ movieData3: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ movieData3: res.data }))
+      .catch(error => console.log('error', error));
   };
   loadMainData4 = () => {
     fetch(MAINPAGE_API4, {
@@ -75,9 +75,9 @@ class Main extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ movieData4: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ movieData4: res.data }))
+      .catch(error => console.log('error', error));
   };
   loadMainData5 = () => {
     fetch(MAINPAGE_API5, {
@@ -85,9 +85,9 @@ class Main extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ movieData5: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ movieData5: res.data }))
+      .catch(error => console.log('error', error));
   };
   loadMainData6 = () => {
     fetch(MAINPAGE_API6, {
@@ -95,9 +95,9 @@ class Main extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ movieData6: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ movieData6: res.data }))
+      .catch(error => console.log('error', error));
   };
 
   render() {
@@ -156,7 +156,7 @@ class Main extends Component {
             </div>
             <div className='movieList'>
               <Slider {...settings}>
-                {movieData2.map((movie) => (
+                {movieData2.map(movie => (
                   <MovieBox
                     key={movie.movieId}
                     date={movie.date}
@@ -180,7 +180,7 @@ class Main extends Component {
             </div>
             <div className='movieList'>
               <Slider {...settings}>
-                {movieData1.map((movie) => (
+                {movieData1.map(movie => (
                   <MovieBox
                     key={movie.movieId}
                     date={movie.date}
@@ -204,7 +204,7 @@ class Main extends Component {
             </div>
             <div className='movieList'>
               <Slider {...settings}>
-                {movieData3.map((movie) => (
+                {movieData3.map(movie => (
                   <MovieBox
                     key={movie.movieId}
                     date={movie.date}
@@ -228,7 +228,7 @@ class Main extends Component {
             </div>
             <div className='movieList'>
               <Slider {...settings}>
-                {movieData4.map((movie) => (
+                {movieData4.map(movie => (
                   <MovieBox
                     key={movie.movieId}
                     date={movie.date}
@@ -253,7 +253,7 @@ class Main extends Component {
             </div>
             <div className='movieList'>
               <Slider {...settings}>
-                {movieData5.map((movie) => (
+                {movieData5.map(movie => (
                   <MovieBox
                     key={movie.movieId}
                     date={movie.date}
@@ -277,7 +277,7 @@ class Main extends Component {
             </div>
             <div className='movieList'>
               <Slider {...settings}>
-                {movieData6.map((movie) => (
+                {movieData6.map(movie => (
                   <MovieBox
                     key={movie.movieId}
                     date={movie.date}
@@ -290,7 +290,6 @@ class Main extends Component {
               </Slider>
             </div>
           </section>
-          
         </div>
         <Footer />
       </>

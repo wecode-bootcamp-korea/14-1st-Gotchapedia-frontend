@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './CommentDetailBox.scss';
-import AddComment from '../../AddComment/AddComment';
+import 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/CommentDetailBox/commentDetailBox.scss';
+import AddComment from 'pages/MovieDetail/MovieContent/CommentBox/AddComment/AddComment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
-import { FaCheck } from 'react-icons/fa';
 
 class CommentDetailBox extends Component {
   constructor() {
@@ -16,13 +15,13 @@ class CommentDetailBox extends Component {
     };
   }
 
-  handleComment = (e) => {
+  handleComment = e => {
     this.setState({
       newCommentStr: e.target.value,
     });
   };
 
-  enterAddEvent = (e) => {
+  enterAddEvent = e => {
     const { newCommentStr, newCommentArr } = this.state;
     e.preventDefault();
 
@@ -45,7 +44,7 @@ class CommentDetailBox extends Component {
     return (
       <div>
         {commentDetailBoxData &&
-          commentDetailBoxData.map((cmt) => {
+          commentDetailBoxData.map(cmt => {
             return (
               <div key={cmt.commentId} style={{ width: '600px' }}>
                 <div style={{ margin: '20px 0' }} className='commentBox'>
@@ -53,7 +52,8 @@ class CommentDetailBox extends Component {
                     <div className='titleLeft'>
                       <img
                         src='/images/defaultProfile.png'
-                        alt='작성자아이콘'></img>
+                        alt='작성자아이콘'
+                      ></img>
                       <div className='writerId'>
                         {cmt?.userName}
                         <div className='writerIcon'></div>
@@ -65,10 +65,7 @@ class CommentDetailBox extends Component {
                     </div>
                   </div>
                   <div className='commentContent'>
-                    <p>
-                      {/* 기존 코멘트 */}
-                      {cmt?.content}
-                    </p>
+                    <p>{cmt?.content}</p>
                   </div>
                   <div className='commentIcons'>
                     <div className='thumbsUpWrapper'>
@@ -88,18 +85,18 @@ class CommentDetailBox extends Component {
                   </div>
                   <div className='like'>좋아요</div>
                   <div className='inputCommentWrapper'>
-                    {/* commentId를 id로 수정 */}
                     <input
                       id={cmt?.id}
                       onChange={this.handleComment}
                       onKeyUp={this.enterAddEvent}
                       name='inputComment'
-                      placeholder='댓글을 입력하세요'></input>
+                      placeholder='댓글을 입력하세요'
+                    ></input>
                   </div>
                 </div>
                 <AddComment
                   addedNewComments={newCommentArr.filter(
-                    (comment) => comment.id === cmt.id
+                    comment => comment.id === cmt.id
                   )}
                   handleComment={this.handleComment}
                   enterAddEvent={this.enterAddEvent}

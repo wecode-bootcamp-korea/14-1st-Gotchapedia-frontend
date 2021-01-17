@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Nav from '../../../../../components/Nav/Nav';
-import CommentDetailBox from './CommentDetailBox/CommentDetailBox';
-import './CommentDetail.scss';
+import Nav from 'components/Nav/Nav';
+import CommentDetailBox from 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/CommentDetailBox/CommentDetailBox';
+import 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/commentDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { TOKEN, SERVER } from '../../../../../config';
+import { TOKEN, SERVER } from 'config';
 
 class CommentDetail extends Component {
   constructor() {
@@ -21,8 +21,8 @@ class CommentDetail extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => {
+      .then(res => res.json())
+      .then(res => {
         this.setState({
           commentList: res.data,
         });

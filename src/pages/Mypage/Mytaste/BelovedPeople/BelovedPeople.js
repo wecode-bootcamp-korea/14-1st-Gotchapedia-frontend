@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import '../../../../../node_modules/slick-carousel/slick/slick.css';
 import '../../../../../node_modules/slick-carousel/slick/slick-theme.css';
-import './belovedPeople.scss';
-import { BELOVEDPEOPLE_API } from '../../../../config';
+import 'pages/Mypage/Mytaste/BelovedPeople/belovedPeople.scss';
+import { BELOVEDPEOPLE_API } from 'config';
 
 class BelovedPeople extends Component {
   constructor() {
@@ -19,9 +19,9 @@ class BelovedPeople extends Component {
 
   loadBelovedPeople = () => {
     fetch(BELOVEDPEOPLE_API)
-      .then((res) => res.json())
-      .then((res) => this.setState({ belovedPeople: res.staff }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ belovedPeople: res.staff }))
+      .catch(error => console.log('error', error));
   };
 
   render() {

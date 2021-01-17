@@ -1,106 +1,45 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import MovieBox from './ThemeBox/MovieBox/MovieBox';
-import Nav from '../../components/Nav/Nav';
+import MovieBox from 'pages/Main/ThemeBox/MovieBox/MovieBox';
+import Nav from 'components/Nav/Nav';
+import Footer from 'components/Footer/Footer';
 import Slider from 'react-slick';
-import '../../../node_modules/slick-carousel/slick/slick.css';
-import '../../../node_modules/slick-carousel/slick/slick-theme.css';
-import {
-  MAINPAGE_API1,
-  MAINPAGE_API2,
-  MAINPAGE_API3,
-  MAINPAGE_API4,
-  MAINPAGE_API5,
-  MAINPAGE_API6,
-  TOKEN,
-} from '../../config';
-import './main.scss';
-import Footer from '../../components/Footer/Footer';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { apiClient, TOKEN } from 'config';
+import 'pages/Main/main.scss';
+
+const NAMES = ['은정님', '수희님', '태현님', '영주님', '규석님', '병준님'];
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
-      movieData1: [],
-      movieData2: [],
-      movieData3: [],
-      movieData4: [],
-      movieData5: [],
-      movieData6: [],
+      movies: [],
     };
   }
 
   componentDidMount() {
-    this.loadMainData1();
-    this.loadMainData2();
-    this.loadMainData3();
-    this.loadMainData4();
-    this.loadMainData5();
-    this.loadMainData6();
+    this.loadMainData();
   }
 
-  loadMainData1 = () => {
-    fetch(MAINPAGE_API1, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => this.setState({ movieData1: res.data }))
-      .catch(error => console.log('error', error));
-  };
-  loadMainData2 = () => {
-    fetch(MAINPAGE_API2, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => this.setState({ movieData2: res.data }))
-      .catch(error => console.log('error', error));
-  };
-  loadMainData3 = () => {
-    fetch(MAINPAGE_API3, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => this.setState({ movieData3: res.data }))
-      .catch(error => console.log('error', error));
-  };
-  loadMainData4 = () => {
-    fetch(MAINPAGE_API4, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => this.setState({ movieData4: res.data }))
-      .catch(error => console.log('error', error));
-  };
-  loadMainData5 = () => {
-    fetch(MAINPAGE_API5, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => this.setState({ movieData5: res.data }))
-      .catch(error => console.log('error', error));
-  };
-  loadMainData6 = () => {
-    fetch(MAINPAGE_API6, {
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-      .then(res => res.json())
-      .then(res => this.setState({ movieData6: res.data }))
-      .catch(error => console.log('error', error));
+  loadMainData = async () => {
+    try {
+      const tempMovies = [];
+      for (let i = 1; i < 7; i++) {
+        const response = await apiClient.get(`movies/user?id=${i}`, {
+          headers: { Authorization: TOKEN },
+        });
+        tempMovies.push(response.data.data);
+        this.setState({ movies: tempMovies });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   render() {
+    const { movies } = this.state;
     const settings = {
       className: 'slick',
       infinite: false,
@@ -133,163 +72,37 @@ class Main extends Component {
         },
       ],
     };
-    const {
-      movieData1,
-      movieData2,
-      movieData3,
-      movieData4,
-      movieData5,
-      movieData6,
-    } = this.state;
 
     return (
       <>
         <Nav />
         <div className='Main'>
-          <section className='evaluationSection'>
-            <div className='sectionHeader'>
-              <div className='headerLeft'>
-                <span>
-                  <span className='pinkText'>은정님</span>의 인생작 컬렉션
-                </span>
+          {movies.map((list, idx) => (
+            <section key={idx} className='evaluationSection'>
+              <div className='sectionHeader'>
+                <div className='headerLeft'>
+                  <span>
+                    <span className='pinkText'>{NAMES[idx]}</span>의 인생작
+                    컬렉션
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className='movieList'>
-              <Slider {...settings}>
-                {movieData2.map(movie => (
-                  <MovieBox
-                    key={movie.movieId}
-                    date={movie.date}
-                    imageURL={movie.imageURL}
-                    rate={movie.rate}
-                    title={movie.title}
-                    movieId={movie.movieId}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </section>
-
-          <section className='evaluationSection'>
-            <div className='sectionHeader'>
-              <div className='headerLeft'>
-                <span>
-                  <span className='pinkText'>수희님</span>의 인생 박스오피스
-                </span>
+              <div className='movieList'>
+                <Slider {...settings}>
+                  {list.map(movie => (
+                    <MovieBox
+                      key={movie.movieId}
+                      date={movie.date}
+                      imageURL={movie.imageURL}
+                      rate={movie.rate}
+                      title={movie.title}
+                      movieId={movie.movieId}
+                    />
+                  ))}
+                </Slider>
               </div>
-            </div>
-            <div className='movieList'>
-              <Slider {...settings}>
-                {movieData1.map(movie => (
-                  <MovieBox
-                    key={movie.movieId}
-                    date={movie.date}
-                    imageURL={movie.imageURL}
-                    rate={movie.rate}
-                    title={movie.title}
-                    movieId={movie.movieId}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </section>
-
-          <section className='evaluationSection'>
-            <div className='sectionHeader'>
-              <div className='headerLeft'>
-                <span>
-                  선호하는 감독 <span className='pinkText'>김병준</span>의 작품
-                </span>
-              </div>
-            </div>
-            <div className='movieList'>
-              <Slider {...settings}>
-                {movieData3.map(movie => (
-                  <MovieBox
-                    key={movie.movieId}
-                    date={movie.date}
-                    imageURL={movie.imageURL}
-                    rate={movie.rate}
-                    title={movie.title}
-                    movieId={movie.movieId}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </section>
-
-          <section className='evaluationSection'>
-            <div className='sectionHeader'>
-              <div className='headerLeft'>
-                <span>
-                  선호하는 배우 <span className='pinkText'>김태현</span>의 작품
-                </span>
-              </div>
-            </div>
-            <div className='movieList'>
-              <Slider {...settings}>
-                {movieData4.map(movie => (
-                  <MovieBox
-                    key={movie.movieId}
-                    date={movie.date}
-                    imageURL={movie.imageURL}
-                    rate={movie.rate}
-                    title={movie.title}
-                    movieId={movie.movieId}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </section>
-
-          <section className='evaluationSection'>
-            <div className='sectionHeader'>
-              <div className='headerLeft'>
-                <span>
-                  선호하는 배우 <span className='pinkText'>이영주</span>의 인생
-                  작품
-                </span>
-              </div>
-            </div>
-            <div className='movieList'>
-              <Slider {...settings}>
-                {movieData5.map(movie => (
-                  <MovieBox
-                    key={movie.movieId}
-                    date={movie.date}
-                    imageURL={movie.imageURL}
-                    rate={movie.rate}
-                    title={movie.title}
-                    movieId={movie.movieId}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </section>
-
-          <section className='evaluationSection'>
-            <div className='sectionHeader'>
-              <div className='headerLeft'>
-                <span>
-                  <span className='pinkText'>규석님</span>의 영화 순위
-                </span>
-              </div>
-            </div>
-            <div className='movieList'>
-              <Slider {...settings}>
-                {movieData6.map(movie => (
-                  <MovieBox
-                    key={movie.movieId}
-                    date={movie.date}
-                    imageURL={movie.imageURL}
-                    rate={movie.rate}
-                    title={movie.title}
-                    movieId={movie.movieId}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </section>
+            </section>
+          ))}
         </div>
         <Footer />
       </>

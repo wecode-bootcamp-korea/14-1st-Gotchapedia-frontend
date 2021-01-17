@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Signup from './Signup/Signup';
-import Search from './Search/Search';
+import Signup from 'components/Nav/Signup/Signup';
+import Search from 'components/Nav/Search/Search';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { MYPAGE_API, TOKEN } from '../../config';
-import './nav.scss';
+import { MYPAGE_API, TOKEN } from 'config';
+import 'components/Nav/nav.scss';
 
 class Nav extends Component {
   constructor() {
@@ -28,16 +28,16 @@ class Nav extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ searchData: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ searchData: res.data }))
+      .catch(error => console.log('error', error));
   }
 
-  handleClickedType = (e) => {
+  handleClickedType = e => {
     this.setState({ clickedType: e.target.innerText });
   };
 
-  handleLoginOrSignupModal = (e) => {
+  handleLoginOrSignupModal = e => {
     this.setState({
       isLoginOrSignupModalOn: !this.state.isLoginOrSignupModalOn,
     });

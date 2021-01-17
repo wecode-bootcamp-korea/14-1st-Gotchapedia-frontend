@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './footer.scss';
+import 'components/Footer/footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { FaGithub } from "react-icons/fa";
+import { FaGithub } from 'react-icons/fa';
 import { FaFacebook } from 'react-icons/fa';
 import { FaGooglePlus } from 'react-icons/fa';
-
 
 class Footer extends Component {
   render() {
@@ -13,7 +12,11 @@ class Footer extends Component {
       <div className='Footer'>
         <div className='footerHead'>
           <span className='footerHeadFont'>
-            지금까지 <span><FontAwesomeIcon icon={faStar} /> 583,583,390 개의 평가가</span> 쌓였어요.
+            지금까지{' '}
+            <span>
+              <FontAwesomeIcon icon={faStar} /> 583,583,390 개의 평가가
+            </span>{' '}
+            쌓였어요.
           </span>
         </div>
         <div className='footerBodyWrap'>
@@ -37,7 +40,6 @@ class Footer extends Component {
                   공동대표 고수희, 고은정, 김병준, 김태현, 이영주, 장규석 ㅣ
                 </span>
                 <span>
-                  
                   서울시 강남구 테헤란로 427 위워크 타워(위워크 선릉 2호점)
                 </span>
               </ul>
@@ -60,15 +62,51 @@ class Footer extends Component {
                 </button>
               </div>
               <div className='footerSocialLogo'>
-                <span style={{display:"flex", justifyContent:"space-evenly", alignItems:"center"}}>
-                  <div style={{display:"inline-block"}} className='twitterIconWrapper'>
-                    <FaGithub style={{fontSize:"24px", margin:"7px", color:"#848485"}} className='twitterIcon' />
+                <span
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                    alignItems: 'center',
+                  }}
+                >
+                  <div
+                    style={{ display: 'inline-block' }}
+                    className='twitterIconWrapper'
+                  >
+                    <FaGithub
+                      style={{
+                        fontSize: '24px',
+                        margin: '7px',
+                        color: '#848485',
+                      }}
+                      className='twitterIcon'
+                    />
                   </div>
-                  <div style={{display:"inline-block"}} className='facebookIconWrapper'>
-                    <FaFacebook style={{fontSize:"24px", margin:"7px", color:"#848485"}} className='facebookIcon' />
+                  <div
+                    style={{ display: 'inline-block' }}
+                    className='facebookIconWrapper'
+                  >
+                    <FaFacebook
+                      style={{
+                        fontSize: '24px',
+                        margin: '7px',
+                        color: '#848485',
+                      }}
+                      className='facebookIcon'
+                    />
                   </div>
-                  <div style={{display:"inline-block"}} className='googleIconWrapper'>
-                    <FaGooglePlus style={{fontSize:"24px", margin:"7px", color:"#848485"}} className='googleIcon' />  
+                  <div
+                    style={{ display: 'inline-block' }}
+                    className='googleIconWrapper'
+                  >
+                    <FaGooglePlus
+                      style={{
+                        fontSize: '24px',
+                        margin: '7px',
+                        color: '#848485',
+                      }}
+                      className='googleIcon'
+                    />
                   </div>
                 </span>
               </div>

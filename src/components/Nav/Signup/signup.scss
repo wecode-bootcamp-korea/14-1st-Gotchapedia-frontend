@@ -1,4 +1,4 @@
-@import '../../../styles/common.scss';
+@import 'styles/common.scss';
 
 .Signup {
   @include flex-center;
@@ -77,7 +77,6 @@
           font-size: 16px;
           caret-color: $pink;
           border-radius: 7px;
-          
         }
         .signupBtn {
           font-size: 17px;

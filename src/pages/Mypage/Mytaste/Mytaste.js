@@ -10,7 +10,6 @@ import ImgInput from 'pages/Mypage/Mytaste/ImgInput/ImgInput';
 import {
   PREFERRED_API,
   PREFERRED_GENRE_API,
-  TOKEN,
   MYSTAR_API,
   IMG_UPLOAD_API,
 } from 'config';
@@ -18,6 +17,9 @@ import 'pages/Mypage/Mytaste/mytaste.scss';
 
 const imageUploader = new ImageUploader();
 let PROFILE_IMG = '';
+
+const TOKEN =
+  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
 
 class Mytaste extends Component {
   constructor() {

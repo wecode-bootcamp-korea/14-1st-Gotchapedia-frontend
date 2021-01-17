@@ -12,15 +12,11 @@ class PreferredCountryGenre extends Component {
     const preferredCountryData = this.props.userData.data;
     const preferredGenreData = this.props.userGenreData.data;
     const { isMore } = this.state;
-
-    console.log(preferredCountryData);
     return (
       <>
         <div className='preferredCountry'>
           <div className='title'>영화 선호국가</div>
           <ul className='top3'>
-
-
             <li>
               <div className='bold big'>{preferredCountryData[0].label}</div>
               <div className='grey small'>
@@ -45,10 +41,10 @@ class PreferredCountryGenre extends Component {
           </ul>
           <ul className='top6 grey'>
             <li>
-              <div>{preferredCountryData[3]?.label}</div>
+              <div>{preferredCountryData[3].label}</div>
               <div className='small'>
-                {preferredCountryData[3]?.score}점 ・{' '}
-                {preferredCountryData[3]?.count}편
+                {preferredCountryData[3].score}점 ・{' '}
+                {preferredCountryData[3].count}편
               </div>
             </li>
             <li>
@@ -144,7 +140,8 @@ class PreferredCountryGenre extends Component {
               className='moreBtn bold'
               onClick={() => {
                 this.setState({ isMore: !isMore });
-              }}>
+              }}
+            >
               더보기
             </button>
           </div>

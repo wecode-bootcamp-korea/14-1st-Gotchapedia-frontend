@@ -76,7 +76,7 @@ class MovieHeader extends Component {
               <div className='posterRating'>
                 <div className='averageRating'>
                   평균 <FontAwesomeIcon icon={faStar} />
-                  {starPoint ? starPoint : ''} (3292명)
+                  3.0 (3292명)
                 </div>
                 <div className='ratingContent'>
                   <div className='buttonContainer'>

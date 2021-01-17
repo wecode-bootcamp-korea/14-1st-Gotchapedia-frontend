@@ -201,8 +201,7 @@ class MovieContent extends Component {
           ) : (
             <div className='hiddenComment'>
               <div className='commentSuggestion'>
-                대단한 작품이군요! {commentList[0]?.userName} 님의 감동을 글로
-                남겨보세요
+                대단한 작품이군요! 고은정 님의 감동을 글로 남겨보세요
               </div>
               <button onClick={this.openModalComment}>코멘트 남기기</button>
             </div>

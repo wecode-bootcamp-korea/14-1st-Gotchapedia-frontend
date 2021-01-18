@@ -38,12 +38,15 @@ class MovieHeader extends Component {
         Authorization: TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.starPoint === undefined) return;
         this.setState({
           starPoint: res.starPoint,
         });
-      });
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -68,8 +71,7 @@ class MovieHeader extends Component {
           <div className='posterWrapper'>
             <img
               src={movieHeaderData.mainImage}
-              alt='바닐라스카이꼭보세요'
-            ></img>
+              alt='바닐라스카이꼭보세요'></img>
             <div className='posterDetailWrapper'>
               <div className='posterTitle'>{movieHeaderData.name}</div>
               <div className='posterTitleDetail'>{genre[0].name}</div>
@@ -86,8 +88,7 @@ class MovieHeader extends Component {
                       </div>
                       <div
                         className={isWantToSee ? 'wantToSee' : ''}
-                        onClick={this.openWantToSee}
-                      >
+                        onClick={this.openWantToSee}>
                         보고싶어요
                       </div>
                     </button>

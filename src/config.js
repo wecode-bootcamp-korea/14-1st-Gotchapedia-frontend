@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 export const SERVER = process.env.REACT_APP_SERVER;
 export const SIGNUP_API = `${SERVER}users`;
 export const LOGIN_API = `${SERVER}users/log-in`;
@@ -16,7 +15,6 @@ export const MYSTAR_API = `${SERVER}analysis/my_star`;
 export const BELOVEDPEOPLE_API = '/data/belovedPeople.json';
 export const BELOVEDDIRECTOR_API = '/data/belovedDirector.json';
 export const IMG_UPLOAD_API = `${SERVER}users`;
-
 export const apiClient = axios.create({
   baseURL: `${SERVER}`,
 });

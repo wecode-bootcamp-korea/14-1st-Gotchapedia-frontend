@@ -33,7 +33,7 @@ class MovieContent extends Component {
     };
   }
 
-  handleWriteChange = e => {
+  handleWriteChange = (e) => {
     if (e.target.value) {
       this.setState({
         commentString: e.target.value,
@@ -46,7 +46,7 @@ class MovieContent extends Component {
     }
   };
 
-  handleUpdateChange = e => {
+  handleUpdateChange = (e) => {
     if (e.target.value) {
       this.setState({
         commentUpdateString: e.target.value,
@@ -65,15 +65,15 @@ class MovieContent extends Component {
         Authorization: TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({
           commentList: res.data,
         });
       });
   }
 
-  addComment = e => {
+  addComment = (e) => {
     e.preventDefault();
     const { commentString, commentList } = this.state;
 
@@ -87,12 +87,12 @@ class MovieContent extends Component {
         content: this.state.commentString,
       }),
     })
-      .then(response => response.json())
-      .then(result => {
+      .then((response) => response.json())
+      .then((result) => {
         const obj = {
           id: result.message.id,
           content: commentString,
-          userName: '김태현',
+          userName: `${localStorage.getItem('user')}`,
           starPoint: '5.0',
           userImage: '/images/defaultProfile.png',
           likeCount: '0',
@@ -107,10 +107,10 @@ class MovieContent extends Component {
         });
         this.closeModalComment();
       })
-      .catch(error => console.log('error', error));
+      .catch((error) => console.log('error', error));
   };
 
-  updateComment = e => {
+  updateComment = (e) => {
     console.log('클릭');
     e.preventDefault();
     const { id } = this.props;
@@ -122,7 +122,7 @@ class MovieContent extends Component {
       body: JSON.stringify({
         content: this.state.commentUpdateString,
       }),
-    }).catch(error => console.log('error', error));
+    }).catch((error) => console.log('error', error));
 
     const { commentList, commentUpdateString } = this.state;
     const updatedCommentList = [...commentList];
@@ -149,7 +149,7 @@ class MovieContent extends Component {
       headers: {
         Authorization: TOKEN,
       },
-    }).then(res => {
+    }).then((res) => {
       console.log(res);
     });
   };
@@ -201,7 +201,8 @@ class MovieContent extends Component {
           ) : (
             <div className='hiddenComment'>
               <div className='commentSuggestion'>
-                대단한 작품이군요! 김태현 님의 감동을 글로 남겨보세요
+                대단한 작품이군요! {localStorage.getItem('user')} 님의 감동을
+                글로 남겨보세요
               </div>
               <button onClick={this.openModalComment}>코멘트 남기기</button>
             </div>
@@ -250,7 +251,7 @@ class MovieContent extends Component {
               <div className='commentBoxWrapper'>
                 <Slider {...settings}>
                   {commentList.length > 0 &&
-                    commentList.map(el => {
+                    commentList.map((el) => {
                       return (
                         <CommentBox
                           key={el.id}

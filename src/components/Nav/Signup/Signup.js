@@ -12,14 +12,14 @@ class Signup extends Component {
     };
   }
 
-  handleInput = e => {
+  handleInput = (e) => {
     const { value, name } = e.target;
     this.setState({
       [name]: value,
     });
   };
 
-  checkValidation = e => {
+  checkValidation = (e) => {
     e.preventDefault();
     const { name, email, password } = this.state;
 
@@ -55,10 +55,10 @@ class Signup extends Component {
         password: password,
       }),
     })
-      .then(res => {
+      .then((res) => {
         this.props.onSignupSuccess();
       })
-      .catch(error => {
+      .catch((error) => {
         console.log('Error fetch but will test');
       });
   };
@@ -74,14 +74,15 @@ class Signup extends Component {
         password: password,
       }),
     })
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         if (res.token) {
           localStorage.setItem('token', res.token);
+          localStorage.setItem('user', res.user);
           this.props.onLoginSuccess();
         }
       })
-      .catch(error => {
+      .catch((error) => {
         localStorage.setItem('token', 'fake_error_token_which_should_work.');
         this.props.onLoginSuccess();
       });
@@ -96,7 +97,7 @@ class Signup extends Component {
 
     return (
       <div className='Signup' onClick={handleLoginOrSignupModal}>
-        <div className='modalContainer' onClick={e => e.stopPropagation()}>
+        <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
           <div className='wrapper'>
             <img
               src='/images/gotchapediaTextCol.png'

@@ -30,14 +30,16 @@ class MovieDetail extends Component {
         },
       }
     )
-      .then(res => res.json())
-      .then(res => {
+      .then((res) => res.json())
+      .then((res) => {
         this.setState({ movieDetailData: res.data });
-      });
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
     const { movieDetailData } = this.state;
+    console.log(movieDetailData);
 
     return (
       <div className='MovieDetailPage'>

@@ -8,6 +8,7 @@ import WordCloud from 'pages/Mypage/Mytaste/wordCloud/wordCloud';
 import ImageUploader from 'service/image_uploader';
 import ImgInput from 'pages/Mypage/Mytaste/ImgInput/ImgInput';
 import {
+  TOKEN,
   PREFERRED_API,
   PREFERRED_GENRE_API,
   MYSTAR_API,
@@ -17,9 +18,6 @@ import 'pages/Mypage/Mytaste/mytaste.scss';
 
 const imageUploader = new ImageUploader();
 let PROFILE_IMG = '';
-
-const TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.YYwzzz5zYJpbkb6HvV-kEAOYXPLiS6LkmHRGHl5R1vA';
 
 class Mytaste extends Component {
   constructor() {
@@ -62,7 +60,7 @@ class Mytaste extends Component {
     }
   }
 
-  onChange = async event => {
+  onChange = async (event) => {
     const uploadedImg = await imageUploader.upload(event.target.files[0]);
     localStorage.setItem('profileImg', uploadedImg.url);
 
@@ -75,9 +73,9 @@ class Mytaste extends Component {
         imageURL: uploadedImg.url,
       }),
     })
-      .then(response => response.json())
-      .then(json => console.log(json))
-      .catch(error => console.log('error', error));
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((error) => console.log('error', error));
     this.setState({ myUrl: uploadedImg.url });
   };
 
@@ -87,9 +85,9 @@ class Mytaste extends Component {
         Authorization: TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res => this.setState({ userData: res }))
-      .catch(error => console.log('error', error));
+      .then((res) => res.json())
+      .then((res) => this.setState({ userData: res }))
+      .catch((error) => console.log('error', error));
   };
 
   loadPreferredGenreData = () => {
@@ -98,9 +96,9 @@ class Mytaste extends Component {
         Authorization: TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res => this.setState({ userGenreData: res }))
-      .catch(error => console.log('error', error));
+      .then((res) => res.json())
+      .then((res) => this.setState({ userGenreData: res }))
+      .catch((error) => console.log('error', error));
   };
 
   loadMystarData = () => {
@@ -109,13 +107,13 @@ class Mytaste extends Component {
         Authorization: TOKEN,
       },
     })
-      .then(res => res.json())
-      .then(res =>
+      .then((res) => res.json())
+      .then((res) =>
         this.setState({ myStar: Object.values(res.user) }, () => {
           this.setMyStar();
         })
       )
-      .catch(error => console.log('error', error));
+      .catch((error) => console.log('error', error));
   };
 
   setMyStar = () => {
@@ -153,7 +151,7 @@ class Mytaste extends Component {
               alt='profile'
               className='profile'
             />
-            <div className='userName'>김태현</div>
+            <div className='userName'>{localStorage.getItem('user')}</div>
           </div>
           <div className='main'>
             <section className='evaluation'>

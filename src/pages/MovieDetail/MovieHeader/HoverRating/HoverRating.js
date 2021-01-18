@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import 'pages/MovieDetail/MovieHeader/HoverRating/hoverRating.scss';
-import { SERVER, TOKEN } from 'config';
-
+import { TOKEN } from 'config';
+import { faVestPatches } from '@fortawesome/free-solid-svg-icons';
 const labels = {
   0: '평가하기',
   0.5: '최악이에요',
@@ -17,7 +17,6 @@ const labels = {
   4.5: '훌륭해요!',
   5: '최고에요! 와!',
 };
-
 class HoverRating extends Component {
   constructor() {
     super();
@@ -26,23 +25,50 @@ class HoverRating extends Component {
       hover: -1,
     };
   }
+  componentDidMount() {
+    fetch(
+      `${process.env.REACT_APP_SERVER}analysis/star/${this.props.movieId}`,
+      {
+        headers: {
+          Authorization: TOKEN,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          starPoint: res.starPoint,
+          value: res.starPoint,
+        });
+      });
+  }
 
-  sendStar = () => {
-    fetch(`${SERVER}analysis/star`, {
-      method: 'POST',
-      headers: {
-        Authorization: TOKEN,
-      },
-      body: JSON.stringify({
-        movieId: this.props.movieId,
-        starPoint: this.state.value,
-      }),
-    });
-  };
+  componentDidUpdate(prevProps, prevState) {
+    const { value } = this.state;
+    if (value !== prevState.value) {
+      fetch(
+        `${process.env.REACT_APP_SERVER}analysis/star/${this.props.movieId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            Authorization: TOKEN,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ starPoint: value }),
+        }
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          this.setState({
+            starPoint: res.starPoint,
+          });
+        });
+    }
+  }
 
   render() {
     const { value, hover } = this.state;
-
     return (
       <div className='hoverRatingWrapper'>
         <div className='hoverRating'>
@@ -66,5 +92,4 @@ class HoverRating extends Component {
     );
   }
 }
-
 export default HoverRating;

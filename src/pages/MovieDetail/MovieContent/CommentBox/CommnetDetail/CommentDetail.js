@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Nav from 'components/Nav/Nav';
 import CommentDetailBox from 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/CommentDetailBox/CommentDetailBox';
-import 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/commentDetail.scss';
+import 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/CommentDetail.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { TOKEN, SERVER } from 'config';

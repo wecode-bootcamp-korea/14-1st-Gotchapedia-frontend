@@ -16,8 +16,8 @@ class ThemeBox extends Component {
     fetch('http://localhost:3000/data//movielist.json', {
       method: 'GET',
     })
-      .then((res) => res.json())
-      .then((res) => {
+      .then(res => res.json())
+      .then(res => {
         const { idMovieList } = this.state;
         let newIdMovieList = { ...idMovieList };
         const users = [
@@ -48,10 +48,9 @@ class ThemeBox extends Component {
   };
 
   render() {
-    const { movieListData } = this.props;
     return (
       <>
-        {this.state.movieList.map((oneHorizontalLayoutDataPayload) => {
+        {this.state.movieList.map(oneHorizontalLayoutDataPayload => {
           return (
             <div className='onesPick'>
               <div className='onesPickHeadWrap'>
@@ -63,7 +62,7 @@ class ThemeBox extends Component {
                     <div className='boxRankingCover'>
                       <ScrollMenu
                         data={oneHorizontalLayoutDataPayload.favoritemovies.map(
-                          (movieboxData) => {
+                          movieboxData => {
                             return (
                               <MovieBox
                                 date={movieboxData.moviedate}

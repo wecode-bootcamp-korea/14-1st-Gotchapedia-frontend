@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
-import 'pages/MovieDetail/MovieContent/CommentBox/commentBox.scss';
+import 'pages/MovieDetail/MovieContent/CommentBox/CommentBox.scss';
 
 // 여기까지 했음 절대경로
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'pages/MovieDetail/MovieContent/CommentUpdate/commentUpdate.scss';
+import 'pages/MovieDetail/MovieContent/CommentUpdate/CommentUpdate.scss';
 
 class CommentUpdate extends Component {
   constructor() {

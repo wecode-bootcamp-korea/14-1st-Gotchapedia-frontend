@@ -153,7 +153,7 @@ class Mytaste extends Component {
               alt='profile'
               className='profile'
             />
-            <div className='userName'>고은정</div>
+            <div className='userName'>김태현</div>
           </div>
           <div className='main'>
             <section className='evaluation'>

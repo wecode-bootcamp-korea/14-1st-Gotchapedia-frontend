@@ -17,8 +17,8 @@ class Footer extends Component {
             <span>
               <FontAwesomeIcon icon={faStar} />
               <CountUp
-                duration={4}
-                delay={2}
+                duration={3}
+                delay={1}
                 redraw={true}
                 start={0}
                 end={583583390}

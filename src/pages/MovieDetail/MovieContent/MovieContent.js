@@ -92,7 +92,7 @@ class MovieContent extends Component {
         const obj = {
           id: result.message.id,
           content: commentString,
-          userName: '고은정',
+          userName: '김태현',
           starPoint: '5.0',
           userImage: '/images/defaultProfile.png',
           likeCount: '0',
@@ -201,7 +201,7 @@ class MovieContent extends Component {
           ) : (
             <div className='hiddenComment'>
               <div className='commentSuggestion'>
-                대단한 작품이군요! 고은정 님의 감동을 글로 남겨보세요
+                대단한 작품이군요! 김태현 님의 감동을 글로 남겨보세요
               </div>
               <button onClick={this.openModalComment}>코멘트 남기기</button>
             </div>

@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: $black;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10000;
 
   .modalContainer {
@@ -142,7 +142,9 @@
           .kakaoLogo {
             height: 40px;
             width: 40px;
+            margin-top: 2px;
             margin-right: 20px;
+            border-radius: 50%;
           }
 
           .kakaoText {

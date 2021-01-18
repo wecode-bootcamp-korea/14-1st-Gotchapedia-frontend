@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/CommentDetailBox/commentDetailBox.scss';
+import 'pages/MovieDetail/MovieContent/CommentBox/CommnetDetail/CommentDetailBox/CommentDetailBox.scss';
 import AddComment from 'pages/MovieDetail/MovieContent/CommentBox/AddComment/AddComment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';

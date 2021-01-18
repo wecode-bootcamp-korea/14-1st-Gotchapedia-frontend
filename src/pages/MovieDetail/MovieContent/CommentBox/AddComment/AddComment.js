@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'pages/MovieDetail/MovieContent/CommentBox/AddComment/addComment.scss';
+import 'pages/MovieDetail/MovieContent/CommentBox/AddComment/AddComment.scss';
 
 class AddComment extends Component {
   render() {

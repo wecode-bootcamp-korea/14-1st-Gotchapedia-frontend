@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import './movieBox.scss';
+import 'pages/Main/ThemeBox/MovieBox/movieBox.scss';
 class MovieBox extends Component {
   constructor() {
     super();
@@ -12,8 +12,8 @@ class MovieBox extends Component {
   }
 
   goToMovieDetail = () => {
-    this.props.history.push(`/movies/${this.props.movieId}`)
-  }
+    this.props.history.push(`/movies/${this.props.movieId}`);
+  };
 
   render() {
     const { imageURL, title, date, rate, movieId } = this.props;

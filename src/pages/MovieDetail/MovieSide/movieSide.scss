@@ -1,12 +1,13 @@
-@import '../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .MovieSide {
   display: inline-block;
   width: 320px;
   height: 400px;
-  background-color: #fff;
+  background-color: $white;
   border-radius: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid $lightgrey;
 
   .galleryWrapper {
     .galleryHeading {
@@ -17,7 +18,7 @@
   }
 
   .border {
-    border: 1px solid #eee;
+    border: 1px solid $lightgrey;
     margin: 20px 0 10px 0;
   }
 

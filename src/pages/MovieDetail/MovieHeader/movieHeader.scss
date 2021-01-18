@@ -1,9 +1,10 @@
-@import '../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .MovieHeaderWrapper {
   .MovieHeaderTop {
     @include flex-center;
-    background-color: #eee;
+    background-color: $lightgrey;
     height: 300px;
     overflow: hidden;
   }
@@ -11,7 +12,7 @@
   .MovieHeaderBottom {
     @include flex-center;
     position: relative;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $lightgrey;
     height: 250px;
     padding: 0 8px;
 
@@ -23,7 +24,7 @@
       top: -20px;
       img {
         @include mediumSize;
-        border: 2px solid #fff;
+        border: 2px solid $white;
         object-fit: cover;
       }
 
@@ -36,7 +37,7 @@
           margin: 0 -4px;
 
           span {
-            color: #eee;
+            color: $lightgrey;
           }
         }
 
@@ -56,7 +57,7 @@
 
         .posterRating {
           font-size: 15px;
-          color: #eee;
+          color: $lightgrey;
           padding: 0 16px 22px;
 
           .averageRating {
@@ -64,8 +65,6 @@
             color: #000;
             margin: 14px 0 0;
             padding: 8px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
           }
 
           .ratingContent {
@@ -83,10 +82,10 @@
                 width: 162px;
                 background-color: $pink;
                 border-radius: 5px 0 0 5px;
-                color: #fff;
+                color: $white;
                 font-size: 17px;
                 border-width: bold;
-                border-right: 1px solid crimson;
+                border-right: 1px solid $pink;
                 cursor: pointer;
 
                 .plusIconWrapper {

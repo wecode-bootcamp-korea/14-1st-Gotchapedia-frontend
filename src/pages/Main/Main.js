@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { apiClient, TOKEN } from 'config';
 import 'pages/Main/main.scss';
 
-const NAMES = ['은정님', '수희님', '태현님', '영주님', '규석님', '병준님']
+const NAMES = ['은정님', '수희님', '태현님', '영주님', '규석님', '병준님'];
 
 class Main extends Component {
   constructor() {
@@ -37,9 +37,8 @@ class Main extends Component {
       console.log(err);
     }
   };
-  
+
   render() {
-    
     const { movies } = this.state;
     const settings = {
       className: 'slick',
@@ -73,35 +72,36 @@ class Main extends Component {
         },
       ],
     };
-    
+
     return (
       <>
         <Nav />
         <div className='Main'>
           {movies.map((list, idx) => (
-          <section key={idx} className='evaluationSection'>
-            <div className='sectionHeader'>
-            <div className='headerLeft'>
-            <span>
-          <span className='pinkText'>{NAMES[idx]}</span>의 인생작 컬렉션
-            </span>
+            <section key={idx} className='evaluationSection'>
+              <div className='sectionHeader'>
+                <div className='headerLeft'>
+                  <span>
+                    <span className='pinkText'>{NAMES[idx]}</span>의 인생작
+                    컬렉션
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className='movieList'>
-              <Slider {...settings}>
-                {list.map((movie) => (
-                  <MovieBox
-                    key={movie.movieId}
-                    date={movie.date}
-                    imageURL={movie.imageURL}
-                    rate={movie.rate}
-                    title={movie.title}
-                    movieId={movie.movieId}
-                  />
-                ))}
-              </Slider>
-            </div>
-          </section>
+              <div className='movieList'>
+                <Slider {...settings}>
+                  {list.map(movie => (
+                    <MovieBox
+                      key={movie.movieId}
+                      date={movie.date}
+                      imageURL={movie.imageURL}
+                      rate={movie.rate}
+                      title={movie.title}
+                      movieId={movie.movieId}
+                    />
+                  ))}
+                </Slider>
+              </div>
+            </section>
           ))}
         </div>
         <Footer />

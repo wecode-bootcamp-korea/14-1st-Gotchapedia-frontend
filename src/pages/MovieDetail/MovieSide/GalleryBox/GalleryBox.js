@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './galleryBox.scss';
+import 'pages/MovieDetail/MovieSide/GalleryBox/galleryBox.scss';
 
 class GalleryBox extends Component {
   render() {
@@ -10,7 +10,11 @@ class GalleryBox extends Component {
         {subImage.map((image, idx) => {
           return (
             <div key={idx} className='galleryPictureWrapper'>
-              <img className='galleryPicture' src={image.url} alt='갤러리이미지' ></img>
+              <img
+                className='galleryPicture'
+                src={image.url}
+                alt='갤러리이미지'
+              ></img>
             </div>
           );
         })}

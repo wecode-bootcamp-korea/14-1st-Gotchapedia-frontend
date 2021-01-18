@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './signup.scss';
-import { SIGNUP_API, LOGIN_API } from '../../../config';
+import 'components/Nav/Signup/signup.scss';
+import { SIGNUP_API, LOGIN_API } from 'config';
 
 class Signup extends Component {
   constructor(props) {
@@ -12,14 +12,14 @@ class Signup extends Component {
     };
   }
 
-  handleInput = (e) => {
+  handleInput = e => {
     const { value, name } = e.target;
     this.setState({
       [name]: value,
     });
   };
 
-  checkValidation = (e) => {
+  checkValidation = e => {
     e.preventDefault();
     const { name, email, password } = this.state;
 
@@ -55,10 +55,10 @@ class Signup extends Component {
         password: password,
       }),
     })
-      .then((res) => {
+      .then(res => {
         this.props.onSignupSuccess();
       })
-      .catch((error) => {
+      .catch(error => {
         console.log('Error fetch but will test');
       });
   };
@@ -74,14 +74,14 @@ class Signup extends Component {
         password: password,
       }),
     })
-      .then((res) => res.json())
-      .then((res) => {
+      .then(res => res.json())
+      .then(res => {
         if (res.token) {
           localStorage.setItem('token', res.token);
           this.props.onLoginSuccess();
         }
       })
-      .catch((error) => {
+      .catch(error => {
         localStorage.setItem('token', 'fake_error_token_which_should_work.');
         this.props.onLoginSuccess();
       });
@@ -96,7 +96,7 @@ class Signup extends Component {
 
     return (
       <div className='Signup' onClick={handleLoginOrSignupModal}>
-        <div className='modalContainer' onClick={(e) => e.stopPropagation()}>
+        <div className='modalContainer' onClick={e => e.stopPropagation()}>
           <div className='wrapper'>
             <img
               src='/images/gotchapediaTextCol.png'
@@ -113,7 +113,7 @@ class Signup extends Component {
                 placeholder='이름'
                 onChange={this.handleInput}
                 name='name'
-                autoComplete="off"
+                autoComplete='off'
               />
               <input
                 type='text'
@@ -121,7 +121,7 @@ class Signup extends Component {
                 placeholder='이메일'
                 onChange={this.handleInput}
                 name='email'
-                autoComplete="off"
+                autoComplete='off'
               />
               <input
                 type='password'
@@ -129,7 +129,7 @@ class Signup extends Component {
                 placeholder='비밀번호'
                 onChange={this.handleInput}
                 name='password'
-                autoComplete="off"
+                autoComplete='off'
               />
               <button onClick={this.checkValidation} className='signupBtn'>
                 {clickedType === '회원가입' ? '회원가입' : '로그인'}

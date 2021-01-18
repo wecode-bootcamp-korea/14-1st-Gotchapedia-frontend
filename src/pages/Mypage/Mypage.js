@@ -1,15 +1,10 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-import Nav from '../../components/Nav/Nav';
+import Nav from 'components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import {
-  MYPAGE_API,
-  TOKEN,
-  WANNAWATCH_API,
-  WATCHING_API,
-} from '../../config';
-import './mypage.scss';
+import { MYPAGE_API, TOKEN, WANNAWATCH_API, WATCHING_API } from 'config';
+import 'pages/Mypage/mypage.scss';
 
 class Mypage extends Component {
   constructor() {
@@ -34,9 +29,9 @@ class Mypage extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ myData: res }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ myData: res }))
+      .catch(error => console.log('error', error));
   };
 
   loadWannaWatchData = () => {
@@ -45,9 +40,9 @@ class Mypage extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ wannaWatchData: res }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ wannaWatchData: res }))
+      .catch(error => console.log('error', error));
   };
 
   loadWatchingData = () => {
@@ -56,9 +51,9 @@ class Mypage extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => this.setState({ watchingData: res }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ watchingData: res }))
+      .catch(error => console.log('error', error));
   };
 
   render() {
@@ -86,7 +81,7 @@ class Mypage extends Component {
                 </div>
 
                 <div className='movieList'>
-                  {myData.data.map((movie) => (
+                  {myData.data.map(movie => (
                     <div key={movie.movieId} className='movieBox'>
                       <div className='posterWrapper'>
                         <img
@@ -116,7 +111,7 @@ class Mypage extends Component {
                 </div>
 
                 <div className='movieList'>
-                  {wannaWatchData.data.map((movie) => (
+                  {wannaWatchData.data.map(movie => (
                     <div key={movie.movieId} className='movieBox'>
                       <div className='posterWrapper'>
                         <img
@@ -146,7 +141,7 @@ class Mypage extends Component {
                 </div>
 
                 <div className='movieList'>
-                  {watchingData.data.map((movie) => (
+                  {watchingData.data.map(movie => (
                     <div key={movie.movieId} className='movieBox'>
                       <div className='posterWrapper'>
                         <img

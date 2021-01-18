@@ -1,19 +1,20 @@
-@import '../../../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .commentAdd {
   .newComment {
     display: flex;
     align-items: center;
-    background-color: #bbb;
+    background-color: $lightgrey;
     font-size: 13px;
     margin: 10px 0 0 0;
     padding-left: 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid $lightgrey;
     height: 30px;
 
     &:hover {
-      background-color: #fff;
+      background-color: $white;
     }
   }
 }

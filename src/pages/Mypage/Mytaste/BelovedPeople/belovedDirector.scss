@@ -1,9 +1,10 @@
-@import '../../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .castingContentList {
   display: flex;
   margin: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $lightgrey;
 
   .castingImage {
     @include mediumProfile;

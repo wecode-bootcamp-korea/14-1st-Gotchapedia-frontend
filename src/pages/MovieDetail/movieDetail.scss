@@ -1,11 +1,12 @@
-@import '../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .MovieDetailPage {
   display: flex;
   flex-direction: column;
 
   .MovieHeaderWrapper {
-    border: 1px solid #eee;
+    border: 1px solid $lightgrey;
   }
 
   .MovieContentWrapper {

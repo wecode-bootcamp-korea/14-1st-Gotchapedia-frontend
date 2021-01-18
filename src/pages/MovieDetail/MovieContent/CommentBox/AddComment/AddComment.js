@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import './AddComment.scss';
+import 'pages/MovieDetail/MovieContent/CommentBox/AddComment/addComment.scss';
 
 class AddComment extends Component {
-
-
   render() {
     const { addedNewComments } = this.props;
-    
-    return(
+
+    return (
       <div className='commentAdd'>
-        {addedNewComments.map((newComments) => {
+        {addedNewComments.map(newComments => {
           return (
-            <div key={newComments.id} className='newComment'>{newComments.comment}</div>
-          )
+            <div key={newComments.id} className='newComment'>
+              {newComments.comment}
+            </div>
+          );
         })}
       </div>
-    )
+    );
   }
 }
 

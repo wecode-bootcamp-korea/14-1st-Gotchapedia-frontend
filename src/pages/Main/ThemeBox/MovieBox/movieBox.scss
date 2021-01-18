@@ -1,4 +1,5 @@
-@import '../../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .MovieBox {
   width: 16.699em;
@@ -29,7 +30,7 @@
         bottom: 6px;
         right: 183.797px;
         left: 6px;
-        color: #fff;
+        color: $white;
       }
 
       .movieInfo {
@@ -55,7 +56,7 @@
 
         .movieRate {
           display: flex;
-          color: #555765;
+          color: $navy;
           margin-top: 2px;
           height: 12px;
 
@@ -71,7 +72,7 @@
           }
         }
         .movieRatio {
-          color: #74747b;
+          color: $grey;
           font-size: 13px;
           letter-spacing: -0.3px;
           margin: 5px 0 0 0;

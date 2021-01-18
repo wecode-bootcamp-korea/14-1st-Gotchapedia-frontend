@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import ReactWordcloud from 'react-wordcloud';
-// import 'tippy.js/dist/tippy.css';
-// import 'tippy.js/animations/scale.css';
 
 class WordCloud extends Component {
   render() {

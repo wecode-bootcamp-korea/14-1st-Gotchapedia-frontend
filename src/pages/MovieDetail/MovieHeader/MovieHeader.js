@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import './movieHeader.scss';
+import WantToSee from 'pages/MovieDetail/MovieHeader/WantToSee/WantToSee';
+import HoverRating from 'pages/MovieDetail/MovieHeader/HoverRating/HoverRating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import WantToSee from './WantToSee/WantToSee';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import HoverRating from './HoverRating/HoverRating';
+import 'pages/MovieDetail/MovieHeader/movieHeader.scss';
 import { TOKEN } from 'config';
-
 
 class MovieHeader extends Component {
   constructor() {
@@ -39,8 +38,8 @@ class MovieHeader extends Component {
         Authorization: TOKEN,
       },
     })
-      .then((res) => res.json())
-      .then((res) => {
+      .then(res => res.json())
+      .then(res => {
         this.setState({
           starPoint: res.starPoint,
         });
@@ -69,14 +68,15 @@ class MovieHeader extends Component {
           <div className='posterWrapper'>
             <img
               src={movieHeaderData.mainImage}
-              alt='바닐라스카이꼭보세요'></img>
+              alt='바닐라스카이꼭보세요'
+            ></img>
             <div className='posterDetailWrapper'>
               <div className='posterTitle'>{movieHeaderData.name}</div>
               <div className='posterTitleDetail'>{genre[0].name}</div>
               <div className='posterRating'>
                 <div className='averageRating'>
                   평균 <FontAwesomeIcon icon={faStar} />
-                  {starPoint ? starPoint : ''} (3292명)
+                  3.0 (3292명)
                 </div>
                 <div className='ratingContent'>
                   <div className='buttonContainer'>
@@ -86,7 +86,8 @@ class MovieHeader extends Component {
                       </div>
                       <div
                         className={isWantToSee ? 'wantToSee' : ''}
-                        onClick={this.openWantToSee}>
+                        onClick={this.openWantToSee}
+                      >
                         보고싶어요
                       </div>
                     </button>

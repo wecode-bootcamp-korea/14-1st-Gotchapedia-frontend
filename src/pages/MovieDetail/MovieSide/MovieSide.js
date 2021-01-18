@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import GalleryBox from './GalleryBox/GalleryBox';
-import MovieClip from '../MovieSide/MovieClip/MovieClip';
-import './movieSide.scss';
+import GalleryBox from 'pages/MovieDetail/MovieSide/GalleryBox/GalleryBox';
+import MovieClip from 'pages/MovieDetail/MovieSide/MovieClip/MovieClip';
+import 'pages/MovieDetail/MovieSide/movieSide.scss';
 
 class MovieSide extends Component {
   constructor() {
@@ -20,16 +20,16 @@ class MovieSide extends Component {
         redirect: 'follow',
       }
     )
-      .then((response) => response.json())
-      .then((result) => this.setState({ videos: result.items }))
-      .catch((error) => console.log('error', error));
+      .then(response => response.json())
+      .then(result => this.setState({ videos: result.items }))
+      .catch(error => console.log('error', error));
   }
 
   render() {
     const { videos } = this.state;
     const { movieSideData } = this.props;
     const subImage = movieSideData.subImage;
-    
+
     return (
       <div className='MovieSide'>
         <div className='galleryWrapper'>

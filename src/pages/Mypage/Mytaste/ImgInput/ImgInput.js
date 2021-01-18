@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCog } from '@fortawesome/free-solid-svg-icons';
-import './imgInput.scss';
+import 'pages/Mypage/Mytaste/ImgInput/imgInput.scss';
 
 class ImgInput extends Component {
   constructor() {
@@ -9,7 +9,7 @@ class ImgInput extends Component {
     this.imgInput = React.createRef();
   }
 
-  onButtonClick = (event) => {
+  onButtonClick = event => {
     event.preventDefault();
     this.imgInput.current.click();
   };

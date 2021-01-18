@@ -1,4 +1,5 @@
-@import '../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .Signup {
   @include flex-center;
@@ -7,7 +8,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #00000080;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10000;
 
   .modalContainer {
@@ -46,7 +47,7 @@
       }
 
       .signupText {
-        color: black;
+        color: $black;
         font-size: 17px;
         font-weight: 900;
         margin: 24px 0;
@@ -77,14 +78,13 @@
           font-size: 16px;
           caret-color: $pink;
           border-radius: 7px;
-          
         }
         .signupBtn {
           font-size: 17px;
           font-weight: 500;
           height: 44px;
           background-color: $pink;
-          color: white;
+          color: $white;
           border-radius: 7px;
           margin-top: 30px;
         }
@@ -110,8 +110,8 @@
           display: inline-block;
           position: relative;
           padding: 0px 14px;
-          color: #bdbcbc;
-          background-color: white;
+          color: $lightgrey;
+          background-color: $white;
           vertical-align: middle;
           font-size: 14px;
           font-weight: 400;
@@ -122,7 +122,7 @@
           top: 50%;
           left: 0px;
           width: 100%;
-          border-top: 1px solid #bdbcbc;
+          border-top: 1px solid $lightgrey;
         }
       }
       .kakaoBtn {
@@ -132,7 +132,7 @@
         padding: 0;
         font-size: 16px;
         border-radius: 7px;
-        background-color: #fae100;
+        background-color: $yellow;
         cursor: pointer;
 
         .forBalanceKakao {
@@ -142,7 +142,9 @@
           .kakaoLogo {
             height: 40px;
             width: 40px;
+            margin-top: 2px;
             margin-right: 20px;
+            border-radius: 50%;
           }
 
           .kakaoText {
@@ -161,9 +163,9 @@
         padding: 0;
         font-size: 16px;
         border-radius: 7px;
-        background-color: #558af6;
+        background-color: $blue;
         border-radius: 5px;
-        border: 1px solid #cbccd0;
+        border: 1px solid $lightgrey;
         border-radius: 5px;
         cursor: pointer;
 
@@ -182,7 +184,7 @@
             position: absolute;
             font-size: 16px;
             font-weight: 700;
-            color: white;
+            color: $white;
             font-weight: 700;
           }
         }

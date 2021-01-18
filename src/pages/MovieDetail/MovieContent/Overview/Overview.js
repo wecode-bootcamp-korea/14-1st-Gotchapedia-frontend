@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import {
-  TOKEN,
-} from '../../../../config';
-import './overview.scss';
-import Nav from '../../../../components/Nav/Nav';
+import { TOKEN } from 'config';
+import 'pages/MovieDetail/MovieContent/Overview/overview.scss';
+import Nav from 'components/Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,24 +15,27 @@ class Overview extends Component {
   }
 
   componentDidMount() {
-    fetch(`${process.env.REACT_APP_SERVER}movies/${this.props.match.params.id}/detail`, {
-      method: 'GET',
-      headers: {
-        Authorization: TOKEN,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
+    fetch(
+      `${process.env.REACT_APP_SERVER}movies/${this.props.match.params.id}/detail`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: TOKEN,
+        },
+      }
+    )
+      .then(res => res.json())
+      .then(res => {
         this.setState({
           overviewData: res.data,
         });
       })
-      .catch((err) => console.log('err >>>>> ', err));
+      .catch(err => console.log('err >>>>> ', err));
   }
 
   goToMovieDetail = () => {
     this.props.history.push(`/movies/${this.props.match.params.id}`);
-  }
+  };
 
   render() {
     const { overviewData } = this.state;

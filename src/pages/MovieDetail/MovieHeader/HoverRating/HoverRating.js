@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
-import './hoverRating.scss';
-import { SERVER, TOKEN } from '../../../../config';
+import 'pages/MovieDetail/MovieHeader/HoverRating/hoverRating.scss';
+import { SERVER, TOKEN } from 'config';
 
 const labels = {
   0: '평가하기',
@@ -23,22 +23,22 @@ class HoverRating extends Component {
     super();
     this.state = {
       value: 0,
-      hover: -1
-    }
+      hover: -1,
+    };
   }
 
   sendStar = () => {
     fetch(`${SERVER}analysis/star`, {
-      method: "POST",
-      headers: {  
+      method: 'POST',
+      headers: {
         Authorization: TOKEN,
       },
       body: JSON.stringify({
         movieId: this.props.movieId,
-        starPoint: this.state.value
+        starPoint: this.state.value,
       }),
-    })
-  }
+    });
+  };
 
   render() {
     const { value, hover } = this.state;
@@ -46,22 +46,24 @@ class HoverRating extends Component {
     return (
       <div className='hoverRatingWrapper'>
         <div className='hoverRating'>
-          {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
+          {value !== null && (
+            <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
+          )}
           <Rating
-            name="hover-feedback"
+            name='hover-feedback'
             value={value}
             precision={0.5}
             onChange={(event, newValue) => {
-            this.setState({value : newValue});
+              this.setState({ value: newValue });
             }}
             onChangeActive={(event, newHover) => {
-            this.setState({hover: newHover});
+              this.setState({ hover: newHover });
             }}
             onClick={this.sendStar}
           />
         </div>
       </div>
-    )
+    );
   }
 }
 

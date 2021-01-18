@@ -1,4 +1,5 @@
-@import '../../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .CommentWrite {
   @include flex-center;
@@ -15,7 +16,7 @@
   .modalContainer {
     width: 640px;
     height: 540px;
-    background-color: #fff;
+    background-color: $white;
 
     .commentHeading {
       display: flex;
@@ -30,7 +31,7 @@
       }
 
       .headingComment {
-        color: #ddd;
+        color: $lightgrey;
         cursor: pointer;
       }
       .coloredHeadingComment {
@@ -40,7 +41,7 @@
     }
 
     .commentContent {
-      border-top: 1px solid #eee;
+      border-top: 1px solid $lightgrey;
       .writeComment {
         width: 80%;
         height: 100%;

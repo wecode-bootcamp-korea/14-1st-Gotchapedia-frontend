@@ -1,9 +1,10 @@
-@import '../../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .commentBox {
   display: block;
   height: 290px;
-  background-color: #eee;
+  background-color: $lightgrey;
   padding: 20px;
   border-radius: 5px;
 
@@ -28,7 +29,7 @@
 
     .titleRight {
       margin: 10px;
-      background-color: #fff;
+      background-color: $white;
       width: 70px;
       height: 25px;
       border-radius: 20px;
@@ -41,8 +42,8 @@
   }
 
   .commentContent {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-top: 1px solid $lightgrey;
+    border-bottom: 1px solid $lightgrey;
 
     p {
       font-size: 16px;
@@ -82,8 +83,8 @@
       @include flex-center;
       margin-left: 6px;
       color: $pink;
-      border-top: 1px solid #ddd;
-      color: #fff;
+      border-top: 1px solid $lightgrey;
+      color: $white;
       background-color: $pink;
       border-radius: 5px;
       cursor: pointer;

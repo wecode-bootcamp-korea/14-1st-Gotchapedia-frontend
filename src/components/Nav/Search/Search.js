@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { SEARCH_API } from '../../../config';
-import './search.scss';
+import { SEARCH_API } from 'config';
+import 'components/Nav/Search/search.scss';
 
 const RECENT_KEYWORDS = 'RECENT_KEYWORDS';
 let searchValueList = [];
@@ -29,7 +29,7 @@ class Search extends Component {
     window.removeEventListener('click', this.handleInputBlur);
   }
 
-  handleInputBlur = (e) => {
+  handleInputBlur = e => {
     const isExist = e.composedPath().includes(this.props.inputRef.current);
     if (!isExist) {
       this.setState({ isListActive: false });
@@ -38,12 +38,12 @@ class Search extends Component {
 
   loadSearchData = () => {
     fetch(SEARCH_API)
-      .then((res) => res.json())
-      .then((res) => this.setState({ searchData: res.data }))
-      .catch((error) => console.log('error', error));
+      .then(res => res.json())
+      .then(res => this.setState({ searchData: res.data }))
+      .catch(error => console.log('error', error));
   };
 
-  goToDetail = (e) => {
+  goToDetail = e => {
     this.state.history.push(`/movies/${this.state.searchData.movieId}`);
   };
 
@@ -60,15 +60,15 @@ class Search extends Component {
     this.setState({ RECENT_KEYWORDS });
   };
 
-  searchMovie = (event) => {
+  searchMovie = event => {
     event.preventDefault();
     const { searchValue, searchData, filteredMovie } = this.state;
     const searchKeywords = searchValue.split(' ');
     let tempFilteredMovie = [...filteredMovie];
     tempFilteredMovie =
       searchValue &&
-      [...searchData].filter((movie) => {
-        return searchKeywords.every((keyword) => movie.title.includes(keyword));
+      [...searchData].filter(movie => {
+        return searchKeywords.every(keyword => movie.title.includes(keyword));
       });
 
     if (event.key === 'Enter') {
@@ -79,7 +79,7 @@ class Search extends Component {
     this.setState({ filteredMovie: tempFilteredMovie });
   };
 
-  onSearchInputChange = (event) => {
+  onSearchInputChange = event => {
     this.setState({ searchValue: event.target.value });
   };
 
@@ -103,14 +103,15 @@ class Search extends Component {
           <div className='searchList'>
             <ul className='filteredList'>
               {filteredMovie.length > 0 &&
-                filteredMovie.map((movie) => (
+                filteredMovie.map(movie => (
                   <li
                     className='resultMovie'
                     key={movie.movieId}
                     onClick={() => {
                       this.props.history.push(`/movies/${movie.movieId}`);
                       window.location.reload();
-                    }}>
+                    }}
+                  >
                     {movie.title}
                   </li>
                 ))}
@@ -120,7 +121,8 @@ class Search extends Component {
                 loadedKeywords?.length > 0
                   ? 'searchHeaderWrapper'
                   : 'displayNone'
-              }>
+              }
+            >
               <span>최근 검색어</span>
               <div className='keywordDeleteBtn' onClick={this.deleteKeywords}>
                 모두 삭제
@@ -148,21 +150,24 @@ class Search extends Component {
                 key='23'
                 onClick={() => {
                   this.props.history.push('/movies/22');
-                }}>
+                }}
+              >
                 바닐라 스카이
               </li>
               <li
                 className='resultMovie'
                 onClick={() => {
                   this.props.history.push('/movies/6');
-                }}>
+                }}
+              >
                 테넷
               </li>
               <li
                 className='resultMovie'
                 onClick={() => {
                   this.props.history.push('/movies/4');
-                }}>
+                }}
+              >
                 버드맨
               </li>
             </ul>

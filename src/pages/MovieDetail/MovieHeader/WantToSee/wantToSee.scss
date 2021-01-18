@@ -1,4 +1,5 @@
-@import '../../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .WantToSee {
   @include flex-center;
@@ -13,14 +14,14 @@
     width: 375px;
     min-height: 371px;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: $white;
     padding: 15px;
     z-index: 10000;
 
     .seeTitle {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $lightgrey;
 
       .seeTitleImage {
         width: 46px;
@@ -45,7 +46,7 @@
     .seeChoice {
       display: flex;
       justify-content: space-around;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $lightgrey;
 
       .leftChoice {
         display: flex;
@@ -86,7 +87,7 @@
       align-items: center;
       margin: 20px 0;
       font-size: 15px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $lightgrey;
       padding-bottom: 15px;
 
       .commentIcon {
@@ -100,7 +101,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 15px;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $lightgrey;
       padding-bottom: 15px;
 
       .noInterestIcon {

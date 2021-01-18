@@ -1,4 +1,5 @@
-@import '../../../../styles/common.scss';
+@import 'styles/common.scss';
+@import 'styles/theme.scss';
 
 .GalleryBox {
   display: flex;
@@ -13,7 +14,7 @@
     .galleryPicture {
       width: 138px;
       height: 89px;
-      border: 1px solid #000000;
+      border: 1px solid $black;
     }
   }
 }
